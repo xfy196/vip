@@ -1,0 +1,312 @@
+/* 版心 */
+.layout {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+/* 头部导航 */
+header {
+  background: #f5f5f5;
+  height: 28px;
+}
+.area {
+  float: left;
+  position: relative;
+  font-size: 12px;
+  color: #333333;
+}
+.area-title {
+  padding-right: 20px;
+  line-height: 28px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.area-triangle {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  border-width: 4px;
+  border-color: #999 transparent transparent transparent;
+  border-style: solid dashed dotted dashed;
+}
+.top-nav-tool {
+  float: right;
+  .ico-dis {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    border-width: 4px;
+    border-color: #999 transparent transparent transparent;
+    border-style: solid dashed dotted dashed;
+  }
+  li {
+    &:hover {
+      .ico-dis {
+        top: 0;
+        bottom: 12px;
+        border-color: transparent transparent #f10180 transparent;
+      }
+      a {
+        color: #777777;
+        font-size: 12px;
+        &:hover {
+          color: #f10180;
+        }
+      }
+      .sign-info-box {
+        display: block;
+      }
+    }
+    float: left;
+    padding: 0 22px 0 17px;
+    margin-left: -5px;
+    line-height: 28px;
+    position: relative;
+    &::after {
+      background-image: url(https://shop.vipstatic.com/img/common/header/sprites-hash-b45bfef8.png?9e581dc2);
+      background-position: -270px -184px;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 6px;
+      right: -5px;
+      z-index: 1;
+      content: "";
+    }
+    &:last-child {
+      &::after {
+        background: none;
+      }
+    }
+  }
+  .hover-box {
+    &:hover {
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-bottom: none;
+      border-top: none;
+      padding: 0 21px 0 16px;
+
+      position: relative;
+      z-index: 200;
+    }
+    &::after {
+      background: none;
+    }
+  }
+  .sign-info-box {
+    width: 282px;
+    height: 177px;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    left: -1px;
+    padding: 20px 20px 0;
+    box-sizing: border-box;
+    color: #333333;
+    display: none;
+    .top-inf-avater {
+      background: url(https://shop.vipstatic.com/img/common/header/sprites-hash-b45bfef8.png?9e581dc2)
+        no-repeat center center;
+      background-position: -164px -142px;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      float: left;
+    }
+    .top-pic-infs {
+      font-size: 12px;
+      float: left;
+      width: 160px;
+      height: 36px;
+      border-bottom: #d6d6d6 1px dotted;
+      margin-left: 30px;
+    }
+    .top-nav-list {
+      margin-top: 15px;
+      span {
+        display: inline-block;
+        width: 100px;
+      }
+    }
+  }
+}
+
+/* 签到有礼 */
+.top-nav-tool .sign-in .gift-img {
+  display: inline-block;
+  background: url(https://shop.vipstatic.com/img/common/header_sign-hash-0459d02c.gif?dd7841df)
+    no-repeat center center;
+  width: 15px;
+  height: 18px;
+  position: relative;
+  top: 2px;
+  left: -2px;
+}
+
+.top-nav-tool .sign-in {
+  .sign-in-continue {
+    display: block;
+    float: left;
+    text-decoration: underline;
+  }
+  .sign-in-info {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 402px;
+    height: 33px;
+    background: #fff;
+    border: 1px solid #cdcdcd;
+    padding: 10px 15px;
+    display: none;
+    .sign-in-btn {
+      background: #f10180;
+      display: block;
+      float: right;
+      padding: 0 20px;
+      border-radius: 3px;
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+/* 我的特卖 */
+.top-nav-tool {
+  .my-sale {
+    .top-nav-list {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-top: none;
+      left: -1px;
+      padding: 5px 0px 10px 16px;
+      box-sizing: border-box;
+      display: none;
+      span {
+        display: inline-block;
+        width: 69px;
+      }
+    }
+  }
+}
+.top-nav-tool {
+  li {
+    &:hover {
+      .top-nav-list {
+        display: block;
+      }
+      .sign-in-info {
+        display: block;
+      }
+    }
+  }
+  /* 会员俱乐部 */
+  .vip-club {
+    .top-nav-list {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-top: none;
+      left: -1px;
+      padding: 5px 0px 10px 16px;
+      box-sizing: border-box;
+      display: none;
+      span {
+        display: inline-block;
+        width: 81px;
+      }
+    }
+  }
+  /* 客户服务 */
+  .customer-service {
+    padding-right: 32px;
+    &:hover {
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-bottom: none;
+      border-top: none;
+      padding-right: 31px;
+    }
+    .top-nav-list {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-top: none;
+      left: -1px;
+      padding: 5px 0px 10px 16px;
+      box-sizing: border-box;
+      display: none;
+      span {
+        display: inline-block;
+        width: 79px;
+      }
+    }
+  }
+}
+/* 手机版 */
+.top-nav-tool .v-tel {
+  &:hover {
+    .tel-qrcode {
+      display: block;
+    }
+  }
+  .ico-tel {
+    display: inline-block;
+    background: url(https://shop.vipstatic.com/img/common/header/sprites-hash-b45bfef8.png?9e581dc2)
+      no-repeat center center;
+    background-position: -294px -142px;
+    width: 10px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    left: -4px;
+  }
+  .tel-qrcode {
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    right: -1px;
+    text-align: center;
+    display: none;
+  }
+  img {
+    width: 161px;
+    height: 161px;
+    margin-bottom: 5px;
+  }
+}
+/* 更多 */
+.top-nav-tool .more {
+  &:hover {
+    .more-info {
+      display: block;
+    }
+  }
+  .more-info {
+    width: 302px;
+    height: 168px;
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    right: -1px;
+    text-align: left;
+    font-weight: bold;
+    display: none;
+    .top-info {
+      padding-bottom: 25px;
+      border-bottom: 1px solid #d5d5d5;
+    }
+    .bottom-info {
+      padding-top: 15px;
+    }
+  }
+}

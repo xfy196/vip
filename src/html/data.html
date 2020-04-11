@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: "https://category.vip.com/ajax/getSuggestHotKeywords.php",
+            dataType : "jsonp",
+            /* data: {
+                floorId : 2,
+                newDapLogic: 1,
+                warehouse: "VIP_SH",
+                channelId: 0,
+                sortType: 1,
+                areaCode: 103104,
+                provinceName: "安徽省",
+                cityName: "滁州市",
+                pagecode: "a",
+                "brandInfoExt[fields]": "activeIndexTips,displayEndtime,salesNo,brandImage,mobileImageOne,agio,salesName,brandStoreSn,vendorSaleMessage,isSpecialBanner,hiddenEndTime,iconInfo,link,brandType,pms_act_no,showTimeFrom",
+                " brandInfoExt[startIndex]": 0,
+                "brandInfoExt[num]": 36,
+                preview: "",
+                token: "",
+                sell_time_from: "",
+                time_from: "",
+                _: Date.now()
+            }, */
+            data : {
+                count: 10,
+                uid : "",
+                _ : Date.now()
+            },
+            jsonpCallback : "searchSuggestHotKeywords",
+            success : function(data){
+                console.log(data);
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/commons.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/icon/iconfont.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link href="https://cdn.bootcss.com/Swiper/4.5.1/css/swiper.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 右栏 -->
+    <div class="sidebar_r">
+        <div class="sidebarcom-nav">
+            <ul class="sidebarcom-oper">
+                <li class="account"><i class="iconfont icon-denglu-copy"></i><span class="account-text ">账号</span></li>
+                <li class="shopping-bag"><div><i class="iconfont icon-gouwudai"></i><span>购物袋</span><strong class="bag-number">0</strong></div></li>
+                <li class="icon-item"><i class="iconfont icon-youhuiquan"></i></li>
+                <li class="icon-item"><i class="iconfont icon-shoucang1"></i></li>
+                <li class="icon-item"><i class="iconfont icon-shoucang"></i></li>
+                <li class="icon-item"><i class="iconfont icon-wodezuji"></i></li>
+            </ul>
+            <div class="bottom-opr">
+                <div><span class="iconfont icon-bi"></span></div>
+                <div><span class="iconfont icon-fanhuidingbu-"></span></div>
+            </div>
+        </div>
+    </div>
+    <!-- 左栏 -->
+    <div class="sidebar-l">
+        <!-- 左边的梯子 -->
+        <div class="left-ladder">
+            <div class="index-wrap">
+               <a class="index-nav-floor cur" id="floor1" href="#"><span class="iconfont icon-weibiaoti2fuzhi13"></span><span class="index-txt">精选</span></a>
+               <a class="index-nav-floor" id="floor2" href="#"><span class="iconfont icon-nvzhuang"></span><span class="index-txt">女装</span></a>
+               <a class="index-nav-floor" id="floor3" href="#"><span class="iconfont icon-baolei"></span><span class="index-txt">鞋包</span></a>
+               <a class="index-nav-floor" id="floor4" href="#"><span class="iconfont icon-17"></span><span class="index-txt">男装</span></a>
+               <a class="index-nav-floor" id="floor5" href="#"><span class="iconfont icon-yundong"></span><span class="index-txt">运动</span></a>
+               <a class="index-nav-floor" id="floor6" href="#"><span class="iconfont icon-huaban"></span><span class="index-txt">饰品</span></a>
+               <a class="index-nav-floor" id="floor7" href="#"><span class="iconfont icon-meizhuang"></span><span class="index-txt">美妆</span></a>
+               <a class="index-nav-floor" id="floor8" href="#"><span class="iconfont icon-muying"></span><span class="index-txt">母婴</span></a>
+               <a class="index-nav-floor" id="floor9" href="#"><span class="iconfont icon-jujia"></span><span class="index-txt">居家</span></a>
+               <a class="index-nav-floor" id="floor10" href="#"><span class="iconfont icon-guojihua"></span><span class="index-txt">国际</span></a>
+               <a class="index-nav-floor" id="floor11" href="#"><span class="iconfont icon-13"></span><span class="index-txt">生活</span></a>
+               <a class="index-nav-floor" id="floor12" href="#"><span class="iconfont icon-bijiben"></span><span class="index-txt">预告</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航 -->
+    <header>
+        <div class="top-nav-area layout">
+            <div class="area">
+                <div class="area-title">滁州市</div>
+                <div class="area-triangle"></div>
+            </div>
+            <ul class="top-nav-tool">
+                <li class="list-item hover-box sign"><a href="#"><span>请登录</span></a>
+                    <!-- 鼠标移入出现的登录盒子 -->
+                    <div class="sign-info-box">
+                        <div class="top-nav-info clearfix">
+                            <div class="top-inf-avater"></div>
+                            <div class="top-pic-infs"><a href="#">你好！[请登录]</a></div>
+                        </div>
+                        <p class="top-nav-list">
+                            <span><a href="#">我的收藏</a></span>
+                            <span><a href="#">我的订单</a></span>
+                            <span><a href="#">零钱</a></span>
+                            <span><a href="#">我的优惠券</a></span>
+                            <span><a href="#">我的唯品币</a></span>
+                            <span><a href="#">唯品金融</a></span>
+                        </p>
+                    </div>
+                </li>
+                <li class="list-item"><a href="#"><span>注册</span></a></li>
+                <li class="list-item sign-in">
+                    <span>
+
+                        <a href="#"><i class="gift-img"></i><span>签到有礼</span></a>
+                    </span>
+                    <div class="sign-in-info">
+                        <a class="sign-in-continue" href="#">连续签到项心动好礼</a><a href="#" class="sign-in-btn">签到</a>
+                    </div>
+                </li>
+                <li class="list-item"><a href="#"><span>我的订单</span></a></li>
+                <li class="list-item hover-box my-sale">
+                    <a href="#"><span>我的特卖<i class="ico-dis"></i></span></a>
+                    <p class="top-nav-list">
+                        <span><a href="#">商品收藏</a></span>
+                        <span><a href="#">品牌收藏</a></span>
+                        <span><a href="#">我的足迹</a></span>
+                    </p>
+                </li>
+                <li class="list-item hover-box vip-club">
+                    <a href="#"><span>会员俱乐部<i class="ico-dis"></i></span></a>
+                    <p class="top-nav-list">
+                        <span><a href="#">俱乐部首页</a></span>
+                        <span><a href="#">唯品币兑换</a></span>
+                    </p>
+                </li>
+                <li class="list-item hover-box customer-service">
+                    <a href="#"><span>客户服务<i class="ico-dis"></i></span></a>
+                    <p class="top-nav-list">
+                        <span><a href="#">联系客服</a></span>
+                        <span><a href="#">帮助中心</a></span>
+                        <span><a href="#">服务中心</a></span>
+                        <span><a href="#">知识产权投诉</a></span>
+                    </p>
+                </li>
+                <li class="list-item hover-box v-tel">
+                    <a href="#"><i class="ico-tel"></i><span>手机版</span></a>
+                    <!-- 鼠标移入图片显示 -->
+                    <div class="tel-qrcode">
+
+                        <a href="#"><img src="https://b.appsimg.com/2016/06/17/863/1466134037230.jpg" alt=""></a>
+                        <h5>随时逛 随时抢</h5>
+                    </div>
+                </li>
+                <li class="list-item hover-box more">
+                    <a href="#"><span>更多<i class="ico-dis"></i></span></a>
+                    <div class="more-info">
+                        <div class="top-info">
+                            <h5>合作专区</h5>
+                            <p><a href="#">唯品卡</a></p>
+                        </div>
+                        <div class="bottom-info">
+                            <h5>关于我们</h5>
+                            <p>
+                                <a href="#">Sell on Vip</a>
+                                <a href="#">品牌招商</a>
+                                <a href="#">官方博客</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 标题搜索框 -->
+    <div class="head inner clearfix">
+        <div class="layout">
+            <div class="left-img">
+                <div class="logo">
+                    <h1><a href=""><img src="https://b.appsimg.com/upload/momin/2019/02/21/133/1550737570483.png"
+                                alt=""></a></h1>
+                </div>
+                <div class="service-options">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+            <!-- 搜索框加上购物车 -->
+            <div class="right">
+                <div class="search">
+                    <div class="search-ipt-helper">
+                        <input type="text" class="search-ipt" placeholder="护肤品">
+                        <a href="javascript:void(0)" class="search-btn">
+                            <span class="search-ico"></span>
+                        </a>
+                        <!-- 当有焦点的时候我们直接弹出一个浮层显示搜索历史和推荐商品 -->
+                        <div class="search-helper">
+                            <!-- 搜索历史 -->
+                            <div class="search-history">
+                                <div class="search-history-title">搜索历史</div>
+                                <div class="search-history-list"></div>
+                            </div>
+                            <!-- 推荐 -->
+                            <div class="search-recommend">
+                                <div class="search-recommend-title">精选推荐</div>
+                                <div class="search-recommend-list">
+                                    <ul>
+                                        <li><a href="#">护发套装</a></li>
+                                        <li><a href="#">手机</a></li>
+                                        <li><a href="#">女休闲鞋</a></li>
+                                        <li><a href="#">女式T恤</a></li>
+                                        <li><a href="#">女运动休闲鞋</a></li>
+                                        <li><a href="#">男休闲鞋</a></li>
+                                        <li><a href="#">男休闲鞋</a></li>
+                                        <li><a href="#">面膜</a></li>
+                                        <li><a href="#">男休闲鞋</a></li>
+                                        <li><a href="#">男休闲鞋</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="search-hots-pot">
+                        <ul class="hot-list">
+                            <li><a href="#">护发套装</a><span>|</span></li>
+                            <li><a href="#">手机</a><span>|</span></li>
+                            <li><a href="#">女休闲鞋</a><span>|</span></li>
+                            <li><a href="#">女式T恤</a><span>|</span></li>
+                            <li><a href="#">女运动休闲鞋</a><span>|</span></li>
+                            <li><a href="#">男休闲鞋</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="car">
+                    <a href="#">
+                        <!-- 购物的小图片 -->
+                        <span class="car-ico"></span>
+                        <p class="car-text">购物袋</p>
+                        <!-- 购物车数量统计 -->
+                        <span class="car-counts">0</span>
+                    </a>
+                    <div class="car-info">
+                        <p>好像还未登录! <a href="#" class="login-btn">马上登录</a> 查看购物袋吧</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <nav class="clearfix nav">
+        <div class="layout main">
+            <ul class="nav-list">
+                <li class="first">
+                    <a href="#"><img class="ico-p"
+                            src="http://b.appsimg.com/upload/momin/2018/09/10/150/1536548648745.png">商品分类</a>
+                    <ul class="t-w-menu">
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+                                <div class="brand-type"></div>
+                                <div class="brand-img">
+                                    <div class="brand-title">
+                                        品牌推荐
+                                    </div>
+                                    <ul class="brands">
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                        <li class="b-img"><a href="#"><img
+                                                    src="https://a.vpimg3.com/upload/brandcool/0/db12f67e61bb4ac5b9959a5c44958fee/10000957/primary.png"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                            <div class="t-w-box">
+
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list-item active"><a href="#">首页</a></li>
+                <li class="list-item"><a href="#">暖春行动</a></li>
+                <li class="list-item"><a href="#">最后疯抢</a></li>
+                <li class="list-item"><a href="#">唯品快抢</a></li>
+                <li class="list-item"><a href="#">女装</a></li>
+                <li class="list-item"><a href="#">母婴</a></li>
+                <li class="list-item"><a href="#">家电</a></li>
+                <li class="list-item"><a href="#">国际</a></li>
+                <li class="list-item"><a href="#">美妆</a></li>
+                <li class="list-item"><a href="#">鞋包</a></li>
+                <li class="list-item"><a href="#">预告</a></li>
+                <li class="list-item last more"><a href="#">更多<span class="iconfont icon-xiajiantou"></span></a>
+                    <ul class="more-list">
+                        <li class="more-item"><a href="#">男装</a></li>
+                        <li class="more-item"><a href="#">运动</a></li>
+                        <li class="more-item"><a href="#">家居</a></li>
+                        <li class="more-item"><a href="#">家居</a></li>
+                        <li class="more-item"><a href="#">家居</a></li>
+                        <li class="more-item"><a href="#">唯品·奢</a></li>
+                        <li class="more-item"><a href="#">扶贫</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Banner图部分 -->
+    <div class="banner"
+        style="background-image: url('http://a.vpimg2.com/upload/flow/2020/04/01/76/15857324937300.jpg');">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href="#"><img
+                            src="https://a.vpimg2.com/upload/flow/2020/04/03/126/15859027753152.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img
+                            src="https://a.vpimg2.com/upload/flow/2020/04/02/8/15858157797341.jpg" alt=""></a></div>
+            </div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev" style="left: -33px;"><i class="iconfont icon-zuojiantou"></i></div>
+            <div class="swiper-button-next" style="right: -33px;"><i class="iconfont icon-zuojiantou-copy"></i></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination">
+        </div>
+
+    </div>
+
+    <!-- 每日必看专区 -->
+    <div class="wrap-operate clearfix">
+        <div class="hot-sale-operation layout">
+            <div class="hot-sale title">
+                <img src="https://a.vpimg2.com/upload/flow/2018/08/17/154/15344789862278.jpg" alt="">
+            </div>
+            <!-- 上半部分 -->
+            <div class="cap-wrap-box clearfix">
+                <div class="left-cap cap-box">
+                    <img width="600" height="342"
+                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/38/mst_3cd10bf505bfcee9ef8e4aeca6e7ea67_1200x684_90.jpg"
+                        alt="">
+                    <div class="img-show">
+                        <div class="l-f-box first"><img width="172" height="217"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/01/15/84/fb366b00-2dda-43eb-9174-e7148eb64d32_420_531_340x434_90.jpg"
+                                alt="">
+                            <div class="info-box">
+                                <img width="80" height="40"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/366505fe08f6445382f933343d8632b1/10024938/black_160x80_90.png"
+                                    alt="">
+                                <p>共<span>920</span>款</p>
+                            </div>
+                            <div class="p-b-price-box">
+                                <img width="50" height="18"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/75/mst_85423f98f88fc8fbe9733561ef2dce6a_100x36_90.png"
+                                    alt="">
+                                <span class="p-b-price">￥488</span>
+                            </div>
+                        </div>
+                        <div class="l-f-box"><img width="172" height="217"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcimg/2020/03/25/120/218657631585115418343_5t_340x434_90.jpg"
+                                alt="">
+                            <div class="info-box">
+                                <img width="80" height="40"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/366505fe08f6445382f933343d8632b1/10024938/black_160x80_90.png"
+                                    alt="">
+                                <p>共<span>920</span>款</p>
+                            </div>
+                            <div class="p-b-price-box">
+                                <img width="50" height="18"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/75/mst_85423f98f88fc8fbe9733561ef2dce6a_100x36_90.png"
+                                    alt="">
+                                <span class="p-b-price">￥488</span>
+                            </div>
+                        </div>
+                        <div class="l-f-box"><img width="172" height="217"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/611088/2019/0110/169/b61af776-ff58-4132-b3d4-6bb65f05efa4_420_531_340x434_90.jpg"
+                                alt="">
+                            <div class="info-box">
+                                <img width="80" height="40"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/366505fe08f6445382f933343d8632b1/10024938/black_160x80_90.png"
+                                    alt="">
+                                <p>共<span>920</span>款</p>
+                            </div>
+                            <div class="p-b-price-box">
+                                <img width="50" height="18"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/75/mst_85423f98f88fc8fbe9733561ef2dce6a_100x36_90.png"
+                                    alt="">
+                                <span class="p-b-price">￥488</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 右边 -->
+                <div class="right-cap cap-box">
+                    <img width="570" height="342"
+                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/17/mst_985b0200a4163593fcd4647ac9d856f7_1140x684_90.jpg"
+                        alt="">
+                    <div class="img-show">
+                        <div class="l-f-box first">
+                            <div class="img-box">
+                                <img width="170" height="217"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/611579/2020/0116/95/1201e2a5-39c1-47f0-a1cd-25c012422b5d_420_531_340x434_90.jpg"
+                                    alt="">
+                                <img class="hot-top-img" width="120" height="22"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/26/71/mst_14fb7073746301630623b8533ba66a23_240x44_90.png"
+                                    alt="">
+                                <div class="p-title">
+                                    <img class="mask-top-imf" width="170" height="247"
+                                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/125/mst_2ecc61f00bd7c12708982623cc1e4827_340x494_90.jpg"
+                                        alt="">
+                                    <span class="p-txt">护肤套装</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="l-f-box">
+                            <div class="img-box">
+                                <img width="170" height="217"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/02/28/84/b9671c0a-423f-495f-b664-afedbcd6fbd9_420_531_340x434_90.jpg"
+                                    alt="">
+                                <img class="hot-top-img" width="120" height="22"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/26/71/mst_14fb7073746301630623b8533ba66a23_240x44_90.png"
+                                    alt="">
+                                <div class="p-title">
+                                    <img class="mask-top-imf" width="170" height="247"
+                                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/125/mst_2ecc61f00bd7c12708982623cc1e4827_340x494_90.jpg"
+                                        alt="">
+                                    <span class="p-txt">护肤套装</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="l-f-box">
+                            <div class="img-box">
+                                <img width="170" height="217"
+                                    src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/100455/2020/0227/69/f56b7e05-8f65-438f-ad2c-1e28fcce308e_420_531_340x434_90.jpg"
+                                    alt="">
+                                <img class="hot-top-img" width="120" height="22"
+                                    src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/26/71/mst_14fb7073746301630623b8533ba66a23_240x44_90.png"
+                                    alt="">
+                                <div class="p-title">
+                                    <img class="mask-top-imf" width="170" height="247"
+                                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/125/mst_2ecc61f00bd7c12708982623cc1e4827_340x494_90.jpg"
+                                        alt="">
+                                    <span class="p-txt">护肤套装</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 下半部分唯品快抢 -->
+            <div class="vip-rush">
+                <div class="rush-box">
+                    <img width="1170" height="357"
+                        src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2020/03/20/131/mst_059b78e080380aa579bfc02279209beb_2340x714_90.png"
+                        alt="">
+                    <div class="p-list">
+                        <div style="margin-left: 24px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/03/18/144/1767dda1-33da-4f63-9fa2-21baae15533a_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/bc4882a86231494db8f2c690173438e7/10037392/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</div>
+                        <div style="margin-left: 20px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/600025/2018/0823/63/82f90b55-d07a-478c-b5e9-8edd6085ff45_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/ae5a46fcb3d8451482a3f63b23d4b736/10000537/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</span>
+                        </div>
+                        <div style="margin-left: 20px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/03/18/144/1767dda1-33da-4f63-9fa2-21baae15533a_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/bc4882a86231494db8f2c690173438e7/10037392/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</span>
+                        </div>
+                        <div style="margin-left: 20px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/03/18/144/1767dda1-33da-4f63-9fa2-21baae15533a_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/bc4882a86231494db8f2c690173438e7/10037392/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</span>
+                        </div>
+                        <div style="margin-left: 20px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/03/18/144/1767dda1-33da-4f63-9fa2-21baae15533a_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/bc4882a86231494db8f2c690173438e7/10037392/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</span>
+                        </div>
+                        <div style="margin-left: 20px; position: relative; float: left;" class="item">
+                            <img width="170" height="170"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/2020/03/18/144/1767dda1-33da-4f63-9fa2-21baae15533a_340x340_90.jpg"
+                                alt="">
+                            <img width="100" height="60" style="position: absolute; top: 141px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/09/24/60/mst_ba99110750bad5db7c67755d35373acc_200x120_90.png"
+                                alt="">
+                            <img class="img-title" width="80" style="position: absolute; top: 151px; left: 45px"
+                                height="40"
+                                src="https://h2.appsimg.com/a.appsimg.com/upload/brandcool/0/bc4882a86231494db8f2c690173438e7/10037392/black_160x80_90.png"
+                                alt="">
+
+                            <img width="50" height="18" style="position: absolute; top: 211px; left: 35px;"
+                                src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
+                                alt="">
+                            <span
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 最下面的wrap的盒子 -->
+    <div class="wrap clearfix">
+        <div class="today-new shop-sort layout">
+            <div class="shop-title">
+                <img src="https://a.vpimg4.com/upload/dop/2019/05/23/58/today_DDp.png" alt="">
+            </div>
+            <!-- 女装 -->
+            <div class="selected-shop">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg3.com/upload/dop/2019/05/23/118/count_topfive.png" alt="">
+                        <div class="sp-time">
+                            <em class="time-H">15</em>
+                            <em class="time-M">37</em>
+                            <em class="time-S">20</em>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://c.vpimg1.com/upcb/2020/03/25/24/ias_158510184221249_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://c.vpimg1.com/upcb/2020/04/01/2/ias_158570495825307_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="women-shop">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg3.com/upload/dop/2016/03/17/121/woman_2ad.png" alt="">
+                        <div class="sp-time">
+                            <em class="time-H">15</em>
+                            <em class="time-M">37</em>
+                            <em class="time-S">20</em>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://c.vpimg1.com/upcb/2020/02/27/4/ias_f53f63fb-71c7-401d-b1bf-2e03c3f46cd5_570x273_90.jpg"
+                            alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
+                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
+                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
+                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
+                                MO&Co.edition春夏特卖专场</p>
+                            <span class="brand-discount"><strong class="salebg"
+                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.5.1/js/swiper.min.js"></script>
+    <script>
+        $(function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true,
+                },
+                loop: true, // 循环模式选项
+
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+            });
+            //鼠标滑过pagination控制swiper切换
+            for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+                mySwiper.pagination.bullets[i].onmouseover = function () {
+                    this.click();
+                };
+            }
+            mySwiper.el.onmouseover = function () {
+                mySwiper.autoplay.stop();
+                var prev_ele = mySwiper.navigation.prevEl;
+                var next_ele = mySwiper.navigation.nextEl;
+                $(prev_ele).stop(true).animate({
+                    left: 0
+                })
+                $(next_ele).stop(true).animate({
+                    right: 0
+                })
+
+            }
+            mySwiper.el.onmouseout = function () {
+                // 获取左右两边的按钮
+                var prev_ele = mySwiper.navigation.prevEl;
+                var next_ele = mySwiper.navigation.nextEl;
+                // 给两个边的那妞设置动画隐藏效果
+                $(prev_ele).stop(true).animate({
+                    left: -33
+                })
+                $(next_ele).stop(true).animate({
+                    right: -33
+                })
+                mySwiper.autoplay.start();
+
+            }
+
+            // 滚动监听
+/*             $(document).scroll(function(){
+                console.log($(document).scrollTop());
+            }) */
+        });
+    </script>
+</body>
+
+</html>
