@@ -2,11 +2,23 @@ const gulp = require("gulp")
 const connect = require("gulp-connect")
 const del = require("del")
 const sass = require("gulp-sass")
+const proxy = require("http-proxy-middleware").createProxyMiddleware
 sass.compiler = require("node-sass")
 
 const connect_options = {
     root: "./dist",
-    port: 3000
+    port: 3000,
+    middleware: () => {
+        return [
+            proxy("/floor", {
+                target: "https://www.vip.com/ajax/getBrandRank.php",
+                changeOrigin: true,
+                pathRewrite: {
+                    "/floor": ""
+                }
+            })
+        ]
+    }
 }
 gulp.task("clean", async () => {
     await del("./dist/");

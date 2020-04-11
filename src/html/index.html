@@ -19,7 +19,10 @@
         <div class="sidebarcom-nav">
             <ul class="sidebarcom-oper">
                 <li class="account"><i class="iconfont icon-denglu-copy"></i><span class="account-text ">账号</span></li>
-                <li class="shopping-bag"><div><i class="iconfont icon-gouwudai"></i><span>购物袋</span><strong class="bag-number">0</strong></div></li>
+                <li class="shopping-bag">
+                    <div><i class="iconfont icon-gouwudai"></i><span>购物袋</span><strong class="bag-number">0</strong>
+                    </div>
+                </li>
                 <li class="icon-item"><i class="iconfont icon-youhuiquan"></i></li>
                 <li class="icon-item"><i class="iconfont icon-shoucang1"></i></li>
                 <li class="icon-item"><i class="iconfont icon-shoucang"></i></li>
@@ -36,18 +39,30 @@
         <!-- 左边的梯子 -->
         <div class="left-ladder">
             <div class="index-wrap">
-               <a class="index-nav-floor cur" id="floor1" href="#"><span class="iconfont icon-weibiaoti2fuzhi13"></span><span class="index-txt">精选</span></a>
-               <a class="index-nav-floor" id="floor2" href="#"><span class="iconfont icon-nvzhuang"></span><span class="index-txt">女装</span></a>
-               <a class="index-nav-floor" id="floor3" href="#"><span class="iconfont icon-baolei"></span><span class="index-txt">鞋包</span></a>
-               <a class="index-nav-floor" id="floor4" href="#"><span class="iconfont icon-17"></span><span class="index-txt">男装</span></a>
-               <a class="index-nav-floor" id="floor5" href="#"><span class="iconfont icon-yundong"></span><span class="index-txt">运动</span></a>
-               <a class="index-nav-floor" id="floor6" href="#"><span class="iconfont icon-huaban"></span><span class="index-txt">饰品</span></a>
-               <a class="index-nav-floor" id="floor7" href="#"><span class="iconfont icon-meizhuang"></span><span class="index-txt">美妆</span></a>
-               <a class="index-nav-floor" id="floor8" href="#"><span class="iconfont icon-muying"></span><span class="index-txt">母婴</span></a>
-               <a class="index-nav-floor" id="floor9" href="#"><span class="iconfont icon-jujia"></span><span class="index-txt">居家</span></a>
-               <a class="index-nav-floor" id="floor10" href="#"><span class="iconfont icon-guojihua"></span><span class="index-txt">国际</span></a>
-               <a class="index-nav-floor" id="floor11" href="#"><span class="iconfont icon-13"></span><span class="index-txt">生活</span></a>
-               <a class="index-nav-floor" id="floor12" href="#"><span class="iconfont icon-bijiben"></span><span class="index-txt">预告</span></a>
+                <a class="index-nav-floor" id="floor1" href="javascript:void(0)"><span
+                        class="iconfont icon-weibiaoti2fuzhi13"></span><span class="index-txt">精选</span></a>
+                <a class="index-nav-floor" id="floor2" href="javascript:void(0)"><span
+                        class="iconfont icon-nvzhuang"></span><span class="index-txt">女装</span></a>
+                <a class="index-nav-floor" id="floor3" href="javascript:void(0)"><span
+                        class="iconfont icon-baolei"></span><span class="index-txt">鞋包</span></a>
+                <a class="index-nav-floor" id="floor4" href="javascript:void(0)"><span
+                        class="iconfont icon-17"></span><span class="index-txt">男装</span></a>
+                <a class="index-nav-floor" id="floor5" href="javascript:void(0)"><span
+                        class="iconfont icon-yundong"></span><span class="index-txt">运动</span></a>
+                <a class="index-nav-floor" id="floor6" href="javascript:void(0)"><span
+                        class="iconfont icon-huaban"></span><span class="index-txt">饰品</span></a>
+                <a class="index-nav-floor" id="floor7" href="javascript:void(0)"><span
+                        class="iconfont icon-meizhuang"></span><span class="index-txt">美妆</span></a>
+                <a class="index-nav-floor" id="floor8" href="javascript:void(0)"><span
+                        class="iconfont icon-muying"></span><span class="index-txt">母婴</span></a>
+                <a class="index-nav-floor" id="floor9" href="javascript:void(0)"><span
+                        class="iconfont icon-jujia"></span><span class="index-txt">居家</span></a>
+                <a class="index-nav-floor" id="floor10" href="javascript:void(0)"><span
+                        class="iconfont icon-guojihua"></span><span class="index-txt">国际</span></a>
+                <a class="index-nav-floor" id="floor11" href="javascript:void(0)"><span
+                        class="iconfont icon-13"></span><span class="index-txt">生活</span></a>
+                <a class="index-nav-floor" id="floor12" href="javascript:void(0)"><span
+                        class="iconfont icon-bijiben"></span><span class="index-txt">预告</span></a>
             </div>
         </div>
     </div>
@@ -159,7 +174,7 @@
             <div class="right">
                 <div class="search">
                     <div class="search-ipt-helper">
-                        <input type="text" class="search-ipt" placeholder="护肤品">
+                        <input type="text" class="search-ipt" placeholder="">
                         <a href="javascript:void(0)" class="search-btn">
                             <span class="search-ico"></span>
                         </a>
@@ -223,12 +238,27 @@
         <div class="layout main">
             <ul class="nav-list">
                 <li class="first">
-                    <a href="#"><img class="ico-p"
+                    <a class="top_nav" href="#"><img class="ico-p"
                             src="http://b.appsimg.com/upload/momin/2018/09/10/150/1536548648745.png">商品分类</a>
                     <ul class="t-w-menu">
-                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                        <!--              <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
                             <div class="t-w-box">
-                                <div class="brand-type"></div>
+                                <div class="brand-type clearfix">
+                                    <div class="sub clearfix">
+                                        <strong>冬季热卖</strong>
+                                        <i class="iconfont icon-zuojiantou-copy"></i>
+                                        <ul class="category_list">
+                                            <li class="category_item"><a href="#">大衣</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="sub clearfix">
+                                        <strong>冬季热卖</strong>
+                                        <i class="iconfont icon-zuojiantou-copy"></i>
+                                        <ul class="category_list">
+                                            <li class="category_item"><a href="#">大衣</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div class="brand-img">
                                     <div class="brand-title">
                                         品牌推荐
@@ -264,8 +294,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
+                        </li> -->
+                        <!--   <li class="t-w-m-item"><span>女装/男鞋/内衣</span>
                             <div class="t-w-box">
 
                             </div>
@@ -314,7 +344,7 @@
                             <div class="t-w-box">
 
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="list-item active"><a href="#">首页</a></li>
@@ -512,7 +542,8 @@
                                 src="https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/148/mst_a6d967b477ab749178909e31ab420fda_100x36_90.png"
                                 alt="">
                             <span
-                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59</div>
+                                style="position:absolute; top: 211px; left: 90px; font-size: 16px; background: rgb(255,255,255);color: #000000;">￥59
+                        </div>
                         <div style="margin-left: 20px; position: relative; float: left;" class="item">
                             <img width="170" height="170"
                                 src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/600025/2018/0823/63/82f90b55-d07a-478c-b5e9-8edd6085ff45_340x340_90.jpg"
@@ -611,12 +642,12 @@
 
     <!-- 最下面的wrap的盒子 -->
     <div class="wrap clearfix">
-        <div class="today-new shop-sort layout">
+        <div class="today-new shop-sort layout clearfix">
             <div class="shop-title">
                 <img src="https://a.vpimg4.com/upload/dop/2019/05/23/58/today_DDp.png" alt="">
             </div>
-            <!-- 女装 -->
-            <div class="selected-shop">
+            <!-- 精选品牌 -->
+            <div class="selected-shop shop-top-banner clearfix">
                 <div class="shop-sort">
                     <div class="shop-sort-title">
                         <img src="https://a.vpimg3.com/upload/dop/2019/05/23/118/count_topfive.png" alt="">
@@ -629,15 +660,18 @@
                 </div>
                 <!-- 商品展示的盒子 -->
                 <div class="shop-show-box clearfix">
-                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
+                    <!--                     <a href="#">
+                        <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
                             src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
                         <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
                             <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
                                 MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
+                            <span class="brand-discount"><strong class="salebg2"
                                     style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
                         </div>
                     </div>
+                    </a>
+
                     <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
                             src="https://c.vpimg1.com/upcb/2020/03/25/24/ias_158510184221249_570x273_90.jpg" alt="">
                         <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
@@ -682,149 +716,135 @@
                             <span class="brand-discount"><strong class="salebg"
                                     style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <div class="women-shop">
+            <div class="women-shop shop-top-banner clearfix">
                 <div class="shop-sort">
                     <div class="shop-sort-title">
                         <img src="https://a.vpimg3.com/upload/dop/2016/03/17/121/woman_2ad.png" alt="">
-                        <div class="sp-time">
-                            <em class="time-H">15</em>
-                            <em class="time-M">37</em>
-                            <em class="time-S">20</em>
-                        </div>
                     </div>
                 </div>
                 <!-- 商品展示的盒子 -->
                 <div class="shop-show-box clearfix">
-                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
-                            src="https://c.vpimg1.com/upcb/2020/02/27/4/ias_f53f63fb-71c7-401d-b1bf-2e03c3f46cd5_570x273_90.jpg"
-                            alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+
+                </div>
+            </div>
+            <!-- 鞋包 -->
+            <div class="shoe-bag-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg3.com/upload/dop/2016/03/17/121/woman_2ad.png" alt="">
                     </div>
-                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
-                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 男装 -->
+            <div class="man-wear-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg3.com/upload/dop/2018/02/01/196/men_hhqx.png" alt="">
                     </div>
-                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
-                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 运动 -->
+            <div class="sport-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg3.com/upload/dop/2016/03/17/183/sport.png" alt="">
                     </div>
-                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
-                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 饰品 -->
+            <div class="decorate-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg2.com/upload/dop/2016/03/17/77/watch.png" alt="">
                     </div>
-                    <div class="shop-item left" style="float: left; margin-bottom: 20px;"><img
-                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 美妆 -->
+            <div class="b-makeup-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg2.com/upload/dop/2016/03/17/116/beauty_wrf.png" alt="">
                     </div>
-                    <div class="shop-item right" style="float: right; margin-bottom: 20px;"><img
-                            src="https://d.vpimg1.com/upcb/2020/03/10/30/ias_158383728838464_570x273_90.jpg" alt="">
-                        <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
-                            <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">
-                                MO&Co.edition春夏特卖专场</p>
-                            <span class="brand-discount"><strong class="salebg"
-                                    style="color: #f10582; margin-right: 3px;">1.5</strong>折起</span>
-                        </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 母婴产品 -->
+            <div class="m-i-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg4.com/upload/dop/2016/03/17/156/kid_zZb.png" alt="">
                     </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 居家 -->
+            <div class="home-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg2.com/upload/dop/2016/03/17/144/home_zhs.png" alt="">
+                    </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 国际 -->
+            <div class="int-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg4.com/upload/dop/2016/04/12/157/vipglobal_hbS_odfu.png" alt="">
+                    </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
+                </div>
+            </div>
+            <!-- 生活 -->
+            <div class="life-shop shop-top-banner clearfix">
+                <div class="shop-sort">
+                    <div class="shop-sort-title">
+                        <img src="https://a.vpimg2.com/upload/dop/2016/06/02/199/life-titel.png" alt="">
+                    </div>
+                </div>
+                <!-- 商品展示的盒子 -->
+                <div class="shop-show-box clearfix">
+
                 </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/Swiper/4.5.1/js/swiper.min.js"></script>
-    <script>
-        $(function () {
-            var mySwiper = new Swiper('.swiper-container', {
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true,
-                },
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: true,
-                },
-                loop: true, // 循环模式选项
-
-                // 如果需要分页器
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-
-                // 如果需要前进后退按钮
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-
-            });
-            //鼠标滑过pagination控制swiper切换
-            for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
-                mySwiper.pagination.bullets[i].onmouseover = function () {
-                    this.click();
-                };
-            }
-            mySwiper.el.onmouseover = function () {
-                mySwiper.autoplay.stop();
-                var prev_ele = mySwiper.navigation.prevEl;
-                var next_ele = mySwiper.navigation.nextEl;
-                $(prev_ele).stop(true).animate({
-                    left: 0
-                })
-                $(next_ele).stop(true).animate({
-                    right: 0
-                })
-
-            }
-            mySwiper.el.onmouseout = function () {
-                // 获取左右两边的按钮
-                var prev_ele = mySwiper.navigation.prevEl;
-                var next_ele = mySwiper.navigation.nextEl;
-                // 给两个边的那妞设置动画隐藏效果
-                $(prev_ele).stop(true).animate({
-                    left: -33
-                })
-                $(next_ele).stop(true).animate({
-                    right: -33
-                })
-                mySwiper.autoplay.start();
-
-            }
-
-            // 滚动监听
-/*             $(document).scroll(function(){
-                console.log($(document).scrollTop());
-            }) */
-        });
-    </script>
+    <script src="../js/libs/lazyload/jquery.lazyload.min.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

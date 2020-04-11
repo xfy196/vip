@@ -264,10 +264,14 @@
     font-size: 12px;
   }
 }
-.head .search-hots-pot li {
-  float: left;
-  color: #999999;
-  line-height: 24px;
+.head .search-hots-pot {
+  margin-left: -11px;
+  li {
+    float: left;
+    color: #999999;
+    line-height: 24px;
+  }
+
   a {
     display: inline-block;
     color: #999999;
@@ -350,7 +354,7 @@ nav .first {
       display: block;
     }
   }
-  a {
+  .top_nav {
     display: block;
     width: 156px;
     height: 35px;
@@ -393,8 +397,43 @@ nav .t-w-menu {
     top: 0;
     z-index: 10;
     display: none;
+    overflow-y: scroll;
     .brand-type {
+      width: 660px;
+      padding: 16px 40px 16px 40px;
+      border-top: 1px solid #eee;
       float: left;
+      .sub {
+        margin-bottom: 24px;
+        line-height: 24px;
+        strong {
+          display: block;
+          width: 50px;
+          float: left;
+          color: #222222;
+        }
+        i {
+          float: left;
+          color: #666666;
+          margin-left: 20px;
+          margin-right: 10px;
+        }
+        ul {
+          width: 550px;
+          float: left;
+          overflow: hidden;
+          li {
+            a {
+              color: #666666;
+              font-size: 12px;
+              &:hover {
+                color: #f10180;
+              }
+            }
+            margin-right: 10px;
+          }
+        }
+      }
     }
     .brand-img {
       float: right;
@@ -647,6 +686,14 @@ nav .more {
     font-style: normal;
   }
 }
-.shop-item:hover {
-  opacity: 0.9;
+.shop-item{
+  &:hover {
+    opacity: 0.9;
+  }
+  .salebg2 {
+    color: #f10582;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 3px;
+  }
 }
