@@ -307,7 +307,11 @@
                                 content_selector: ".shop-top-banner",
                                 stairs_selector: ".left-ladder a"
                             });
-                            $(".shop-top-banner img").lazyload({ effect: "fadeIn" });
+                            $(".shop-top-banner img").lazyload({ 
+                                // f覆盖lazyload自带的背景图片
+                                effect: "fadeIn",
+                                threshold : 400
+                            });
                         }, 300);
 
                     });
@@ -400,7 +404,8 @@
                 } else {
                     $(".left-ladder").css({
                         position: "absolute",
-                        top: 1610
+                        // 需要减去nav的高度应为nav菜单栏是固定定位了
+                        top: 1565
                     })
                 }
             }, 100);

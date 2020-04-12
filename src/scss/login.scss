@@ -59,6 +59,9 @@
       font-size: 18px;
       line-height: 50px;
       font-weight: 700;
+      &:hover {
+        color: #f10180;
+      }
     }
     .tab-nav-item-qr {
       position: relative;
@@ -229,7 +232,7 @@
       position: relative;
       input {
         border: 1px solid #b2b2b2;
-        color: #cccccc;
+        color: #000000;
         background-color: #ffffff;
         border-radius: 5px;
         width: 248px;
@@ -252,9 +255,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    &.hide{
       display: none;
-    }
   }
 }
 
@@ -288,9 +289,7 @@
     padding-left: 5px;
     padding-right: 10px;
     line-height: 44px;
-    &.hide {
       display: none;
-    }
   }
 }
 .c-form-item {
@@ -332,4 +331,8 @@ footer .copyright {
   margin: 0 auto;
   line-height: 78px;
   text-align: center;
+}
+
+.l-hide {
+  display: none;
 }
