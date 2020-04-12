@@ -1,9 +1,43 @@
 ;; (function () {
     $(function () {
-        swiperOpr();
-        getSearchKeywords();
-        getSearchKeyHotKeywords();
+        init();
+    });
 
+    /**
+     * 页面初始化的函数
+     */
+    function init() {
+        // 轮播图的函数
+        swiperOpr();
+        // 获取搜索关键字的函数
+        getSearchKeywords();
+        // 获取搜索热词的函数
+        getSearchKeyHotKeywords();
+        // 二级菜单鼠标划入发送的ajax的函数
+        navHoverAjax();
+        // 梯子改变的事件
+        floorChangeEvent();
+        // 左边梯子随着滚轮滚动跟随的函数
+        leftBarFollow();
+        // 吸顶函数
+        suctionTop();
+        // 点击top回到页面最顶端的函数
+        locationTop();
+        clickSearch();
+    }
+
+    function clickSearch(){
+        $(".search-ipt").click(function(){
+            $(".search-helper").show();
+        });
+        $(".search-ipt").blur(function(){
+            $(".search-helper").hide();
+        });
+    }
+    /**
+     * nav二级菜单hover发送ajax的函数
+     */
+    function navHoverAjax() {
         let hover_two_get_staring = false;
         // 鼠标hover上去的时候采取发送请求
         $(".nav-list").mouseover(function () {
@@ -31,12 +65,8 @@
                 }, 100)
 
             }
-
         });
-        floorChangeEvent();
-        leftBarFollow();
-        suctionTop()
-    });
+    }
 
     // swiper的轮播图的函数
     function swiperOpr() {
@@ -307,10 +337,10 @@
                                 content_selector: ".shop-top-banner",
                                 stairs_selector: ".left-ladder a"
                             });
-                            $(".shop-top-banner img").lazyload({ 
+                            $(".shop-top-banner img").lazyload({
                                 // f覆盖lazyload自带的背景图片
                                 effect: "fadeIn",
-                                threshold : 400
+                                threshold: 400
                             });
                         }, 300);
 
@@ -438,7 +468,7 @@
                     top: 0,
                     left: 0,
                     background: "#ffffff",
-                    boxShadow : "0 1px 3px 0 #a7a7a7",
+                    boxShadow: "0 1px 3px 0 #a7a7a7",
                     "z-index": 100
                 });
             } else {
@@ -447,6 +477,12 @@
         });
     }
 
+    // 点击top直接返回页面最上面
+    function locationTop() {
+        $(".location-top").click(function () {
+            $(window).scrollTop(0);
+        })
+    }
     // 梯子对象
     function Stairs(options) {
 
