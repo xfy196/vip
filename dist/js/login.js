@@ -8,7 +8,7 @@
     /**
      * 初始化的函数
      */
-    function init(){
+    function init() {
         qr_account_hover_switch();
         customValidate();
         validate();
@@ -51,25 +51,26 @@
                 }
             },
             errorPlacement: function (error, element) {
-                console.log(error);
                 let errorText = error[0].innerHTML;
+                element.css({
+                    borderColor : "#f64a4a"
+                })
                 element.siblings(".icon-error").show();
                 element.parent().siblings(".error_msg").show().children("span").html(errorText);
             },
             unhighlight: function (element, errorClass, validClass) {
+                $(element).css({
+                    borderColor : "#666"
+                })
                 $(element).siblings(".icon-error").hide();
                 $(element).parent().siblings(".error_msg").hide()
             }
         });
-        // 失焦状态也需要验证一次
-        $("form").on("blur", "input", function () {
-            $("#form").valid();
-        });
 
         // 表单提交的时候也需要验证一次
-        $("#submit-btn").click(function(){
+        $("#submit-btn").click(function () {
             let isChecked = $("#form").valid();;
-            if(!isChecked){
+            if (!isChecked) {
                 return false;
             }
             // 如果验证成功我们就发送ajax请求

@@ -1,0 +1,234 @@
+.layout {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 100px;
+  .logo {
+    width: 15px;
+    height: 100px;
+    float: left;
+    a {
+      display: block;
+      width: 125px;
+      height: 100px;
+      background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+        no-repeat;
+      background-position: -308px -57px;
+    }
+  }
+  .service {
+    width: 304px;
+    height: 100px;
+    float: right;
+    background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+      no-repeat;
+    background-position: 0 0;
+  }
+}
+
+/* 中间的背景图 */
+.c-body {
+  width: 100%;
+  background: url(https://a.vpimg2.com/upload/flow/2019/01/29/88/15487540172274.jpg)
+    no-repeat top center;
+  height: 650px;
+}
+// 中间内容板块
+.content {
+  padding: 50px 20px;
+  // 注册的盒子
+  .register_box {
+    width: 360px;
+    border-radius: 2px;
+    background-color: #fff;
+    .register_head {
+      padding-right: 30px;
+      padding-left: 30px;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 1px solid #e0e0e0;
+      overflow: hidden;
+      .register_title {
+        float: left;
+        font-size: 18px;
+        color: #333333;
+      }
+      .register_switch {
+        float: right;
+        font-size: 14px;
+        color: #333333;
+        .toLogin {
+          color: #f10180;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .f-float {
+    float: right;
+  }
+  @at-root .register_body {
+    padding: 30px;
+    @at-root .reg-form-wrapper {
+      text-align: center;
+      .ui-input {
+        padding-left: 40px;
+        width: 250px;
+        height: 32px;
+        line-height: 32px;
+        border: 1px solid #666666;
+      }
+      form {
+        .register-btn {
+          margin-bottom: 30px;
+          .form-submit {
+            display: block;
+            font-size: 16px;
+            width: 298px;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 4px;
+          }
+          .ui-btn {
+            background-color: #f10180;
+            border: 1px solid #f10180;
+            color: #fff;
+          }
+        }
+        @at-root .has-form-item-icon {
+          .u-input-tip {
+            text-align: left;
+            font-size: 12px;
+            color: #ec5042;
+            position: relative;
+            min-height: 19px;
+            max-height: 36px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 2px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            clear: both;
+            .txt {
+              display: none;
+            }
+          }
+
+          .ui-form-item-group {
+            position: relative;
+            @at-root .ui-input {
+              font-size: 14px;
+              border-radius: 3px;
+              padding: 6px 10px;
+              color: #333333;
+            }
+            .ipt-verify-code {
+              width: 106px;
+              float: left;
+            }
+            .ui-checkbox-normal {
+              display: none;
+            }
+            .ui-checkbox-simulation {
+              float: left;
+              display: block;
+              user-select: none;
+              background-image: url(//bootstrap.vipstatic.com/img/ui/sprite.png?d9eadd17);
+              background-position: -48px 0;
+              width: 19px;
+              height: 16px;
+              &:hover {
+                background-position: -24px -21px;
+              }
+            }
+            .provision-txt {
+              text-align: left;
+              vertical-align: middle;
+              font-size: 12px;
+              display: inline-block;
+              width: 276px;
+              line-height: 1.5;
+              .u-link {
+                color: #1d94d1;
+              }
+            }
+
+            .icon-mobile {
+              background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+                no-repeat;
+              background-position: -456px -221px;
+            }
+            .icon-mobile-code {
+              background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+                no-repeat;
+              background-position: -480px -221px;
+            }
+            .icon-password {
+              background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+                no-repeat;
+              background-position: -528px -221px;
+            }
+            .icon-r-password {
+              background: url(https://member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192)
+                no-repeat;
+              background-position: -528px -221px;
+            }
+            .icon-form {
+              position: absolute;
+              top: 13px;
+              left: 11px;
+              z-index: 1;
+              width: 20px;
+              height: 20px;
+              display: block;
+            }
+            .icon-error {
+              color: #f64a4a;
+              position: absolute;
+              right: 1px;
+              top: 1px;
+              *top: 2px;
+              z-index: 11;
+              padding-right: 10px;
+              padding-left: 5px;
+              line-height: 44px;
+              font-size: 17px;
+              font-weight: bold;
+              display: none;
+            }
+            .icon-error.icon-error-code {
+              right: 143px;
+            }
+            .btn-verify-code {
+              border: 1px solid #d0d0d0;
+              color: #999;
+              background: #d0d0d0;
+              cursor: not-allowed;
+              float: right;
+              display: inline-block;
+              padding: 0 12px;
+              width: 106px;
+              font-size: 14px;
+              height: 44px;
+              line-height: 44px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+footer .copyright {
+  width: 1000px;
+  height: 78px;
+  margin: 0 auto;
+  line-height: 78px;
+  text-align: center;
+}
+
+.l-hide {
+  display: none;
+}
