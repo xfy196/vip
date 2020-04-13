@@ -1,4 +1,4 @@
-(function () {
+;;(function () {
 
     $(function () {
 
@@ -10,7 +10,6 @@
      */
     function init() {
         qr_account_hover_switch();
-        customValidate();
         validate();
     }
     /**
@@ -31,7 +30,7 @@
      * 表单验证
      */
     function validate() {
-
+        customValidate();
         $("#form").validate({
             rules: {
                 username: {

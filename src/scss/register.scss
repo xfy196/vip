@@ -78,7 +78,7 @@
         width: 250px;
         height: 32px;
         line-height: 32px;
-        border: 1px solid #666666;
+        border: 1px solid #d2c2d2;
       }
       form {
         .register-btn {
@@ -131,7 +131,10 @@
             .ui-checkbox-normal {
               display: none;
             }
-            .ui-checkbox-simulation {
+            .check-agree {
+              background-position: -24px 0;
+            }
+            @at-root .ui-checkbox-simulation {
               float: left;
               display: block;
               user-select: none;
@@ -184,7 +187,7 @@
               height: 20px;
               display: block;
             }
-            .icon-error {
+            .icon-error, .icon-success {
               color: #f64a4a;
               position: absolute;
               right: 1px;
@@ -198,10 +201,13 @@
               font-weight: bold;
               display: none;
             }
-            .icon-error.icon-error-code {
+            .icon-error.icon-error-code, .icon-success.icon-success-code {
               right: 143px;
             }
-            .btn-verify-code {
+            .icon-success {
+              color: #47bb5c;
+            }
+            @at-root .btn-verify-code {
               border: 1px solid #d0d0d0;
               color: #999;
               background: #d0d0d0;
@@ -214,6 +220,12 @@
               height: 44px;
               line-height: 44px;
               border-radius: 4px;
+            }
+            @at-root .btn-verify-code.mobile-success{
+              color: #e00078;
+              background-color: #fcedf2;
+              border: 1px solid #ffbee0;
+              cursor: pointer;
             }
           }
         }

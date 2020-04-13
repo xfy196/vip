@@ -63,7 +63,7 @@
         width: 250px;
         height: 32px;
         line-height: 32px;
-        border: 1px solid #666666; }
+        border: 1px solid #d2c2d2; }
       .reg-form-wrapper form .register-btn {
         margin-bottom: 30px; }
         .reg-form-wrapper form .register-btn .form-submit {
@@ -104,7 +104,9 @@
           float: left; }
         .has-form-item-icon .ui-form-item-group .ui-checkbox-normal {
           display: none; }
-        .has-form-item-icon .ui-form-item-group .ui-checkbox-simulation {
+        .has-form-item-icon .ui-form-item-group .check-agree {
+          background-position: -24px 0; }
+        .ui-checkbox-simulation {
           float: left;
           display: block;
           user-select: none;
@@ -112,7 +114,7 @@
           background-position: -48px 0;
           width: 19px;
           height: 16px; }
-          .has-form-item-icon .ui-form-item-group .ui-checkbox-simulation:hover {
+          .ui-checkbox-simulation:hover {
             background-position: -24px -21px; }
         .has-form-item-icon .ui-form-item-group .provision-txt {
           text-align: left;
@@ -143,7 +145,7 @@
           width: 20px;
           height: 20px;
           display: block; }
-        .has-form-item-icon .ui-form-item-group .icon-error {
+        .has-form-item-icon .ui-form-item-group .icon-error, .has-form-item-icon .ui-form-item-group .icon-success {
           color: #f64a4a;
           position: absolute;
           right: 1px;
@@ -156,9 +158,11 @@
           font-size: 17px;
           font-weight: bold;
           display: none; }
-        .has-form-item-icon .ui-form-item-group .icon-error.icon-error-code {
+        .has-form-item-icon .ui-form-item-group .icon-error.icon-error-code, .has-form-item-icon .ui-form-item-group .icon-success.icon-success-code {
           right: 143px; }
-        .has-form-item-icon .ui-form-item-group .btn-verify-code {
+        .has-form-item-icon .ui-form-item-group .icon-success {
+          color: #47bb5c; }
+        .btn-verify-code {
           border: 1px solid #d0d0d0;
           color: #999;
           background: #d0d0d0;
@@ -171,6 +175,11 @@
           height: 44px;
           line-height: 44px;
           border-radius: 4px; }
+        .btn-verify-code.mobile-success {
+          color: #e00078;
+          background-color: #fcedf2;
+          border: 1px solid #ffbee0;
+          cursor: pointer; }
 
 footer .copyright {
   width: 1000px;
