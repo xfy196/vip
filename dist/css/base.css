@@ -1,0 +1,43 @@
+@charset "UTF-8";
+li {
+  list-style: none; }
+
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-size: 12px;
+  color: #333333;
+  font-family: "微软雅黑"; }
+
+input,
+button {
+  border: 0;
+  outline: none; }
+
+/* 万能清除法 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.clearfix {
+  zoom: 1; }
+
+a {
+  text-decoration: none; }
+
+img {
+  vertical-align: top; }
