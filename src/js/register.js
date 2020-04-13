@@ -32,10 +32,10 @@
         $(".ui-form-item-group").one("focus", "input", function(){
             let ipts = $(".ui-form-item-group input");
             let index = ipts.index($(this));
-            let ele = $(ipts.get(index)).parent().siblings().find(".txt");
+            let ele = $(ipts.get(index)).parent().siblings().find(".txt").show();
             switch(index){
                 case 0 : 
-                    ele.html("请输入您的11位手机号码").show();
+                    ele.html("请输入您的11位手机号码");
                     break;
             }
         });

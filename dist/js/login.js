@@ -26,10 +26,40 @@
         })
     }
 
+    function bindEventValidate(){
+        // 表单提交的时候也需要验证一次
+        $("#submit-btn").click(function () {
+            let isChecked = $("#form").valid();;
+            if (!isChecked) {
+                return false;
+            }
+            // 如果验证成功我们就发送ajax请求
+            $.ajax({
+            })
+        });
+
+        $(".form-item").one("blur", "input", function(){
+            let ipts = $(".ui-form-item-group input");
+            let index = ipts.index($(this));
+            let ele = $(ipts.get(index)).parent().siblings().show().find(".txt");
+            if($(this).val().trim() !== ""){
+                return false;
+            }
+            switch(index){
+                case 0 : 
+                    ele.html("请输入登录名");
+                    break;
+                case 1 : 
+                    ele.html("请输入密码").show();
+            }
+        });
+
+    }
     /**
      * 表单验证
      */
     function validate() {
+        bindEventValidate();
         customValidate();
         $("#form").validate({
             rules: {
@@ -66,16 +96,7 @@
             }
         });
 
-        // 表单提交的时候也需要验证一次
-        $("#submit-btn").click(function () {
-            let isChecked = $("#form").valid();;
-            if (!isChecked) {
-                return false;
-            }
-            // 如果验证成功我们就发送ajax请求
-            $.ajax({
-            })
-        })
+
     }
 
     /**
