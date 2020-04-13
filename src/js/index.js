@@ -26,11 +26,11 @@
         clickSearch();
     }
 
-    function clickSearch(){
-        $(".search-ipt").click(function(){
+    function clickSearch() {
+        $(".search-ipt").click(function () {
             $(".search-helper").show();
         });
-        $(".search-ipt").blur(function(){
+        $(".search-ipt").blur(function () {
             $(".search-helper").hide();
         });
     }
@@ -95,7 +95,7 @@
 
         });
         //鼠标滑过pagination控制swiper切换
-        for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+        for (let i = 0; i < mySwiper.pagination.bullets.length; i++) {
             mySwiper.pagination.bullets[i].onmouseover = function () {
                 this.click();
             };
@@ -328,24 +328,23 @@
 
         let shop_top_banners = $(".shop-top-banner");
         for (let i = 0; i < shop_top_banners.length; i++) {
-            if (i === shop_top_banners.length - 2) {
-                floorShopAjax(i + 1).then((data) => {
-                    renderFloorData(data, shop_top_banners[i], () => {
+            if (i === shop_top_banners.length - 1) {
+                // 最后一个梯子是预告的请求
+                noticeRankAjax().then(function (data) {
+                    noticeRankRenderData(data.data.brandInfo, function () {
                         setTimeout(() => {
                             new Stairs({
                                 content_selector: ".shop-top-banner",
                                 stairs_selector: ".left-ladder a"
                             });
-                            $(".shop-top-banner img").lazyload({
-                                // f覆盖lazyload自带的背景图片
+                            $(".wrap img").lazyload({
+                                // 覆盖lazyload自带的背景图片
                                 effect: "fadeIn",
                                 threshold: 400
                             });
                         }, 300);
-
                     });
-
-                });
+                })
             }
             floorShopAjax(i + 1).then((data) => {
                 renderFloorData(data, shop_top_banners[i]);
@@ -481,6 +480,66 @@
         $(".location-top").click(function () {
             $(window).scrollTop(0);
         })
+    }
+
+    /**
+     * 最后预告板块的数据请求渲染
+     */
+    function noticeRankAjax() {
+        // 发送ajax的请求
+        return $.ajax({
+            type: "get",
+            url: "http://xfy196.qicp.vip/notice",
+            data: {
+                mode: "home",
+                warehouse: "VIP_SH",
+                areaCode: "103104",
+                pagecode: "a",
+                provinceName: "安徽省",
+                cityName: "滁州市",
+                "brandInfoExt[fields]": "activeIndexTips,salesNo,brandImage,mobileImageOne,salesName,brandStoreSn,vendorSaleMessage,warmMode,agio,storyLogo,link,brandType,pms_act_no,showTimeFrom",
+                "brandInfoExt[startIndex]": 0,
+                "brandInfoExt[num]": "72",
+                preview: "",
+                token: "",
+                _: Date.now()
+            },
+            dataType: "json",
+        });
+    }
+
+    function noticeRankRenderData(data, callback) {
+        let html = ``;
+        let i = 0;
+        for (let attr in data) {
+            let marginStr = "margin:0 30px 20px 0"
+            // 每一行的最后一位我们需要将margin设置为0
+            if ((i + 1) % 4 === 0) {
+                marginStr = "margin : 0";
+            }
+            html += `<div style="${marginStr}" class="brand-item">
+            <a href="javascript:void(0)"><img class="brand-img" data-original="${data[attr].brandImage.size2}"></a>
+            <div class="brand-info">
+                <a class="brand-name" href="javascript:void(0)">${data[attr].salesName}</a>
+                <div class="pms-info" title="${data[attr].activeIndexTips}">
+                    ${data[attr].activeIndexTips}
+                </div>
+                <span class="brand-discount">${data[attr].agio}
+            </div>
+            <form action="#" class="book_form">
+                <div class="book-notice-warp">
+                    <input type="hidden" value="${data[attr].salesNo}" name="brandId">
+                    <input type="text" placeholder="请输入手机号码" name="email-phone" class="subscribe-phone">
+                    <button type="submit" class="book-notice-btn book-sub">开售提示</button>
+                </div>
+            </form>
+        </div>`;
+            i++;
+        }
+        $(".last-show").html(html);
+        if (typeof callback === "function") {
+            callback();
+        }
     }
     // 梯子对象
     function Stairs(options) {

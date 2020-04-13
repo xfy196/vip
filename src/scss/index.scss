@@ -388,7 +388,7 @@ nav .t-w-menu {
   .t-w-box {
     width: 1014px;
     height: 485px;
-    background: #fff;
+    background-color: #f5f5f5;
     position: absolute;
     left: 156px;
     top: 0;
@@ -396,6 +396,7 @@ nav .t-w-menu {
     display: none;
     overflow-y: scroll;
     .brand-type {
+      background: #fff;
       width: 660px;
       padding: 16px 40px 16px 40px;
       border-top: 1px solid #eee;
@@ -436,7 +437,6 @@ nav .t-w-menu {
       float: right;
       width: 222px;
       height: 100%;
-      background-color: #f5f5f5;
       padding: 16px;
     }
     .brand-title {
@@ -508,7 +508,7 @@ nav .more {
     background: #fff;
     display: none;
   }
-  .more-item{
+  .more-item {
     &:hover {
       a {
         color: #f10180;
@@ -629,7 +629,7 @@ nav .more {
   .l-f-box.first {
     margin-left: 18px;
   }
-  .l-f-box{
+  .l-f-box {
     .img-box {
       position: relative;
       z-index: 1;
@@ -683,7 +683,7 @@ nav .more {
     font-style: normal;
   }
 }
-.shop-item{
+.shop-item {
   &:hover {
     opacity: 0.9;
   }
@@ -696,7 +696,7 @@ nav .more {
 }
 .shop-sort-ft {
   border-top: 1px solid #e8e8e8;
-  a{
+  a {
     width: 324px;
     display: block;
     color: #fff;
@@ -708,5 +708,124 @@ nav .more {
     text-align: center;
     line-height: 44px;
     margin: -1px auto 20px;
+  }
+}
+.shop-show-box {
+  // 最后一个预告的样式
+  .brand-item {
+    &:hover {
+      .book_form {
+        display: block;
+      }
+      .brand-info {
+        display: none;
+      }
+    }
+    position: relative;
+    width: 270px;
+    height: 179px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    float: left;
+    .brand-img {
+      width: 270px;
+      height: 129px;
+    }
+    .book_form {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: none;
+      input {
+        width: 161px;
+        color: #666;
+        border: 0;
+        background: #fff;
+        float: left;
+        padding: 3px 10px;
+        height: 22px;
+        line-height: 22px;
+        border-radius: 2px;
+        font-size: 14px;
+        border: 1px solid #cccccc;
+      }
+      button {
+        float: left;
+        width: 85px;
+        height: 30px;
+        line-height: 30px;
+        color: #42a7db;
+        background: 0 0;
+        border: 0 none;
+        font-size: 14px;
+        border: 1px solid #cccccc;
+        border-left: 1px solid #e7e7e7;
+      }
+    }
+    .brand-info {
+      position: relative;
+      width: 270px;
+      height: 52px;
+      .brand-name {
+        width: 180px;
+        color: #4d4d4d;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .brand-discount {
+        position: absolute;
+        right: 0;
+        font-size: 16px;
+        color: #333333;
+        line-height: 1.2;
+        top: 0;
+        .salebg2 {
+          font-size: 20px;
+          margin-right: 5px;
+          font-weight: 400;
+          color: #f10180;
+        }
+      }
+      .pms-info {
+        width: 192px;
+        color: #999;
+        position: relative;
+        top: 0;
+        left: 0;
+        background: 0 0;
+        padding: 0;
+        line-height: 1.5;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+.index-bg-bttom {
+  text-align: center;
+  padding-bottom: 70px;
+  .more-brand-btn {
+    display: block;
+    width: 270px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+
+  }
+  .ui-btn-primary{
+    color: #fff;
+    font-size: 18px;
+    background-color: #f10180;
+    border: 1px solid #f10180;
+  }
+  .ui-btn-large {
+    padding: 0 35px;
   }
 }

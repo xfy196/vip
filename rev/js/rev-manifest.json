@@ -1,0 +1,8 @@
+{
+  "index.js": "index-b27c507e7c.js",
+  "libs/lazyload/jquery.lazyload.min.js": "libs/lazyload/jquery-0bc08f2078.lazyload.min.js",
+  "libs/validate/additional-methods.js": "libs/validate/additional-methods-ae7f5683fa.js",
+  "libs/validate/jquery.validate.min.js": "libs/validate/jquery-4dc3634847.validate.min.js",
+  "libs/validate/messages_zh.js": "libs/validate/messages_zh-e879186344.js",
+  "login.js": "login-e3222742f6.js"
+}

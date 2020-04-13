@@ -16,6 +16,13 @@ const connect_options = {
                 pathRewrite: {
                     "/floor": ""
                 }
+            }),
+            proxy("/notice", {
+                target : "https://www.vip.com/ajax/getReadyBrandRank.php",
+                changeOrigin : true,
+                pathRewrite : {
+                    "/notice" : ""
+                }
             })
         ]
     }
