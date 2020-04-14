@@ -1,1 +1,141 @@
-<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>唯品会-注册</title><link href=https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css rel=stylesheet><link rel="shortcut icon" href="https://api.byi.pw/favicon/?url=https://www.vip.com/" type=image/x-icon><link rel=stylesheet href=./css/base-9ed158df9d.css><link rel=stylesheet href=./css/register-638a55b1c8.css><link rel=stylesheet href=./css/icon/iconfont-af7661b0eb.css></head><body><div class=container><div class=header><div class="header-inner layout"><h1 class=logo><a href=./index.html></a></h1><div class=service></div></div></div><div class=c-body><div class="content layout"><div class="register_box f-float"><div class=register_head><h3 class=register_title>会员注册</h3><div class=register_switch>已注册可<a class=toLogin href=./login.html>直接登录</a></div></div><div class=register_body><input type=hidden name=vipc><div class=reg-form-wrapper><form id=reg_form method=POST autocomplete=off class=register_form><div class=has-form-item-icon><div class=ui-form-item-group><input type=text name=loginName placeholder=请输入手机号码 id=mobile_name class="ui-input ipt-phone" data-value=手机号码><span class="icon-mobile icon-form"></span> <span class="icon-error iconfont icon-cuowu-"></span> <span class="icon-success iconfont icon-chenggong"></span></div><div class=u-input-tip><span class=txt>手机号码不能为空</span></div></div><div class=has-form-item-icon><div class=ui-form-item-group><input type=text name=pvcode placeholder=请输入验证码 id=mobile_code class="ui-input ipt-verify-code"> <a id=mobile_verifycode_btn class="ui-btn-medium btn-verify-code ui-btn-disable" href=javascript:void(0)>获取验证码</a><span class="icon-mobile-code icon-form"></span> <span class="icon-error icon-error-code iconfont icon-cuowu-"></span> <span class="icon-success icon-success-code iconfont icon-chenggong"></span></div><div class=u-input-tip><span class=txt>请输入6位数字手机验证码</span></div></div><div class=has-form-item-icon><div class=ui-form-item-group><input type=text name=password placeholder=密码由6-20位字母，数字和符号组合 id=password class="ui-input ipt-password"><span class="icon-password icon-form"></span> <span class="icon-error iconfont icon-cuowu-"></span> <span class="icon-success iconfont icon-chenggong"></span></div><div class=u-input-tip><span class=txt>密码不能为空</span></div></div><div class=has-form-item-icon><div class=ui-form-item-group><input type=text name=repeatPassword placeholder=请再次输入上面的密码 id=repeatPassword class="ui-input ipt-repeat-password"><span class="icon-r-password icon-form"></span> <span class="icon-error iconfont icon-cuowu-"></span> <span class="icon-success iconfont icon-chenggong"></span></div><div class=u-input-tip><span class=txt>请输入确认密码</span></div></div><div class=has-form-item-icon><div class=ui-form-item-group><span><input type=checkbox id=mobile_agree name=agree class=ui-checkbox-normal value=0> <label for=mobile_agree class=ui-checkbox-simulation></label></span> <label for=mobile_agree class=provision-txt>我已阅读并接受以下条款：<a href=javascript:voif(0) class=u-link target=_blank id=mobile_provision>《唯品会服务条款》</a><a href=javascript:voif(0) class=u-link target=_blank>《隐私条款》</a><a href=javascript:voif(0) class=u-link target=_blank>《唯品支付用户服务协议》</a></label></div><div class=u-input-tip><span class=txt>接受服务条款才能注册</span></div></div><div class=register-btn><a href=javascript:void(0) id=mobile-reg-btn class="form-submit ui-btn ui-btn-large"><span>立即注册</span></a></div></form></div></div></div></div></div></div><footer><p class=copyright>Copyright 2008-2020 vip.com，All Rights Reserved ICP证：粤 B2-20080329</p></footer><script src=https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js></script><script src=./js/libs/validate/jquery-4dc3634847.validate.min.js></script><script src=./js/libs/validate/additional-methods-ae7f5683fa.js></script><script src=./js/libs/validate/messages_zh-e879186344.js></script><script src=./js/register-5cc2702dc5.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>唯品会-注册</title>
+  <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="https://api.byi.pw/favicon/?url=https://www.vip.com/" type="image/x-icon">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/register.css">
+  <link rel="stylesheet" href="./css/icon/iconfont.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-inner layout">
+        <!-- 左边的网站logo -->
+        <h1 class="logo"><a href="./index.html"></a></h1>
+        <!-- 右边的服务图片 -->
+        <div class="service"></div>
+      </div>
+    </div>
+
+    <!-- 中间body的背景图片 -->
+    <div class="c-body">
+      <div class="content layout">
+        <div class="register_box f-float">
+          <div class="register_head">
+            <h3 class="register_title">会员注册</h3>
+            <div class="register_switch">已注册可<a class="toLogin" href="./login.html">直接登录</a></div>
+          </div>
+          <div class="register_body">
+            <input type="hidden" name="vipc" value="">
+            <div class="reg-form-wrapper">
+              <form action="" id="reg_form" method="POST" autocomplete="off" class="register_form">
+                <div class="has-form-item-icon">
+                  <!-- 手机号 -->
+                  <div class="ui-form-item-group">
+                    <input type="text" name="loginName" placeholder="请输入手机号码" id="mobile_name"
+                      class="ui-input ipt-phone" data-value="手机号码">
+                    <!-- 不同状态显示的图标 -->
+                    <span class="icon-mobile icon-form"></span>
+                    <span class="icon-error iconfont icon-cuowu-"></span>
+                    <span class="icon-success iconfont icon-chenggong"></span>
+                  </div>
+                  <div class="u-input-tip">
+                    <span class="txt">手机号码不能为空</span>
+                  </div>
+                </div>
+                <!-- 验证码 -->
+                <div class="has-form-item-icon">
+                  <div class="ui-form-item-group">
+                    <input type="text" name="pvcode" placeholder="请输入验证码" id="mobile_code"
+                      class="ui-input ipt-verify-code">
+                    <a id="mobile_verifycode_btn" class="ui-btn-medium btn-verify-code ui-btn-disable"
+                      href="javascript:void(0)">获取验证码</a>
+                    <!-- 不同状态显示的图标 -->
+                    <span class="icon-mobile-code icon-form"></span>
+                    <span class="icon-error icon-error-code iconfont icon-cuowu-"></span>
+                    <span class="icon-success icon-success-code iconfont icon-chenggong"></span>
+                    
+                  </div>
+                  <div class="u-input-tip">
+                    <span class="txt">请输入6位数字手机验证码</span>
+                  </div>
+                </div>
+                <!-- 密码 -->
+                <div class="has-form-item-icon">
+                  <div class="ui-form-item-group">
+                    <input type="text" name="password" placeholder="密码由6-20位字母，数字和符号组合" id="password"
+                      class="ui-input ipt-password">
+                    <!-- 不同状态显示的图标 -->
+                    <span class="icon-password icon-form"></span>
+                    <span class="icon-error iconfont icon-cuowu-"></span>
+                    <span class="icon-success iconfont icon-chenggong"></span>
+
+                  </div>
+                  <div class="u-input-tip">
+                    <span class="txt">密码不能为空</span>
+                  </div>
+                </div>
+                <!-- 重复密码 -->
+                <div class="has-form-item-icon">
+                  <div class="ui-form-item-group">
+                    <input type="text" name="repeatPassword" placeholder="请再次输入上面的密码" id="repeatPassword"
+                      class="ui-input ipt-repeat-password">
+                    <!-- 不同状态显示的图标 -->
+                    <span class="icon-r-password icon-form"></span>
+                    <span class="icon-error iconfont icon-cuowu-"></span>
+                    <span class="icon-success iconfont icon-chenggong"></span>
+
+                  </div>
+                  <div class="u-input-tip">
+                    <span class="txt">请输入确认密码</span>
+                  </div>
+                </div>
+                <!-- 我已阅读 -->
+                <div class="has-form-item-icon">
+                  <div class="ui-form-item-group">
+                    <span>
+                      <input type="checkbox" id="mobile_agree" name="agree" class="ui-checkbox-normal" value="0">
+                      <label for="mobile_agree" class="ui-checkbox-simulation"></label>
+                    </span>
+                    <label for="mobile_agree" class="provision-txt">我已阅读并接受以下条款：<a href="javascript:voif(0)"
+                        class="u-link" target="_blank" id="mobile_provision">《唯品会服务条款》</a><a href="javascript:voif(0)"
+                        class="u-link" target="_blank">《隐私条款》</a><a href="javascript:voif(0)" class="u-link"
+                        target="_blank">《唯品支付用户服务协议》</a></label>
+                  </div>
+                  <div class="u-input-tip">
+                    <span class="txt">接受服务条款才能注册</span>
+                  </div>
+                </div>
+
+                <!-- 注册按钮 -->
+                <div class="register-btn">
+                  <a href="javascript:void(0)" id="mobile-reg-btn" class="form-submit ui-btn ui-btn-large">
+                    <span>立即注册</span>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p class="copyright">Copyright 2008-2020 vip.com，All Rights Reserved ICP证：粤 B2-20080329</p>
+  </footer>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/libs/validate/jquery.validate.min.js"></script>
+  <script src="./js/libs/validate/additional-methods.js"></script>
+  <script src="./js/libs/validate/messages_zh.js"></script>
+  <script src="./js/register.js"></script>
+</body>
+
+</html>
