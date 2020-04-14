@@ -1,4 +1,77 @@
 // banner图
 .banner {
-    height: auto;
+  margin-top: -1px;
+  height: 360px;
+}
+
+.container {
+  // 商品展示区
+  .plugin-pingou-wrap {
+    height: 707px;
+    .pingdup-img {
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .brand-container {
+    max-width: 1020px;
+    margin: 0 auto;
+    .brand-inner-box {
+      position: relative;
+      display: inline-block;
+      margin: 13px 10px;
+      width: 490px;
+      height: 301px;
+      box-sizing: border-box;
+      vertical-align: bottom;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      float: left;
+      .brand-inner-item {
+        width: 100%;
+        height: 100%;
+        .brand-img-box {
+          width: 100%;
+          height: 235px;
+          &:hover {
+              opacity: 0.9;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .brand-info-box {
+          height: 66px;
+          .brand-name {
+            margin: 15px 0 0 14px;
+            height: 18px;
+            font-size: 18px;
+            color: #222;
+            line-height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .benefit-info {
+            margin: 5px 0 5px 14px;
+            height: 18px;
+            font-family: PingFangSC-Regular;
+            font-size: 16px;
+            color: #666;
+            line-height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            .salebg2 {
+              font-size: 18px;
+              color: #f10380;
+            }
+          }
+        }
+      }
+    }
+  }
 }
