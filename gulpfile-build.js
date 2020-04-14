@@ -1,21 +1,21 @@
 
-let gulp = require("gulp");
+const gulp = require("gulp");
 // 转换为ES5的代码
-let babel = require('gulp-babel');
+const babel = require('gulp-babel');
 // 删除文件和文件夹
-let del = require("del");
-let uglify = require("gulp-uglify");
+const del = require("del");
+const uglify = require("gulp-uglify");
 // css 压缩
-let cssnano = require("gulp-cssnano");
+const cssnano = require("gulp-cssnano");
 // 代码调试的工具可以让压缩过的代码在监理所以可以已原始的状态显示
-let sourcemaps = require('gulp-sourcemaps');
+const sourcemaps = require('gulp-sourcemaps');
 // 创建版本号
-let rev = require("gulp-rev");
+const rev = require("gulp-rev");
 // 解决打包的html的文件中引用资源的问题
-let revCollector = require('gulp-rev-collector');
+const revCollector = require('gulp-rev-collector');
 // html的压缩工具
-let minifyHtml = require('gulp-minify-html');
-
+const minifyHtml = require('gulp-minify-html');
+const fileInclude = require("gulp-file-include");
 // 图片压缩
 const imagemin = require("gulp-imagemin");
 const sass = require("gulp-sass")
@@ -29,6 +29,10 @@ gulp.task("clean", async () => {
 
 gulp.task("html", async () => {
   gulp.src(["./rev/**/*.json", "./src/html/**/*.html"])
+    .pipe(fileInclude({
+      prefix: "@@",
+      basepath: "@file"
+    }))
     .pipe(revCollector({
       replaceReved: true
     }))

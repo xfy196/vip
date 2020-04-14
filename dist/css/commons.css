@@ -4,6 +4,81 @@
   width: 1170px;
   margin: 0 auto; }
 
+/* 右栏 */
+.sidebar_r {
+  height: 100%;
+  width: 36px;
+  position: fixed;
+  right: 0;
+  background: #262626;
+  z-index: 666; }
+  .sidebar_r .sidebarcom-nav {
+    height: 100%;
+    position: relative; }
+
+.sidebarcom-oper {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -250px; }
+  .sidebarcom-oper span {
+    color: #fff;
+    display: block; }
+  .sidebarcom-oper li {
+    height: 36px;
+    line-height: 36px; }
+    .sidebarcom-oper li:hover {
+      background: #df147f; }
+  .sidebarcom-oper .account {
+    padding: 8px 0 6px;
+    line-height: 1;
+    margin-bottom: 8px; }
+  .sidebarcom-oper .bag-number {
+    color: #fff;
+    display: block; }
+  .sidebarcom-oper i {
+    font-size: 24px;
+    color: #fff; }
+  .sidebarcom-oper .shopping-bag {
+    background: #df147f;
+    height: 150px;
+    line-height: 1;
+    margin-bottom: 5px; }
+    .sidebarcom-oper .shopping-bag i {
+      display: block;
+      padding: 15px 0 10px; }
+    .sidebarcom-oper .shopping-bag span {
+      display: block;
+      margin: 0 auto;
+      font-size: 14px;
+      width: 14px;
+      line-height: 18px; }
+    .sidebarcom-oper .shopping-bag strong {
+      font-weight: normal;
+      color: #df147f;
+      display: block;
+      line-height: 20px;
+      margin: 5px auto;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%; }
+
+.sidebarcom-nav .bottom-opr {
+  width: 100%;
+  font-size: 24px;
+  color: #cccccc;
+  text-align: center;
+  position: absolute;
+  bottom: 1%; }
+  .sidebarcom-nav .bottom-opr div {
+    width: 36px;
+    height: 36px; }
+    .sidebarcom-nav .bottom-opr div:hover {
+      background: #df147f;
+      color: #fff; }
+
 /* 头部导航 */
 header {
   background: #f5f5f5;
@@ -251,6 +326,325 @@ header {
     border-bottom: 1px solid #d5d5d5; }
   .top-nav-tool .more .more-info .bottom-info {
     padding-top: 15px; }
+
+/* logo 加搜索框 */
+.logo {
+  width: 160px;
+  height: 100px;
+  float: left; }
+  .logo h1 {
+    margin-left: -20px; }
+    .logo h1 img {
+      width: 160px;
+      height: 100px; }
+
+.service-options {
+  float: left; }
+  .service-options a {
+    width: 101px;
+    height: 100px;
+    display: block;
+    float: left; }
+    .service-options a:first-child {
+      background: url(../img/services-option1.jpg) no-repeat center center; }
+    .service-options a:nth-child(2) {
+      background: url(../img/services-option2.jpg) no-repeat center center; }
+    .service-options a:last-child {
+      background: url(../img/services-option3.jpg) no-repeat center center; }
+
+/* 搜索框 加购物车 */
+.head .search {
+  float: left;
+  margin-right: 36px; }
+  .head .search input {
+    width: 397px;
+    height: 32px;
+    border: 2px solid #fa2a83;
+    text-indent: 10px; }
+  .head .search .search-btn {
+    width: 53px;
+    height: 38px;
+    background: #fa2a83;
+    float: right;
+    text-align: center; }
+  .head .search .search-ico {
+    display: inline-block;
+    background: url(https://shop.vipstatic.com/img/common/header/sprites-hash-b45bfef8.png?9e581dc2) no-repeat;
+    background-position: -72px -208px;
+    width: 19px;
+    height: 22px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.head .right {
+  float: right;
+  font-size: 12px;
+  margin-top: 33px; }
+  .head .right .car {
+    float: right;
+    width: 94px;
+    height: 32px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    padding-top: 10px;
+    line-height: 1;
+    box-sizing: border-box;
+    background-color: #f6f7f9;
+    position: relative;
+    border-radius: 2px; }
+    .head .right .car:hover {
+      background: #fff;
+      border-bottom: none;
+      height: 56px; }
+      .head .right .car:hover .car-info {
+        display: block; }
+    .head .right .car .car-ico {
+      background: url(https://shop.vipstatic.com/img/common/header/sprites-hash-b45bfef8.png?9e581dc2) no-repeat;
+      background-position: -114px -208px;
+      width: 12px;
+      height: 17px;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1; }
+    .head .right .car .car-text {
+      margin-left: -5px; }
+    .head .right .car .car-info {
+      width: 320px;
+      position: absolute;
+      right: -1px;
+      background: #fff;
+      border: 1px solid #cdcdcd;
+      border-top: none;
+      top: 50px;
+      padding: 30px 14px 30px 13px;
+      display: none;
+      z-index: 13; }
+      .head .right .car .car-info .hr {
+        position: relative;
+        width: 255px;
+        top: -30px;
+        left: -13px;
+        border-top: 1px solid #cccccc; }
+      .head .right .car .car-info .login-btn {
+        color: #f10180; }
+    .head .right .car .car-counts {
+      display: inline-block;
+      width: 24px;
+      height: 16px;
+      border-radius: 10px;
+      background-color: #fa2a83;
+      color: #fff;
+      line-height: 16px;
+      position: absolute;
+      right: 3px;
+      top: 8px; }
+  .head .right a {
+    color: #333333;
+    font-size: 12px; }
+
+.head .search-hots-pot {
+  margin-left: -11px; }
+  .head .search-hots-pot li {
+    float: left;
+    color: #999999;
+    line-height: 24px; }
+  .head .search-hots-pot a {
+    display: inline-block;
+    color: #999999;
+    margin: 0 11px; }
+
+/* 搜索框帮助部分 */
+.head .search-helper {
+  position: absolute;
+  width: 442px;
+  height: 231px;
+  color: #999999;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  border-top: none;
+  padding: 20px 0 0 10px;
+  /* box-sizing: border-box; */
+  z-index: 16;
+  display: none; }
+  .head .search-helper .search-history {
+    float: left;
+    width: 150px;
+    height: 231px;
+    border-right: 1px solid #e0e0e0; }
+  .head .search-helper .search-recommend {
+    width: 148px;
+    height: 216px;
+    padding: 0 5px 0 15px;
+    float: left; }
+    .head .search-helper .search-recommend li {
+      line-height: 20px;
+      margin: 0 5px 10px 0;
+      border: 1px solid #cdcdcd;
+      padding: 0 5px;
+      float: left; }
+      .head .search-helper .search-recommend li:hover {
+        border-color: #fa2a83; }
+        .head .search-helper .search-recommend li:hover a {
+          color: #fa2a83; }
+    .head .search-helper .search-recommend .search-recommend-title {
+      margin-bottom: 20px; }
+
+/* nav导航栏部分 */
+nav .main ul li {
+  float: left; }
+
+nav .main a {
+  font-size: 16px;
+  color: #333333; }
+
+nav .first {
+  background: #f10180;
+  text-align: center;
+  padding-top: 8px;
+  line-height: 1;
+  position: relative;
+  margin-right: 25px; }
+  nav .first:hover .t-w-menu {
+    display: block; }
+  nav .first .top_nav {
+    display: block;
+    width: 156px;
+    height: 35px;
+    color: #fff;
+    border-top: 1px solid transparent; }
+    nav .first .top_nav .ico-p {
+      vertical-align: middle;
+      margin: -3px 6px 0 0; }
+
+nav .t-w-menu {
+  position: absolute;
+  z-index: 12;
+  width: 156px;
+  background: #f10180;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  border-bottom: 1px solid #f10180;
+  display: none; }
+  nav .t-w-menu .t-w-m-item {
+    width: 100%;
+    text-align: center;
+    padding: 16px 0; }
+    nav .t-w-menu .t-w-m-item:hover {
+      background: #fff;
+      color: #f10180; }
+      nav .t-w-menu .t-w-m-item:hover .t-w-box {
+        display: block; }
+  nav .t-w-menu .t-w-box {
+    width: 1014px;
+    height: 485px;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 156px;
+    top: 0;
+    z-index: 10;
+    display: none; }
+    nav .t-w-menu .t-w-box .brand-type {
+      background: #fff;
+      width: 660px;
+      height: 453px;
+      overflow-y: scroll;
+      padding: 16px 40px 16px 40px;
+      border-top: 1px solid #eee;
+      float: left; }
+      nav .t-w-menu .t-w-box .brand-type .sub {
+        margin-bottom: 24px;
+        line-height: 24px; }
+        nav .t-w-menu .t-w-box .brand-type .sub strong {
+          display: block;
+          width: 50px;
+          float: left;
+          color: #222222; }
+        nav .t-w-menu .t-w-box .brand-type .sub i {
+          float: left;
+          color: #666666;
+          margin-left: 20px;
+          margin-right: 10px; }
+        nav .t-w-menu .t-w-box .brand-type .sub ul {
+          width: 550px;
+          float: left;
+          overflow: hidden; }
+          nav .t-w-menu .t-w-box .brand-type .sub ul li {
+            margin-right: 10px; }
+            nav .t-w-menu .t-w-box .brand-type .sub ul li a {
+              color: #666666;
+              font-size: 12px; }
+              nav .t-w-menu .t-w-box .brand-type .sub ul li a:hover {
+                color: #f10180; }
+    nav .t-w-menu .t-w-box .brand-img {
+      float: right;
+      width: 222px;
+      height: 100%;
+      padding: 16px; }
+    nav .t-w-menu .t-w-box .brand-title {
+      color: #222;
+      text-align: left;
+      margin-bottom: 15px; }
+    nav .t-w-menu .t-w-box .brands li {
+      display: inline-block;
+      background: #fff;
+      width: 68px;
+      height: 68px;
+      margin-left: 5px;
+      margin-top: 12px; }
+      nav .t-w-menu .t-w-box .brands li:hover {
+        border: 1px solid #fa2a83;
+        width: 66px;
+        height: 66px; }
+        nav .t-w-menu .t-w-box .brands li:hover img {
+          top: 14px;
+          left: 9px; }
+      nav .t-w-menu .t-w-box .brands li a {
+        display: block;
+        width: 68px;
+        height: 68px;
+        position: relative; }
+      nav .t-w-menu .t-w-box .brands li img {
+        width: 48px;
+        height: 24px;
+        position: absolute;
+        top: 15px;
+        left: 10px; }
+
+/* 导航文字部分 */
+.nav .list-item.active a {
+  color: #f10180;
+  font-weight: bold; }
+
+nav .list-item {
+  line-height: 43px;
+  padding: 0 15px; }
+  nav .list-item:hover > a {
+    color: #f10180; }
+
+/* 末尾的更多 */
+nav .more {
+  position: relative;
+  padding: 0 20px; }
+  nav .more .more-list {
+    overflow: hidden;
+    line-height: 36px;
+    position: absolute;
+    left: 0;
+    top: 44px;
+    z-index: 10;
+    padding: 0 15px 0 20px;
+    background: #fff;
+    display: none; }
+  nav .more .more-item:hover a {
+    color: #f10180; }
+  nav .more:hover {
+    box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1); }
+    nav .more:hover .more-list {
+      display: block; }
 
 .footer {
   height: 496px;

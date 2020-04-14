@@ -3,6 +3,7 @@ const connect = require("gulp-connect")
 const del = require("del")
 const sass = require("gulp-sass")
 const proxy = require("http-proxy-middleware").createProxyMiddleware
+const fileInclude = require("gulp-file-include");
 sass.compiler = require("node-sass")
 
 const connect_options = {
@@ -18,10 +19,10 @@ const connect_options = {
                 }
             }),
             proxy("/notice", {
-                target : "https://www.vip.com/ajax/getReadyBrandRank.php",
-                changeOrigin : true,
-                pathRewrite : {
-                    "/notice" : ""
+                target: "https://www.vip.com/ajax/getReadyBrandRank.php",
+                changeOrigin: true,
+                pathRewrite: {
+                    "/notice": ""
                 }
             })
         ]
@@ -36,7 +37,13 @@ gulp.task("connect", async () => {
 gulp.task("html", async () => {
 
     gulp.src(["./src/html/**/*.html"])
-        .pipe(gulp.dest("./dist/")).pipe(connect.reload());
+        .pipe(fileInclude({
+            prefix: "@@",
+            basepath: "@file"
+        }))
+        .pipe(gulp.dest("./dist/"))
+
+        .pipe(connect.reload());
 });
 gulp.task("css", async () => {
 
