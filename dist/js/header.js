@@ -50,7 +50,7 @@
     }
     // 点击top直接返回页面最上面
     function locationTop() {
-        $(".location-top").click(function () {
+        $(".location-top,.top_txt").click(function () {
             $(window).scrollTop(0);
         })
     }

@@ -3,17 +3,24 @@
   width: 1170px;
   margin: 0 auto;
 }
+.hidden {
+  display: none;
+}
 /* 右栏 */
-.sidebar_r {
-  height: 100%;
+.sidebar-pos {
   width: 36px;
+  height: 100%;
   position: fixed;
   right: 0;
-  background: #262626;
-  z-index: 666;
-  .sidebarcom-nav {
+  z-index: 1;
+  .sidebar_r {
+    width: 100%;
     height: 100%;
-    position: relative;
+    background: #262626;
+    .sidebarcom-nav {
+      height: 100%;
+      position: relative;
+    }
   }
 }
 .sidebarcom-oper {
@@ -29,14 +36,146 @@
   li {
     height: 36px;
     line-height: 36px;
+    cursor: pointer;
+    position: relative;
     &:hover {
       background: #df147f;
+      .sidebar-hover {
+        right: 36px;
+      }
     }
   }
   .account {
     padding: 8px 0 6px;
     line-height: 1;
     margin-bottom: 8px;
+    &:hover {
+      .login_wrap {
+        right: 36px;
+      }
+    }
+    @at-root .login_wrap {
+      position: absolute;
+      right: -300px;
+      top: 0;
+      overflow: hidden;
+      width: 246px;
+      z-index: -1;
+      padding: 0 14px;
+      background-color: #fff;
+      border: 1px solid #cecece;
+      border-right: none;
+      -webkit-transition: right 0.2s linear;
+      transition: right 0.2s linear;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      .sidebar_close {
+        float: right;
+        margin-top: 15px;
+        width: 18px;
+        height: 14px;
+        background-position: -139px -173px;
+        cursor: pointer;
+        background-image: url(//shop.vipstatic.com/img/common/sidebar/sprite-hash-c9455e5d.png?229b6dc3);
+        background-repeat: no-repeat;
+      }
+      .my_pic {
+        display: block;
+        margin: 30px auto 20px;
+        width: 66px;
+        height: 66px;
+        padding: 4px;
+        border-radius: 100%;
+        background-color: #fff;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.11);
+      }
+      .sidebar-my-inf {
+        padding-bottom: 20px;
+        text-align: center;
+        a {
+          margin: 0 3px;
+          color: #f10180;
+        }
+      }
+      @at-root .sidebar-my-oper {
+        clear: both;
+        overflow: hidden;
+        margin: 0 -14px;
+        width: 274px;
+        padding: 14px 0;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #f8f8f8;
+        @at-root .sidebar-my-order {
+          width: 136px;
+          border-right: 1px solid #e5e5e5;
+          @at-root .i-sidebar-mynub {
+            display: none;
+            width: 20px;
+            height: 20px;
+            line-height: 19px;
+            position: absolute;
+            right: 8px;
+            top: -5px;
+            background: #df147f;
+            color: #fff;
+            font-size: 10px;
+            border-radius: 50%;
+          }
+          a {
+            .i-sidebar-order {
+              background-position: -200px -120px;
+            }
+            &:hover {
+              i {
+                background-position: -200px -30px;
+              }
+            }
+          }
+        }
+        @at-root .sidebar-my-order,
+          .sidebar-my-vipcoin {
+          float: left;
+          position: relative;
+          width: 135px;
+          height: 66px;
+          padding-top: 10px;
+          text-align: center;
+          font-size: 9px;
+          @at-root a {
+            font-size: 12px;
+            color: #333333;
+            .i-sidebar-vipcoin {
+              background-position: -200px -60px;
+            }
+            &:hover {
+              color: #f10180;
+              i {
+                background-position: 0 -173px;
+              }
+            }
+          }
+        }
+        @at-root .i-sidebar-order,
+          .i-sidebar-vipcoin {
+          width: 26px;
+          height: 26px;
+          margin-bottom: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          background: url("https://shop.vipstatic.com/img/common/sidebar/sprite-hash-c9455e5d.png?229b6dc3")
+            no-repeat;
+        }
+        @at-root .sidebar-my-ft {
+          padding: 12px;
+          text-align: right;
+          a {
+            color: #20a0cd;
+          }
+        }
+      }
+    }
   }
   .bag-number {
     color: #fff;
@@ -75,6 +214,25 @@
     }
   }
 }
+
+// 鼠标放入出现的动画文字
+.sidebar-hover {
+  position: absolute;
+  right: -120px;
+  top: 0;
+  z-index: -1;
+  width: 100px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 8px;
+  border-radius: 3px 0 0 3px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-right: none;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.3s linear;
+}
 .sidebarcom-nav .bottom-opr {
   width: 100%;
   font-size: 24px;
@@ -82,12 +240,18 @@
   text-align: center;
   position: absolute;
   bottom: 1%;
+  cursor: pointer;
   div {
     width: 36px;
     height: 36px;
+    position: relative;
     &:hover {
       background: #df147f;
       color: #fff;
+      .sidebar-hover {
+        right: 36px;
+        color: #333;
+      }
     }
   }
 }

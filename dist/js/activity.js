@@ -28,23 +28,29 @@
                 is_front: 1,
                 _: Date.now()
             },
-            success : function(data){
+            success: function (data) {
                 let html = ``;
                 let res = data.data.items;
                 res.forEach((item, index) => {
-                    html += `<div class="brand-inner-box">
+                    html += `<a href="javascript:void(0)"><div class="brand-inner-box">
                     <div class="brand-inner-item">
                         <div class="brand-img-box">
-                            <img src="${item.salesImageTags.imageOne.image}" alt="">
+                            <img data-original="${item.salesImageTags.imageOne.image}" alt="">
                         </div>
                         <div class="brand-info-box">
                             <p class="brand-name">${item.salesName}</p>
                             <p class="benefit-info">${item.salesSellTags.salesAgio.msg}</p>
                         </div>
                     </div>
-                </div>`;
+                </div></a>`;
                 });
                 $(".brand-list").html(html);
+                $(".brand-list img").lazyload({
+                    // 覆盖lazyload自带的背景图片
+                    placeholder : "",
+                    effect: "fadeIn",
+                    threshold: 400
+                });
             }
         })
     }
