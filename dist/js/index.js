@@ -127,7 +127,7 @@
                 if (count % 2) {
                     float_str = "right";
                 }
-                html += `<a href="${brandInfoData[attr].link}"><div class="shop-item" style="float: ${float_str}; margin-bottom: 20px;"><img width=570 height=273
+                html += `<a href="./shop_list.html"><div class="shop-item" style="float: ${float_str}; margin-bottom: 20px;"><img width=570 height=273
                 data-original="${brandInfoData[attr].brandImage.size1}" alt="">
                 <div class="brand-info" style="margin-top: 20px; font-size: 18px;">
                     <p class="brandName" style="color: #000000; font-weight: bold; margin-bottom: 10px;">

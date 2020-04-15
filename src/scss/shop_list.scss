@@ -14,6 +14,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       margin-right: 20px;
+      max-width: 214px;
     }
     dd {
       float: left;
@@ -71,60 +72,143 @@
   margin-bottom: 20px;
   .filter {
     margin-bottom: 20px;
-    .filter-groups {
-      border: 1px solid #dfdfdf;
-      height: 400px;
-      .filter-group {
-        position: relative;
-        z-index: 1;
+    @at-root .filter-commands {
+      position: relative;
+      text-align: center;
+      background-color: #fff;
+
+      @at-root .filter-button-expand,
+        .filter-button-collapse {
         margin-top: -1px;
-        border-top: 1px dotted #ddd;
-        zoom: 1;
-        .filter-group-title {
-          font-weight: 400;
-          color: #666;
-          padding-left: 20px;
-          width: 98px;
-          float: left;
-          padding-top: 16px;
-          padding-bottom: 16px;
-        }
-        .filter-group-content {
-          float: left;
-          padding-top: 16px;
-          padding-bottom: 16px;
-          .filter-group-scroll {
-            max-height: 16px;
-            overflow: hidden;
-            width: 711px;
-            .filter-data-item {
-              float: left;
-              margin-right: 50px;
-              height: 16px;
-              .filter-item-link {
-                display: block;
-                line-height: 16px;
+        padding: 0;
+        width: 120px;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #dfdfdf;
+        border-top-color: #fff;
+        background-color: #fff;
+        display: none;
+      }
+      @at-root .filter-button-expand {
+        display: inline-block;
+      }
+    }
+    .filter-groups {
+      position: relative;
+      border: 1px solid #dfdfdf;
+      .is-filter-group-hidden {
+        position: absolute;
+        top: -9999999px;
+      }
+     @at-root .filter-group-pos {
+        .filter-group {
+          z-index: 1;
+          margin-top: -1px;
+          border-top: 1px dotted #ddd;
+          zoom: 1;
+          position: relative;
+          @at-root .filter-group-title {
+            font-weight: 400;
+            color: #666;
+            padding-left: 20px;
+            width: 98px;
+            float: left;
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
+          .filter-group-content {
+            float: left;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            @at-root .filter-group-scroll {
+              max-height: 16px;
+              // max-height: 94px;
+              overflow: hidden;
+              width: 711px;
+              .filter-data-item {
+                float: left;
+                margin-right: 50px;
+                height: 16px;
+                @at-root.filter-item-link {
+                  display: block;
+                  line-height: 16px;
+                }
+                @at-root .is-switch-show {
+                  position: relative;
+                  padding-left: 24px;
+                  &:hover {
+                    &::after {
+                      background-position: -24px -21px;
+                    }
+                  }
+                  &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    width: 19px;
+                    height: 16px;
+                    background: url(//shop.vipstatic.com/img/ui/sprite-hash-5776cfcc.png?0e1add8f) -48px
+                      0;
+                  }
+                }
+                .is-switch-click {
+                  &::after {
+                    background-position: -24px 0;
+                  }
+                }
               }
             }
           }
-        }
-        .filter-group-operation {
-          width: 48px;
-          height: 22px;
-          position: absolute;
-          top: 12px;
-          right: 12px;
-          .filter-group-button-multiple {
-            width: 48px;
-            line-height: 20px;
+          .is-filter-commands-show {
+            display: none;
+          }
+          .filter-group-commands {
+            padding-top: 10px;
+            padding-bottom: 22px;
+            clear: both;
+            // display: none;
             text-align: center;
-            vertical-align: top;
-            background-color: #fff;
-            color: #666;
-            border: 1px solid #d1d1d1;
-            border-radius: 3px;
-            .filter-group-button-moreicon {
-              font-size: 12px;
+            .filter_btn_confirm {
+              margin-right: 20px;
+            }
+            .filter_btn_confirm,
+            .filter_btn_cancel {
+              padding-right: 0;
+              padding-left: 0;
+              width: 58px;
+            }
+          }
+          @at-root .filter-group-operation {
+            height: 22px;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            .filter-group-button-expand,
+            .filter-group-button-collapse {
+              display: inline-block;
+              width: 48px;
+              color: #666;
+              line-height: 22px;
+              vertical-align: top;
+              background-color: #fff;
+              border: none;
+            }
+            .filter-group-button-collapse {
+              display: none;
+            }
+            .filter-group-button-multiple {
+              width: 48px;
+              line-height: 20px;
+              text-align: center;
+              vertical-align: top;
+              background-color: #fff;
+              color: #666;
+              border: 1px solid #d1d1d1;
+              border-radius: 3px;
+              .filter-group-button-moreicon {
+                font-size: 12px;
+              }
             }
           }
         }

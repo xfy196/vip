@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/icon/iconfont.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/shop_list.css">
+    <link rel="stylesheet" href="./css/ui-commons.css">
 </head>
 
 <body>
@@ -314,25 +315,68 @@
             <!-- 选择面板 -->
             <div class="choose">
                 <div class="filter filter_frame is-filter-collapse">
-                    <div class="filter-groups">
-                        <div class="filter-group">
-                            <h3 class="filter-group-title">唯品服务</h3>
-                            <div class="filter-group-content">
-                                <div class="filter-group-scroll">
-                                    <ul class="filter-data-list">
-                                        <li class="filter-data-item"><a class="filter-item-link" href="javascript:;">新货</a></li>
-                                        <li class="filter-data-item"><a class="filter-item-link" href="javascript:;">专柜同步</a></li>
-                                    </ul>
+                    <div class="filter-groups clearfix">
+                        <div class="filter-group-pos">
+                            <div class="filter-group clearfix ">
+                                <h3 class="filter-group-title">唯品服务</h3>
+                                <div class="filter-group-content">
+                                    <div class="filter-group-scroll">
+                                        <ul class="filter-data-list">
+                                            <li class="filter-data-item"><a class="filter-item-link"
+                                                    href="javascript:;">新货</a></li>
+                                            <li class="filter-data-item"><a class="filter-item-link"
+                                                    href="javascript:;">专柜同步</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-group-commands is-filter-commands-show">
+                                    <button class="filter_btn_confirm btn-mini btn-primary">确认</button>
+                                    <button class="filter_btn_cancel btn-mini btn-default">取消</button>
+                                </div>
+                                <div class="filter-group-operation">
+                                    <button class="filter-group-button-multiple" type="button">
+                                        <span class="filter-group-button-moreicon iconfont icon-jiahao"></span>
+                                        <span class="filter-group-button-text">多选</span>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="filter-group-commands"></div>
-                            <div class="filter-group-operation">
-                                <button class="filter-group-button-multiple" type="button">
-                                    <span class="filter-group-button-moreicon iconfont icon-jiahao"></span>
-                                    <span class="filter-group-button-text">多选</span>
-                                </button>
+                        </div>
+                        <!-- 隐藏的盒子 -->
+                        <div class="filter-group-pos is-filter-group-hidden">
+                            <div class="filter-group clearfix ">
+                                <h3 class="filter-group-title">唯品服务</h3>
+                                <div class="filter-group-content">
+                                    <div class="filter-group-scroll">
+                                        <ul class="filter-data-list">
+                                            <li class="filter-data-item"><a class="filter-item-link is-switch-show"
+                                                    href="javascript:;">新货</a></li>
+                                            <li class="filter-data-item"><a class="filter-item-link is-switch-show"
+                                                    href="javascript:;">专柜同步</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="filter-group-commands">
+                                    <button class="filter_btn_confirm btn-mini btn-primary">确认</button>
+                                    <button class="filter_btn_cancel btn-mini btn-default">取消</button>
+                                </div>
+                                <div class="filter-group-operation">
+                                    <button class="filter-group-button-multiple" type="button">
+                                        <span class="filter-group-button-moreicon iconfont icon-jiahao"></span>
+                                        <span class="filter-group-button-text">多选</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="filter-commands">
+                        <button class="filter-button-expand" type="button">
+                            <span class="filter-button-text">更多选项</span><span class="iconfont icon-xiajiantou"></span>
+                        </button>
+                        <button class="filter-button-collapse" type="button">
+                            <span class="filter-button-text">点击收起</span><span
+                                class="iconfont icon-shangjiantou-copy"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -346,8 +390,8 @@
     </footer>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/libs/lazyload/jquery.lazyload.min.js"></script>
-    <script src="./js/index.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/shop_list.js"></script>
 </body>
 
 </html>

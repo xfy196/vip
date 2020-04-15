@@ -1,0 +1,31 @@
+.btn-mini,
+.btn-small {
+  overflow: visible;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: top;
+  transition: 0.3s;
+}
+.btn-mini {
+  height: 22px;
+  min-width: 24px;
+  _width: 24px;
+  padding: 0 5px;
+}
+.btn-small {
+  height: 16px;
+}
+.btn-primary {
+  background-color: #f10180;
+  border: 1px solid #f10180;
+  color: #fafafa;
+}
+.btn-default {
+  background-color: #fafafa;
+  border: 1px solid #c2c2c2;
+  color: #333333;
+}

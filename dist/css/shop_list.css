@@ -13,7 +13,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      margin-right: 20px; }
+      margin-right: 20px;
+      max-width: 214px; }
     .list_fav .fav_name dd {
       float: left;
       font-size: 14px;
@@ -57,16 +58,36 @@
   margin-bottom: 20px; }
   .choose .filter {
     margin-bottom: 20px; }
+    .filter-commands {
+      position: relative;
+      text-align: center;
+      background-color: #fff; }
+      .filter-button-expand,
+      .filter-button-collapse {
+        margin-top: -1px;
+        padding: 0;
+        width: 120px;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #dfdfdf;
+        border-top-color: #fff;
+        background-color: #fff;
+        display: none; }
+      .filter-button-expand {
+        display: inline-block; }
     .choose .filter .filter-groups {
-      border: 1px solid #dfdfdf;
-      height: 400px; }
-      .choose .filter .filter-groups .filter-group {
-        position: relative;
+      position: relative;
+      border: 1px solid #dfdfdf; }
+      .choose .filter .filter-groups .is-filter-group-hidden {
+        position: absolute;
+        top: -9999999px; }
+      .filter-group-pos .filter-group {
         z-index: 1;
         margin-top: -1px;
         border-top: 1px dotted #ddd;
-        zoom: 1; }
-        .choose .filter .filter-groups .filter-group .filter-group-title {
+        zoom: 1;
+        position: relative; }
+        .filter-group-title {
           font-weight: 400;
           color: #666;
           padding-left: 20px;
@@ -74,28 +95,67 @@
           float: left;
           padding-top: 16px;
           padding-bottom: 16px; }
-        .choose .filter .filter-groups .filter-group .filter-group-content {
+        .filter-group-pos .filter-group .filter-group-content {
           float: left;
           padding-top: 16px;
           padding-bottom: 16px; }
-          .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll {
+          .filter-group-scroll {
             max-height: 16px;
             overflow: hidden;
             width: 711px; }
-            .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll .filter-data-item {
+            .filter-group-scroll .filter-data-item {
               float: left;
               margin-right: 50px;
               height: 16px; }
-              .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll .filter-data-item .filter-item-link {
+              .filter-item-link {
                 display: block;
                 line-height: 16px; }
-        .choose .filter .filter-groups .filter-group .filter-group-operation {
-          width: 48px;
+              .is-switch-show {
+                position: relative;
+                padding-left: 24px; }
+                .is-switch-show:hover::after {
+                  background-position: -24px -21px; }
+                .is-switch-show::after {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  content: "";
+                  width: 19px;
+                  height: 16px;
+                  background: url(//shop.vipstatic.com/img/ui/sprite-hash-5776cfcc.png?0e1add8f) -48px 0; }
+              .filter-group-scroll .filter-data-item .is-switch-click::after {
+                background-position: -24px 0; }
+        .filter-group-pos .filter-group .is-filter-commands-show {
+          display: none; }
+        .filter-group-pos .filter-group .filter-group-commands {
+          padding-top: 10px;
+          padding-bottom: 22px;
+          clear: both;
+          text-align: center; }
+          .filter-group-pos .filter-group .filter-group-commands .filter_btn_confirm {
+            margin-right: 20px; }
+          .filter-group-pos .filter-group .filter-group-commands .filter_btn_confirm,
+          .filter-group-pos .filter-group .filter-group-commands .filter_btn_cancel {
+            padding-right: 0;
+            padding-left: 0;
+            width: 58px; }
+        .filter-group-operation {
           height: 22px;
           position: absolute;
           top: 12px;
           right: 12px; }
-          .choose .filter .filter-groups .filter-group .filter-group-operation .filter-group-button-multiple {
+          .filter-group-operation .filter-group-button-expand,
+          .filter-group-operation .filter-group-button-collapse {
+            display: inline-block;
+            width: 48px;
+            color: #666;
+            line-height: 22px;
+            vertical-align: top;
+            background-color: #fff;
+            border: none; }
+          .filter-group-operation .filter-group-button-collapse {
+            display: none; }
+          .filter-group-operation .filter-group-button-multiple {
             width: 48px;
             line-height: 20px;
             text-align: center;
@@ -104,5 +164,5 @@
             color: #666;
             border: 1px solid #d1d1d1;
             border-radius: 3px; }
-            .choose .filter .filter-groups .filter-group .filter-group-operation .filter-group-button-multiple .filter-group-button-moreicon {
+            .filter-group-operation .filter-group-button-multiple .filter-group-button-moreicon {
               font-size: 12px; }
