@@ -8,6 +8,7 @@
      */
     function init() {
         getBannerData();
+        // swiperOpr();
 
         // 梯子改变的事件
         floorChangeEvent();
@@ -321,10 +322,11 @@
                     if (data[attr].items.length === 0) {
                         continue;
                     }
-                    if (data[attr].items[0].name !== "") {
+                    if (/ [\u4e00-\u9fa5]/.test(data[attr].items[0].name)) {
                         res = data[attr];
                     }
                 }
+                console.log(res)
                 // 渲染数据
                 if (res === null) {
                     return false
