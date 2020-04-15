@@ -17,7 +17,7 @@
   .brand-container {
     max-width: 1020px;
     margin: 0 auto;
-    .brand-inner-box {
+    @at-root .brand-inner-box {
       position: relative;
       display: inline-block;
       margin: 13px 10px;
@@ -29,7 +29,7 @@
       background-repeat: no-repeat;
       cursor: pointer;
       float: left;
-      .brand-inner-item {
+      @at-root .brand-inner-item {
         width: 100%;
         height: 100%;
         .brand-img-box {
@@ -43,7 +43,7 @@
             height: 100%;
           }
         }
-        .brand-info-box {
+        @at-root .brand-info-box {
           height: 66px;
           .brand-name {
             margin: 15px 0 0 14px;
@@ -55,7 +55,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
           }
-          .benefit-info {
+          @at-root .benefit-info {
             margin: 5px 0 5px 14px;
             height: 18px;
             font-family: PingFangSC-Regular;

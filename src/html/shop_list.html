@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>唯品会-商品列表</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://api.byi.pw/favicon/?url=https://www.vip.com/" type="image/x-icon">
+    <link rel="stylesheet" href="./css/commons.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/icon/iconfont.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/shop_list.css">
+</head>
+
+<body>
+    <!-- 右栏 -->
+    @@include("./component/right_bar.html")
+    <!-- 头部 -->
+    @@include("./component/index_header.html")
+
+    <div class="list-define wrapper">
+        <div class="wrap_content layout clearfix">
+            <!-- 普通列表页面标题 -->
+            <div class="list_fav clearfix">
+                <dl class="fav_name">
+                    <dt>斐乐FILA春夏焕新男女运动&儿童专场</dt>
+                    <dd><span class="salebg2">3.4</span>折起</dd>
+                </dl>
+                <div class="fav_opr right">
+                    <div class="btn_fav">
+                        <a class="btn_fav_like" href="javascript:;">
+                            <i style="vertical-align: middle;" class="iconfont icon-shoucang1"></i>
+                            <span>收藏品牌</span>
+                            <i class="number">(<em class="person_like_num">1,478,387</em>)</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择面板 -->
+            <div class="choose">
+                <div class="filter filter_frame is-filter-collapse">
+                    <div class="filter-groups">
+                        <div class="filter-group">
+                            <h3 class="filter-group-title">唯品服务</h3>
+                            <div class="filter-group-content">
+                                <div class="filter-group-scroll">
+                                    <ul class="filter-data-list">
+                                        <li class="filter-data-item"><a class="filter-item-link" href="javascript:;">新货</a></li>
+                                        <li class="filter-data-item"><a class="filter-item-link" href="javascript:;">专柜同步</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filter-group-commands"></div>
+                            <div class="filter-group-operation">
+                                <button class="filter-group-button-multiple" type="button">
+                                    <span class="filter-group-button-moreicon iconfont icon-jiahao"></span>
+                                    <span class="filter-group-button-text">多选</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页脚 -->
+    @@include("./component/footer.html")
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/libs/lazyload/jquery.lazyload.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/header.js"></script>
+</body>
+
+</html>

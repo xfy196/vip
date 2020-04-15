@@ -7,6 +7,12 @@
 .hidden {
   display: none; }
 
+.right {
+  float: right; }
+
+em, i {
+  font-style: normal; }
+
 /* 右栏 */
 .sidebar-pos {
   width: 36px;
@@ -626,6 +632,9 @@ header {
       margin-bottom: 20px; }
 
 /* nav导航栏部分 */
+nav {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+
 nav .main ul li {
   float: left; }
 
@@ -680,37 +689,39 @@ nav .t-w-menu {
     top: 0;
     z-index: 10;
     display: none; }
-    nav .t-w-menu .t-w-box .brand-type {
+    .brand-type {
       background: #fff;
       width: 660px;
       height: 453px;
-      overflow-y: scroll;
       padding: 16px 40px 16px 40px;
       border-top: 1px solid #eee;
-      float: left; }
-      nav .t-w-menu .t-w-box .brand-type .sub {
+      float: left;
+      overflow: hidden; }
+      .brand-type:hover {
+        overflow-y: auto; }
+      .brand-type .sub {
         margin-bottom: 24px;
         line-height: 24px; }
-        nav .t-w-menu .t-w-box .brand-type .sub strong {
+        .brand-type .sub strong {
           display: block;
           width: 50px;
           float: left;
           color: #222222; }
-        nav .t-w-menu .t-w-box .brand-type .sub i {
+        .brand-type .sub i {
           float: left;
           color: #666666;
           margin-left: 20px;
           margin-right: 10px; }
-        nav .t-w-menu .t-w-box .brand-type .sub ul {
-          width: 550px;
+        .brand-type .sub ul {
+          width: 545px;
           float: left;
           overflow: hidden; }
-          nav .t-w-menu .t-w-box .brand-type .sub ul li {
+          .brand-type .sub ul li {
             margin-right: 10px; }
-            nav .t-w-menu .t-w-box .brand-type .sub ul li a {
+            .brand-type .sub ul li a {
               color: #666666;
               font-size: 12px; }
-              nav .t-w-menu .t-w-box .brand-type .sub ul li a:hover {
+              .brand-type .sub ul li a:hover {
                 color: #f10180; }
     nav .t-w-menu .t-w-box .brand-img {
       float: right;

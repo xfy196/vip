@@ -1,0 +1,108 @@
+.wrapper {
+  padding-top: 20px; }
+
+.list_fav {
+  border-bottom: none;
+  padding: 10px 10px 10px 0; }
+  .list_fav .fav_name {
+    font-size: 18px;
+    float: left;
+    color: #333333; }
+    .list_fav .fav_name dt {
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 20px; }
+    .list_fav .fav_name dd {
+      float: left;
+      font-size: 14px;
+      margin-left: 20px; }
+      .list_fav .fav_name dd .salebg2 {
+        font-size: 16px;
+        color: #333333;
+        font-weight: 700; }
+  .btn_fav {
+    display: block;
+    margin-top: 2px;
+    width: auto;
+    background-color: #fff;
+    transition: 0.2s linear;
+    line-height: 22px;
+    height: 22px;
+    border-radius: 11px;
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden; }
+    .btn_fav .btn_fav_like {
+      width: auto;
+      padding: 0 8px;
+      border: 1px solid #dfdfdf;
+      border-radius: 11px;
+      height: 20px;
+      line-height: 20px;
+      transition: 0.3s;
+      display: block;
+      color: #f32b80; }
+      .number:last-child {
+        color: #999999; }
+      .btn_fav .btn_fav_like:hover {
+        background: #f10180;
+        border: 1px solid #f10180;
+        color: #fff; }
+        .btn_fav .btn_fav_like:hover .number {
+          color: #fff; }
+
+.choose {
+  margin-bottom: 20px; }
+  .choose .filter {
+    margin-bottom: 20px; }
+    .choose .filter .filter-groups {
+      border: 1px solid #dfdfdf;
+      height: 400px; }
+      .choose .filter .filter-groups .filter-group {
+        position: relative;
+        z-index: 1;
+        margin-top: -1px;
+        border-top: 1px dotted #ddd;
+        zoom: 1; }
+        .choose .filter .filter-groups .filter-group .filter-group-title {
+          font-weight: 400;
+          color: #666;
+          padding-left: 20px;
+          width: 98px;
+          float: left;
+          padding-top: 16px;
+          padding-bottom: 16px; }
+        .choose .filter .filter-groups .filter-group .filter-group-content {
+          float: left;
+          padding-top: 16px;
+          padding-bottom: 16px; }
+          .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll {
+            max-height: 16px;
+            overflow: hidden;
+            width: 711px; }
+            .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll .filter-data-item {
+              float: left;
+              margin-right: 50px;
+              height: 16px; }
+              .choose .filter .filter-groups .filter-group .filter-group-content .filter-group-scroll .filter-data-item .filter-item-link {
+                display: block;
+                line-height: 16px; }
+        .choose .filter .filter-groups .filter-group .filter-group-operation {
+          width: 48px;
+          height: 22px;
+          position: absolute;
+          top: 12px;
+          right: 12px; }
+          .choose .filter .filter-groups .filter-group .filter-group-operation .filter-group-button-multiple {
+            width: 48px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: top;
+            background-color: #fff;
+            color: #666;
+            border: 1px solid #d1d1d1;
+            border-radius: 3px; }
+            .choose .filter .filter-groups .filter-group .filter-group-operation .filter-group-button-multiple .filter-group-button-moreicon {
+              font-size: 12px; }

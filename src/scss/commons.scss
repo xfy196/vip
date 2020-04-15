@@ -6,6 +6,12 @@
 .hidden {
   display: none;
 }
+.right {
+  float: right;
+}
+em, i{
+  font-style: normal;
+}
 /* 右栏 */
 .sidebar-pos {
   width: 36px;
@@ -214,7 +220,6 @@
     }
   }
 }
-
 // 鼠标放入出现的动画文字
 .sidebar-hover {
   position: absolute;
@@ -762,6 +767,9 @@ header {
   }
 }
 /* nav导航栏部分 */
+nav {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+}
 nav .main ul li {
   float: left;
 }
@@ -825,14 +833,17 @@ nav .t-w-menu {
     top: 0;
     z-index: 10;
     display: none;
-    .brand-type {
+    @at-root .brand-type {
       background: #fff;
       width: 660px;
       height: 453px;
-      overflow-y: scroll;
       padding: 16px 40px 16px 40px;
       border-top: 1px solid #eee;
       float: left;
+      overflow: hidden;
+      &:hover {
+        overflow-y: auto;
+      }
       .sub {
         margin-bottom: 24px;
         line-height: 24px;
@@ -849,7 +860,7 @@ nav .t-w-menu {
           margin-right: 10px;
         }
         ul {
-          width: 550px;
+          width: 545px;
           float: left;
           overflow: hidden;
           li {
