@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>唯品会-商品详情</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://api.byi.pw/favicon/?url=https://www.vip.com/" type="image/x-icon">
+    <link rel="stylesheet" href="./css/commons.css">
+    <link rel="stylesheet" href="./css/icon/iconfont.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/detailInfo.css">
+    <link rel="stylesheet" href="./css/ui-commons.css">
+</head>
+
+<body>
+    <!-- 右栏 -->
+    @@include("./component/right_bar.html")
+    <!-- 头部 -->
+    @@include("./component/index_header.html")
+
+    <!-- 产品信息结构容器 -->
+    <div class="fw-wrapper clearfix">
+        <div class="product layout clearfix">
+            <!-- 产品图片展示 -->
+            <div class="pic clearfix">
+                <!-- 产品图片模块 -->
+                <div class="mer-ImgReview">
+                    <div class="pic-sliderwrap">
+                        <div class="show-midpic active-pannel">
+                            <a href="javascript:;" class="bigImgZoom">
+                                <div class="zoomPad">
+                                    <div class="zoom_origin_img_box"> <img width="420" height="420"
+                                            class="slide-mid-pic"
+                                            src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21_420x420_90.jpg"
+                                            alt="">
+                                    </div>
+
+                                    <!-- 放大的盒子 -->
+                                    <div class="zoomWindow" style="display: none;">
+                                        <div class="zoomWrapperImage">
+                                            <img src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <em class="icon-a"></em>
+                        </div>
+                    </div>
+                    <div class="pic-slider">
+                        <ul class="sImg-wrap">
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/89/f4545461-d008-45e5-a237-f7d508f8d904.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/5/cb5511c4-53fc-4f58-ab14-47541a75d8ed.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/104/62ddf3c0-a068-410f-9738-794c7d05bc6c.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/166/c36732dc-1716-4e31-8446-3b233811ab4a.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                            <li class="pic-sImg-item">
+                                <img width="64" height="64"
+                                    src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0117/90/4633b0ac-7069-480e-bf55-6321fb478552.jpg"
+                                    class="mer-smallImg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 产品图片end -->
+                    <div class="product-text">
+                        <!-- 产品编码 -->
+                        <p class="other-infoCoding">商品编码：F61W014224FDG</p>
+                        <!-- 在线收藏 -->
+                        <div class="onsell-collect" id="add_fav_wrapper">
+                            <div class="goods-fav-collect" id="add_fav_button">
+                                <i></i>
+                                <span class="collect-tips">收藏商品</span>
+                            </div>
+                            <div class="goods-fav-collected hidden" id="remove_fav_button">
+                                <i class="iconfont"></i>
+                                <span class="collect-tips had-collected">已收藏</span>
+                                <span class="collect-tips cancel-collected">取消收藏</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 服务保障 -->
+                    <div class="safeguard-icon">
+                        <div class="pi-promise-box clearfix">
+                            <ul class="pi-promise-list">
+                                <img src="//shop.vipstatic.com/img/detail/pc_xuanguan.png">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="productInfo clearfix">
+                <div class="product-content-inner clearfix">
+                    <div class="pi-title-box">
+                        <div class="pib-title">
+                            <a href="javascript:;" class="pib-title-brandName">FILA</a>
+                            <span class="pib-presale-tag hidden">预售</span>
+                            <p class="pib-title-detail" title="斐乐春季新品男装运动休闲无帽圆领卫衣时尚潮流针织套头衫">斐乐春季新品男装运动休闲无帽圆领卫衣时尚潮流针织套头衫
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 价格的盒子 -->
+                    <div class="pi-price-box">
+                        <div class="specialPrice-wrap">
+                            <div class="spcecialPrice-box">
+                                <div class="sp-info">
+                                    <span class="sp-title">折后价</span>
+                                    <i class="pbox-yen">¥</i>
+                                    <span title="469" class="sp-price">469</span>
+                                    <span class="sp-postfix"></span>
+                                    <span class="pbox-market">¥<del class="marketPrice">680</del></span>
+                                    <span class="sp-discount">6.9折</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 配送运费尺码数量的盒子 -->
+                    <div id="proData-box" class="pi-attr-box">
+                        <form action="javascript:;" class="cartAdd-form" id="cartAdd-form">
+                            <input type="hidden" name="act" value="add">
+                            <input type="hidden" name="client_time" value="">
+                            <dl class="delivery-address clearfix">
+                                <dt class="delivery-address-name">配送</dt>
+                                <dd class="delivery-address-box">
+                                    <div class="delivery-address-info">
+                                        <div class="delivery-address-tips">
+                                            <span class="tab_name">请选择配送区域</span>
+                                        </div>
+                                        <i class="iconfont icon-xiajiantou"></i>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="delivery_time_container delivery_message clearfix">
+                                <div class="message-box">
+
+                                    现在付款，预计4月20日（周一）送达</div>
+                            </div>
+                            <dl class="i-freight clearfix">
+                                <dt class="freight-name">运费</dt>
+                                <span id="freight_tips" class="freight_tips">新会员专享首单满38元免邮（限唯品自营商品，部分商品不可用）</span>
+                            </dl>
+                            <dl class="i-color clearfix">
+                                <dt class="color-name">颜色</dt>
+                                <dd class="color-list">
+                                    <ul class="clearfix">
+                                        <li class="color-list-item"><a href="javascript:;" title="传奇蓝"
+                                                class="colorItem color-selected">
+                                                <span class="color-pic-wrapper">
+                                                    <img src="https://a.vpimg3.com/upload/merchandise/pdcvis/2020/03/07/20/d2346eca-3693-4372-bc41-25813762fb83_420_531_54x69_100.jpg"
+                                                        alt="传奇蓝" width="22" height="28">
+                                                </span>
+                                                <span class="color-item-name">传奇蓝</span>
+                                                <span class="i-select"></span>
+                                                <span class="i-chance"></span>
+                                            </a></li>
+                                        <li class="color-list-item"><a href="javascript:;" title="标准白"
+                                                class="colorItem">
+                                                <span class="color-pic-wrapper">
+                                                    <img src="https://a.vpimg3.com/upload/merchandise/pdcvis/2020/03/07/6/90b0f38c-4593-4d92-970a-6c71f2e0728d_420_531_54x69_100.jpg"
+                                                        alt="标准白" width="22" height="28">
+                                                </span>
+                                                <span class="color-item-name">传奇蓝</span>
+                                                <!-- <span class="i-select"></span> -->
+                                                <span class="i-chance"></span>
+                                            </a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="i-size clearfix">
+                                <dt class="size-name">尺寸</dt>
+                                <dd class="i-notice-msg notice-msg"><i class=""></i>请选择尺码</dd>
+                                <dd class="size-list">
+                                    <ul class="clearfix">
+                                        <li class="size-list-item">
+                                            <span class="size-list-item-name">S</span>
+                                            <span class="i-select"></span>
+                                            <span class="i-recommand"></span>
+                                        </li>
+                                        <li class="size-list-item">
+                                            <span class="size-list-item-name">M</span>
+                                            <span class="i-select"></span>
+                                            <span class="i-recommand"></span>
+                                        </li>
+                                        <li class="size-list-item">
+                                            <span class="size-list-item-name">L</span>
+                                            <span class="i-select"></span>
+                                            <span class="i-recommand"></span>
+                                        </li>
+                                        <li class="size-list-item">
+                                            <span class="size-list-item-name">XL</span>
+                                            <span class="i-select"></span>
+                                            <span class="i-recommand"></span>
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="i-num clearfix">
+                                <dt class="num-name">数量</dt>
+                                <dd class="ui-quantity num-box">
+                                    <a href="javascript:;" class="num-reduce iconfont icon-jianhao z-disable"></a>
+                                    <em class="amount num-input num-txt">1</em>
+                                    <a href="javascript:;" class="num-add iconfont icon-jiahao"></a>
+                                </dd>
+                            </dl>
+                            <div class="i-button">
+                                <!-- 加入购物袋的按钮 -->
+                                <div class="button-box">
+                                    <button type="submit" class="ui-btn-large ui-btn-primary ui-btn-loading">
+                                        <span class="ui-btn-loading-before ui-btn-big">
+                                            <i class="iconfont icon-gouwudai"></i>
+                                            加入购物袋
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="other-form-box">
+                    <dl id="vendor-customer" class="supplier-service">
+                        <dt class="supplier-service-title">客服</dt>
+                        <dd class="supplier-service-item">
+                            <div class="supplier-service-group  is-supplier-service-item-disabled">
+                                <span class="supplier-service-icon-online"></span><a class="supplier-service-link"
+                                    href="javascript:void(0)" target="_blank"
+                                    mars_sead="kefu_supplier_ent">在线客服</a><span
+                                    class="supplier-service-time">(09:00-18:00)</span>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <dl class="other-service services_other clearfix">
+                        <dt class="other-name">服务</dt>
+                        <dd class="other-box">
+                            <div class="other-service-tips service_tips">
+                                <div class="ht-txt J-ht-tip">
+                                    <div class="services-wrap">
+                                        <div class="iconType iconSuccess"></div>
+                                        <div class="services" title="本商品由唯品会安排发货，并提供售后服务。">唯品会发货及售后</div>
+                                    </div>
+
+                                    <div class="services-wrap">
+                                        <div class="iconType iconSuccess"></div>
+                                        <div class="services" title="唯品会自营商品由顺丰配送，部分商品暂不支持，请以实际订单为准。">顺丰配送</div>
+                                    </div>
+
+                                    <div class="services-wrap">
+                                        <div class="iconType iconSuccess"></div>
+                                        <div class="services" title="该商品支持7天无理由退货，请放心购买！">7天无理由退货</div>
+                                    </div>
+
+                                    <div class="services-wrap">
+                                        <div class="iconType iconSuccess"></div>
+                                        <div class="services"
+                                            title="任何原因产生的订单退货，唯品会都将免费为您提供上门揽退服务，如果部分商品或者您所在地区不支持上门揽退，则需您先支付退货运费自行寄回，商品返仓后唯品会将补贴10元唯品币（1000个），如多张订单同一包裹寄回的，唯品会仅补贴一次。">
+                                            退货无忧</div>
+                                    </div>
+
+                                    <div class="services-wrap">
+                                        <div class="iconType iconSuccess"></div>
+                                        <div class="services" title="该商品支持换货，订单签收7天内可申请换货">7天可换</div>
+                                    </div>
+                                </div>
+                                <!-- hover时增加类z-ui-tooltips-in展示 -->
+                                <div class="loan-tips-box ui-tooltips ui-tooltips-top-arrow service-tooltips hidden">
+                                    <div class="ui-tooltips-arrow">
+                                        <i class="arrow arrow-out">◆</i>
+                                        <i class="arrow">◆</i>
+                                    </div>
+                                    <div class="ui-tooltips-content other-service-content services_wrap">
+                                        <div class="services-wrap">
+                                            <div class="iconType iconSuccess"></div>
+                                            <div class="services">唯品会发货及售后</div>
+                                            <div class="description">
+                                                <p>本商品由唯品会安排发货，并提供售后服务。</p>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="services-wrap">
+                                            <div class="iconType iconSuccess"></div>
+                                            <div class="services">顺丰配送</div>
+                                            <div class="description">
+                                                <p>唯品会自营商品由顺丰配送，部分商品暂不支持，请以实际订单为准。</p>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="services-wrap">
+                                            <div class="iconType iconSuccess"></div>
+                                            <div class="services">7天无理由退货</div>
+                                            <div class="description">
+                                                <p>该商品支持7天无理由退货，请放心购买！</p>
+
+                                                <a href="https://help.vip.com/commitment.php"
+                                                    target="_blank">查看详情&gt;</a>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="services-wrap">
+                                            <div class="iconType iconSuccess"></div>
+                                            <div class="services">退货无忧</div>
+                                            <div class="description">
+                                                <p>任何原因产生的订单退货，唯品会都将免费为您提供上门揽退服务，如果部分商品或者您所在地区不支持上门揽退，则需您先支付退货运费自行寄回，商品返仓后唯品会将补贴10元唯品币（1000个），如多张订单同一包裹寄回的，唯品会仅补贴一次。
+                                                </p>
+
+                                                <a href="https://help.vip.com/commitment.php"
+                                                    target="_blank">查看详情&gt;</a>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="services-wrap">
+                                            <div class="iconType iconSuccess"></div>
+                                            <div class="services">7天可换</div>
+                                            <div class="description">
+                                                <p>该商品支持换货，订单签收7天内可申请换货</p>
+
+                                                <a href="https://viva.vip.com/act/changeProduct-pc?wapid=vivac_825"
+                                                    target="_blank">查看详情&gt;</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 页脚 -->
+    @@include("./component/footer.html")
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/libs/lazyload/jquery.lazyload.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/libs/magnifier/magnifier.js"></script>
+    <script src="./js/detailInfo.js"></script>
+    <script>
+        $(function () {
+            console.log("sddsad")
+            var magnifierConfig = {
+                magnifier: ".pic",//最外层的大容器
+                container: ".zoomPad",
+                containerImg: ".zoom_origin_img_box",
+                view: ".zoomWindow",
+                thumbnail: ".pic-slider ul",
+                width: 420,//承载容器宽
+                height: 420,//承载容器高
+                zoom: 3
+            };
+
+            var _magnifier = magnifier(magnifierConfig);
+            console.log(_magnifier)
+        });
+    </script>
+</body>
+
+</html>

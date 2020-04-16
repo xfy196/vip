@@ -117,7 +117,7 @@
                         search_recommend_list_html += `<li><a href="${res[i].url}">${res[i].key}</a></li>`;
                     }
                     for (let i = 0; i < res.length; i++) {
-                        if (i === 6) {
+                        if (i === 3) {
                             hot_list_html += `<li><a href="${res[i].url}">${res[i].word}</a></li>`
                             break;
                         }
@@ -136,9 +136,9 @@
     // 二级菜单的数据
     function getTwoCategory() {
         return $.ajax({
-            url: "https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab/v1",
-            dataType: "jsonp",
-            data: {
+            url: "../json/TopCategory.json",
+            dataType: "json",
+     /*        data: {
                 app_name: "shop_pc",
                 app_version: 4.0,
                 warehouse: "VIP_SH",
@@ -152,19 +152,17 @@
                 wap_consumer: "a",
                 hierarchy_id: 117,
                 _: Date.now()
-            },
-            jsonpCallback: "getTopCategory"
+            }, */
         })
     }
 
 
     // 三级菜单数据请求
     function getThreeCategory(args) {
-
         return $.ajax({
-            url: "https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1",
-            dataType: "jsonp",
-            data: {
+            url: "../json/SubCategory"+args.categoryId+".json",
+            dataType: "json",
+/*             data: {
                 app_name: "shop_pc",
                 app_version: 4.0,
                 warehouse: "VIP_SH",
@@ -186,8 +184,7 @@
                 mobile_channel: "nature",
                 functions: "jumper",
                 _: Date.now()
-            },
-            jsonpCallback: "getSubCategory" + args.categoryId
+            }, */
         })
     }
 

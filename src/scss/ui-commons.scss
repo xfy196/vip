@@ -49,3 +49,69 @@
     background-position: -24px -21px;
   }
 }
+.ui-quantity {
+  display: inline-block;
+  width: 73px;
+  height: 22px;
+  background-color: #fff;
+  border: 1px solid #e3e2e2;
+  color: #333;
+  vertical-align: top;
+  text-align: center;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+.ui-btn-loading,
+button.ui-btn-loading {
+  padding: 0;
+  overflow: hidden;
+}
+button.ui-btn-big,
+button.ui-btn-large {
+  height: 46px;
+}
+.ui-btn-primary {
+  background-color: #f10180;
+  border: 1px solid #f10180;
+}
+.ui-btn-primary,
+.ui-btn-loading-before {
+  color: #fff;
+}
+.ui-btn-loading-before {
+  display: inline-block;
+}
+.ui-btn-big,
+.ui-btn-primary {
+  font-size: 18px;
+  line-height: 44px;
+  height: 44px;
+}
+.ui-tooltips {
+  transition: transform ease-out 0.15s, opacity ease-out 0.15s;
+  transform: translateY(10px);
+}
+
+.ui-tips-pop,
+.ui-tooltips {
+  position: absolute;
+  max-width: 800px;
+  border: 1px solid #dbdada;
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  line-height: 18px;
+  color: #4d4d4d;
+  z-index: 50;
+}
+.ui-tooltips-arrow {
+  left: 0;
+  top: -11px;
+  width: 100%;
+  height: 10px;
+}
+.ui-tooltips-content {
+  position: relative;
+  background-color: #fff;
+  padding: 6px 15px;
+}

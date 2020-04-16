@@ -1,0 +1,2184 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销手机",
+                        "categoryId": "52350387",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "手机",
+                                "categoryId": "52040291",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040291"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "手机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040291&title=%E6%89%8B%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040291",
+                                    "abtId": "",
+                                    "title": "手机"
+                                }
+                            },
+                            {
+                                "name": "华为",
+                                "categoryId": "52039672",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039672"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "华为",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039672&title=%E5%8D%8E%E4%B8%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039672",
+                                    "abtId": "",
+                                    "title": "华为"
+                                }
+                            },
+                            {
+                                "name": "小米",
+                                "categoryId": "52039676",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039676"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "小米",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039676&title=%E5%B0%8F%E7%B1%B3&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039676",
+                                    "abtId": "",
+                                    "title": "小米"
+                                }
+                            },
+                            {
+                                "name": "荣耀",
+                                "categoryId": "52039675",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039675"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "荣耀",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039675&title=%E8%8D%A3%E8%80%80&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039675",
+                                    "abtId": "",
+                                    "title": "荣耀"
+                                }
+                            },
+                            {
+                                "name": "OPPO",
+                                "categoryId": "52039669",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039669"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "OPPO",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039669&title=OPPO&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039669",
+                                    "abtId": "",
+                                    "title": "OPPO"
+                                }
+                            },
+                            {
+                                "name": "vivo",
+                                "categoryId": "52039670",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039670"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销手机",
+                                    "second_category_id": "52350387",
+                                    "3rd_cat_title": "vivo",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039670&title=vivo&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039670",
+                                    "abtId": "",
+                                    "title": "vivo"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "手机配件",
+                        "categoryId": "52047337",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "原装配件",
+                                "categoryId": "52039667",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039667"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "原装配件",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039667&title=%E5%8E%9F%E8%A3%85%E9%85%8D%E4%BB%B6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039667",
+                                    "abtId": "",
+                                    "title": "原装配件"
+                                }
+                            },
+                            {
+                                "name": "苹果周边",
+                                "categoryId": "52039659",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039659"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "苹果周边",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039659&title=%E8%8B%B9%E6%9E%9C%E5%91%A8%E8%BE%B9&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039659",
+                                    "abtId": "",
+                                    "title": "苹果周边"
+                                }
+                            },
+                            {
+                                "name": "移动电源",
+                                "categoryId": "52039666",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039666"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "移动电源",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039666&title=%E7%A7%BB%E5%8A%A8%E7%94%B5%E6%BA%90&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039666",
+                                    "abtId": "",
+                                    "title": "移动电源"
+                                }
+                            },
+                            {
+                                "name": "耳机",
+                                "categoryId": "52039645",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039645"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "耳机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039645&title=%E8%80%B3%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039645",
+                                    "abtId": "",
+                                    "title": "耳机"
+                                }
+                            },
+                            {
+                                "name": "手机储存卡",
+                                "categoryId": "52039661",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039661"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "手机储存卡",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039661&title=%E6%89%8B%E6%9C%BA%E5%82%A8%E5%AD%98%E5%8D%A1&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039661",
+                                    "abtId": "",
+                                    "title": "手机储存卡"
+                                }
+                            },
+                            {
+                                "name": "手机保护套",
+                                "categoryId": "52039660",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039660"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "手机配件",
+                                    "second_category_id": "52047337",
+                                    "3rd_cat_title": "手机保护套",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039660&title=%E6%89%8B%E6%9C%BA%E4%BF%9D%E6%8A%A4%E5%A5%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039660",
+                                    "abtId": "",
+                                    "title": "手机保护套"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "智能影音",
+                        "categoryId": "52385080",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "原装耳机",
+                                "categoryId": "52039687",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039687"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "原装耳机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039687&title=%E5%8E%9F%E8%A3%85%E8%80%B3%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039687",
+                                    "abtId": "",
+                                    "title": "原装耳机"
+                                }
+                            },
+                            {
+                                "name": "蓝牙耳机",
+                                "categoryId": "52039684",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039684"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "蓝牙耳机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039684&title=%E8%93%9D%E7%89%99%E8%80%B3%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039684",
+                                    "abtId": "",
+                                    "title": "蓝牙耳机"
+                                }
+                            },
+                            {
+                                "name": "智能手环",
+                                "categoryId": "52403833",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52403833"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "智能手环",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52403833&title=%E6%99%BA%E8%83%BD%E6%89%8B%E7%8E%AF&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52403833",
+                                    "abtId": "",
+                                    "title": "智能手环"
+                                }
+                            },
+                            {
+                                "name": "智能手表",
+                                "categoryId": "52039649",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039649"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "智能手表",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039649&title=%E6%99%BA%E8%83%BD%E6%89%8B%E8%A1%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039649",
+                                    "abtId": "",
+                                    "title": "智能手表"
+                                }
+                            },
+                            {
+                                "name": "音箱",
+                                "categoryId": "52039686",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039686"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "音箱",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039686&title=%E9%9F%B3%E7%AE%B1&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039686",
+                                    "abtId": "",
+                                    "title": "音箱"
+                                }
+                            },
+                            {
+                                "name": "投影仪",
+                                "categoryId": "52039685",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039685"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "智能影音",
+                                    "second_category_id": "52385080",
+                                    "3rd_cat_title": "投影仪",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039685&title=%E6%8A%95%E5%BD%B1%E4%BB%AA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039685",
+                                    "abtId": "",
+                                    "title": "投影仪"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "电脑办公",
+                        "categoryId": "52401090",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "平板电脑",
+                                "categoryId": "52403837",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52403837"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "平板电脑",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52403837&title=%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52403837",
+                                    "abtId": "",
+                                    "title": "平板电脑"
+                                }
+                            },
+                            {
+                                "name": "笔记本",
+                                "categoryId": "52403836",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52403836"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "笔记本",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52403836&title=%E7%AC%94%E8%AE%B0%E6%9C%AC&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52403836",
+                                    "abtId": "",
+                                    "title": "笔记本"
+                                }
+                            },
+                            {
+                                "name": "电纸书",
+                                "categoryId": "52039620",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039620"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "电纸书",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039620&title=%E7%94%B5%E7%BA%B8%E4%B9%A6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039620",
+                                    "abtId": "",
+                                    "title": "电纸书"
+                                }
+                            },
+                            {
+                                "name": "台式机",
+                                "categoryId": "52039623",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039623"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "台式机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039623&title=%E5%8F%B0%E5%BC%8F%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039623",
+                                    "abtId": "",
+                                    "title": "台式机"
+                                }
+                            },
+                            {
+                                "name": "一体机",
+                                "categoryId": "52039625",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039625"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "一体机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039625&title=%E4%B8%80%E4%BD%93%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039625",
+                                    "abtId": "",
+                                    "title": "一体机"
+                                }
+                            },
+                            {
+                                "name": "显示器",
+                                "categoryId": "52039624",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039624"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "电脑办公",
+                                    "second_category_id": "52401090",
+                                    "3rd_cat_title": "显示器",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039624&title=%E6%98%BE%E7%A4%BA%E5%99%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039624",
+                                    "abtId": "",
+                                    "title": "显示器"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "摄影摄像",
+                        "categoryId": "52385071",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "微单/单电",
+                                "categoryId": "52039681",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039681"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "摄影摄像",
+                                    "second_category_id": "52385071",
+                                    "3rd_cat_title": "微单/单电",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039681&title=%E5%BE%AE%E5%8D%95%2F%E5%8D%95%E7%94%B5&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039681",
+                                    "abtId": "",
+                                    "title": "微单/单电"
+                                }
+                            },
+                            {
+                                "name": "数码相机",
+                                "categoryId": "52039680",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039680"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "摄影摄像",
+                                    "second_category_id": "52385071",
+                                    "3rd_cat_title": "数码相机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039680&title=%E6%95%B0%E7%A0%81%E7%9B%B8%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039680",
+                                    "abtId": "",
+                                    "title": "数码相机"
+                                }
+                            },
+                            {
+                                "name": "单反相机",
+                                "categoryId": "52403838",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52403838"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "摄影摄像",
+                                    "second_category_id": "52385071",
+                                    "3rd_cat_title": "单反相机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52403838&title=%E5%8D%95%E5%8F%8D%E7%9B%B8%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52403838",
+                                    "abtId": "",
+                                    "title": "单反相机"
+                                }
+                            },
+                            {
+                                "name": "摄像机",
+                                "categoryId": "52039679",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039679"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "摄影摄像",
+                                    "second_category_id": "52385071",
+                                    "3rd_cat_title": "摄像机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039679&title=%E6%91%84%E5%83%8F%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039679",
+                                    "abtId": "",
+                                    "title": "摄像机"
+                                }
+                            },
+                            {
+                                "name": "拍立得",
+                                "categoryId": "52039678",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039678"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "摄影摄像",
+                                    "second_category_id": "52385071",
+                                    "3rd_cat_title": "拍立得",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039678&title=%E6%8B%8D%E7%AB%8B%E5%BE%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039678",
+                                    "abtId": "",
+                                    "title": "拍立得"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "厨房电器",
+                        "categoryId": "52274558",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "电压力锅",
+                                "categoryId": "52274538",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52274538"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "电压力锅",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274538&title=%E7%94%B5%E5%8E%8B%E5%8A%9B%E9%94%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274538",
+                                    "abtId": "",
+                                    "title": "电压力锅"
+                                }
+                            },
+                            {
+                                "name": "电火锅",
+                                "categoryId": "52274535",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52274535"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "电火锅",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274535&title=%E7%94%B5%E7%81%AB%E9%94%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274535",
+                                    "abtId": "",
+                                    "title": "电火锅"
+                                }
+                            },
+                            {
+                                "name": "养生壶",
+                                "categoryId": "52274553",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52274553"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "养生壶",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274553&title=%E5%85%BB%E7%94%9F%E5%A3%B6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274553",
+                                    "abtId": "",
+                                    "title": "养生壶"
+                                }
+                            },
+                            {
+                                "name": "电水壶",
+                                "categoryId": "52274537",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52274537"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "电水壶",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274537&title=%E7%94%B5%E6%B0%B4%E5%A3%B6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274537",
+                                    "abtId": "",
+                                    "title": "电水壶"
+                                }
+                            },
+                            {
+                                "name": "电磁炉",
+                                "categoryId": "52274532",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52274532"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "电磁炉",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274532&title=%E7%94%B5%E7%A3%81%E7%82%89&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274532",
+                                    "abtId": "",
+                                    "title": "电磁炉"
+                                }
+                            },
+                            {
+                                "name": "豆浆机",
+                                "categoryId": "52274539",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52274539"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "厨房电器",
+                                    "second_category_id": "52274558",
+                                    "3rd_cat_title": "豆浆机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52274539&title=%E8%B1%86%E6%B5%86%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52274539",
+                                    "abtId": "",
+                                    "title": "豆浆机"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "生活电器",
+                        "categoryId": "52286358",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "扫地机器人",
+                                "categoryId": "52286355",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52286355"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "扫地机器人",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286355&title=%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286355",
+                                    "abtId": "",
+                                    "title": "扫地机器人"
+                                }
+                            },
+                            {
+                                "name": "吸尘器",
+                                "categoryId": "52613294",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52613294"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "吸尘器",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52613294&title=%E5%90%B8%E5%B0%98%E5%99%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52613294",
+                                    "abtId": "",
+                                    "title": "吸尘器"
+                                }
+                            },
+                            {
+                                "name": "除螨仪",
+                                "categoryId": "52286341",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52286341"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "除螨仪",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286341&title=%E9%99%A4%E8%9E%A8%E4%BB%AA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286341",
+                                    "abtId": "",
+                                    "title": "除螨仪"
+                                }
+                            },
+                            {
+                                "name": "挂烫机",
+                                "categoryId": "52039576",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039576"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "挂烫机",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039576&title=%E6%8C%82%E7%83%AB%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039576",
+                                    "abtId": "",
+                                    "title": "挂烫机"
+                                }
+                            },
+                            {
+                                "name": "电熨斗",
+                                "categoryId": "52286344",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52286344"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "电熨斗",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286344&title=%E7%94%B5%E7%86%A8%E6%96%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286344",
+                                    "abtId": "",
+                                    "title": "电熨斗"
+                                }
+                            },
+                            {
+                                "name": "风扇",
+                                "categoryId": "52286345",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52286345"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "生活电器",
+                                    "second_category_id": "52286358",
+                                    "3rd_cat_title": "风扇",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286345&title=%E9%A3%8E%E6%89%87&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286345",
+                                    "abtId": "",
+                                    "title": "风扇"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "美容护理",
+                        "categoryId": "52286150",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "剃须刀",
+                                "categoryId": "52039546",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039546"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "剃须刀",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039546&title=%E5%89%83%E9%A1%BB%E5%88%80&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039546",
+                                    "abtId": "",
+                                    "title": "剃须刀"
+                                }
+                            },
+                            {
+                                "name": "电吹风",
+                                "categoryId": "52039537",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039537"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "电吹风",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039537&title=%E7%94%B5%E5%90%B9%E9%A3%8E&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039537",
+                                    "abtId": "",
+                                    "title": "电吹风"
+                                }
+                            },
+                            {
+                                "name": "颈椎按摩仪",
+                                "categoryId": "52286141",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52286141"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "颈椎按摩仪",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286141&title=%E9%A2%88%E6%A4%8E%E6%8C%89%E6%91%A9%E4%BB%AA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286141",
+                                    "abtId": "",
+                                    "title": "颈椎按摩仪"
+                                }
+                            },
+                            {
+                                "name": "按摩披肩",
+                                "categoryId": "52286133",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52286133"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "按摩披肩",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286133&title=%E6%8C%89%E6%91%A9%E6%8A%AB%E8%82%A9&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286133",
+                                    "abtId": "",
+                                    "title": "按摩披肩"
+                                }
+                            },
+                            {
+                                "name": "美容仪器",
+                                "categoryId": "52286426",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52286426"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "美容仪器",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52286426&title=%E7%BE%8E%E5%AE%B9%E4%BB%AA%E5%99%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52286426",
+                                    "abtId": "",
+                                    "title": "美容仪器"
+                                }
+                            },
+                            {
+                                "name": "电动牙刷",
+                                "categoryId": "52039585",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039585"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "美容护理",
+                                    "second_category_id": "52286150",
+                                    "3rd_cat_title": "电动牙刷",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039585&title=%E7%94%B5%E5%8A%A8%E7%89%99%E5%88%B7&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039585",
+                                    "abtId": "",
+                                    "title": "电动牙刷"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10010525",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "苹果",
+                                "categoryId": "10010526",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/2646b0bee2034b93a0ab7527b68dd23a/10005612/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10005612"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "苹果",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10005612&brandName=%E8%8B%B9%E6%9E%9C&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10005612"
+                                }
+                            },
+                            {
+                                "name": "华为",
+                                "categoryId": "10010527",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/b5db46e8bfbf444b985b1708e6cf0ca6/10010712/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10010712"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "华为",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10010712&brandName=%E5%8D%8E%E4%B8%BA&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10010712"
+                                }
+                            },
+                            {
+                                "name": "小米",
+                                "categoryId": "10010528",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/22e432e45f2f49e28cc2d7749ff8914e/10006250/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10006250"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "小米",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10006250&brandName=%E5%B0%8F%E7%B1%B3&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10006250"
+                                }
+                            },
+                            {
+                                "name": "飞利浦",
+                                "categoryId": "10010561",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/009af131ea8b429bb761410956436d43/10000386/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10000386"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "飞利浦",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000386&brandName=%E9%A3%9E%E5%88%A9%E6%B5%A6&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000386"
+                                }
+                            },
+                            {
+                                "name": "小熊",
+                                "categoryId": "10011355",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/2ad80f268bf046f08e0bdedd31c347d2/10000780/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10000780"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "小熊",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000780&brandName=%E5%B0%8F%E7%86%8A&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000780"
+                                }
+                            },
+                            {
+                                "name": "苏泊尔",
+                                "categoryId": "10010562",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/10a733f1309441419c433d55edff3bcd/10004090/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10004090"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "苏泊尔",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10004090&brandName=%E8%8B%8F%E6%B3%8A%E5%B0%94&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10004090"
+                                }
+                            },
+                            {
+                                "name": "美的",
+                                "categoryId": "10010529",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/c9f538f3705249edb7ff55c31754d035/10001363/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10001363"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "美的",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10001363&brandName=%E7%BE%8E%E7%9A%84&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10001363"
+                                }
+                            },
+                            {
+                                "name": "荣耀",
+                                "categoryId": "10011356",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/553cd659d9ab4555b499e3003f006070/10015575/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10015575"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "荣耀",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10015575&brandName=%E8%8D%A3%E8%80%80&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10015575"
+                                }
+                            },
+                            {
+                                "name": "OPPO",
+                                "categoryId": "10011357",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/f161582bad574701913a3c7f5e38e01a/10001440/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10001440"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30068",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010525",
+                                    "3rd_cat_title": "OPPO",
+                                    "1st_cat_title": "家电数码",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10001440&brandName=OPPO&category_parent_id=30068",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10001440"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

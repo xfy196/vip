@@ -1,0 +1,3030 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "家纺床品",
+                        "categoryId": "52047321",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "被芯",
+                                "categoryId": "52039091",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039091"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "被芯",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039091&title=%E8%A2%AB%E8%8A%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039091",
+                                    "abtId": "1872",
+                                    "title": "被芯"
+                                }
+                            },
+                            {
+                                "name": "床上套件",
+                                "categoryId": "52039093",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039093"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "床上套件",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039093&title=%E5%BA%8A%E4%B8%8A%E5%A5%97%E4%BB%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039093",
+                                    "abtId": "1872",
+                                    "title": "床上套件"
+                                }
+                            },
+                            {
+                                "name": "儿童床品",
+                                "categoryId": "52039097",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039097"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "儿童床品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039097&title=%E5%84%BF%E7%AB%A5%E5%BA%8A%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039097",
+                                    "abtId": "1872",
+                                    "title": "儿童床品"
+                                }
+                            },
+                            {
+                                "name": "枕头",
+                                "categoryId": "52039092",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039092"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "枕头",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039092&title=%E6%9E%95%E5%A4%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039092",
+                                    "abtId": "1872",
+                                    "title": "枕头"
+                                }
+                            },
+                            {
+                                "name": "床垫床褥",
+                                "categoryId": "52039094",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039094"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "床垫床褥",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039094&title=%E5%BA%8A%E5%9E%AB%E5%BA%8A%E8%A4%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039094",
+                                    "abtId": "1872",
+                                    "title": "床垫床褥"
+                                }
+                            },
+                            {
+                                "name": "蚊帐",
+                                "categoryId": "52039098",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039098"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "蚊帐",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039098&title=%E8%9A%8A%E5%B8%90&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039098",
+                                    "abtId": "1872",
+                                    "title": "蚊帐"
+                                }
+                            },
+                            {
+                                "name": "婚庆床品",
+                                "categoryId": "52039096",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52039096"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "婚庆床品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039096&title=%E5%A9%9A%E5%BA%86%E5%BA%8A%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039096",
+                                    "abtId": "1872",
+                                    "title": "婚庆床品"
+                                }
+                            },
+                            {
+                                "name": "凉席",
+                                "categoryId": "52039099",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52039099"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "凉席",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039099&title=%E5%87%89%E5%B8%AD&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039099",
+                                    "abtId": "1872",
+                                    "title": "凉席"
+                                }
+                            },
+                            {
+                                "name": "床单/被套",
+                                "categoryId": "52039090",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52039090"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "床单/被套",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039090&title=%E5%BA%8A%E5%8D%95%2F%E8%A2%AB%E5%A5%97&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039090",
+                                    "abtId": "1872",
+                                    "title": "床单/被套"
+                                }
+                            },
+                            {
+                                "name": "酒店家纺",
+                                "categoryId": "52039100",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52039100"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "酒店家纺",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039100&title=%E9%85%92%E5%BA%97%E5%AE%B6%E7%BA%BA&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039100",
+                                    "abtId": "1872",
+                                    "title": "酒店家纺"
+                                }
+                            },
+                            {
+                                "name": "毛毯",
+                                "categoryId": "52039095",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52039095"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "毛毯",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039095&title=%E6%AF%9B%E6%AF%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039095",
+                                    "abtId": "1872",
+                                    "title": "毛毯"
+                                }
+                            },
+                            {
+                                "name": "枕套枕巾",
+                                "categoryId": "52039101",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52039101"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "枕套枕巾",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039101&title=%E6%9E%95%E5%A5%97%E6%9E%95%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039101",
+                                    "abtId": "1872",
+                                    "title": "枕套枕巾"
+                                }
+                            },
+                            {
+                                "name": "电热毯",
+                                "categoryId": "52383342",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 13,
+                                    "target_id": "52383342"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "电热毯",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52383342&title=%E7%94%B5%E7%83%AD%E6%AF%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52383342",
+                                    "abtId": "1872",
+                                    "title": "电热毯"
+                                }
+                            },
+                            {
+                                "name": "蚕丝被",
+                                "categoryId": "52039102",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 14,
+                                    "target_id": "52039102"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "蚕丝被",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039102&title=%E8%9A%95%E4%B8%9D%E8%A2%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039102",
+                                    "abtId": "1872",
+                                    "title": "蚕丝被"
+                                }
+                            },
+                            {
+                                "name": "羽绒被",
+                                "categoryId": "52383344",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 15,
+                                    "target_id": "52383344"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家纺床品",
+                                    "second_category_id": "52047321",
+                                    "3rd_cat_title": "羽绒被",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52383344&title=%E7%BE%BD%E7%BB%92%E8%A2%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52383344",
+                                    "abtId": "1872",
+                                    "title": "羽绒被"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "杯壶餐具",
+                        "categoryId": "52047325",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "保温杯壶",
+                                "categoryId": "52039122",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039122"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "保温杯壶",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039122&title=%E4%BF%9D%E6%B8%A9%E6%9D%AF%E5%A3%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039122",
+                                    "abtId": "1872",
+                                    "title": "保温杯壶"
+                                }
+                            },
+                            {
+                                "name": "保鲜/饭盒",
+                                "categoryId": "52039126",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039126"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "保鲜/饭盒",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039126&title=%E4%BF%9D%E9%B2%9C%2F%E9%A5%AD%E7%9B%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039126",
+                                    "abtId": "1872",
+                                    "title": "保鲜/饭盒"
+                                }
+                            },
+                            {
+                                "name": "碗碟盘",
+                                "categoryId": "52039125",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039125"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "碗碟盘",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039125&title=%E7%A2%97%E7%A2%9F%E7%9B%98&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039125",
+                                    "abtId": "1872",
+                                    "title": "碗碟盘"
+                                }
+                            },
+                            {
+                                "name": "玻璃杯",
+                                "categoryId": "52039119",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039119"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "玻璃杯",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039119&title=%E7%8E%BB%E7%92%83%E6%9D%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039119",
+                                    "abtId": "1872",
+                                    "title": "玻璃杯"
+                                }
+                            },
+                            {
+                                "name": "茶/咖啡具",
+                                "categoryId": "52039123",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039123"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "茶/咖啡具",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039123&title=%E8%8C%B6%2F%E5%92%96%E5%95%A1%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039123",
+                                    "abtId": "1872",
+                                    "title": "茶/咖啡具"
+                                }
+                            },
+                            {
+                                "name": "筷勺刀叉",
+                                "categoryId": "52039124",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039124"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "杯壶餐具",
+                                    "second_category_id": "52047325",
+                                    "3rd_cat_title": "筷勺刀叉",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039124&title=%E7%AD%B7%E5%8B%BA%E5%88%80%E5%8F%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039124",
+                                    "abtId": "1872",
+                                    "title": "筷勺刀叉"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "烹饪锅具",
+                        "categoryId": "52047328",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "锅具",
+                                "categoryId": "52039140",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039140"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "锅具",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039140&title=%E9%94%85%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039140",
+                                    "abtId": "1872",
+                                    "title": "锅具"
+                                }
+                            },
+                            {
+                                "name": "厨用小工具",
+                                "categoryId": "52039133",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039133"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "厨用小工具",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039133&title=%E5%8E%A8%E7%94%A8%E5%B0%8F%E5%B7%A5%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039133",
+                                    "abtId": "1872",
+                                    "title": "厨用小工具"
+                                }
+                            },
+                            {
+                                "name": "刀具/剪刀",
+                                "categoryId": "52039136",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039136"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "刀具/剪刀",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039136&title=%E5%88%80%E5%85%B7%2F%E5%89%AA%E5%88%80&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039136",
+                                    "abtId": "1872",
+                                    "title": "刀具/剪刀"
+                                }
+                            },
+                            {
+                                "name": "厨房收纳",
+                                "categoryId": "52039135",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039135"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "厨房收纳",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039135&title=%E5%8E%A8%E6%88%BF%E6%94%B6%E7%BA%B3&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039135",
+                                    "abtId": "1872",
+                                    "title": "厨房收纳"
+                                }
+                            },
+                            {
+                                "name": "砧板",
+                                "categoryId": "52039134",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039134"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "砧板",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039134&title=%E7%A0%A7%E6%9D%BF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039134",
+                                    "abtId": "1872",
+                                    "title": "砧板"
+                                }
+                            },
+                            {
+                                "name": "厨房置物架",
+                                "categoryId": "52039137",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039137"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "烹饪锅具",
+                                    "second_category_id": "52047328",
+                                    "3rd_cat_title": "厨房置物架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039137&title=%E5%8E%A8%E6%88%BF%E7%BD%AE%E7%89%A9%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039137",
+                                    "abtId": "1872",
+                                    "title": "厨房置物架"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "日用/纸品",
+                        "categoryId": "52384549",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "纸巾",
+                                "categoryId": "52384542",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52384542"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "纸巾",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384542&title=%E7%BA%B8%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384542",
+                                    "abtId": "1872",
+                                    "title": "纸巾"
+                                }
+                            },
+                            {
+                                "name": "衣物清洁",
+                                "categoryId": "52384546",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52384546"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "衣物清洁",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384546&title=%E8%A1%A3%E7%89%A9%E6%B8%85%E6%B4%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384546",
+                                    "abtId": "1872",
+                                    "title": "衣物清洁"
+                                }
+                            },
+                            {
+                                "name": "个人用品",
+                                "categoryId": "52039105",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039105"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "个人用品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039105&title=%E4%B8%AA%E4%BA%BA%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039105",
+                                    "abtId": "1872",
+                                    "title": "个人用品"
+                                }
+                            },
+                            {
+                                "name": "家庭清洁",
+                                "categoryId": "52384544",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52384544"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "家庭清洁",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384544&title=%E5%AE%B6%E5%BA%AD%E6%B8%85%E6%B4%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384544",
+                                    "abtId": "1872",
+                                    "title": "家庭清洁"
+                                }
+                            },
+                            {
+                                "name": "毛浴巾",
+                                "categoryId": "52039108",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039108"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "毛浴巾",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039108&title=%E6%AF%9B%E6%B5%B4%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039108",
+                                    "abtId": "1872",
+                                    "title": "毛浴巾"
+                                }
+                            },
+                            {
+                                "name": "拖把",
+                                "categoryId": "52039104",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039104"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "拖把",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039104&title=%E6%8B%96%E6%8A%8A&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039104",
+                                    "abtId": "1872",
+                                    "title": "拖把"
+                                }
+                            },
+                            {
+                                "name": "家居拖鞋",
+                                "categoryId": "52039103",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52039103"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "家居拖鞋",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039103&title=%E5%AE%B6%E5%B1%85%E6%8B%96%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039103",
+                                    "abtId": "1872",
+                                    "title": "家居拖鞋"
+                                }
+                            },
+                            {
+                                "name": "浴室用品",
+                                "categoryId": "52039107",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52039107"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "浴室用品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039107&title=%E6%B5%B4%E5%AE%A4%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039107",
+                                    "abtId": "1872",
+                                    "title": "浴室用品"
+                                }
+                            },
+                            {
+                                "name": "手套/抹布",
+                                "categoryId": "52039111",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52039111"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "手套/抹布",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039111&title=%E6%89%8B%E5%A5%97%2F%E6%8A%B9%E5%B8%83&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039111",
+                                    "abtId": "1872",
+                                    "title": "手套/抹布"
+                                }
+                            },
+                            {
+                                "name": "香薰用品",
+                                "categoryId": "52039110",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52039110"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "香薰用品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039110&title=%E9%A6%99%E8%96%B0%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039110",
+                                    "abtId": "1872",
+                                    "title": "香薰用品"
+                                }
+                            },
+                            {
+                                "name": "清洁刷",
+                                "categoryId": "52039114",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52039114"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "清洁刷",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039114&title=%E6%B8%85%E6%B4%81%E5%88%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039114",
+                                    "abtId": "1872",
+                                    "title": "清洁刷"
+                                }
+                            },
+                            {
+                                "name": "宠物日用",
+                                "categoryId": "52039106",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52039106"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "宠物日用",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039106&title=%E5%AE%A0%E7%89%A9%E6%97%A5%E7%94%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039106",
+                                    "abtId": "1872",
+                                    "title": "宠物日用"
+                                }
+                            },
+                            {
+                                "name": "垃圾桶",
+                                "categoryId": "52039113",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 13,
+                                    "target_id": "52039113"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "垃圾桶",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039113&title=%E5%9E%83%E5%9C%BE%E6%A1%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039113",
+                                    "abtId": "1872",
+                                    "title": "垃圾桶"
+                                }
+                            },
+                            {
+                                "name": "活性炭",
+                                "categoryId": "52384547",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 14,
+                                    "target_id": "52384547"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "活性炭",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384547&title=%E6%B4%BB%E6%80%A7%E7%82%AD&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384547",
+                                    "abtId": "1872",
+                                    "title": "活性炭"
+                                }
+                            },
+                            {
+                                "name": "扫把/簸箕",
+                                "categoryId": "52039112",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 15,
+                                    "target_id": "52039112"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "扫把/簸箕",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039112&title=%E6%89%AB%E6%8A%8A%2F%E7%B0%B8%E7%AE%95&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039112",
+                                    "abtId": "1872",
+                                    "title": "扫把/簸箕"
+                                }
+                            },
+                            {
+                                "name": "擦窗器",
+                                "categoryId": "52039115",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 16,
+                                    "target_id": "52039115"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "擦窗器",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039115&title=%E6%93%A6%E7%AA%97%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039115",
+                                    "abtId": "1872",
+                                    "title": "擦窗器"
+                                }
+                            },
+                            {
+                                "name": "除湿剂/干燥剂",
+                                "categoryId": "52384548",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 17,
+                                    "target_id": "52384548"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "除湿剂/干燥剂",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384548&title=%E9%99%A4%E6%B9%BF%E5%89%82%2F%E5%B9%B2%E7%87%A5%E5%89%82&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384548",
+                                    "abtId": "1872",
+                                    "title": "除湿剂/干燥剂"
+                                }
+                            },
+                            {
+                                "name": "洗衣液",
+                                "categoryId": "52384543",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 18,
+                                    "target_id": "52384543"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "洗衣液",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384543&title=%E6%B4%97%E8%A1%A3%E6%B6%B2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384543",
+                                    "abtId": "1872",
+                                    "title": "洗衣液"
+                                }
+                            },
+                            {
+                                "name": "洁厕液",
+                                "categoryId": "52384545",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 19,
+                                    "target_id": "52384545"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "洁厕液",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384545&title=%E6%B4%81%E5%8E%95%E6%B6%B2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384545",
+                                    "abtId": "1872",
+                                    "title": "洁厕液"
+                                }
+                            },
+                            {
+                                "name": "一次性用品",
+                                "categoryId": "52039109",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 20,
+                                    "target_id": "52039109"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "日用/纸品",
+                                    "second_category_id": "52384549",
+                                    "3rd_cat_title": "一次性用品",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039109&title=%E4%B8%80%E6%AC%A1%E6%80%A7%E7%94%A8%E5%93%81&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039109",
+                                    "abtId": "",
+                                    "title": "一次性用品"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "收纳晾晒",
+                        "categoryId": "52047324",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "收纳架",
+                                "categoryId": "52039156",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039156"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "收纳架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039156&title=%E6%94%B6%E7%BA%B3%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039156",
+                                    "abtId": "1872",
+                                    "title": "收纳架"
+                                }
+                            },
+                            {
+                                "name": "压缩袋",
+                                "categoryId": "52039154",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039154"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "压缩袋",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039154&title=%E5%8E%8B%E7%BC%A9%E8%A2%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039154",
+                                    "abtId": "1872",
+                                    "title": "压缩袋"
+                                }
+                            },
+                            {
+                                "name": "收纳包袋",
+                                "categoryId": "52039152",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039152"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "收纳包袋",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039152&title=%E6%94%B6%E7%BA%B3%E5%8C%85%E8%A2%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039152",
+                                    "abtId": "1872",
+                                    "title": "收纳包袋"
+                                }
+                            },
+                            {
+                                "name": "晾晒架",
+                                "categoryId": "52039158",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039158"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "晾晒架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039158&title=%E6%99%BE%E6%99%92%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039158",
+                                    "abtId": "1872",
+                                    "title": "晾晒架"
+                                }
+                            },
+                            {
+                                "name": "收纳柜",
+                                "categoryId": "52039160",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039160"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "收纳柜",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039160&title=%E6%94%B6%E7%BA%B3%E6%9F%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039160",
+                                    "abtId": "1872",
+                                    "title": "收纳柜"
+                                }
+                            },
+                            {
+                                "name": "衣架/裤架",
+                                "categoryId": "52039157",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039157"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "衣架/裤架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039157&title=%E8%A1%A3%E6%9E%B6%2F%E8%A3%A4%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039157",
+                                    "abtId": "1872",
+                                    "title": "衣架/裤架"
+                                }
+                            },
+                            {
+                                "name": "鞋架",
+                                "categoryId": "52039159",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52039159"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "鞋架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039159&title=%E9%9E%8B%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039159",
+                                    "abtId": "1872",
+                                    "title": "鞋架"
+                                }
+                            },
+                            {
+                                "name": "防尘罩",
+                                "categoryId": "52039155",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52039155"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "防尘罩",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039155&title=%E9%98%B2%E5%B0%98%E7%BD%A9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039155",
+                                    "abtId": "1872",
+                                    "title": "防尘罩"
+                                }
+                            },
+                            {
+                                "name": "收纳盒/箱",
+                                "categoryId": "52290302",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52290302"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "收纳晾晒",
+                                    "second_category_id": "52047324",
+                                    "3rd_cat_title": "收纳盒/箱",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52290302&title=%E6%94%B6%E7%BA%B3%E7%9B%92%2F%E7%AE%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52290302",
+                                    "abtId": "1872",
+                                    "title": "收纳盒/箱"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "汽车用品",
+                        "categoryId": "52047326",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "座垫/座套",
+                                "categoryId": "52039174",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039174"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "座垫/座套",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039174&title=%E5%BA%A7%E5%9E%AB%2F%E5%BA%A7%E5%A5%97&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039174",
+                                    "abtId": "1872",
+                                    "title": "座垫/座套"
+                                }
+                            },
+                            {
+                                "name": "维修保养",
+                                "categoryId": "52039180",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039180"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "维修保养",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039180&title=%E7%BB%B4%E4%BF%AE%E4%BF%9D%E5%85%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039180",
+                                    "abtId": "1872",
+                                    "title": "维修保养"
+                                }
+                            },
+                            {
+                                "name": "车载电器",
+                                "categoryId": "52039175",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039175"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "车载电器",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039175&title=%E8%BD%A6%E8%BD%BD%E7%94%B5%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039175",
+                                    "abtId": "1872",
+                                    "title": "车载电器"
+                                }
+                            },
+                            {
+                                "name": "美容清洗",
+                                "categoryId": "52039176",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039176"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "美容清洗",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039176&title=%E7%BE%8E%E5%AE%B9%E6%B8%85%E6%B4%97&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039176",
+                                    "abtId": "1872",
+                                    "title": "美容清洗"
+                                }
+                            },
+                            {
+                                "name": "脚垫",
+                                "categoryId": "52039183",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039183"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "脚垫",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039183&title=%E8%84%9A%E5%9E%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039183",
+                                    "abtId": "1872",
+                                    "title": "脚垫"
+                                }
+                            },
+                            {
+                                "name": "手机支架",
+                                "categoryId": "52039179",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039179"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "手机支架",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039179&title=%E6%89%8B%E6%9C%BA%E6%94%AF%E6%9E%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039179",
+                                    "abtId": "1872",
+                                    "title": "手机支架"
+                                }
+                            },
+                            {
+                                "name": "汽车装饰",
+                                "categoryId": "52039177",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52039177"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "汽车装饰",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039177&title=%E6%B1%BD%E8%BD%A6%E8%A3%85%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039177",
+                                    "abtId": "1872",
+                                    "title": "汽车装饰"
+                                }
+                            },
+                            {
+                                "name": "安全自驾",
+                                "categoryId": "52039178",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52039178"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "安全自驾",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039178&title=%E5%AE%89%E5%85%A8%E8%87%AA%E9%A9%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039178",
+                                    "abtId": "1872",
+                                    "title": "安全自驾"
+                                }
+                            },
+                            {
+                                "name": "头枕腰靠",
+                                "categoryId": "52039184",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52039184"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "头枕腰靠",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039184&title=%E5%A4%B4%E6%9E%95%E8%85%B0%E9%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039184",
+                                    "abtId": "1872",
+                                    "title": "头枕腰靠"
+                                }
+                            },
+                            {
+                                "name": "车载香薰",
+                                "categoryId": "52039186",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52039186"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "车载香薰",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039186&title=%E8%BD%A6%E8%BD%BD%E9%A6%99%E8%96%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039186",
+                                    "abtId": "1872",
+                                    "title": "车载香薰"
+                                }
+                            },
+                            {
+                                "name": "方向盘套",
+                                "categoryId": "52039190",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52039190"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "方向盘套",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039190&title=%E6%96%B9%E5%90%91%E7%9B%98%E5%A5%97&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039190",
+                                    "abtId": "1872",
+                                    "title": "方向盘套"
+                                }
+                            },
+                            {
+                                "name": "净化器",
+                                "categoryId": "52039182",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52039182"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "净化器",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039182&title=%E5%87%80%E5%8C%96%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039182",
+                                    "abtId": "1872",
+                                    "title": "净化器"
+                                }
+                            },
+                            {
+                                "name": "行车收纳",
+                                "categoryId": "52039189",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 13,
+                                    "target_id": "52039189"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "行车收纳",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039189&title=%E8%A1%8C%E8%BD%A6%E6%94%B6%E7%BA%B3&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039189",
+                                    "abtId": "1872",
+                                    "title": "行车收纳"
+                                }
+                            },
+                            {
+                                "name": "记录仪",
+                                "categoryId": "52039181",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 14,
+                                    "target_id": "52039181"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "记录仪",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039181&title=%E8%AE%B0%E5%BD%95%E4%BB%AA&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039181",
+                                    "abtId": "1872",
+                                    "title": "记录仪"
+                                }
+                            },
+                            {
+                                "name": "充电器",
+                                "categoryId": "52039187",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 15,
+                                    "target_id": "52039187"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "充电器",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039187&title=%E5%85%85%E7%94%B5%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039187",
+                                    "abtId": "1872",
+                                    "title": "充电器"
+                                }
+                            },
+                            {
+                                "name": "吸尘器",
+                                "categoryId": "52039188",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 16,
+                                    "target_id": "52039188"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "吸尘器",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039188&title=%E5%90%B8%E5%B0%98%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039188",
+                                    "abtId": "1872",
+                                    "title": "吸尘器"
+                                }
+                            },
+                            {
+                                "name": "胎压监测",
+                                "categoryId": "52039185",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 17,
+                                    "target_id": "52039185"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "汽车用品",
+                                    "second_category_id": "52047326",
+                                    "3rd_cat_title": "胎压监测",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039185&title=%E8%83%8E%E5%8E%8B%E7%9B%91%E6%B5%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039185",
+                                    "abtId": "",
+                                    "title": "胎压监测"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "家饰布艺",
+                        "categoryId": "52047322",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "钟饰/摆件",
+                                "categoryId": "52039172",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52039172"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "钟饰/摆件",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039172&title=%E9%92%9F%E9%A5%B0%2F%E6%91%86%E4%BB%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039172",
+                                    "abtId": "1872",
+                                    "title": "钟饰/摆件"
+                                }
+                            },
+                            {
+                                "name": "装饰画",
+                                "categoryId": "52039164",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52039164"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "装饰画",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039164&title=%E8%A3%85%E9%A5%B0%E7%94%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039164",
+                                    "abtId": "1872",
+                                    "title": "装饰画"
+                                }
+                            },
+                            {
+                                "name": "地毯地垫",
+                                "categoryId": "52039166",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52039166"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "地毯地垫",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039166&title=%E5%9C%B0%E6%AF%AF%E5%9C%B0%E5%9E%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039166",
+                                    "abtId": "1872",
+                                    "title": "地毯地垫"
+                                }
+                            },
+                            {
+                                "name": "抱枕/靠枕",
+                                "categoryId": "52039162",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52039162"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "抱枕/靠枕",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039162&title=%E6%8A%B1%E6%9E%95%2F%E9%9D%A0%E6%9E%95&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039162",
+                                    "abtId": "1872",
+                                    "title": "抱枕/靠枕"
+                                }
+                            },
+                            {
+                                "name": "窗帘窗纱",
+                                "categoryId": "52039165",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52039165"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "窗帘窗纱",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039165&title=%E7%AA%97%E5%B8%98%E7%AA%97%E7%BA%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039165",
+                                    "abtId": "1872",
+                                    "title": "窗帘窗纱"
+                                }
+                            },
+                            {
+                                "name": "桌布罩件",
+                                "categoryId": "52039163",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52039163"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "桌布罩件",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039163&title=%E6%A1%8C%E5%B8%83%E7%BD%A9%E4%BB%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039163",
+                                    "abtId": "1872",
+                                    "title": "桌布罩件"
+                                }
+                            },
+                            {
+                                "name": "坐垫/靠垫",
+                                "categoryId": "52039169",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52039169"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "坐垫/靠垫",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039169&title=%E5%9D%90%E5%9E%AB%2F%E9%9D%A0%E5%9E%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039169",
+                                    "abtId": "1872",
+                                    "title": "坐垫/靠垫"
+                                }
+                            },
+                            {
+                                "name": "墙纸/墙贴",
+                                "categoryId": "52039173",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52039173"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "墙纸/墙贴",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039173&title=%E5%A2%99%E7%BA%B8%2F%E5%A2%99%E8%B4%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039173",
+                                    "abtId": "1872",
+                                    "title": "墙纸/墙贴"
+                                }
+                            },
+                            {
+                                "name": "花瓶/仿真花",
+                                "categoryId": "52039168",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52039168"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "花瓶/仿真花",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039168&title=%E8%8A%B1%E7%93%B6%2F%E4%BB%BF%E7%9C%9F%E8%8A%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039168",
+                                    "abtId": "1872",
+                                    "title": "花瓶/仿真花"
+                                }
+                            },
+                            {
+                                "name": "鲜花绿植",
+                                "categoryId": "52039170",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52039170"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "鲜花绿植",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039170&title=%E9%B2%9C%E8%8A%B1%E7%BB%BF%E6%A4%8D&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039170",
+                                    "abtId": "1872",
+                                    "title": "鲜花绿植"
+                                }
+                            },
+                            {
+                                "name": "墙饰",
+                                "categoryId": "52039171",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52039171"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "墙饰",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039171&title=%E5%A2%99%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039171",
+                                    "abtId": "1872",
+                                    "title": "墙饰"
+                                }
+                            },
+                            {
+                                "name": "照片墙/相框",
+                                "categoryId": "52039167",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52039167"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30069",
+                                    "2nd_cat_title": "家饰布艺",
+                                    "second_category_id": "52047322",
+                                    "3rd_cat_title": "照片墙/相框",
+                                    "1st_cat_title": "居家用品",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52039167&title=%E7%85%A7%E7%89%87%E5%A2%99%2F%E7%9B%B8%E6%A1%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52039167",
+                                    "abtId": "1872",
+                                    "title": "照片墙/相框"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

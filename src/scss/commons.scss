@@ -9,7 +9,8 @@
 .right {
   float: right;
 }
-em, i{
+em,
+i {
   font-style: normal;
 }
 /* 右栏 */
@@ -712,16 +713,21 @@ header {
 }
 .head .search-hots-pot {
   margin-left: -11px;
-  li {
-    float: left;
-    color: #999999;
-    line-height: 24px;
-  }
+  .hot-list {
+    width: 454px;
+    height: 20px;
+    overflow: hidden;
+    li {
+      float: left;
+      color: #999999;
+      line-height: 24px;
+    }
 
-  a {
-    display: inline-block;
-    color: #999999;
-    margin: 0 11px;
+    a {
+      display: inline-block;
+      color: #999999;
+      margin: 0 11px;
+    }
   }
 }
 /* 搜索框帮助部分 */
@@ -769,7 +775,7 @@ header {
 }
 /* nav导航栏部分 */
 nav {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 nav .main ul li {
   float: left;
@@ -947,7 +953,7 @@ nav .more {
     position: absolute;
     left: 0;
     top: 44px;
-    z-index: 10;
+    z-index: 100;
     padding: 0 15px 0 20px;
     background: #fff;
     display: none;

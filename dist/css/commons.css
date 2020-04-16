@@ -10,7 +10,8 @@
 .right {
   float: right; }
 
-em, i {
+em,
+i {
   font-style: normal; }
 
 /* 右栏 */
@@ -586,14 +587,18 @@ header {
 
 .head .search-hots-pot {
   margin-left: -11px; }
-  .head .search-hots-pot li {
-    float: left;
-    color: #999999;
-    line-height: 24px; }
-  .head .search-hots-pot a {
-    display: inline-block;
-    color: #999999;
-    margin: 0 11px; }
+  .head .search-hots-pot .hot-list {
+    width: 454px;
+    height: 20px;
+    overflow: hidden; }
+    .head .search-hots-pot .hot-list li {
+      float: left;
+      color: #999999;
+      line-height: 24px; }
+    .head .search-hots-pot .hot-list a {
+      display: inline-block;
+      color: #999999;
+      margin: 0 11px; }
 
 /* 搜索框帮助部分 */
 .head .search-helper {
@@ -780,7 +785,7 @@ nav .more {
     position: absolute;
     left: 0;
     top: 44px;
-    z-index: 10;
+    z-index: 100;
     padding: 0 15px 0 20px;
     background: #fff;
     display: none; }

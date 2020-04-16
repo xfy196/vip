@@ -1,0 +1,2955 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "女靴",
+                        "categoryId": "52177328",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "短靴",
+                                "categoryId": "52176274",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52176274"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "短靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52176274&title=%E7%9F%AD%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52176274",
+                                    "abtId": "1872",
+                                    "title": "短靴"
+                                }
+                            },
+                            {
+                                "name": "粗跟靴",
+                                "categoryId": "52177256",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52177256"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "粗跟靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177256&title=%E7%B2%97%E8%B7%9F%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177256",
+                                    "abtId": "1872",
+                                    "title": "粗跟靴"
+                                }
+                            },
+                            {
+                                "name": "马丁靴",
+                                "categoryId": "52177254",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52177254"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "马丁靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177254&title=%E9%A9%AC%E4%B8%81%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177254",
+                                    "abtId": "1872",
+                                    "title": "马丁靴"
+                                }
+                            },
+                            {
+                                "name": "踝靴",
+                                "categoryId": "52177253",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52177253"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "踝靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177253&title=%E8%B8%9D%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177253",
+                                    "abtId": "1872",
+                                    "title": "踝靴"
+                                }
+                            },
+                            {
+                                "name": "切尔西靴",
+                                "categoryId": "52177255",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52177255"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "切尔西靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177255&title=%E5%88%87%E5%B0%94%E8%A5%BF%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177255",
+                                    "abtId": "1872",
+                                    "title": "切尔西靴"
+                                }
+                            },
+                            {
+                                "name": "高筒靴",
+                                "categoryId": "52177251",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52177251"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "高筒靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177251&title=%E9%AB%98%E7%AD%92%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177251",
+                                    "abtId": "1872",
+                                    "title": "高筒靴"
+                                }
+                            },
+                            {
+                                "name": "过膝靴",
+                                "categoryId": "52177252",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52177252"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "过膝靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177252&title=%E8%BF%87%E8%86%9D%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177252",
+                                    "abtId": "1872",
+                                    "title": "过膝靴"
+                                }
+                            },
+                            {
+                                "name": "雪地靴",
+                                "categoryId": "52177257",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52177257"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "雪地靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177257&title=%E9%9B%AA%E5%9C%B0%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177257",
+                                    "abtId": "1872",
+                                    "title": "雪地靴"
+                                }
+                            },
+                            {
+                                "name": "袜靴",
+                                "categoryId": "52177258",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52177258"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女靴",
+                                    "second_category_id": "52177328",
+                                    "3rd_cat_title": "袜靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52177258&title=%E8%A2%9C%E9%9D%B4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52177258",
+                                    "abtId": "",
+                                    "title": "袜靴"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "女单鞋",
+                        "categoryId": "52047304",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "厚底鞋",
+                                "categoryId": "52044455",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044455"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "厚底鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044455&title=%E5%8E%9A%E5%BA%95%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044455",
+                                    "abtId": "1872",
+                                    "title": "厚底鞋"
+                                }
+                            },
+                            {
+                                "name": "粗跟鞋",
+                                "categoryId": "52044459",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044459"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "粗跟鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044459&title=%E7%B2%97%E8%B7%9F%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044459",
+                                    "abtId": "1872",
+                                    "title": "粗跟鞋"
+                                }
+                            },
+                            {
+                                "name": "浅口单鞋",
+                                "categoryId": "52044457",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044457"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "浅口单鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044457&title=%E6%B5%85%E5%8F%A3%E5%8D%95%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044457",
+                                    "abtId": "1872",
+                                    "title": "浅口单鞋"
+                                }
+                            },
+                            {
+                                "name": "低跟鞋",
+                                "categoryId": "52044460",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044460"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "低跟鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044460&title=%E4%BD%8E%E8%B7%9F%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044460",
+                                    "abtId": "1872",
+                                    "title": "低跟鞋"
+                                }
+                            },
+                            {
+                                "name": "深口单鞋",
+                                "categoryId": "52044454",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044454"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "深口单鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044454&title=%E6%B7%B1%E5%8F%A3%E5%8D%95%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044454",
+                                    "abtId": "1872",
+                                    "title": "深口单鞋"
+                                }
+                            },
+                            {
+                                "name": "高跟鞋",
+                                "categoryId": "52044458",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044458"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "高跟鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044458&title=%E9%AB%98%E8%B7%9F%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044458",
+                                    "abtId": "1872",
+                                    "title": "高跟鞋"
+                                }
+                            },
+                            {
+                                "name": "尖头鞋",
+                                "categoryId": "52044456",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044456"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "尖头鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044456&title=%E5%B0%96%E5%A4%B4%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044456",
+                                    "abtId": "1872",
+                                    "title": "尖头鞋"
+                                }
+                            },
+                            {
+                                "name": "玛丽珍鞋",
+                                "categoryId": "52044462",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044462"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "玛丽珍鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044462&title=%E7%8E%9B%E4%B8%BD%E7%8F%8D%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044462",
+                                    "abtId": "1872",
+                                    "title": "玛丽珍鞋"
+                                }
+                            },
+                            {
+                                "name": "穆勒鞋",
+                                "categoryId": "52044461",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044461"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女单鞋",
+                                    "second_category_id": "52047304",
+                                    "3rd_cat_title": "穆勒鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044461&title=%E7%A9%86%E5%8B%92%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044461",
+                                    "abtId": "1872",
+                                    "title": "穆勒鞋"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "女休闲鞋",
+                        "categoryId": "52047302",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "运动鞋",
+                                "categoryId": "52044469",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044469"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "运动鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044469&title=%E8%BF%90%E5%8A%A8%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044469",
+                                    "abtId": "1872",
+                                    "title": "运动鞋"
+                                }
+                            },
+                            {
+                                "name": "帆布鞋",
+                                "categoryId": "52044472",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044472"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "帆布鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044472&title=%E5%B8%86%E5%B8%83%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044472",
+                                    "abtId": "1872",
+                                    "title": "帆布鞋"
+                                }
+                            },
+                            {
+                                "name": "板鞋",
+                                "categoryId": "52183566",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52183566"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "板鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52183566&title=%E6%9D%BF%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52183566",
+                                    "abtId": "1872",
+                                    "title": "板鞋"
+                                }
+                            },
+                            {
+                                "name": "小白鞋",
+                                "categoryId": "52044470",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044470"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "小白鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044470&title=%E5%B0%8F%E7%99%BD%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044470",
+                                    "abtId": "1872",
+                                    "title": "小白鞋"
+                                }
+                            },
+                            {
+                                "name": "老爹鞋",
+                                "categoryId": "52044474",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044474"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "老爹鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044474&title=%E8%80%81%E7%88%B9%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044474",
+                                    "abtId": "1872",
+                                    "title": "老爹鞋"
+                                }
+                            },
+                            {
+                                "name": "内增高",
+                                "categoryId": "52044473",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044473"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "内增高",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044473&title=%E5%86%85%E5%A2%9E%E9%AB%98&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044473",
+                                    "abtId": "1872",
+                                    "title": "内增高"
+                                }
+                            },
+                            {
+                                "name": "乐福鞋",
+                                "categoryId": "52044471",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044471"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "乐福鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044471&title=%E4%B9%90%E7%A6%8F%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044471",
+                                    "abtId": "1872",
+                                    "title": "乐福鞋"
+                                }
+                            },
+                            {
+                                "name": "网面鞋",
+                                "categoryId": "52044475",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044475"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "网面鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044475&title=%E7%BD%91%E9%9D%A2%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044475",
+                                    "abtId": "1872",
+                                    "title": "网面鞋"
+                                }
+                            },
+                            {
+                                "name": "椰子鞋",
+                                "categoryId": "52044477",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044477"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女休闲鞋",
+                                    "second_category_id": "52047302",
+                                    "3rd_cat_title": "椰子鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044477&title=%E6%A4%B0%E5%AD%90%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044477",
+                                    "abtId": "1872",
+                                    "title": "椰子鞋"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "男休闲鞋",
+                        "categoryId": "52047400",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "一脚蹬",
+                                "categoryId": "52044513",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044513"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "一脚蹬",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044513&title=%E4%B8%80%E8%84%9A%E8%B9%AC&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044513",
+                                    "abtId": "1872",
+                                    "title": "一脚蹬"
+                                }
+                            },
+                            {
+                                "name": "休闲皮鞋",
+                                "categoryId": "52044510",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044510"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "休闲皮鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044510&title=%E4%BC%91%E9%97%B2%E7%9A%AE%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044510",
+                                    "abtId": "1872",
+                                    "title": "休闲皮鞋"
+                                }
+                            },
+                            {
+                                "name": "豆豆鞋",
+                                "categoryId": "52044514",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044514"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "豆豆鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044514&title=%E8%B1%86%E8%B1%86%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044514",
+                                    "abtId": "1872",
+                                    "title": "豆豆鞋"
+                                }
+                            },
+                            {
+                                "name": "运动鞋",
+                                "categoryId": "52183887",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52183887"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "运动鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52183887&title=%E8%BF%90%E5%8A%A8%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52183887",
+                                    "abtId": "",
+                                    "title": "运动鞋"
+                                }
+                            },
+                            {
+                                "name": "老爹鞋",
+                                "categoryId": "52044515",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044515"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "老爹鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044515&title=%E8%80%81%E7%88%B9%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044515",
+                                    "abtId": "",
+                                    "title": "老爹鞋"
+                                }
+                            },
+                            {
+                                "name": "帆布鞋",
+                                "categoryId": "52044511",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044511"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "帆布鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044511&title=%E5%B8%86%E5%B8%83%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044511",
+                                    "abtId": "",
+                                    "title": "帆布鞋"
+                                }
+                            },
+                            {
+                                "name": "小白鞋",
+                                "categoryId": "52044517",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044517"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "小白鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044517&title=%E5%B0%8F%E7%99%BD%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044517",
+                                    "abtId": "",
+                                    "title": "小白鞋"
+                                }
+                            },
+                            {
+                                "name": "椰子鞋",
+                                "categoryId": "52044516",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044516"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "椰子鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044516&title=%E6%A4%B0%E5%AD%90%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044516",
+                                    "abtId": "",
+                                    "title": "椰子鞋"
+                                }
+                            },
+                            {
+                                "name": "网面鞋",
+                                "categoryId": "52044512",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044512"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男休闲鞋",
+                                    "second_category_id": "52047400",
+                                    "3rd_cat_title": "网面鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044512&title=%E7%BD%91%E9%9D%A2%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044512",
+                                    "abtId": "",
+                                    "title": "网面鞋"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "男靴",
+                        "categoryId": "52184353",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "男靴",
+                                "categoryId": "52179560",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52179560"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男靴",
+                                    "second_category_id": "52184353",
+                                    "3rd_cat_title": "男靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52179560&title=%E7%94%B7%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52179560",
+                                    "abtId": "1872",
+                                    "title": "男靴"
+                                }
+                            },
+                            {
+                                "name": "工装靴",
+                                "categoryId": "52179562",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52179562"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男靴",
+                                    "second_category_id": "52184353",
+                                    "3rd_cat_title": "工装靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52179562&title=%E5%B7%A5%E8%A3%85%E9%9D%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52179562",
+                                    "abtId": "1872",
+                                    "title": "工装靴"
+                                }
+                            },
+                            {
+                                "name": "马丁靴",
+                                "categoryId": "52179561",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52179561"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男靴",
+                                    "second_category_id": "52184353",
+                                    "3rd_cat_title": "马丁靴",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52179561&title=%E9%A9%AC%E4%B8%81%E9%9D%B4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52179561",
+                                    "abtId": "",
+                                    "title": "马丁靴"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "男商务鞋",
+                        "categoryId": "52047401",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "正装鞋",
+                                "categoryId": "52044520",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044520"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "正装鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044520&title=%E6%AD%A3%E8%A3%85%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044520",
+                                    "abtId": "1872",
+                                    "title": "正装鞋"
+                                }
+                            },
+                            {
+                                "name": "系带商务鞋",
+                                "categoryId": "52044521",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044521"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "系带商务鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044521&title=%E7%B3%BB%E5%B8%A6%E5%95%86%E5%8A%A1%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044521",
+                                    "abtId": "1872",
+                                    "title": "系带商务鞋"
+                                }
+                            },
+                            {
+                                "name": "套脚商务鞋",
+                                "categoryId": "52044523",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044523"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "套脚商务鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044523&title=%E5%A5%97%E8%84%9A%E5%95%86%E5%8A%A1%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044523",
+                                    "abtId": "1872",
+                                    "title": "套脚商务鞋"
+                                }
+                            },
+                            {
+                                "name": "德比鞋",
+                                "categoryId": "52044527",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044527"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "德比鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044527&title=%E5%BE%B7%E6%AF%94%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044527",
+                                    "abtId": "1872",
+                                    "title": "德比鞋"
+                                }
+                            },
+                            {
+                                "name": "英伦鞋",
+                                "categoryId": "52044524",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044524"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "英伦鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044524&title=%E8%8B%B1%E4%BC%A6%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044524",
+                                    "abtId": "1872",
+                                    "title": "英伦鞋"
+                                }
+                            },
+                            {
+                                "name": "布洛克鞋",
+                                "categoryId": "52044525",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044525"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "布洛克鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044525&title=%E5%B8%83%E6%B4%9B%E5%85%8B%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044525",
+                                    "abtId": "1872",
+                                    "title": "布洛克鞋"
+                                }
+                            },
+                            {
+                                "name": "冲孔鞋",
+                                "categoryId": "52044519",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044519"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "冲孔鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044519&title=%E5%86%B2%E5%AD%94%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044519",
+                                    "abtId": "1872",
+                                    "title": "冲孔鞋"
+                                }
+                            },
+                            {
+                                "name": "增高鞋",
+                                "categoryId": "52044526",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044526"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "增高鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044526&title=%E5%A2%9E%E9%AB%98%E9%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044526",
+                                    "abtId": "1872",
+                                    "title": "增高鞋"
+                                }
+                            },
+                            {
+                                "name": "休闲皮鞋",
+                                "categoryId": "52044522",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044522"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男商务鞋",
+                                    "second_category_id": "52047401",
+                                    "3rd_cat_title": "休闲皮鞋",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044522&title=%E4%BC%91%E9%97%B2%E7%9A%AE%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044522",
+                                    "abtId": "",
+                                    "title": "休闲皮鞋"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "女包",
+                        "categoryId": "52047405",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "单肩包",
+                                "categoryId": "52044562",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044562"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "单肩包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044562&title=%E5%8D%95%E8%82%A9%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044562",
+                                    "abtId": "1872",
+                                    "title": "单肩包"
+                                }
+                            },
+                            {
+                                "name": "小方包",
+                                "categoryId": "52044564",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044564"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "小方包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044564&title=%E5%B0%8F%E6%96%B9%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044564",
+                                    "abtId": "1872",
+                                    "title": "小方包"
+                                }
+                            },
+                            {
+                                "name": "双肩包",
+                                "categoryId": "52044560",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044560"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "双肩包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044560&title=%E5%8F%8C%E8%82%A9%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044560",
+                                    "abtId": "1872",
+                                    "title": "双肩包"
+                                }
+                            },
+                            {
+                                "name": "实用大包",
+                                "categoryId": "52044557",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044557"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "实用大包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044557&title=%E5%AE%9E%E7%94%A8%E5%A4%A7%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044557",
+                                    "abtId": "1872",
+                                    "title": "实用大包"
+                                }
+                            },
+                            {
+                                "name": "钱包",
+                                "categoryId": "52044565",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044565"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "钱包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044565&title=%E9%92%B1%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044565",
+                                    "abtId": "1872",
+                                    "title": "钱包"
+                                }
+                            },
+                            {
+                                "name": "手拿包",
+                                "categoryId": "52044563",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044563"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "手拿包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044563&title=%E6%89%8B%E6%8B%BF%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044563",
+                                    "abtId": "1872",
+                                    "title": "手拿包"
+                                }
+                            },
+                            {
+                                "name": "斜挎包",
+                                "categoryId": "52044558",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044558"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "斜挎包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044558&title=%E6%96%9C%E6%8C%8E%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044558",
+                                    "abtId": "1872",
+                                    "title": "斜挎包"
+                                }
+                            },
+                            {
+                                "name": "真皮包",
+                                "categoryId": "52044559",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044559"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "真皮包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044559&title=%E7%9C%9F%E7%9A%AE%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044559",
+                                    "abtId": "1872",
+                                    "title": "真皮包"
+                                }
+                            },
+                            {
+                                "name": "手提包",
+                                "categoryId": "52044561",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044561"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "女包",
+                                    "second_category_id": "52047405",
+                                    "3rd_cat_title": "手提包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044561&title=%E6%89%8B%E6%8F%90%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044561",
+                                    "abtId": "1872",
+                                    "title": "手提包"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "男包",
+                        "categoryId": "52047407",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "单肩/斜挎包",
+                                "categoryId": "52044567",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044567"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "单肩/斜挎包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044567&title=%E5%8D%95%E8%82%A9%2F%E6%96%9C%E6%8C%8E%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044567",
+                                    "abtId": "1872",
+                                    "title": "单肩/斜挎包"
+                                }
+                            },
+                            {
+                                "name": "男式钱包",
+                                "categoryId": "52044570",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044570"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "男式钱包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044570&title=%E7%94%B7%E5%BC%8F%E9%92%B1%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044570",
+                                    "abtId": "1872",
+                                    "title": "男式钱包"
+                                }
+                            },
+                            {
+                                "name": "商务公文包",
+                                "categoryId": "52044566",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044566"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "商务公文包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044566&title=%E5%95%86%E5%8A%A1%E5%85%AC%E6%96%87%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044566",
+                                    "abtId": "1872",
+                                    "title": "商务公文包"
+                                }
+                            },
+                            {
+                                "name": "腰包",
+                                "categoryId": "52044571",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044571"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "腰包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044571&title=%E8%85%B0%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044571",
+                                    "abtId": "1872",
+                                    "title": "腰包"
+                                }
+                            },
+                            {
+                                "name": "双肩包",
+                                "categoryId": "52044568",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044568"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "双肩包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044568&title=%E5%8F%8C%E8%82%A9%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044568",
+                                    "abtId": "",
+                                    "title": "双肩包"
+                                }
+                            },
+                            {
+                                "name": "手拿包",
+                                "categoryId": "52044569",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044569"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "男包",
+                                    "second_category_id": "52047407",
+                                    "3rd_cat_title": "手拿包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044569&title=%E6%89%8B%E6%8B%BF%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044569",
+                                    "abtId": "",
+                                    "title": "手拿包"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "功能箱包",
+                        "categoryId": "52047404",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "男/女皮带",
+                                "categoryId": "52044575",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044575"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "男/女皮带",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044575&title=%E7%94%B7%2F%E5%A5%B3%E7%9A%AE%E5%B8%A6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044575",
+                                    "abtId": "1872",
+                                    "title": "男/女皮带"
+                                }
+                            },
+                            {
+                                "name": "硬壳箱",
+                                "categoryId": "52044574",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044574"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "硬壳箱",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044574&title=%E7%A1%AC%E5%A3%B3%E7%AE%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044574",
+                                    "abtId": "1872",
+                                    "title": "硬壳箱"
+                                }
+                            },
+                            {
+                                "name": "旅行包",
+                                "categoryId": "52044576",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044576"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "旅行包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044576&title=%E6%97%85%E8%A1%8C%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044576",
+                                    "abtId": "1872",
+                                    "title": "旅行包"
+                                }
+                            },
+                            {
+                                "name": "电脑包",
+                                "categoryId": "52044578",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044578"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "电脑包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044578&title=%E7%94%B5%E8%84%91%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044578",
+                                    "abtId": "1872",
+                                    "title": "电脑包"
+                                }
+                            },
+                            {
+                                "name": "钥匙包",
+                                "categoryId": "52044579",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044579"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "钥匙包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044579&title=%E9%92%A5%E5%8C%99%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044579",
+                                    "abtId": "1872",
+                                    "title": "钥匙包"
+                                }
+                            },
+                            {
+                                "name": "运动包",
+                                "categoryId": "52044577",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044577"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "运动包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044577&title=%E8%BF%90%E5%8A%A8%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044577",
+                                    "abtId": "1872",
+                                    "title": "运动包"
+                                }
+                            },
+                            {
+                                "name": "零钱包",
+                                "categoryId": "52044580",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52044580"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "零钱包",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044580&title=%E9%9B%B6%E9%92%B1%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044580",
+                                    "abtId": "1872",
+                                    "title": "零钱包"
+                                }
+                            },
+                            {
+                                "name": "登机箱",
+                                "categoryId": "52044573",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52044573"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "登机箱",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044573&title=%E7%99%BB%E6%9C%BA%E7%AE%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044573",
+                                    "abtId": "1872",
+                                    "title": "登机箱"
+                                }
+                            },
+                            {
+                                "name": "拉杆箱",
+                                "categoryId": "52044572",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52044572"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "功能箱包",
+                                    "second_category_id": "52047404",
+                                    "3rd_cat_title": "拉杆箱",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044572&title=%E6%8B%89%E6%9D%86%E7%AE%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044572",
+                                    "abtId": "1872",
+                                    "title": "拉杆箱"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10010546",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "沙驰",
+                                "categoryId": "10010547",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/cf6c0e85b0414299a327b363add57d37/10000689/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10000689"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "沙驰",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000689&brandName=%E6%B2%99%E9%A9%B0&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000689"
+                                }
+                            },
+                            {
+                                "name": "百丽",
+                                "categoryId": "10010548",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/87b8957550f14dd6b9224cae14f63ebb/10026338/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10026338"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "百丽",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10026338&brandName=%E7%99%BE%E4%B8%BD&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10026338"
+                                }
+                            },
+                            {
+                                "name": "金利来",
+                                "categoryId": "10011345",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/350597c1c66e4c1aa4ea082c42cd7ff0/10000466/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10000466"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "金利来",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000466&brandName=%E9%87%91%E5%88%A9%E6%9D%A5&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000466"
+                                }
+                            },
+                            {
+                                "name": "COACH",
+                                "categoryId": "10010552",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/6be3cb462a38441fb277118af5960bbb/10025557/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10025557"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "COACH",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10025557&brandName=COACH&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10025557"
+                                }
+                            },
+                            {
+                                "name": "骆驼",
+                                "categoryId": "10011346",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/5abbbb2f84ff41dea8c7005f2f3def51/10007920/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10007920"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "骆驼",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10007920&brandName=%E9%AA%86%E9%A9%BC&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10007920"
+                                }
+                            },
+                            {
+                                "name": "他她",
+                                "categoryId": "10010549",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/02ebecede92543c99b8aa4dc7088f59d/10000731/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10000731"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "他她",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000731&brandName=%E4%BB%96%E5%A5%B9&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000731"
+                                }
+                            },
+                            {
+                                "name": "天美意",
+                                "categoryId": "10010550",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/04711cfb719443b3b28eb5ad36d39197/10026339/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10026339"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "天美意",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10026339&brandName=%E5%A4%A9%E7%BE%8E%E6%84%8F&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10026339"
+                                }
+                            },
+                            {
+                                "name": "百思图",
+                                "categoryId": "10011347",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/32f043cc6925403895251ea1312965d6/10000291/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10000291"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "百思图",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000291&brandName=%E7%99%BE%E6%80%9D%E5%9B%BE&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000291"
+                                }
+                            },
+                            {
+                                "name": "卡帝乐鳄鱼",
+                                "categoryId": "10011348",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/63e554dbc973460c88e085c1cc649d67/10000481/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10000481"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "324442",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010546",
+                                    "3rd_cat_title": "卡帝乐鳄鱼",
+                                    "1st_cat_title": "女鞋/男鞋/箱包",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000481&brandName=%E5%8D%A1%E5%B8%9D%E4%B9%90%E9%B3%84%E9%B1%BC&category_parent_id=324442",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000481"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,816 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "隐形眼镜",
+                        "categoryId": "52047285",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "隐形眼镜/白片",
+                                "categoryId": "52041720",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/171/15359670812140.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041720"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "隐形眼镜",
+                                    "second_category_id": "52047285",
+                                    "3rd_cat_title": "隐形眼镜/白片",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041720&title=%E9%9A%90%E5%BD%A2%E7%9C%BC%E9%95%9C%2F%E7%99%BD%E7%89%87&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041720",
+                                    "abtId": "",
+                                    "title": "隐形眼镜/白片"
+                                }
+                            },
+                            {
+                                "name": "护理液",
+                                "categoryId": "52041722",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/15/15359671046415.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041722"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "隐形眼镜",
+                                    "second_category_id": "52047285",
+                                    "3rd_cat_title": "护理液",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041722&title=%E6%8A%A4%E7%90%86%E6%B6%B2&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041722",
+                                    "abtId": "",
+                                    "title": "护理液"
+                                }
+                            },
+                            {
+                                "name": "美瞳/彩片",
+                                "categoryId": "52041719",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/144/15359670751258.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041719"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "隐形眼镜",
+                                    "second_category_id": "52047285",
+                                    "3rd_cat_title": "美瞳/彩片",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041719&title=%E7%BE%8E%E7%9E%B3%2F%E5%BD%A9%E7%89%87&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041719",
+                                    "abtId": "",
+                                    "title": "美瞳/彩片"
+                                }
+                            },
+                            {
+                                "name": "洗眼液",
+                                "categoryId": "52041723",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2020/03/13/146/158407217778510085.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041723"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "隐形眼镜",
+                                    "second_category_id": "52047285",
+                                    "3rd_cat_title": "洗眼液",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041723&title=%E6%B4%97%E7%9C%BC%E6%B6%B2&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041723",
+                                    "abtId": "",
+                                    "title": "洗眼液"
+                                }
+                            },
+                            {
+                                "name": "润眼液",
+                                "categoryId": "52041721",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/42/15359670981823.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041721"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "隐形眼镜",
+                                    "second_category_id": "52047285",
+                                    "3rd_cat_title": "润眼液",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041721&title=%E6%B6%A6%E7%9C%BC%E6%B6%B2&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041721",
+                                    "abtId": "",
+                                    "title": "润眼液"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "计生用品",
+                        "categoryId": "52047284",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "避孕套",
+                                "categoryId": "52041734",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/45/15359673856970.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041734"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "计生用品",
+                                    "second_category_id": "52047284",
+                                    "3rd_cat_title": "避孕套",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041734&title=%E9%81%BF%E5%AD%95%E5%A5%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041734",
+                                    "abtId": "",
+                                    "title": "避孕套"
+                                }
+                            },
+                            {
+                                "name": "润滑液",
+                                "categoryId": "52044248",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/37/15359673913772.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044248"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "计生用品",
+                                    "second_category_id": "52047284",
+                                    "3rd_cat_title": "润滑液",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044248&title=%E6%B6%A6%E6%BB%91%E6%B6%B2&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044248",
+                                    "abtId": "",
+                                    "title": "润滑液"
+                                }
+                            },
+                            {
+                                "name": "验孕备孕",
+                                "categoryId": "52041735",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/60/15359673763080.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041735"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "计生用品",
+                                    "second_category_id": "52047284",
+                                    "3rd_cat_title": "验孕备孕",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041735&title=%E9%AA%8C%E5%AD%95%E5%A4%87%E5%AD%95&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041735",
+                                    "abtId": "",
+                                    "title": "验孕备孕"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "医疗器械",
+                        "categoryId": "52047280",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "康复理疗",
+                                "categoryId": "52041726",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/78/15359672826637.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041726"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "康复理疗",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041726&title=%E5%BA%B7%E5%A4%8D%E7%90%86%E7%96%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041726",
+                                    "abtId": "",
+                                    "title": "康复理疗"
+                                }
+                            },
+                            {
+                                "name": "血压计",
+                                "categoryId": "52041724",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/5/15359671526439.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041724"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "血压计",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041724&title=%E8%A1%80%E5%8E%8B%E8%AE%A1&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041724",
+                                    "abtId": "",
+                                    "title": "血压计"
+                                }
+                            },
+                            {
+                                "name": "体温计",
+                                "categoryId": "52041727",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041727"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "体温计",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041727&title=%E4%BD%93%E6%B8%A9%E8%AE%A1&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041727",
+                                    "abtId": "",
+                                    "title": "体温计"
+                                }
+                            },
+                            {
+                                "name": "呼吸机/制氧机",
+                                "categoryId": "52041731",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/136/15359671774381.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041731"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "呼吸机/制氧机",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041731&title=%E5%91%BC%E5%90%B8%E6%9C%BA%2F%E5%88%B6%E6%B0%A7%E6%9C%BA&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041731",
+                                    "abtId": "",
+                                    "title": "呼吸机/制氧机"
+                                }
+                            },
+                            {
+                                "name": "助行器具",
+                                "categoryId": "52041732",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/91/15359672456030.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041732"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "助行器具",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041732&title=%E5%8A%A9%E8%A1%8C%E5%99%A8%E5%85%B7&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041732",
+                                    "abtId": "",
+                                    "title": "助行器具"
+                                }
+                            },
+                            {
+                                "name": "血糖用品",
+                                "categoryId": "52041725",
+                                "image": "https://a.vpimg3.com/upload/goadmin/2018/09/03/187/15359671863162.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041725"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "331849",
+                                    "2nd_cat_title": "医疗器械",
+                                    "second_category_id": "52047280",
+                                    "3rd_cat_title": "血糖用品",
+                                    "1st_cat_title": "医药健康",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041725&title=%E8%A1%80%E7%B3%96%E7%94%A8%E5%93%81&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041725",
+                                    "abtId": "",
+                                    "title": "血糖用品"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

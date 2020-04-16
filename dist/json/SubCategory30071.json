@@ -1,0 +1,3087 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "面部护肤",
+                        "categoryId": "10010406",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "T区护理",
+                                "categoryId": "52040420",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040420"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "T区护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040420&title=T%E5%8C%BA%E6%8A%A4%E7%90%86&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040420",
+                                    "abtId": "",
+                                    "title": "T区护理"
+                                }
+                            },
+                            {
+                                "name": "唇部护理",
+                                "categoryId": "52040419",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040419"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "唇部护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040419&title=%E5%94%87%E9%83%A8%E6%8A%A4%E7%90%86&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040419",
+                                    "abtId": "",
+                                    "title": "唇部护理"
+                                }
+                            },
+                            {
+                                "name": "防晒",
+                                "categoryId": "52040417",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040417"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "防晒",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040417&title=%E9%98%B2%E6%99%92&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040417",
+                                    "abtId": "",
+                                    "title": "防晒"
+                                }
+                            },
+                            {
+                                "name": "护肤套装",
+                                "categoryId": "52040409",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040409"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "护肤套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040409&title=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040409",
+                                    "abtId": "",
+                                    "title": "护肤套装"
+                                }
+                            },
+                            {
+                                "name": "爽肤水",
+                                "categoryId": "52040413",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040413"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "爽肤水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040413&title=%E7%88%BD%E8%82%A4%E6%B0%B4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040413",
+                                    "abtId": "",
+                                    "title": "爽肤水"
+                                }
+                            },
+                            {
+                                "name": "洗面奶",
+                                "categoryId": "52040412",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040412"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "面部护肤",
+                                    "second_category_id": "10010406",
+                                    "3rd_cat_title": "洗面奶",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040412&title=%E6%B4%97%E9%9D%A2%E5%A5%B6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040412",
+                                    "abtId": "",
+                                    "title": "洗面奶"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "精致彩妆",
+                        "categoryId": "52047359",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "眼线笔/膏",
+                                "categoryId": "52040422",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040422"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "眼线笔/膏",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040422&title=%E7%9C%BC%E7%BA%BF%E7%AC%94%2F%E8%86%8F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040422",
+                                    "abtId": "1872",
+                                    "title": "眼线笔/膏"
+                                }
+                            },
+                            {
+                                "name": "隔离",
+                                "categoryId": "52040436",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040436"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "隔离",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040436&title=%E9%9A%94%E7%A6%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040436",
+                                    "abtId": "1872",
+                                    "title": "隔离"
+                                }
+                            },
+                            {
+                                "name": "口红",
+                                "categoryId": "52040425",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040425"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "口红",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040425&title=%E5%8F%A3%E7%BA%A2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040425",
+                                    "abtId": "1872",
+                                    "title": "口红"
+                                }
+                            },
+                            {
+                                "name": "眼影",
+                                "categoryId": "52040424",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040424"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "眼影",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040424&title=%E7%9C%BC%E5%BD%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040424",
+                                    "abtId": "1872",
+                                    "title": "眼影"
+                                }
+                            },
+                            {
+                                "name": "气垫BB",
+                                "categoryId": "52040428",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040428"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "气垫BB",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040428&title=%E6%B0%94%E5%9E%ABBB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040428",
+                                    "abtId": "1872",
+                                    "title": "气垫BB"
+                                }
+                            },
+                            {
+                                "name": "散粉/蜜粉",
+                                "categoryId": "52040430",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040430"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "散粉/蜜粉",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040430&title=%E6%95%A3%E7%B2%89%2F%E8%9C%9C%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040430",
+                                    "abtId": "1872",
+                                    "title": "散粉/蜜粉"
+                                }
+                            },
+                            {
+                                "name": "素颜霜",
+                                "categoryId": "52040437",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52040437"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "素颜霜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040437&title=%E7%B4%A0%E9%A2%9C%E9%9C%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040437",
+                                    "abtId": "1872",
+                                    "title": "素颜霜"
+                                }
+                            },
+                            {
+                                "name": "BB霜",
+                                "categoryId": "52040427",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52040427"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "BB霜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040427&title=BB%E9%9C%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040427",
+                                    "abtId": "1872",
+                                    "title": "BB霜"
+                                }
+                            },
+                            {
+                                "name": "睫毛膏",
+                                "categoryId": "52040432",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52040432"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "睫毛膏",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040432&title=%E7%9D%AB%E6%AF%9B%E8%86%8F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040432",
+                                    "abtId": "1872",
+                                    "title": "睫毛膏"
+                                }
+                            },
+                            {
+                                "name": "彩妆套装",
+                                "categoryId": "52040438",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52040438"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "彩妆套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040438&title=%E5%BD%A9%E5%A6%86%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040438",
+                                    "abtId": "1872",
+                                    "title": "彩妆套装"
+                                }
+                            },
+                            {
+                                "name": "眉笔",
+                                "categoryId": "52040423",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52040423"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "眉笔",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040423&title=%E7%9C%89%E7%AC%94&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040423",
+                                    "abtId": "1872",
+                                    "title": "眉笔"
+                                }
+                            },
+                            {
+                                "name": "唇釉/唇彩",
+                                "categoryId": "52040426",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52040426"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "唇釉/唇彩",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040426&title=%E5%94%87%E9%87%89%2F%E5%94%87%E5%BD%A9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040426",
+                                    "abtId": "1872",
+                                    "title": "唇釉/唇彩"
+                                }
+                            },
+                            {
+                                "name": "妆前乳",
+                                "categoryId": "52040435",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 13,
+                                    "target_id": "52040435"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "妆前乳",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040435&title=%E5%A6%86%E5%89%8D%E4%B9%B3&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040435",
+                                    "abtId": "1872",
+                                    "title": "妆前乳"
+                                }
+                            },
+                            {
+                                "name": "遮瑕/修颜",
+                                "categoryId": "52040434",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 14,
+                                    "target_id": "52040434"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "遮瑕/修颜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040434&title=%E9%81%AE%E7%91%95%2F%E4%BF%AE%E9%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040434",
+                                    "abtId": "1872",
+                                    "title": "遮瑕/修颜"
+                                }
+                            },
+                            {
+                                "name": "粉饼",
+                                "categoryId": "52040429",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 15,
+                                    "target_id": "52040429"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "粉饼",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040429&title=%E7%B2%89%E9%A5%BC&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040429",
+                                    "abtId": "1872",
+                                    "title": "粉饼"
+                                }
+                            },
+                            {
+                                "name": "腮红",
+                                "categoryId": "52040433",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 16,
+                                    "target_id": "52040433"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "腮红",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040433&title=%E8%85%AE%E7%BA%A2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040433",
+                                    "abtId": "1872",
+                                    "title": "腮红"
+                                }
+                            },
+                            {
+                                "name": "定妆",
+                                "categoryId": "52040431",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 17,
+                                    "target_id": "52040431"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "定妆",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040431&title=%E5%AE%9A%E5%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040431",
+                                    "abtId": "1872",
+                                    "title": "定妆"
+                                }
+                            },
+                            {
+                                "name": "眼唇卸妆",
+                                "categoryId": "52040439",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 18,
+                                    "target_id": "52040439"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "精致彩妆",
+                                    "second_category_id": "52047359",
+                                    "3rd_cat_title": "眼唇卸妆",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040439&title=%E7%9C%BC%E5%94%87%E5%8D%B8%E5%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040439",
+                                    "abtId": "1872",
+                                    "title": "眼唇卸妆"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "迷人香水",
+                        "categoryId": "52047362",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "女士香水",
+                                "categoryId": "52040440",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040440"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "迷人香水",
+                                    "second_category_id": "52047362",
+                                    "3rd_cat_title": "女士香水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040440&title=%E5%A5%B3%E5%A3%AB%E9%A6%99%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040440",
+                                    "abtId": "1872",
+                                    "title": "女士香水"
+                                }
+                            },
+                            {
+                                "name": "男士香水",
+                                "categoryId": "52040442",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040442"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "迷人香水",
+                                    "second_category_id": "52047362",
+                                    "3rd_cat_title": "男士香水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040442&title=%E7%94%B7%E5%A3%AB%E9%A6%99%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040442",
+                                    "abtId": "1872",
+                                    "title": "男士香水"
+                                }
+                            },
+                            {
+                                "name": "香水套装",
+                                "categoryId": "52040441",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040441"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "迷人香水",
+                                    "second_category_id": "52047362",
+                                    "3rd_cat_title": "香水套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040441&title=%E9%A6%99%E6%B0%B4%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040441",
+                                    "abtId": "1872",
+                                    "title": "香水套装"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "美甲",
+                        "categoryId": "52047361",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "美甲",
+                                "categoryId": "52040443",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040443"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美甲",
+                                    "second_category_id": "52047361",
+                                    "3rd_cat_title": "美甲",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040443&title=%E7%BE%8E%E7%94%B2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040443",
+                                    "abtId": "1872",
+                                    "title": "美甲"
+                                }
+                            },
+                            {
+                                "name": "美甲套装",
+                                "categoryId": "52040445",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040445"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美甲",
+                                    "second_category_id": "52047361",
+                                    "3rd_cat_title": "美甲套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040445&title=%E7%BE%8E%E7%94%B2%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040445",
+                                    "abtId": "1872",
+                                    "title": "美甲套装"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "美容工具",
+                        "categoryId": "52047360",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "化妆刷/包",
+                                "categoryId": "52040446",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040446"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "化妆刷/包",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040446&title=%E5%8C%96%E5%A6%86%E5%88%B7%2F%E5%8C%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040446",
+                                    "abtId": "1872",
+                                    "title": "化妆刷/包"
+                                }
+                            },
+                            {
+                                "name": "化妆棉",
+                                "categoryId": "52040447",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040447"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "化妆棉",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040447&title=%E5%8C%96%E5%A6%86%E6%A3%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040447",
+                                    "abtId": "1872",
+                                    "title": "化妆棉"
+                                }
+                            },
+                            {
+                                "name": "美容仪器",
+                                "categoryId": "52040449",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040449"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "美容仪器",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040449&title=%E7%BE%8E%E5%AE%B9%E4%BB%AA%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040449",
+                                    "abtId": "1872",
+                                    "title": "美容仪器"
+                                }
+                            },
+                            {
+                                "name": "洁面工具",
+                                "categoryId": "52040448",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040448"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "洁面工具",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040448&title=%E6%B4%81%E9%9D%A2%E5%B7%A5%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040448",
+                                    "abtId": "1872",
+                                    "title": "洁面工具"
+                                }
+                            },
+                            {
+                                "name": "睫毛夹",
+                                "categoryId": "52040450",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040450"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "睫毛夹",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040450&title=%E7%9D%AB%E6%AF%9B%E5%A4%B9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040450",
+                                    "abtId": "1872",
+                                    "title": "睫毛夹"
+                                }
+                            },
+                            {
+                                "name": "粉扑",
+                                "categoryId": "52040452",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040452"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "美容工具",
+                                    "second_category_id": "52047360",
+                                    "3rd_cat_title": "粉扑",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040452&title=%E7%B2%89%E6%89%91&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040452",
+                                    "abtId": "1872",
+                                    "title": "粉扑"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "洗发护发",
+                        "categoryId": "52047277",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "洗护套装",
+                                "categoryId": "52040456",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040456"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "洗护套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040456&title=%E6%B4%97%E6%8A%A4%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040456",
+                                    "abtId": "1872",
+                                    "title": "洗护套装"
+                                }
+                            },
+                            {
+                                "name": "洗发水",
+                                "categoryId": "52040455",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040455"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "洗发水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040455&title=%E6%B4%97%E5%8F%91%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040455",
+                                    "abtId": "1872",
+                                    "title": "洗发水"
+                                }
+                            },
+                            {
+                                "name": "染发/造型",
+                                "categoryId": "52040460",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040460"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "染发/造型",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040460&title=%E6%9F%93%E5%8F%91%2F%E9%80%A0%E5%9E%8B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040460",
+                                    "abtId": "1872",
+                                    "title": "染发/造型"
+                                }
+                            },
+                            {
+                                "name": "护发精油",
+                                "categoryId": "52040458",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040458"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "护发精油",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040458&title=%E6%8A%A4%E5%8F%91%E7%B2%BE%E6%B2%B9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040458",
+                                    "abtId": "1872",
+                                    "title": "护发精油"
+                                }
+                            },
+                            {
+                                "name": "护发素",
+                                "categoryId": "52040457",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040457"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "护发素",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040457&title=%E6%8A%A4%E5%8F%91%E7%B4%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040457",
+                                    "abtId": "1872",
+                                    "title": "护发素"
+                                }
+                            },
+                            {
+                                "name": "发膜",
+                                "categoryId": "52040459",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040459"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "洗发护发",
+                                    "second_category_id": "52047277",
+                                    "3rd_cat_title": "发膜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040459&title=%E5%8F%91%E8%86%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040459",
+                                    "abtId": "1872",
+                                    "title": "发膜"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "沐浴润肤",
+                        "categoryId": "52047276",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "男/女皮带",
+                                "categoryId": "52044575",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52044575"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "男/女皮带",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044575&title=%E7%94%B7%2F%E5%A5%B3%E7%9A%AE%E5%B8%A6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044575",
+                                    "abtId": "",
+                                    "title": "男/女皮带"
+                                }
+                            },
+                            {
+                                "name": "硬壳箱",
+                                "categoryId": "52044574",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52044574"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "硬壳箱",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044574&title=%E7%A1%AC%E5%A3%B3%E7%AE%B1&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044574",
+                                    "abtId": "",
+                                    "title": "硬壳箱"
+                                }
+                            },
+                            {
+                                "name": "旅行包",
+                                "categoryId": "52044576",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52044576"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "旅行包",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044576&title=%E6%97%85%E8%A1%8C%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044576",
+                                    "abtId": "",
+                                    "title": "旅行包"
+                                }
+                            },
+                            {
+                                "name": "电脑包",
+                                "categoryId": "52044578",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52044578"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "电脑包",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044578&title=%E7%94%B5%E8%84%91%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044578",
+                                    "abtId": "",
+                                    "title": "电脑包"
+                                }
+                            },
+                            {
+                                "name": "钥匙包",
+                                "categoryId": "52044579",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52044579"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "钥匙包",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044579&title=%E9%92%A5%E5%8C%99%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044579",
+                                    "abtId": "",
+                                    "title": "钥匙包"
+                                }
+                            },
+                            {
+                                "name": "零钱包",
+                                "categoryId": "52044580",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52044580"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "沐浴润肤",
+                                    "second_category_id": "52047276",
+                                    "3rd_cat_title": "零钱包",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52044580&title=%E9%9B%B6%E9%92%B1%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52044580",
+                                    "abtId": "",
+                                    "title": "零钱包"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "男士护理",
+                        "categoryId": "52047278",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "护肤套装",
+                                "categoryId": "52040473",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040473"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "护肤套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040473&title=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040473",
+                                    "abtId": "1872",
+                                    "title": "护肤套装"
+                                }
+                            },
+                            {
+                                "name": "男士洁面",
+                                "categoryId": "52040474",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040474"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "男士洁面",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040474&title=%E7%94%B7%E5%A3%AB%E6%B4%81%E9%9D%A2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040474",
+                                    "abtId": "1872",
+                                    "title": "男士洁面"
+                                }
+                            },
+                            {
+                                "name": "乳液",
+                                "categoryId": "52040479",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040479"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "乳液",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040479&title=%E4%B9%B3%E6%B6%B2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040479",
+                                    "abtId": "1872",
+                                    "title": "乳液"
+                                }
+                            },
+                            {
+                                "name": "爽肤水",
+                                "categoryId": "52040477",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040477"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "爽肤水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040477&title=%E7%88%BD%E8%82%A4%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040477",
+                                    "abtId": "1872",
+                                    "title": "爽肤水"
+                                }
+                            },
+                            {
+                                "name": "剃须用品",
+                                "categoryId": "52040482",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040482"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "剃须用品",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040482&title=%E5%89%83%E9%A1%BB%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040482",
+                                    "abtId": "1872",
+                                    "title": "剃须用品"
+                                }
+                            },
+                            {
+                                "name": "男士面膜",
+                                "categoryId": "52040475",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040475"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "男士面膜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040475&title=%E7%94%B7%E5%A3%AB%E9%9D%A2%E8%86%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040475",
+                                    "abtId": "1872",
+                                    "title": "男士面膜"
+                                }
+                            },
+                            {
+                                "name": "男士洗护",
+                                "categoryId": "52040483",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52040483"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "男士洗护",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040483&title=%E7%94%B7%E5%A3%AB%E6%B4%97%E6%8A%A4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040483",
+                                    "abtId": "1872",
+                                    "title": "男士洗护"
+                                }
+                            },
+                            {
+                                "name": "精华",
+                                "categoryId": "52040476",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52040476"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "精华",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040476&title=%E7%B2%BE%E5%8D%8E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040476",
+                                    "abtId": "1872",
+                                    "title": "精华"
+                                }
+                            },
+                            {
+                                "name": "面霜",
+                                "categoryId": "52040478",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52040478"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "面霜",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040478&title=%E9%9D%A2%E9%9C%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040478",
+                                    "abtId": "1872",
+                                    "title": "面霜"
+                                }
+                            },
+                            {
+                                "name": "男士香水",
+                                "categoryId": "52040481",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52040481"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "男士香水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040481&title=%E7%94%B7%E5%A3%AB%E9%A6%99%E6%B0%B4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040481",
+                                    "abtId": "",
+                                    "title": "男士香水"
+                                }
+                            },
+                            {
+                                "name": "染发/造型",
+                                "categoryId": "52040484",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52040484"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "男士护理",
+                                    "second_category_id": "52047278",
+                                    "3rd_cat_title": "染发/造型",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040484&title=%E6%9F%93%E5%8F%91%2F%E9%80%A0%E5%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040484",
+                                    "abtId": "",
+                                    "title": "染发/造型"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "口腔护理",
+                        "categoryId": "52047274",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "牙膏",
+                                "categoryId": "52040467",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040467"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "口腔护理",
+                                    "second_category_id": "52047274",
+                                    "3rd_cat_title": "牙膏",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040467&title=%E7%89%99%E8%86%8F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040467",
+                                    "abtId": "1872",
+                                    "title": "牙膏"
+                                }
+                            },
+                            {
+                                "name": "牙刷/牙线",
+                                "categoryId": "52040471",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040471"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "口腔护理",
+                                    "second_category_id": "52047274",
+                                    "3rd_cat_title": "牙刷/牙线",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040471&title=%E7%89%99%E5%88%B7%2F%E7%89%99%E7%BA%BF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040471",
+                                    "abtId": "1872",
+                                    "title": "牙刷/牙线"
+                                }
+                            },
+                            {
+                                "name": "漱口水",
+                                "categoryId": "52040468",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040468"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "口腔护理",
+                                    "second_category_id": "52047274",
+                                    "3rd_cat_title": "漱口水",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040468&title=%E6%BC%B1%E5%8F%A3%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040468",
+                                    "abtId": "1872",
+                                    "title": "漱口水"
+                                }
+                            },
+                            {
+                                "name": "护理套装",
+                                "categoryId": "52040470",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040470"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "口腔护理",
+                                    "second_category_id": "52047274",
+                                    "3rd_cat_title": "护理套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040470&title=%E6%8A%A4%E7%90%86%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040470",
+                                    "abtId": "1872",
+                                    "title": "护理套装"
+                                }
+                            },
+                            {
+                                "name": "电动牙刷",
+                                "categoryId": "52040469",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040469"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "口腔护理",
+                                    "second_category_id": "52047274",
+                                    "3rd_cat_title": "电动牙刷",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040469&title=%E7%94%B5%E5%8A%A8%E7%89%99%E5%88%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040469",
+                                    "abtId": "1872",
+                                    "title": "电动牙刷"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "女性护理",
+                        "categoryId": "52047275",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "卫生巾",
+                                "categoryId": "52040485",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040485"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "女性护理",
+                                    "second_category_id": "52047275",
+                                    "3rd_cat_title": "卫生巾",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040485&title=%E5%8D%AB%E7%94%9F%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040485",
+                                    "abtId": "1872",
+                                    "title": "卫生巾"
+                                }
+                            },
+                            {
+                                "name": "私处护理",
+                                "categoryId": "52040486",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040486"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "女性护理",
+                                    "second_category_id": "52047275",
+                                    "3rd_cat_title": "私处护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040486&title=%E7%A7%81%E5%A4%84%E6%8A%A4%E7%90%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040486",
+                                    "abtId": "1872",
+                                    "title": "私处护理"
+                                }
+                            },
+                            {
+                                "name": "丰胸美胸",
+                                "categoryId": "52040490",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040490"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "女性护理",
+                                    "second_category_id": "52047275",
+                                    "3rd_cat_title": "丰胸美胸",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040490&title=%E4%B8%B0%E8%83%B8%E7%BE%8E%E8%83%B8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040490",
+                                    "abtId": "1872",
+                                    "title": "丰胸美胸"
+                                }
+                            },
+                            {
+                                "name": "胸部护理套装",
+                                "categoryId": "52040489",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040489"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "女性护理",
+                                    "second_category_id": "52047275",
+                                    "3rd_cat_title": "胸部护理套装",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040489&title=%E8%83%B8%E9%83%A8%E6%8A%A4%E7%90%86%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040489",
+                                    "abtId": "1872",
+                                    "title": "胸部护理套装"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "身体护理",
+                        "categoryId": "52047279",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "颈部护理",
+                                "categoryId": "52040498",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52040498"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "颈部护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040498&title=%E9%A2%88%E9%83%A8%E6%8A%A4%E7%90%86&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040498",
+                                    "abtId": "",
+                                    "title": "颈部护理"
+                                }
+                            },
+                            {
+                                "name": "身体护理工具",
+                                "categoryId": "52040493",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52040493"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "身体护理工具",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040493&title=%E8%BA%AB%E4%BD%93%E6%8A%A4%E7%90%86%E5%B7%A5%E5%85%B7&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040493",
+                                    "abtId": "",
+                                    "title": "身体护理工具"
+                                }
+                            },
+                            {
+                                "name": "身体喷雾",
+                                "categoryId": "52040499",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52040499"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "身体喷雾",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040499&title=%E8%BA%AB%E4%BD%93%E5%96%B7%E9%9B%BE&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040499",
+                                    "abtId": "",
+                                    "title": "身体喷雾"
+                                }
+                            },
+                            {
+                                "name": "手部护理",
+                                "categoryId": "52040496",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52040496"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "手部护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040496&title=%E6%89%8B%E9%83%A8%E6%8A%A4%E7%90%86&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040496",
+                                    "abtId": "",
+                                    "title": "手部护理"
+                                }
+                            },
+                            {
+                                "name": "提脱毛器",
+                                "categoryId": "52040492",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52040492"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "提脱毛器",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040492&title=%E6%8F%90%E8%84%B1%E6%AF%9B%E5%99%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040492",
+                                    "abtId": "",
+                                    "title": "提脱毛器"
+                                }
+                            },
+                            {
+                                "name": "香薰精油",
+                                "categoryId": "52040495",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52040495"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "香薰精油",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040495&title=%E9%A6%99%E8%96%B0%E7%B2%BE%E6%B2%B9&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040495",
+                                    "abtId": "",
+                                    "title": "香薰精油"
+                                }
+                            },
+                            {
+                                "name": "脱毛止汗",
+                                "categoryId": "52040491",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52040491"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "脱毛止汗",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040491&title=%E8%84%B1%E6%AF%9B%E6%AD%A2%E6%B1%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040491",
+                                    "abtId": "",
+                                    "title": "脱毛止汗"
+                                }
+                            },
+                            {
+                                "name": "足部护理",
+                                "categoryId": "52040497",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52040497"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "身体护理",
+                                    "second_category_id": "52047279",
+                                    "3rd_cat_title": "足部护理",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52040497&title=%E8%B6%B3%E9%83%A8%E6%8A%A4%E7%90%86&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52040497",
+                                    "abtId": "",
+                                    "title": "足部护理"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10010517",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "欧莱雅",
+                                "categoryId": "10010521",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/e03c4c24f50f4860a8d7bec55c9ff9b3/10000641/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10000641"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "欧莱雅",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000641&brandName=%E6%AC%A7%E8%8E%B1%E9%9B%85&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000641"
+                                }
+                            },
+                            {
+                                "name": "丸美",
+                                "categoryId": "10010523",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/17ff6f15961b44bca1747e18c17ecff8/10000750/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10000750"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "丸美",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000750&brandName=%E4%B8%B8%E7%BE%8E&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000750"
+                                }
+                            },
+                            {
+                                "name": "玉兰油",
+                                "categoryId": "10010520",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/dac12e9a5d8245e6be85125bf706427a/10000828/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10000828"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "玉兰油",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000828&brandName=%E7%8E%89%E5%85%B0%E6%B2%B9&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000828"
+                                }
+                            },
+                            {
+                                "name": "兰蔻",
+                                "categoryId": "10010556",
+                                "image": "https://a.vpimg3.com/upload/brandcool/0/1d4b3e513db946d691e25566693f204f/10000521/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10000521"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "兰蔻",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000521&brandName=%E5%85%B0%E8%94%BB&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000521"
+                                }
+                            },
+                            {
+                                "name": "雅诗兰黛",
+                                "categoryId": "10011349",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/9bbd1f8bffe542b495f51199462ee8b3/10000794/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10000794"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "雅诗兰黛",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000794&brandName=%E9%9B%85%E8%AF%97%E5%85%B0%E9%BB%9B&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000794"
+                                }
+                            },
+                            {
+                                "name": "迪奥",
+                                "categoryId": "10011350",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/4edb5eebc43743e7916ee1f8ee810c64/10000359/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10000359"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "迪奥",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000359&brandName=%E8%BF%AA%E5%A5%A5&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000359"
+                                }
+                            },
+                            {
+                                "name": "百雀羚",
+                                "categoryId": "10011351",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/9da9b393f8a84539abb73078fb609c1f/10000287/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10000287"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "百雀羚",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000287&brandName=%E7%99%BE%E9%9B%80%E7%BE%9A&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000287"
+                                }
+                            },
+                            {
+                                "name": "自然堂",
+                                "categoryId": "10011352",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/67257d19c03c4c7887813516e43f1484/10000856/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10000856"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "自然堂",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000856&brandName=%E8%87%AA%E7%84%B6%E5%A0%82&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000856"
+                                }
+                            },
+                            {
+                                "name": "后",
+                                "categoryId": "10011353",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/a5b0a53e9e93414c9bb2c74b4ede27d3/10014508/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10014508"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "30071",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10010517",
+                                    "3rd_cat_title": "后",
+                                    "1st_cat_title": "护肤彩妆/个护",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10014508&brandName=%E5%90%8E&category_parent_id=30071",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10014508"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

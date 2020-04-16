@@ -232,7 +232,7 @@
         data.forEach((item, index) => {
 
             html += `<div class="good-item">
-            <a href="javascript:;" target="_blank" data-id=${item.productId}>
+            <a href="./detailInfo.html" target="_blank" data-id=${item.productId}>
                 <div class="good-item-top">
                     <div class="good-item-img-box">
                         <img class="good-img"

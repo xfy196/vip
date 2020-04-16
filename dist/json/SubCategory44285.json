@@ -1,0 +1,3165 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "全球馆",
+                        "categoryId": "52047286",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "韩国馆",
+                                "categoryId": "52038792",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52038792"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "韩国馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038792&title=%E9%9F%A9%E5%9B%BD%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038792",
+                                    "abtId": "1872",
+                                    "title": "韩国馆"
+                                }
+                            },
+                            {
+                                "name": "欧洲馆",
+                                "categoryId": "52038794",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52038794"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "欧洲馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038794&title=%E6%AC%A7%E6%B4%B2%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038794",
+                                    "abtId": "1872",
+                                    "title": "欧洲馆"
+                                }
+                            },
+                            {
+                                "name": "美洲馆",
+                                "categoryId": "52038796",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52038796"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "美洲馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038796&title=%E7%BE%8E%E6%B4%B2%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038796",
+                                    "abtId": "1872",
+                                    "title": "美洲馆"
+                                }
+                            },
+                            {
+                                "name": "日本馆",
+                                "categoryId": "52038795",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52038795"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "日本馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038795&title=%E6%97%A5%E6%9C%AC%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038795",
+                                    "abtId": "1872",
+                                    "title": "日本馆"
+                                }
+                            },
+                            {
+                                "name": "澳新馆",
+                                "categoryId": "52038793",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52038793"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "澳新馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038793&title=%E6%BE%B3%E6%96%B0%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038793",
+                                    "abtId": "1872",
+                                    "title": "澳新馆"
+                                }
+                            },
+                            {
+                                "name": "港台馆",
+                                "categoryId": "52038797",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52038797"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "全球馆",
+                                    "second_category_id": "52047286",
+                                    "3rd_cat_title": "港台馆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038797&title=%E6%B8%AF%E5%8F%B0%E9%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038797",
+                                    "abtId": "1872",
+                                    "title": "港台馆"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "国际美妆",
+                        "categoryId": "52047287",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "爽肤水乳",
+                                "categoryId": "52038801",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52038801"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "爽肤水乳",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038801&title=%E7%88%BD%E8%82%A4%E6%B0%B4%E4%B9%B3&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038801",
+                                    "abtId": "1872",
+                                    "title": "爽肤水乳"
+                                }
+                            },
+                            {
+                                "name": "面膜",
+                                "categoryId": "52038798",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52038798"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "面膜",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038798&title=%E9%9D%A2%E8%86%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038798",
+                                    "abtId": "1872",
+                                    "title": "面膜"
+                                }
+                            },
+                            {
+                                "name": "洗面奶",
+                                "categoryId": "52038802",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52038802"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "洗面奶",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038802&title=%E6%B4%97%E9%9D%A2%E5%A5%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038802",
+                                    "abtId": "1872",
+                                    "title": "洗面奶"
+                                }
+                            },
+                            {
+                                "name": "护肤套装",
+                                "categoryId": "52038799",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52038799"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "护肤套装",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038799&title=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038799",
+                                    "abtId": "1872",
+                                    "title": "护肤套装"
+                                }
+                            },
+                            {
+                                "name": "面部精华",
+                                "categoryId": "52038803",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52038803"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "面部精华",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038803&title=%E9%9D%A2%E9%83%A8%E7%B2%BE%E5%8D%8E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038803",
+                                    "abtId": "1872",
+                                    "title": "面部精华"
+                                }
+                            },
+                            {
+                                "name": "防晒隔离",
+                                "categoryId": "52038800",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52038800"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "防晒隔离",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038800&title=%E9%98%B2%E6%99%92%E9%9A%94%E7%A6%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038800",
+                                    "abtId": "1872",
+                                    "title": "防晒隔离"
+                                }
+                            },
+                            {
+                                "name": "眼部护理",
+                                "categoryId": "52038806",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52038806"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "眼部护理",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038806&title=%E7%9C%BC%E9%83%A8%E6%8A%A4%E7%90%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038806",
+                                    "abtId": "1872",
+                                    "title": "眼部护理"
+                                }
+                            },
+                            {
+                                "name": "彩妆香水",
+                                "categoryId": "52038807",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52038807"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "彩妆香水",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038807&title=%E5%BD%A9%E5%A6%86%E9%A6%99%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038807",
+                                    "abtId": "1872",
+                                    "title": "彩妆香水"
+                                }
+                            },
+                            {
+                                "name": "洗护染发",
+                                "categoryId": "52038808",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52038808"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "洗护染发",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038808&title=%E6%B4%97%E6%8A%A4%E6%9F%93%E5%8F%91&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038808",
+                                    "abtId": "1872",
+                                    "title": "洗护染发"
+                                }
+                            },
+                            {
+                                "name": "口红",
+                                "categoryId": "52038804",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52038804"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "口红",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038804&title=%E5%8F%A3%E7%BA%A2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038804",
+                                    "abtId": "1872",
+                                    "title": "口红"
+                                }
+                            },
+                            {
+                                "name": "卸妆",
+                                "categoryId": "52038805",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52038805"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "卸妆",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038805&title=%E5%8D%B8%E5%A6%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038805",
+                                    "abtId": "1872",
+                                    "title": "卸妆"
+                                }
+                            },
+                            {
+                                "name": "身体护理",
+                                "categoryId": "52038809",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52038809"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "国际美妆",
+                                    "second_category_id": "52047287",
+                                    "3rd_cat_title": "身体护理",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038809&title=%E8%BA%AB%E4%BD%93%E6%8A%A4%E7%90%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038809",
+                                    "abtId": "1872",
+                                    "title": "身体护理"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "环球母婴",
+                        "categoryId": "52047291",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "纸尿裤",
+                                "categoryId": "52038810",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52038810"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "纸尿裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038810&title=%E7%BA%B8%E5%B0%BF%E8%A3%A4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038810",
+                                    "abtId": "1872",
+                                    "title": "纸尿裤"
+                                }
+                            },
+                            {
+                                "name": "洗护喂养",
+                                "categoryId": "52038815",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52038815"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "洗护喂养",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038815&title=%E6%B4%97%E6%8A%A4%E5%96%82%E5%85%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038815",
+                                    "abtId": "1872",
+                                    "title": "洗护喂养"
+                                }
+                            },
+                            {
+                                "name": "奶粉",
+                                "categoryId": "52038811",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52038811"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "奶粉",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038811&title=%E5%A5%B6%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038811",
+                                    "abtId": "1872",
+                                    "title": "奶粉"
+                                }
+                            },
+                            {
+                                "name": "孕婴营养",
+                                "categoryId": "52038813",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52038813"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "孕婴营养",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038813&title=%E5%AD%95%E5%A9%B4%E8%90%A5%E5%85%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038813",
+                                    "abtId": "1872",
+                                    "title": "孕婴营养"
+                                }
+                            },
+                            {
+                                "name": "拉拉裤",
+                                "categoryId": "52038814",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52038814"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "拉拉裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038814&title=%E6%8B%89%E6%8B%89%E8%A3%A4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038814",
+                                    "abtId": "1872",
+                                    "title": "拉拉裤"
+                                }
+                            },
+                            {
+                                "name": "玩具",
+                                "categoryId": "52038816",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52038816"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "玩具",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038816&title=%E7%8E%A9%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038816",
+                                    "abtId": "1872",
+                                    "title": "玩具"
+                                }
+                            },
+                            {
+                                "name": "计生用品",
+                                "categoryId": "52038817",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52038817"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "计生用品",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038817&title=%E8%AE%A1%E7%94%9F%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038817",
+                                    "abtId": "1872",
+                                    "title": "计生用品"
+                                }
+                            },
+                            {
+                                "name": "婴童辅食",
+                                "categoryId": "52038812",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52038812"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "婴童辅食",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038812&title=%E5%A9%B4%E7%AB%A5%E8%BE%85%E9%A3%9F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038812",
+                                    "abtId": "1872",
+                                    "title": "婴童辅食"
+                                }
+                            },
+                            {
+                                "name": "童车座椅",
+                                "categoryId": "52144297",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52144297"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "环球母婴",
+                                    "second_category_id": "52047291",
+                                    "3rd_cat_title": "童车座椅",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52144297&title=%E7%AB%A5%E8%BD%A6%E5%BA%A7%E6%A4%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52144297",
+                                    "abtId": "1872",
+                                    "title": "童车座椅"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "海外营养",
+                        "categoryId": "52047290",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "婴童营养",
+                                "categoryId": "52038825",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52038825"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "婴童营养",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038825&title=%E5%A9%B4%E7%AB%A5%E8%90%A5%E5%85%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038825",
+                                    "abtId": "1872",
+                                    "title": "婴童营养"
+                                }
+                            },
+                            {
+                                "name": "美容养颜",
+                                "categoryId": "52038819",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52038819"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "美容养颜",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038819&title=%E7%BE%8E%E5%AE%B9%E5%85%BB%E9%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038819",
+                                    "abtId": "1872",
+                                    "title": "美容养颜"
+                                }
+                            },
+                            {
+                                "name": "骨骼关节",
+                                "categoryId": "52038821",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52038821"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "骨骼关节",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038821&title=%E9%AA%A8%E9%AA%BC%E5%85%B3%E8%8A%82&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038821",
+                                    "abtId": "1872",
+                                    "title": "骨骼关节"
+                                }
+                            },
+                            {
+                                "name": "成人奶粉",
+                                "categoryId": "52038818",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52038818"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "成人奶粉",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038818&title=%E6%88%90%E4%BA%BA%E5%A5%B6%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038818",
+                                    "abtId": "1872",
+                                    "title": "成人奶粉"
+                                }
+                            },
+                            {
+                                "name": "维生素",
+                                "categoryId": "52038823",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52038823"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "维生素",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038823&title=%E7%BB%B4%E7%94%9F%E7%B4%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038823",
+                                    "abtId": "1872",
+                                    "title": "维生素"
+                                }
+                            },
+                            {
+                                "name": "纤体瘦身",
+                                "categoryId": "52038820",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52038820"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "纤体瘦身",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038820&title=%E7%BA%A4%E4%BD%93%E7%98%A6%E8%BA%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038820",
+                                    "abtId": "1872",
+                                    "title": "纤体瘦身"
+                                }
+                            },
+                            {
+                                "name": "调节三高",
+                                "categoryId": "52038822",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52038822"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "调节三高",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038822&title=%E8%B0%83%E8%8A%82%E4%B8%89%E9%AB%98&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038822",
+                                    "abtId": "1872",
+                                    "title": "调节三高"
+                                }
+                            },
+                            {
+                                "name": "男性健康",
+                                "categoryId": "52038824",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52038824"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "男性健康",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038824&title=%E7%94%B7%E6%80%A7%E5%81%A5%E5%BA%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038824",
+                                    "abtId": "1872",
+                                    "title": "男性健康"
+                                }
+                            },
+                            {
+                                "name": "蜂蜜",
+                                "categoryId": "52038826",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52038826"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "蜂蜜",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038826&title=%E8%9C%82%E8%9C%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038826",
+                                    "abtId": "1872",
+                                    "title": "蜂蜜"
+                                }
+                            },
+                            {
+                                "name": "谷物麦片",
+                                "categoryId": "52038827",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52038827"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "海外营养",
+                                    "second_category_id": "52047290",
+                                    "3rd_cat_title": "谷物麦片",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038827&title=%E8%B0%B7%E7%89%A9%E9%BA%A6%E7%89%87&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038827",
+                                    "abtId": "",
+                                    "title": "谷物麦片"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "居家日用",
+                        "categoryId": "52047288",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "厨房用品",
+                                "categoryId": "52038838",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52038838"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "厨房用品",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038838&title=%E5%8E%A8%E6%88%BF%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038838",
+                                    "abtId": "1872",
+                                    "title": "厨房用品"
+                                }
+                            },
+                            {
+                                "name": "生活电器",
+                                "categoryId": "52038839",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52038839"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "生活电器",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038839&title=%E7%94%9F%E6%B4%BB%E7%94%B5%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038839",
+                                    "abtId": "1872",
+                                    "title": "生活电器"
+                                }
+                            },
+                            {
+                                "name": "剃须刀",
+                                "categoryId": "52038830",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52038830"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "剃须刀",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038830&title=%E5%89%83%E9%A1%BB%E5%88%80&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038830",
+                                    "abtId": "1872",
+                                    "title": "剃须刀"
+                                }
+                            },
+                            {
+                                "name": "厨房电器",
+                                "categoryId": "52038837",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52038837"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "厨房电器",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038837&title=%E5%8E%A8%E6%88%BF%E7%94%B5%E5%99%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038837",
+                                    "abtId": "1872",
+                                    "title": "厨房电器"
+                                }
+                            },
+                            {
+                                "name": "耳机音箱",
+                                "categoryId": "52038840",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52038840"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "耳机音箱",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038840&title=%E8%80%B3%E6%9C%BA%E9%9F%B3%E7%AE%B1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038840",
+                                    "abtId": "1872",
+                                    "title": "耳机音箱"
+                                }
+                            },
+                            {
+                                "name": "保温杯",
+                                "categoryId": "52038835",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52038835"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "保温杯",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038835&title=%E4%BF%9D%E6%B8%A9%E6%9D%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038835",
+                                    "abtId": "1872",
+                                    "title": "保温杯"
+                                }
+                            },
+                            {
+                                "name": "电动牙刷",
+                                "categoryId": "52038834",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52038834"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "电动牙刷",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038834&title=%E7%94%B5%E5%8A%A8%E7%89%99%E5%88%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038834",
+                                    "abtId": "1872",
+                                    "title": "电动牙刷"
+                                }
+                            },
+                            {
+                                "name": "美容仪",
+                                "categoryId": "52038833",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52038833"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "美容仪",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038833&title=%E7%BE%8E%E5%AE%B9%E4%BB%AA&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038833",
+                                    "abtId": "1872",
+                                    "title": "美容仪"
+                                }
+                            },
+                            {
+                                "name": "居家清洁",
+                                "categoryId": "52038841",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52038841"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "居家清洁",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038841&title=%E5%B1%85%E5%AE%B6%E6%B8%85%E6%B4%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038841",
+                                    "abtId": "1872",
+                                    "title": "居家清洁"
+                                }
+                            },
+                            {
+                                "name": "床上用品",
+                                "categoryId": "52038836",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52038836"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "床上用品",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038836&title=%E5%BA%8A%E4%B8%8A%E7%94%A8%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038836",
+                                    "abtId": "1872",
+                                    "title": "床上用品"
+                                }
+                            },
+                            {
+                                "name": "电吹风",
+                                "categoryId": "52038832",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52038832"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "居家日用",
+                                    "second_category_id": "52047288",
+                                    "3rd_cat_title": "电吹风",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52038832&title=%E7%94%B5%E5%90%B9%E9%A3%8E&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52038832",
+                                    "abtId": "",
+                                    "title": "电吹风"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "唯品奢·女装",
+                        "categoryId": "52876273",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "牛仔裤",
+                                "categoryId": "52627663",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52627663"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "牛仔裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627663&title=%E7%89%9B%E4%BB%94%E8%A3%A4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627663",
+                                    "abtId": "",
+                                    "title": "牛仔裤"
+                                }
+                            },
+                            {
+                                "name": "外套",
+                                "categoryId": "52627652",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52627652"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "外套",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627652&title=%E5%A4%96%E5%A5%97&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627652",
+                                    "abtId": "",
+                                    "title": "外套"
+                                }
+                            },
+                            {
+                                "name": "T恤",
+                                "categoryId": "52627642",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52627642"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "T恤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627642&title=T%E6%81%A4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627642",
+                                    "abtId": "",
+                                    "title": "T恤"
+                                }
+                            },
+                            {
+                                "name": "卫衣",
+                                "categoryId": "52627651",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52627651"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "卫衣",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627651&title=%E5%8D%AB%E8%A1%A3&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627651",
+                                    "abtId": "",
+                                    "title": "卫衣"
+                                }
+                            },
+                            {
+                                "name": "连衣裙",
+                                "categoryId": "52627649",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52627649"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "连衣裙",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627649&title=%E8%BF%9E%E8%A1%A3%E8%A3%99&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627649",
+                                    "abtId": "",
+                                    "title": "连衣裙"
+                                }
+                            },
+                            {
+                                "name": "半身裙",
+                                "categoryId": "52627661",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52627661"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "半身裙",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627661&title=%E5%8D%8A%E8%BA%AB%E8%A3%99&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627661",
+                                    "abtId": "",
+                                    "title": "半身裙"
+                                }
+                            },
+                            {
+                                "name": "衬衫",
+                                "categoryId": "52627650",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52627650"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "衬衫",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627650&title=%E8%A1%AC%E8%A1%AB&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627650",
+                                    "abtId": "",
+                                    "title": "衬衫"
+                                }
+                            },
+                            {
+                                "name": "休闲裤",
+                                "categoryId": "52627662",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52627662"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "休闲裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627662&title=%E4%BC%91%E9%97%B2%E8%A3%A4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627662",
+                                    "abtId": "",
+                                    "title": "休闲裤"
+                                }
+                            },
+                            {
+                                "name": "西服",
+                                "categoryId": "52627657",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52627657"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "西服",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627657&title=%E8%A5%BF%E6%9C%8D&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627657",
+                                    "abtId": "",
+                                    "title": "西服"
+                                }
+                            },
+                            {
+                                "name": "内衣/内裤",
+                                "categoryId": "52718704",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52718704"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·女装",
+                                    "second_category_id": "52876273",
+                                    "3rd_cat_title": "内衣/内裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52718704&title=%E5%86%85%E8%A1%A3%2F%E5%86%85%E8%A3%A4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52718704",
+                                    "abtId": "",
+                                    "title": "内衣/内裤"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "唯品奢·男装",
+                        "categoryId": "52876277",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "内裤内衣",
+                                "categoryId": "52627863",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52627863"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·男装",
+                                    "second_category_id": "52876277",
+                                    "3rd_cat_title": "内裤内衣",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627863&title=%E5%86%85%E8%A3%A4%E5%86%85%E8%A1%A3&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627863",
+                                    "abtId": "",
+                                    "title": "内裤内衣"
+                                }
+                            },
+                            {
+                                "name": "西裤/正装裤",
+                                "categoryId": "52627821",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52627821"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·男装",
+                                    "second_category_id": "52876277",
+                                    "3rd_cat_title": "西裤/正装裤",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627821&title=%E8%A5%BF%E8%A3%A4%2F%E6%AD%A3%E8%A3%85%E8%A3%A4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627821",
+                                    "abtId": "",
+                                    "title": "西裤/正装裤"
+                                }
+                            },
+                            {
+                                "name": "POLO衫",
+                                "categoryId": "52627719",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52627719"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·男装",
+                                    "second_category_id": "52876277",
+                                    "3rd_cat_title": "POLO衫",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627719&title=POLO%E8%A1%AB&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627719",
+                                    "abtId": "",
+                                    "title": "POLO衫"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "唯品奢·精品配饰",
+                        "categoryId": "52876280",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "女士腕表",
+                                "categoryId": "52627893",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52627893"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "女士腕表",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627893&title=%E5%A5%B3%E5%A3%AB%E8%85%95%E8%A1%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627893",
+                                    "abtId": "",
+                                    "title": "女士腕表"
+                                }
+                            },
+                            {
+                                "name": "男士腕表",
+                                "categoryId": "52627891",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52627891"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "男士腕表",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627891&title=%E7%94%B7%E5%A3%AB%E8%85%95%E8%A1%A8&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627891",
+                                    "abtId": "",
+                                    "title": "男士腕表"
+                                }
+                            },
+                            {
+                                "name": "项链",
+                                "categoryId": "52631212",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52631212"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "项链",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52631212&title=%E9%A1%B9%E9%93%BE&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52631212",
+                                    "abtId": "",
+                                    "title": "项链"
+                                }
+                            },
+                            {
+                                "name": "耳钉耳环",
+                                "categoryId": "52627866",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52627866"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "耳钉耳环",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627866&title=%E8%80%B3%E9%92%89%E8%80%B3%E7%8E%AF&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627866",
+                                    "abtId": "",
+                                    "title": "耳钉耳环"
+                                }
+                            },
+                            {
+                                "name": "手链/手镯",
+                                "categoryId": "52627871",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52627871"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "手链/手镯",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627871&title=%E6%89%8B%E9%93%BE%2F%E6%89%8B%E9%95%AF&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627871",
+                                    "abtId": "",
+                                    "title": "手链/手镯"
+                                }
+                            },
+                            {
+                                "name": "太阳镜",
+                                "categoryId": "52627900",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52627900"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "太阳镜",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627900&title=%E5%A4%AA%E9%98%B3%E9%95%9C&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627900",
+                                    "abtId": "",
+                                    "title": "太阳镜"
+                                }
+                            },
+                            {
+                                "name": "戒指",
+                                "categoryId": "52627881",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52627881"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "戒指",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627881&title=%E6%88%92%E6%8C%87&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627881",
+                                    "abtId": "",
+                                    "title": "戒指"
+                                }
+                            },
+                            {
+                                "name": "腰带",
+                                "categoryId": "52627882",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52627882"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·精品配饰",
+                                    "second_category_id": "52876280",
+                                    "3rd_cat_title": "腰带",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627882&title=%E8%85%B0%E5%B8%A6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627882",
+                                    "abtId": "",
+                                    "title": "腰带"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "唯品奢·鞋包",
+                        "categoryId": "52876282",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "手提包",
+                                "categoryId": "52627913",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52627913"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "手提包",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627913&title=%E6%89%8B%E6%8F%90%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627913",
+                                    "abtId": "",
+                                    "title": "手提包"
+                                }
+                            },
+                            {
+                                "name": "单鞋",
+                                "categoryId": "52627963",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52627963"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "单鞋",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627963&title=%E5%8D%95%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627963",
+                                    "abtId": "",
+                                    "title": "单鞋"
+                                }
+                            },
+                            {
+                                "name": "休闲鞋",
+                                "categoryId": "52627964",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52627964"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "休闲鞋",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627964&title=%E4%BC%91%E9%97%B2%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627964",
+                                    "abtId": "",
+                                    "title": "休闲鞋"
+                                }
+                            },
+                            {
+                                "name": "凉鞋/拖鞋",
+                                "categoryId": "52718751",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52718751"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "凉鞋/拖鞋",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52718751&title=%E5%87%89%E9%9E%8B%2F%E6%8B%96%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52718751",
+                                    "abtId": "",
+                                    "title": "凉鞋/拖鞋"
+                                }
+                            },
+                            {
+                                "name": "双肩包",
+                                "categoryId": "52627914",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52627914"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "双肩包",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627914&title=%E5%8F%8C%E8%82%A9%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627914",
+                                    "abtId": "",
+                                    "title": "双肩包"
+                                }
+                            },
+                            {
+                                "name": "商务鞋",
+                                "categoryId": "52627971",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52627971"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "商务鞋",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627971&title=%E5%95%86%E5%8A%A1%E9%9E%8B&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627971",
+                                    "abtId": "",
+                                    "title": "商务鞋"
+                                }
+                            },
+                            {
+                                "name": "功能箱包",
+                                "categoryId": "52718706",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52718706"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "功能箱包",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52718706&title=%E5%8A%9F%E8%83%BD%E7%AE%B1%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52718706",
+                                    "abtId": "",
+                                    "title": "功能箱包"
+                                }
+                            },
+                            {
+                                "name": "手拿包",
+                                "categoryId": "52627915",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52627915"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "手拿包",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627915&title=%E6%89%8B%E6%8B%BF%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627915",
+                                    "abtId": "",
+                                    "title": "手拿包"
+                                }
+                            },
+                            {
+                                "name": "男靴",
+                                "categoryId": "52627973",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52627973"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "男靴",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627973&title=%E7%94%B7%E9%9D%B4&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627973",
+                                    "abtId": "",
+                                    "title": "男靴"
+                                }
+                            },
+                            {
+                                "name": "商务公文包",
+                                "categoryId": "52627921",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52627921"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "唯品奢·鞋包",
+                                    "second_category_id": "52876282",
+                                    "3rd_cat_title": "商务公文包",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52627921&title=%E5%95%86%E5%8A%A1%E5%85%AC%E6%96%87%E5%8C%85&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52627921",
+                                    "abtId": "",
+                                    "title": "商务公文包"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10009374",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "兰蔻",
+                                "categoryId": "10011389",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/1d4b3e513db946d691e25566693f204f/10000521/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10000521"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "兰蔻",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000521&brandName=%E5%85%B0%E8%94%BB&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000521"
+                                }
+                            },
+                            {
+                                "name": "雅诗兰黛",
+                                "categoryId": "10011390",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/9bbd1f8bffe542b495f51199462ee8b3/10000794/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10000794"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "雅诗兰黛",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000794&brandName=%E9%9B%85%E8%AF%97%E5%85%B0%E9%BB%9B&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000794"
+                                }
+                            },
+                            {
+                                "name": "A.H.C",
+                                "categoryId": "10011391",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/0115ca91f54c44f1b6f12103aa1d3638/10020258/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10020258"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "A.H.C",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10020258&brandName=A.H.C&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10020258"
+                                }
+                            },
+                            {
+                                "name": "COACH",
+                                "categoryId": "10011392",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/6be3cb462a38441fb277118af5960bbb/10025557/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10025557"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "COACH",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10025557&brandName=COACH&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10025557"
+                                }
+                            },
+                            {
+                                "name": "Maxigenes",
+                                "categoryId": "10011393",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/7afdff435ae242768b131f3d9765938b/10023328/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10023328"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "Maxigenes",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10023328&brandName=Maxigenes&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10023328"
+                                }
+                            },
+                            {
+                                "name": "贝德玛",
+                                "categoryId": "10011394",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/1aa04c8a09fa4f49a51a5e340b7d04cb/10007180/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10007180"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "贝德玛",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10007180&brandName=%E8%B4%9D%E5%BE%B7%E7%8E%9B&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10007180"
+                                }
+                            },
+                            {
+                                "name": "膳魔师",
+                                "categoryId": "10011395",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/39560dc9c497419fa4d291a295d84127/10006631/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10006631"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "膳魔师",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10006631&brandName=%E8%86%B3%E9%AD%94%E5%B8%88&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10006631"
+                                }
+                            },
+                            {
+                                "name": "花王",
+                                "categoryId": "10011396",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/ca15d53bd75e4ad2b51dc0fbfa29e7b2/10010562/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10010562"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "花王",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10010562&brandName=%E8%8A%B1%E7%8E%8B&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10010562"
+                                }
+                            },
+                            {
+                                "name": "Dyson",
+                                "categoryId": "10011397",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/333027286e5a42deafedb6e08eb9896b/10022166/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10022166"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "44285",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10009374",
+                                    "3rd_cat_title": "Dyson",
+                                    "1st_cat_title": "唯品国际/唯品奢",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10022166&brandName=Dyson&category_parent_id=44285",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10022166"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}

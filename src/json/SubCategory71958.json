@@ -1,0 +1,2754 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "人气零食",
+                        "categoryId": "52047377",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "点心糕点",
+                                "categoryId": "52041296",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041296"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "点心糕点",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041296&title=%E7%82%B9%E5%BF%83%E7%B3%95%E7%82%B9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041296",
+                                    "abtId": "1872",
+                                    "title": "点心糕点"
+                                }
+                            },
+                            {
+                                "name": "人气坚果",
+                                "categoryId": "52041294",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041294"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "人气坚果",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041294&title=%E4%BA%BA%E6%B0%94%E5%9D%9A%E6%9E%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041294",
+                                    "abtId": "1872",
+                                    "title": "人气坚果"
+                                }
+                            },
+                            {
+                                "name": "蜜饯果干",
+                                "categoryId": "52041297",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041297"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "蜜饯果干",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041297&title=%E8%9C%9C%E9%A5%AF%E6%9E%9C%E5%B9%B2&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041297",
+                                    "abtId": "1872",
+                                    "title": "蜜饯果干"
+                                }
+                            },
+                            {
+                                "name": "肉类零食",
+                                "categoryId": "52041295",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041295"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "肉类零食",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041295&title=%E8%82%89%E7%B1%BB%E9%9B%B6%E9%A3%9F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041295",
+                                    "abtId": "1872",
+                                    "title": "肉类零食"
+                                }
+                            },
+                            {
+                                "name": "饼干曲奇",
+                                "categoryId": "52041298",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041298"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "饼干曲奇",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041298&title=%E9%A5%BC%E5%B9%B2%E6%9B%B2%E5%A5%87&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041298",
+                                    "abtId": "1872",
+                                    "title": "饼干曲奇"
+                                }
+                            },
+                            {
+                                "name": "豆/海制品",
+                                "categoryId": "52041302",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041302"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "豆/海制品",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041302&title=%E8%B1%86%2F%E6%B5%B7%E5%88%B6%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041302",
+                                    "abtId": "1872",
+                                    "title": "豆/海制品"
+                                }
+                            },
+                            {
+                                "name": "膨化食品",
+                                "categoryId": "52041300",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52041300"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "膨化食品",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041300&title=%E8%86%A8%E5%8C%96%E9%A3%9F%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041300",
+                                    "abtId": "1872",
+                                    "title": "膨化食品"
+                                }
+                            },
+                            {
+                                "name": "糖果",
+                                "categoryId": "52041299",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52041299"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "糖果",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041299&title=%E7%B3%96%E6%9E%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041299",
+                                    "abtId": "1872",
+                                    "title": "糖果"
+                                }
+                            },
+                            {
+                                "name": "巧克力",
+                                "categoryId": "52041301",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52041301"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "人气零食",
+                                    "second_category_id": "52047377",
+                                    "3rd_cat_title": "巧克力",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041301&title=%E5%B7%A7%E5%85%8B%E5%8A%9B&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041301",
+                                    "abtId": "1872",
+                                    "title": "巧克力"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "营养保健",
+                        "categoryId": "52047385",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "传统滋补",
+                                "categoryId": "52782006",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52782006"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "传统滋补",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52782006&title=%E4%BC%A0%E7%BB%9F%E6%BB%8B%E8%A1%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52782006",
+                                    "abtId": "1872",
+                                    "title": "传统滋补"
+                                }
+                            },
+                            {
+                                "name": "维生素",
+                                "categoryId": "52041308",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041308"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "维生素",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041308&title=%E7%BB%B4%E7%94%9F%E7%B4%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041308",
+                                    "abtId": "1872",
+                                    "title": "维生素"
+                                }
+                            },
+                            {
+                                "name": "美容养颜",
+                                "categoryId": "52041303",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041303"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "美容养颜",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041303&title=%E7%BE%8E%E5%AE%B9%E5%85%BB%E9%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041303",
+                                    "abtId": "1872",
+                                    "title": "美容养颜"
+                                }
+                            },
+                            {
+                                "name": "孕婴童营养",
+                                "categoryId": "52041306",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041306"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "孕婴童营养",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041306&title=%E5%AD%95%E5%A9%B4%E7%AB%A5%E8%90%A5%E5%85%BB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041306",
+                                    "abtId": "1872",
+                                    "title": "孕婴童营养"
+                                }
+                            },
+                            {
+                                "name": "骨骼关节",
+                                "categoryId": "52041305",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041305"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "骨骼关节",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041305&title=%E9%AA%A8%E9%AA%BC%E5%85%B3%E8%8A%82&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041305",
+                                    "abtId": "1872",
+                                    "title": "骨骼关节"
+                                }
+                            },
+                            {
+                                "name": "纤体瘦身",
+                                "categoryId": "52041304",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041304"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "纤体瘦身",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041304&title=%E7%BA%A4%E4%BD%93%E7%98%A6%E8%BA%AB&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041304",
+                                    "abtId": "1872",
+                                    "title": "纤体瘦身"
+                                }
+                            },
+                            {
+                                "name": "免疫助眠",
+                                "categoryId": "52041310",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52041310"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "免疫助眠",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041310&title=%E5%85%8D%E7%96%AB%E5%8A%A9%E7%9C%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041310",
+                                    "abtId": "1872",
+                                    "title": "免疫助眠"
+                                }
+                            },
+                            {
+                                "name": "运动运营",
+                                "categoryId": "52041307",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52041307"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "运动运营",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041307&title=%E8%BF%90%E5%8A%A8%E8%BF%90%E8%90%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041307",
+                                    "abtId": "1872",
+                                    "title": "运动运营"
+                                }
+                            },
+                            {
+                                "name": "三高调节",
+                                "categoryId": "52041309",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52041309"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "三高调节",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041309&title=%E4%B8%89%E9%AB%98%E8%B0%83%E8%8A%82&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041309",
+                                    "abtId": "1872",
+                                    "title": "三高调节"
+                                }
+                            },
+                            {
+                                "name": "男性保健",
+                                "categoryId": "52384474",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52384474"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "男性保健",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52384474&title=%E7%94%B7%E6%80%A7%E4%BF%9D%E5%81%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52384474",
+                                    "abtId": "1872",
+                                    "title": "男性保健"
+                                }
+                            },
+                            {
+                                "name": "燕窝",
+                                "categoryId": "52041322",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 11,
+                                    "target_id": "52041322"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "燕窝",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041322&title=%E7%87%95%E7%AA%9D&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041322",
+                                    "abtId": "1872",
+                                    "title": "燕窝"
+                                }
+                            },
+                            {
+                                "name": "阿胶",
+                                "categoryId": "52041321",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 12,
+                                    "target_id": "52041321"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "营养保健",
+                                    "second_category_id": "52047385",
+                                    "3rd_cat_title": "阿胶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041321&title=%E9%98%BF%E8%83%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041321",
+                                    "abtId": "1872",
+                                    "title": "阿胶"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "精酿美酒",
+                        "categoryId": "52047384",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "干型葡萄酒",
+                                "categoryId": "52041288",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041288"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "干型葡萄酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041288&title=%E5%B9%B2%E5%9E%8B%E8%91%A1%E8%90%84%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041288",
+                                    "abtId": "1872",
+                                    "title": "干型葡萄酒"
+                                }
+                            },
+                            {
+                                "name": "白酒",
+                                "categoryId": "52041287",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041287"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "白酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041287&title=%E7%99%BD%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041287",
+                                    "abtId": "1872",
+                                    "title": "白酒"
+                                }
+                            },
+                            {
+                                "name": "洋酒",
+                                "categoryId": "52041292",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041292"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "洋酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041292&title=%E6%B4%8B%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041292",
+                                    "abtId": "1872",
+                                    "title": "洋酒"
+                                }
+                            },
+                            {
+                                "name": "起泡酒",
+                                "categoryId": "52041290",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041290"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "起泡酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041290&title=%E8%B5%B7%E6%B3%A1%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041290",
+                                    "abtId": "1872",
+                                    "title": "起泡酒"
+                                }
+                            },
+                            {
+                                "name": "白葡萄酒",
+                                "categoryId": "52041291",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041291"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "白葡萄酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041291&title=%E7%99%BD%E8%91%A1%E8%90%84%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041291",
+                                    "abtId": "1872",
+                                    "title": "白葡萄酒"
+                                }
+                            },
+                            {
+                                "name": "日韩酒",
+                                "categoryId": "52041293",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041293"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "日韩酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041293&title=%E6%97%A5%E9%9F%A9%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041293",
+                                    "abtId": "1872",
+                                    "title": "日韩酒"
+                                }
+                            },
+                            {
+                                "name": "红酒",
+                                "categoryId": "52041289",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52041289"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "精酿美酒",
+                                    "second_category_id": "52047384",
+                                    "3rd_cat_title": "红酒",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041289&title=%E7%BA%A2%E9%85%92&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041289",
+                                    "abtId": "1872",
+                                    "title": "红酒"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "茶叶",
+                        "categoryId": "52047376",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "花草茶",
+                                "categoryId": "52041313",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041313"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "花草茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041313&title=%E8%8A%B1%E8%8D%89%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041313",
+                                    "abtId": "1872",
+                                    "title": "花草茶"
+                                }
+                            },
+                            {
+                                "name": "茶具",
+                                "categoryId": "52041317",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041317"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "茶具",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041317&title=%E8%8C%B6%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041317",
+                                    "abtId": "1872",
+                                    "title": "茶具"
+                                }
+                            },
+                            {
+                                "name": "绿茶",
+                                "categoryId": "52041316",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041316"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "绿茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041316&title=%E7%BB%BF%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041316",
+                                    "abtId": "1872",
+                                    "title": "绿茶"
+                                }
+                            },
+                            {
+                                "name": "普洱茶",
+                                "categoryId": "52041312",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041312"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "普洱茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041312&title=%E6%99%AE%E6%B4%B1%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041312",
+                                    "abtId": "1872",
+                                    "title": "普洱茶"
+                                }
+                            },
+                            {
+                                "name": "乌龙茶",
+                                "categoryId": "52041320",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041320"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "乌龙茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041320&title=%E4%B9%8C%E9%BE%99%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041320",
+                                    "abtId": "1872",
+                                    "title": "乌龙茶"
+                                }
+                            },
+                            {
+                                "name": "红茶",
+                                "categoryId": "52041314",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041314"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "红茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041314&title=%E7%BA%A2%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041314",
+                                    "abtId": "1872",
+                                    "title": "红茶"
+                                }
+                            },
+                            {
+                                "name": "白/黑/黄茶",
+                                "categoryId": "52041318",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52041318"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "白/黑/黄茶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041318&title=%E7%99%BD%2F%E9%BB%91%2F%E9%BB%84%E8%8C%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041318",
+                                    "abtId": "1872",
+                                    "title": "白/黑/黄茶"
+                                }
+                            },
+                            {
+                                "name": "铁观音",
+                                "categoryId": "52041319",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52041319"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "铁观音",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041319&title=%E9%93%81%E8%A7%82%E9%9F%B3&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041319",
+                                    "abtId": "1872",
+                                    "title": "铁观音"
+                                }
+                            },
+                            {
+                                "name": "龙井",
+                                "categoryId": "52041315",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52041315"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "茶叶",
+                                    "second_category_id": "52047376",
+                                    "3rd_cat_title": "龙井",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041315&title=%E9%BE%99%E4%BA%95&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041315",
+                                    "abtId": "1872",
+                                    "title": "龙井"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "冲调饮料",
+                        "categoryId": "52047379",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "冲饮",
+                                "categoryId": "52041337",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041337"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "冲饮",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041337&title=%E5%86%B2%E9%A5%AE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041337",
+                                    "abtId": "1872",
+                                    "title": "冲饮"
+                                }
+                            },
+                            {
+                                "name": "奶粉",
+                                "categoryId": "52041333",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041333"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "奶粉",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041333&title=%E5%A5%B6%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041333",
+                                    "abtId": "1872",
+                                    "title": "奶粉"
+                                }
+                            },
+                            {
+                                "name": "麦片谷粉",
+                                "categoryId": "52041335",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041335"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "麦片谷粉",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041335&title=%E9%BA%A6%E7%89%87%E8%B0%B7%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041335",
+                                    "abtId": "1872",
+                                    "title": "麦片谷粉"
+                                }
+                            },
+                            {
+                                "name": "饮料",
+                                "categoryId": "52041339",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041339"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "饮料",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041339&title=%E9%A5%AE%E6%96%99&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041339",
+                                    "abtId": "1872",
+                                    "title": "饮料"
+                                }
+                            },
+                            {
+                                "name": "牛奶豆奶",
+                                "categoryId": "52041334",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041334"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "牛奶豆奶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041334&title=%E7%89%9B%E5%A5%B6%E8%B1%86%E5%A5%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041334",
+                                    "abtId": "1872",
+                                    "title": "牛奶豆奶"
+                                }
+                            },
+                            {
+                                "name": "咖啡",
+                                "categoryId": "52041338",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041338"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "咖啡",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041338&title=%E5%92%96%E5%95%A1&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041338",
+                                    "abtId": "1872",
+                                    "title": "咖啡"
+                                }
+                            },
+                            {
+                                "name": "蜂蜜",
+                                "categoryId": "52041336",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52041336"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "蜂蜜",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041336&title=%E8%9C%82%E8%9C%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041336",
+                                    "abtId": "1872",
+                                    "title": "蜂蜜"
+                                }
+                            },
+                            {
+                                "name": "固体饮料",
+                                "categoryId": "52041340",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52041340"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "固体饮料",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041340&title=%E5%9B%BA%E4%BD%93%E9%A5%AE%E6%96%99&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041340",
+                                    "abtId": "1872",
+                                    "title": "固体饮料"
+                                }
+                            },
+                            {
+                                "name": "饮用水",
+                                "categoryId": "52041342",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52041342"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "饮用水",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041342&title=%E9%A5%AE%E7%94%A8%E6%B0%B4&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041342",
+                                    "abtId": "1872",
+                                    "title": "饮用水"
+                                }
+                            },
+                            {
+                                "name": "即食粥",
+                                "categoryId": "52041341",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52041341"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "冲调饮料",
+                                    "second_category_id": "52047379",
+                                    "3rd_cat_title": "即食粥",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041341&title=%E5%8D%B3%E9%A3%9F%E7%B2%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041341",
+                                    "abtId": "1872",
+                                    "title": "即食粥"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "传统滋补",
+                        "categoryId": "52047378",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "药食同源",
+                                "categoryId": "52041325",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041325"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "传统滋补",
+                                    "second_category_id": "52047378",
+                                    "3rd_cat_title": "药食同源",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041325&title=%E8%8D%AF%E9%A3%9F%E5%90%8C%E6%BA%90&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041325",
+                                    "abtId": "1872",
+                                    "title": "药食同源"
+                                }
+                            },
+                            {
+                                "name": "海参",
+                                "categoryId": "52041323",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041323"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "传统滋补",
+                                    "second_category_id": "52047378",
+                                    "3rd_cat_title": "海参",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041323&title=%E6%B5%B7%E5%8F%82&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041323",
+                                    "abtId": "1872",
+                                    "title": "海参"
+                                }
+                            },
+                            {
+                                "name": "花胶",
+                                "categoryId": "52041324",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041324"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "传统滋补",
+                                    "second_category_id": "52047378",
+                                    "3rd_cat_title": "花胶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041324&title=%E8%8A%B1%E8%83%B6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041324",
+                                    "abtId": "1872",
+                                    "title": "花胶"
+                                }
+                            },
+                            {
+                                "name": "阿胶",
+                                "categoryId": "52041321",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041321"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "传统滋补",
+                                    "second_category_id": "52047378",
+                                    "3rd_cat_title": "阿胶",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041321&title=%E9%98%BF%E8%83%B6&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041321",
+                                    "abtId": "",
+                                    "title": "阿胶"
+                                }
+                            },
+                            {
+                                "name": "燕窝",
+                                "categoryId": "52041322",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041322"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "传统滋补",
+                                    "second_category_id": "52047378",
+                                    "3rd_cat_title": "燕窝",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041322&title=%E7%87%95%E7%AA%9D&ab_test_id=",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041322",
+                                    "abtId": "",
+                                    "title": "燕窝"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "食材",
+                        "categoryId": "52047383",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "方便速食",
+                                "categoryId": "52041331",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041331"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "方便速食",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041331&title=%E6%96%B9%E4%BE%BF%E9%80%9F%E9%A3%9F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041331",
+                                    "abtId": "1872",
+                                    "title": "方便速食"
+                                }
+                            },
+                            {
+                                "name": "南北干货",
+                                "categoryId": "52041327",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041327"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "南北干货",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041327&title=%E5%8D%97%E5%8C%97%E5%B9%B2%E8%B4%A7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041327",
+                                    "abtId": "1872",
+                                    "title": "南北干货"
+                                }
+                            },
+                            {
+                                "name": "食用油",
+                                "categoryId": "52041330",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041330"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "食用油",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041330&title=%E9%A3%9F%E7%94%A8%E6%B2%B9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041330",
+                                    "abtId": "1872",
+                                    "title": "食用油"
+                                }
+                            },
+                            {
+                                "name": "米面/面粉",
+                                "categoryId": "52041329",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041329"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "米面/面粉",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041329&title=%E7%B1%B3%E9%9D%A2%2F%E9%9D%A2%E7%B2%89&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041329",
+                                    "abtId": "1872",
+                                    "title": "米面/面粉"
+                                }
+                            },
+                            {
+                                "name": "杂粮",
+                                "categoryId": "52041328",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041328"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "杂粮",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041328&title=%E6%9D%82%E7%B2%AE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041328",
+                                    "abtId": "1872",
+                                    "title": "杂粮"
+                                }
+                            },
+                            {
+                                "name": "调味品",
+                                "categoryId": "52041332",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52041332"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "食材",
+                                    "second_category_id": "52047383",
+                                    "3rd_cat_title": "调味品",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041332&title=%E8%B0%83%E5%91%B3%E5%93%81&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041332",
+                                    "abtId": "1872",
+                                    "title": "调味品"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "宠物",
+                        "categoryId": "52047381",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "1",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "宠物零食",
+                                "categoryId": "52041345",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52041345"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "宠物零食",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041345&title=%E5%AE%A0%E7%89%A9%E9%9B%B6%E9%A3%9F&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041345",
+                                    "abtId": "1872",
+                                    "title": "宠物零食"
+                                }
+                            },
+                            {
+                                "name": "猫粮",
+                                "categoryId": "52041344",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52041344"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "猫粮",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041344&title=%E7%8C%AB%E7%B2%AE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041344",
+                                    "abtId": "1872",
+                                    "title": "猫粮"
+                                }
+                            },
+                            {
+                                "name": "宠物日用",
+                                "categoryId": "52041346",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52041346"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "宠物日用",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041346&title=%E5%AE%A0%E7%89%A9%E6%97%A5%E7%94%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041346",
+                                    "abtId": "1872",
+                                    "title": "宠物日用"
+                                }
+                            },
+                            {
+                                "name": "宠物保健",
+                                "categoryId": "52041347",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52041347"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "宠物保健",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041347&title=%E5%AE%A0%E7%89%A9%E4%BF%9D%E5%81%A5&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041347",
+                                    "abtId": "1872",
+                                    "title": "宠物保健"
+                                }
+                            },
+                            {
+                                "name": "宠物美容",
+                                "categoryId": "52041348",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52041348"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "宠物美容",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041348&title=%E5%AE%A0%E7%89%A9%E7%BE%8E%E5%AE%B9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041348",
+                                    "abtId": "1872",
+                                    "title": "宠物美容"
+                                }
+                            },
+                            {
+                                "name": "出行装备",
+                                "categoryId": "52355378",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52355378"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "出行装备",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52355378&title=%E5%87%BA%E8%A1%8C%E8%A3%85%E5%A4%87&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52355378",
+                                    "abtId": "1872",
+                                    "title": "出行装备"
+                                }
+                            },
+                            {
+                                "name": "宠物玩具",
+                                "categoryId": "52355379",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52355379"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "宠物玩具",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52355379&title=%E5%AE%A0%E7%89%A9%E7%8E%A9%E5%85%B7&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52355379",
+                                    "abtId": "1872",
+                                    "title": "宠物玩具"
+                                }
+                            },
+                            {
+                                "name": "狗粮",
+                                "categoryId": "52041343",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52041343"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "宠物",
+                                    "second_category_id": "52047381",
+                                    "3rd_cat_title": "狗粮",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52041343&title=%E7%8B%97%E7%B2%AE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52041343",
+                                    "abtId": "1872",
+                                    "title": "狗粮"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10011378",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "Swisse",
+                                "categoryId": "10011379",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/91363b4f258044a992ebe835a7ccd834/10016087/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10016087"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "Swisse",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10016087&brandName=Swisse&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10016087"
+                                }
+                            },
+                            {
+                                "name": "Schiff",
+                                "categoryId": "10011380",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/13b85aa11b6d4a9198eaba7e5a519104/10025180/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10025180"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "Schiff",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10025180&brandName=Schiff&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10025180"
+                                }
+                            },
+                            {
+                                "name": "BLACKMORES",
+                                "categoryId": "10011381",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/6a7cfe20d23b40248ca1dde0d894a5a0/10016559/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10016559"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "BLACKMORES",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10016559&brandName=BLACKMORES&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10016559"
+                                }
+                            },
+                            {
+                                "name": "汤臣倍健",
+                                "categoryId": "10011382",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/b5f404e96c5b463fa330be5bd7835d5c/10000980/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10000980"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "汤臣倍健",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000980&brandName=%E6%B1%A4%E8%87%A3%E5%80%8D%E5%81%A5&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000980"
+                                }
+                            },
+                            {
+                                "name": "百草味",
+                                "categoryId": "10011383",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/319afbcad797435bb34fcaa68bc603c9/10003092/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10003092"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "百草味",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10003092&brandName=%E7%99%BE%E8%8D%89%E5%91%B3&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10003092"
+                                }
+                            },
+                            {
+                                "name": "五粮液",
+                                "categoryId": "10011384",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/7234e6728e9d4b0d87b50e682aacd2ef/10012675/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10012675"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "五粮液",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10012675&brandName=%E4%BA%94%E7%B2%AE%E6%B6%B2&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10012675"
+                                }
+                            },
+                            {
+                                "name": "固本堂",
+                                "categoryId": "10011385",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/0c11bff1ac644ba0969582542bffb27c/10028208/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10028208"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "固本堂",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10028208&brandName=%E5%9B%BA%E6%9C%AC%E5%A0%82&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10028208"
+                                }
+                            },
+                            {
+                                "name": "安佳",
+                                "categoryId": "10011386",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/760ff526fd51498db5cd41462a5274f9/10013742/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10013742"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "安佳",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10013742&brandName=%E5%AE%89%E4%BD%B3&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10013742"
+                                }
+                            },
+                            {
+                                "name": "KIRKLAND Signature",
+                                "categoryId": "10011387",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/209c16a4a4fb4eeea040e174ff566602/10024016/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10024016"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "71958",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011378",
+                                    "3rd_cat_title": "KIRKLAND Signature",
+                                    "1st_cat_title": "唯品生活",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10024016&brandName=KIRKLAND+Signature&category_parent_id=71958",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10024016"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}
