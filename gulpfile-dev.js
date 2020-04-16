@@ -62,10 +62,17 @@ gulp.task("scss", async () => {
         .pipe(sass().on("error", sass.logError))
         .pipe(gulp.dest("./dist/css/")).pipe(connect.reload());
 });
+
+gulp.task("json", async () => {
+
+    gulp.src(["./src/json//**/*.json"])
+        .pipe(gulp.dest("./dist/json/")).pipe(connect.reload());
+})
 gulp.task("watch", async () => {
     gulp.watch(["./src/html/**/*.html"], gulp.series("html"));
     gulp.watch(["./src/js/**/*.js"], gulp.series("js"));
     gulp.watch(["./src/css/**/*.css"], gulp.series("css"));
     gulp.watch(["./src/scss/**/*.scss"], gulp.series("scss"));
+    gulp.watch(["./src/json/**/*.json"], gulp.series("json"));
 });
-gulp.task("dev", gulp.parallel("watch", "connect", gulp.series("clean", "html", "js", "css", "scss")));
+gulp.task("dev", gulp.parallel("watch", "connect", gulp.series("clean", "html", "js", "css", "scss", "json")));

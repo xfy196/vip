@@ -316,7 +316,7 @@
             <div class="choose">
                 <div class="filter filter_frame is-filter-collapse">
                     <div class="filter-groups clearfix">
-                        <div class="filter-group-pos">
+                        <!--               <div class="filter-group-pos">
                             <div class="filter-group clearfix ">
                                 <h3 class="filter-group-title">唯品服务</h3>
                                 <div class="filter-group-content">
@@ -340,9 +340,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- 隐藏的盒子 -->
-                        <div class="filter-group-pos is-filter-group-hidden">
+                        <!--                     <div class="filter-group-pos is-filter-group-hidden">
                             <div class="filter-group clearfix ">
                                 <h3 class="filter-group-title">唯品服务</h3>
                                 <div class="filter-group-content">
@@ -366,7 +366,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="filter-commands">
@@ -377,6 +377,228 @@
                             <span class="filter-button-text">点击收起</span><span
                                 class="iconfont icon-shangjiantou-copy"></span>
                         </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 筛选区 -->
+            <div class="list-oper clearfix">
+                <div class="pro-oper">
+                    <!-- 综合 -->
+                    <div class="oper-general oper_tag oper-current-selected" title="综合">
+                        <div class="oper-all">
+                            <p>综合</p>
+                        </div>
+                    </div>
+                    <!-- 销量 -->
+                    <div class="oper-general oper_tag" title="综合">
+                        <div class="oper-all">
+                            <p>销量</p>
+                        </div>
+                    </div>
+                    <!-- 价格 -->
+                    <div class="oper-price oper_tag " id="operPrice">
+                        <div class="oper-price-tc" title="价格由低到高">
+                            <p class="oper-price-txt"><em>价格</em><span class="arrow-change"><i
+                                        class="iconfont i-cat-dis i-cat-up icon-shangjiantou-copy"></i><i
+                                        class="iconfont i-cat-dis i-cat-down icon-xiajiantou"></i></span></p>
+                        </div>
+                    </div>
+                    <!-- 折扣 -->
+                    <div class="oper-discount oper_tag " title="折扣由低到高" id="operdiscount">
+                        <p class="oper-discount-txt"><em>折扣</em><span class="arrow-change"><i
+                                    class="iconfont i-cat-dis i-cat-up  icon-shangjiantou-copy"></i><i
+                                    class="iconfont i-cat-dis i-cat-down icon-xiajiantou"></i></span></p>
+                    </div>
+                    <div id="have-selected" class="select-stock oper-hastock ">
+                        <p><a href="javascript:;" id="fileter_hasStock" class="link"><span class="ui-checkbox"><input
+                                        type="checkbox" class="ui-checkbox-normal"><label for="item1-1"
+                                        class="ui-checkbox-simulation"></label></span>只看有货商品</a></p>
+                    </div>
+
+                    <!-- 价格填写区间 -->
+                    <div class="oper-select clearfix">
+                        <div class="oper-inner-select oper-selected">
+                            <span class="oper-select-star">
+                                <input type="text" placeholder="￥" value="￥" class="priceMin">
+                                <em class="cat-select-tips"></em>
+                            </span>
+                            <i class="cat-pre"> - </i>
+                            <span class="oper-select-end">
+                                <input type="text" placeholder="￥" value="￥" class="priceMax">
+                                <em class="cat-select-tips"></em>
+                            </span>
+                            <i class="cat-btn" title="确定">确定</i>
+                            <i class="cat-btn" title="清除">清除</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <span class="page-total"><em class="page-nub">1919</em>件商品</span>
+                    <span><em class="page-nub">1</em>/10</span>
+                    <span class="page-pre">
+                        <i>&lt;</i>
+                    </span>
+                    <a class="page-next-txt" href="javascript:;">下一页<i>&gt;</i></a>
+                </div>
+            </div>
+
+            <!-- 商品列表区域 -->
+            <div class="goods-list">
+                <div class="wrap_pro">
+                    <div class="good-item">
+                        <a href="javascript:;" target="_blank">
+                            <div class="good-item-top">
+                                <div class="good-item-img-box">
+                                    <img class="good-img"
+                                        src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603410/2020/0307/149/0777c6de-75af-4484-8953-70c9a8184466_218x218_90.jpg"
+                                        alt="">
+                                </div>
+                                <div class="good-item__corner-tag">
+                                    <img src="https://h2.appsimg.com/b.appsimg.com/upload/momin/2019/09/02/160/1567393657900_68x68_90.png"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <!-- 商品列表盒子的下半部分 -->
+                            <div class="good-item-bottom">
+                                <div class="good-item_price">
+                                    <div class="good-item_main_price">
+                                        <div class="good-item_price_label"><span
+                                                class="good-item_price_label_text">折后价</span></div>
+                                        <div class="good-item_sale_price"><span>¥</span>699</div>
+                                        <div class="good-item-market_price"><span>¥</span>1280</div>
+                                        <div class="good-item_discount">5.5折</div>
+                                    </div>
+                                </div>
+                                <div class="good-item-name good-item-two-line">
+                                    斐乐女装春季女款外套时尚印花图案棒球服女式修身棒球服
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="good-item">
+                        <a href="javascript:;" target="_blank">
+                            <div class="good-item-top">
+                                <div class="good-item-img-box">
+                                    <img class="good-img"
+                                        src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603410/2020/0307/149/0777c6de-75af-4484-8953-70c9a8184466_218x218_90.jpg"
+                                        alt="">
+                                </div>
+                                <div class="good-item__corner-tag">
+                                    <img src="https://h2.appsimg.com/b.appsimg.com/upload/momin/2019/09/02/160/1567393657900_68x68_90.png"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <!-- 商品列表盒子的下半部分 -->
+                            <div class="good-item-bottom">
+                                <div class="good-item_price">
+                                    <div class="good-item_main_price">
+                                        <div class="good-item_price_label"><span
+                                                class="good-item_price_label_text">折后价</span></div>
+                                        <div class="good-item_sale_price"><span>¥</span>699</div>
+                                        <div class="good-item-market_price"><span>¥</span>1280</div>
+                                        <div class="good-item_discount">5.5折</div>
+                                    </div>
+                                </div>
+                                <div class="good-item-name good-item-two-line">
+                                    斐乐女装春季女款外套时尚印花图案棒球服女式修身棒球服
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="good-item">
+                        <a href="javascript:;" target="_blank">
+                            <div class="good-item-top">
+                                <div class="good-item-img-box">
+                                    <img class="good-img"
+                                        src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603410/2020/0307/149/0777c6de-75af-4484-8953-70c9a8184466_218x218_90.jpg"
+                                        alt="">
+                                </div>
+                                <div class="good-item__corner-tag">
+                                    <img src="https://h2.appsimg.com/b.appsimg.com/upload/momin/2019/09/02/160/1567393657900_68x68_90.png"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <!-- 商品列表盒子的下半部分 -->
+                            <div class="good-item-bottom">
+                                <div class="good-item_price">
+                                    <div class="good-item_main_price">
+                                        <div class="good-item_price_label"><span
+                                                class="good-item_price_label_text">折后价</span></div>
+                                        <div class="good-item_sale_price"><span>¥</span>699</div>
+                                        <div class="good-item-market_price"><span>¥</span>1280</div>
+                                        <div class="good-item_discount">5.5折</div>
+                                    </div>
+                                </div>
+                                <div class="good-item-name good-item-two-line">
+                                    斐乐女装春季女款外套时尚印花图案棒球服女式修身棒球服
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="good-item">
+                        <a href="javascript:;" target="_blank">
+                            <div class="good-item-top">
+                                <div class="good-item-img-box">
+                                    <img class="good-img"
+                                        src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603410/2020/0307/149/0777c6de-75af-4484-8953-70c9a8184466_218x218_90.jpg"
+                                        alt="">
+                                </div>
+                                <div class="good-item__corner-tag">
+                                    <img src="https://h2.appsimg.com/b.appsimg.com/upload/momin/2019/09/02/160/1567393657900_68x68_90.png"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <!-- 商品列表盒子的下半部分 -->
+                            <div class="good-item-bottom">
+                                <div class="good-item_price">
+                                    <div class="good-item_main_price">
+                                        <div class="good-item_price_label"><span
+                                                class="good-item_price_label_text">折后价</span></div>
+                                        <div class="good-item_sale_price"><span>¥</span>699</div>
+                                        <div class="good-item-market_price"><span>¥</span>1280</div>
+                                        <div class="good-item_discount">5.5折</div>
+                                    </div>
+                                </div>
+                                <div class="good-item-name good-item-two-line">
+                                    斐乐女装春季女款外套时尚印花图案棒球服女式修身棒球服
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="good-item">
+                        <a href="javascript:;" target="_blank">
+                            <div class="good-item-top">
+                                <div class="good-item-img-box">
+                                    <img class="good-img"
+                                        src="https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603410/2020/0307/149/0777c6de-75af-4484-8953-70c9a8184466_218x218_90.jpg"
+                                        alt="">
+                                </div>
+                                <div class="good-item__corner-tag">
+                                    <img src="https://h2.appsimg.com/b.appsimg.com/upload/momin/2019/09/02/160/1567393657900_68x68_90.png"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <!-- 商品列表盒子的下半部分 -->
+                            <div class="good-item-bottom">
+                                <div class="good-item_price">
+                                    <div class="good-item_main_price">
+                                        <div class="good-item_price_label"><span
+                                                class="good-item_price_label_text">折后价</span></div>
+                                        <div class="good-item_sale_price"><span>¥</span>699</div>
+                                        <div class="good-item-market_price"><span>¥</span>1280</div>
+                                        <div class="good-item_discount">5.5折</div>
+                                    </div>
+                                </div>
+                                <div class="good-item-name good-item-two-line">
+                                    斐乐女装春季女款外套时尚印花图案棒球服女式修身棒球服
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

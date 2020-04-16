@@ -28,3 +28,22 @@
   background-color: #fafafa;
   border: 1px solid #c2c2c2;
   color: #333333; }
+
+.ui-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 0;
+  line-height: 0; }
+
+.ui-checkbox-normal {
+  display: none; }
+
+.ui-checkbox-simulation {
+  display: block;
+  background-image: url(//bootstrap.vipstatic.com/img/ui/sprite.png?d9eadd17);
+  background-position: -48px 0;
+  width: 19px;
+  height: 16px; }
+  .ui-checkbox-simulation:hover {
+    background-position: -24px -21px; }

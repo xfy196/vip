@@ -1,17 +1,21 @@
 ;; (function () {
 
     $(function () {
-        getCategoryList().then((data) => {
-            renderCategoryList(data.data);
-            bindCategoryEvent();
-        })
+        init();
     });
 
     /**
      * 初始化的函数
      */
     function init() {
+        getCategoryList().then((data) => {
+            renderCategoryList(data.data);
+            bindCategoryEvent();
+        })
+        getShopListData().then((data) => {
 
+            renderShopListData(data.data.products);
+        });
     }
 
     function renderCategoryList(data) {
@@ -146,10 +150,10 @@
             // 这个是将确认和取消按钮显示出来
             // 将选项变为多选框的效果
             $(this).hide().siblings(".is-filter-commands-show").show().prev().find(".filter-group-scroll").css({
-                overflow:"auto",
-                maxHeight : 94
+                overflow: "auto",
+                maxHeight: 94
             }).find(".filter-data-item").css({
-                marginTop : 10
+                marginTop: 10
             }).find(".filter-item-link").addClass("is-switch-show")
                 .on("click", function () {
                     $(this).toggleClass("is-switch-click");
@@ -164,10 +168,10 @@
                 因为上面点击选择框事件每次都会保留下来 在点击去掉按钮之后呢这个时间还会存在导致下一次点击选择框他会执行两次事件操作
             */
             $(this).parent().hide().siblings(".filter-group-operation").show().prev().prev().find(".filter-group-scroll").scrollTop(0).css({
-                overflow:"hidden",
-                maxHeight : 16
+                overflow: "hidden",
+                maxHeight: 16
             }).find(".filter-data-item").css({
-                marginTop : 0
+                marginTop: 0
             }).find(".filter-item-link").removeClass("is-switch-show is-switch-click").unbind("click");;
 
         });
@@ -204,6 +208,66 @@
             },
             dataType: "jsonp",
             jsonpCallback: "getCategoryListCb"
+        });
+    }
+
+    /**
+     * 加载商品列表的数据
+     */
+    function getShopListData() {
+        return $.ajax({
+            type: "get",
+            url: "../json/list-data.json",
+            data: "data",
+            dataType: "json",
+        });
+    }
+
+    /**
+     * 商品列表渲染
+     * @param {商品数据} data 
+     */
+    function renderShopListData(data) {
+        let html = ``;
+        data.forEach((item, index) => {
+
+            html += `<div class="good-item">
+            <a href="javascript:;" target="_blank" data-id=${item.productId}>
+                <div class="good-item-top">
+                    <div class="good-item-img-box">
+                        <img class="good-img"
+                            data-original="${item.smallImage}"
+                            alt="" data-brandId=${item.brandId}>
+                    </div>
+                    <div class="good-item__corner-tag">
+                        <img data-original="${item.icon}"
+                            alt="">
+                    </div>
+                </div>
+
+                <div class="good-item-bottom">
+                    <div class="good-item_price">
+                        <div class="good-item_main_price">
+                            <div class="good-item_price_label"><span
+                                    class="good-item_price_label_text">${item.price.priceLabel}</span></div>
+                            <div class="good-item_sale_price"><span>¥</span>${item.price.salePrice}</div>
+                            <div class="good-item-market_price"><span>¥</span>${item.price.marketPrice}</div>
+                            <div class="good-item_discount">${item.price.saleDiscount}</div>
+                        </div>
+                    </div>
+                    <div class="good-item-name good-item-two-line">
+                        ${item.title}
+                    </div>
+                </div>
+            </a>
+        </div>`
+        });
+        $(".goods-list .wrap_pro").html(html);
+        $(".goods-list .wrap_pro img").lazyload({
+            // 覆盖lazyload自带的背景图片
+            placeholder : "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544053956,2144358865&fm=26&gp=0.jpg",
+            effect: "fadeIn",
+            threshold: 400
         });
     }
 })();
