@@ -7,8 +7,9 @@
      * 页面初始化的函数
      */
     function init() {
-        getBannerData();
-        // swiperOpr();
+        // getBannerData();
+        
+        swiperOpr();
 
         // 梯子改变的事件
         floorChangeEvent();
@@ -303,7 +304,6 @@
 
     // banner图片数据请求函数
     function getBannerData() {
-
         $.ajax({
             url: "https://pcapi.vip.com/cmc/index.php",
             dataType: "jsonp",
@@ -327,7 +327,6 @@
                         res = data[attr];
                     }
                 }
-                console.log(res)
                 // 渲染数据
                 if (res === null) {
                     return false

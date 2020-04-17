@@ -31,17 +31,17 @@
                         <div class="show-midpic active-pannel">
                             <a href="javascript:;" class="bigImgZoom">
                                 <div class="zoomPad">
-                                    <div class="zoom_origin_img_box"> <img width="420" height="420"
+                                    <div class="zoom_origin_img_box"> <!-- <img width="420" height="420"
                                             class="slide-mid-pic"
                                             src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21_420x420_90.jpg"
-                                            alt="">
+                                            alt=""> -->
                                     </div>
 
                                     <!-- 放大的盒子 -->
                                     <div class="zoomWindow" style="display: none;">
                                         <div class="zoomWrapperImage">
-                                            <img src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21.jpg"
-                                                alt="">
+                                            <!-- <img src="https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21.jpg"
+                                                alt=""> -->
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@
                                 <dd class="color-list">
                                     <ul class="clearfix">
                                         <li class="color-list-item"><a href="javascript:;" title="传奇蓝"
-                                                class="colorItem color-selected">
+                                                class="colorItem">
                                                 <span class="color-pic-wrapper">
                                                     <img src="https://a.vpimg3.com/upload/merchandise/pdcvis/2020/03/07/20/d2346eca-3693-4372-bc41-25813762fb83_420_531_54x69_100.jpg"
                                                         alt="传奇蓝" width="22" height="28">
@@ -183,7 +183,7 @@
                                                         alt="标准白" width="22" height="28">
                                                 </span>
                                                 <span class="color-item-name">传奇蓝</span>
-                                                <!-- <span class="i-select"></span> -->
+                                                <span class="i-select"></span>
                                                 <span class="i-chance"></span>
                                             </a></li>
                                     </ul>
@@ -362,24 +362,6 @@
     <script src="./js/header.js"></script>
     <script src="./js/libs/magnifier/magnifier.js"></script>
     <script src="./js/detailInfo.js"></script>
-    <script>
-        $(function () {
-            console.log("sddsad")
-            var magnifierConfig = {
-                magnifier: ".pic",//最外层的大容器
-                container: ".zoomPad",
-                containerImg: ".zoom_origin_img_box",
-                view: ".zoomWindow",
-                thumbnail: ".pic-slider ul",
-                width: 420,//承载容器宽
-                height: 420,//承载容器高
-                zoom: 3
-            };
-
-            var _magnifier = magnifier(magnifierConfig);
-            console.log(_magnifier)
-        });
-    </script>
 </body>
 
 </html>

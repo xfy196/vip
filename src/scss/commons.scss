@@ -983,4 +983,108 @@ nav .more {
   border-top: 1px solid #ebebeb;
   background-color: #fcfcfc;
   color: #4d4d4d;
+  @at-root .footer-inner {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    .footer-vip {
+      overflow: hidden;
+      li {
+        float: left;
+      }
+      i {
+        display: block;
+        margin-top: 30px;
+        margin-right: 38px;
+        margin-left: 10px;
+        width: 72px;
+        height: 75px;
+        font-size: 0;
+        text-indent: -100%;
+      }
+      .footer-vip-v2-ico01 {
+        background-position: 0 0;
+      }
+      .footer-vip-v2-ico01,
+      .footer-vip-v2-ico02,
+      .footer-vip-v2-ico03,
+      .footer-vip-v2-ico04,
+      .footer-vip-v2-ico05,
+      .footer-vip-v2-ico06,
+      .footer-vip-v2-ico07,
+      .footer-vip-v2-ico08 {
+        background: url(//shop.vipstatic.com/img/common/footer_common_20200225-hash-de601308.png?2f451356)
+          no-repeat 0 0;
+      }
+    }
+    .footer-list {
+      overflow: hidden;
+      zoom: 1;
+      margin: 37px 0 25px;
+      line-height: 20px;
+      dl {
+        float: left;
+        width: 145px;
+        height: 146px;
+        padding-left: 16px;
+        border-right: 1px solid #e0e0e0;
+      }
+      .link-anim dd {
+        transition: transform ease-out 0.2s;
+        &:hover {
+          transform: translateX(2px);
+          a {
+            color: #f10180;
+          }
+        }
+      }
+      dt {
+        margin-bottom: 4px;
+        color: #4d4d4d;
+      }
+      dd {
+        padding-left: 8px;
+        background: url(//shop.vipstatic.com/img/common/footer-hash-3de6f1ae.png?939748fb)
+          no-repeat -6px -494px;
+      }
+      .tc {
+        padding-left: 0;
+        width: 136px;
+        text-align: center;
+        dd {
+          background: 0 0;
+          padding-left: 0;
+        }
+      }
+      .last {
+        border-right: 0;
+        display: block;
+      }
+    }
+    .footer-infor {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 0;
+      .footer-infor-link {
+        background-color: #d7237e;
+        line-height: 30px;
+        a {
+          margin-left: 2px;
+          margin-right: 2px;
+          color: #fff;
+          &:hover {
+            color: #cccccc;
+          }
+        }
+      }
+      .footer-infor-txt {
+        color: #999;
+        margin: 14px 0;
+        line-height: 19px;
+      }
+    }
+  }
+  a {
+    color: grey;
+  }
 }

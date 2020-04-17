@@ -2,7 +2,6 @@
   position: relative;
   margin-bottom: 40px;
   padding-top: 22px;
-  z-index: 10;
   .pic {
     float: left;
     position: relative;
@@ -347,6 +346,26 @@
           line-height: 26px;
           cursor: pointer;
           background-color: #fff;
+
+          @at-root.i-select, .i-change {
+            display: none;
+            position: absolute;
+          }
+        }
+        .size-selected {
+          padding: 0 19px;
+          border: 2px solid #f43499;
+          .i-select,
+          .i-change {
+            display: block;
+            bottom: 1px;
+            right: 1px;
+            z-index: 2;
+            background-image: url(//shop.vipstatic.com/img/detail/detail-sprites-hash-5216deac.png?d775612b);
+            background-position: -144px -170px;
+            width: 17px;
+            height: 16px;
+          }
         }
       }
     }
@@ -394,6 +413,12 @@
         -webkit-transition: 0.3s ease-out;
         transition: 0.3s ease-out;
       }
+    }
+    .addErrorMsg {
+      display: none;
+      color: red;
+      font-size: 14px;
+      margin-left: 40px;
     }
     .i-button {
       margin-bottom: 12px;

@@ -1,0 +1,37 @@
+{
+    "code" : 200,
+    "msg": "success",
+    "data" : {
+        "product" : {
+            "brandName" : "FILA",
+            "longTitle" : "斐乐春季新品男装运动休闲无帽圆领卫衣时尚潮流针织套头衫",
+            "max_market_price" : 680,
+            "promotion_price" : 469,
+            "promotionDiscount" : "6.9折",
+            "sizes" : [
+                {
+                    "name": "S"
+                },
+                {
+                    "name": "M"
+                },
+                {
+                    "name": "L"
+                },
+                {
+                    "name": "XL"
+                }
+            ],
+            "images" : [
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/31/20c9c7d2-01ff-45a6-b80f-f700c669bd21.jpg",
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/89/f4545461-d008-45e5-a237-f7d508f8d904.jpg",
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/5/cb5511c4-53fc-4f58-ab14-47541a75d8ed.jpg",
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/104/62ddf3c0-a068-410f-9738-794c7d05bc6c.jpg",
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0413/166/c36732dc-1716-4e31-8446-3b233811ab4a.jpg",
+                "https://a.vpimg4.com/upload/merchandise/pdcvis/603410/2020/0117/90/4633b0ac-7069-480e-bf55-6321fb478552.jpg"
+            ],
+            "productColor" : ["传奇蓝", "陶瓷白"]
+        }
+    }
+
+}

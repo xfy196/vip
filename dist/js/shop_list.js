@@ -187,27 +187,7 @@
     function getCategoryList() {
         return $.ajax({
             type: "get",
-            url: "https://mapi.vip.com/vips-mobile/rest/shopping/pc/screening/category/get/v2",
-            data: {
-                app_name: "shop_pc",
-                app_version: 4.0,
-                warehouse: "VIP_SH",
-                fdc_area_id: 103104110,
-                client: "pc",
-                mobile_platform: 1,
-                province_id: 103104,
-                api_key: "70f71280d5d547b2a7bb370a529aeea1",
-                user_id: "",
-                mars_cid: "1586916379082_4f21050de8cc284da6366886163b7623",
-                wap_consumer: "a",
-                functions: "showLabel",
-                useStandardSize: 1,
-                brandStoreSns: "",
-                brand_id: 100625141,
-                _: Date.now()
-            },
-            dataType: "jsonp",
-            jsonpCallback: "getCategoryListCb"
+            url: "../json/listCategory.json",
         });
     }
 
@@ -217,7 +197,7 @@
     function getShopListData() {
         return $.ajax({
             type: "get",
-            url: "../json/list-data.json",
+            url: "../json/listData.json",
             data: "data",
             dataType: "json",
         });
