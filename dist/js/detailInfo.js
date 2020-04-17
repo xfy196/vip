@@ -303,12 +303,12 @@
             // 选择数量 加法的
             this.formEle.on("click", that.data.numAdd, function () {
                 let num = Number(that.numInput.html());
+                num++;
                 if (num > 1) {
                     that.numReduce.css({
                         cursor: "pointer"
                     })
                 }
-                num++;
                 that.numInput.html(num);
 
 
@@ -317,13 +317,13 @@
             // 选择数量减法的
             this.formEle.on("click", that.data.numReduce, function () {
                 let num = Number(that.numInput.html());;
-                if (num === 1) {
+                num--;
+                if (num <= 1) {
                     that.numReduce.css({
                         cursor: "not-allowed"
                     })
                     return false;
                 }
-                num--;
                 that.numInput.html(num);
 
             });
