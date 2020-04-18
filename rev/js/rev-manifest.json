@@ -1,10 +1,11 @@
 {
   "activity.js": "activity-086dcc9392.js",
-  "detailInfo.js": "detailInfo-f88ba6010f.js",
+  "cars.js": "cars-af9c535a7d.js",
+  "detailInfo.js": "detailInfo-2a049cddf5.js",
   "header.js": "header-b266b70748.js",
   "index.js": "index-21e76024fa.js",
   "libs/lazyload/jquery.lazyload.min.js": "libs/lazyload/jquery-0bc08f2078.lazyload.min.js",
-  "libs/magnifier/magnifier.js": "libs/magnifier/magnifier-560586a12a.js",
+  "libs/magnifier/magnifier.js": "libs/magnifier/magnifier-4430377fec.js",
   "libs/validate/additional-methods.js": "libs/validate/additional-methods-ae7f5683fa.js",
   "libs/validate/jquery.validate.min.js": "libs/validate/jquery-4dc3634847.validate.min.js",
   "libs/validate/messages_zh.js": "libs/validate/messages_zh-e879186344.js",

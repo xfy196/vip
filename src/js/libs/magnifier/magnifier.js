@@ -214,7 +214,7 @@
 			_this.eqImg();
 
 			//缩略图位置移动
-			_this.imgMove(magnifier.index);
+			// _this.imgMove(magnifier.index);
 		});
 
 		_this.setIndex = function(n){
