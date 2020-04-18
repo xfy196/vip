@@ -39,7 +39,7 @@
 			}
 		}
 
-		var _this = this;
+		var _this = window;
 		//绑定容器
 		_this.magnifier = $(magnifier.magnifier);
 		_this.container = _this.magnifier.find(magnifier.container);
@@ -95,8 +95,8 @@
 			img.src = src;
 			
 			//承载容器的宽高
-			containerWidth = magnifier.width;
-			containerHeight = magnifier.height;
+			var containerWidth = magnifier.width;
+			var containerHeight = magnifier.height;
 
 			_this.thumbnail.find('>*').removeClass('active').eq(magnifier.index).addClass('active');
 
@@ -147,8 +147,8 @@
 			var X = (e.clientX-_this.magnifier.offset().left)-boxMoveViewWidth/2,
 				Y = (e.clientY-_this.magnifier.offset().top + $(document).scrollTop())-boxMoveViewHeight/2;
 
-			endX = (X > deviationXl) ? (X < deviationXr) ? X : deviationXr : deviationXl;
-			endY = (Y > deviationYt) ? (Y < deviationYb) ? Y : deviationYb : deviationYt;
+			var endX = (X > deviationXl) ? (X < deviationXr) ? X : deviationXr : deviationXl;
+			var endY = (Y > deviationYt) ? (Y < deviationYb) ? Y : deviationYb : deviationYt;
 			
 			//当Y轴超出容器
 			endY = (endY > 0) ? (endY > (magnifier.width-boxMoveViewHeight)) ? (magnifier.height-boxMoveViewHeight) : endY : 0;
@@ -158,8 +158,8 @@
 				'display' : "block"
 			});
 			
-			positionX = (endX - (magnifier.width-imgWidth)/2)*multiple;
-			positionY = (endY - (magnifier.height-imgHieght)/2)*multiple;
+			var positionX = (endX - (magnifier.width-imgWidth)/2)*multiple;
+			var positionY = (endY - (magnifier.height-imgHieght)/2)*multiple;
 
 			_this.view.css({
 				'display' : "block"

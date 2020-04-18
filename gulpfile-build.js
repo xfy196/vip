@@ -94,6 +94,6 @@ gulp.task("img", async () => {
 gulp.task("json", async () => {
 
   gulp.src(["./src/json//**/*.json"])
-      .pipe(gulp.dest("./dist/json/")).pipe(connect.reload());
+      .pipe(gulp.dest("./dist/json/"));
 })
 gulp.task("build", gulp.series("clean", "js", "html", "css", "img", "scss", "json"));

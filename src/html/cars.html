@@ -17,7 +17,7 @@
     <div class="hd">
         <div class="row">
             <h1 class="logo">
-                <a href="javascript:;" class="logo-link"><img
+                <a href="./index.html" class="logo-link"><img
                         src="https://a.vpimg2.com/upload/upimg2/slogan/cartHeader.png" height="48" alt="品牌特卖" /></a>
             </h1>
             <div class="my-site-nav">
@@ -172,6 +172,14 @@
                                                                     src="https://a.vpimg3.com/upload/merchandise/pdcvis/603410/2020/0413/99/e0dca844-fc8c-4e42-8688-f4d741eb6be7_420_531_235x297_90.jpg"
                                                                     alt="" />
                                                             </a>
+                                                            <div class="product-pic-preview-tooltips ui-tooltips">
+                                                                <div class="ui-tooltips-content">
+                                                                    <img class=""
+                                                                        src="//a.vpimg4.com/upload/merchandise/pdcvop/00100319/10000547/19896114-299003249799671808-299003249799671810-50_5t_235x297_90.jpg"
+                                                                        alt="【2020春新款】商务气质不对称高腰磨白宽松深蓝牛仔裤" width="184"
+                                                                        height="234">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <h3 class="product-title">
                                                             <span class="u-saletype u-saletype-0">自营</span>
@@ -194,13 +202,14 @@
                                                 </td>
                                                 <td class="quantity-item">
                                                     <div class="m-amount confirm_box cart_amount_confirm_box clearfix">
-                                                        <a class="iconfont icon-jianhao icon-reduce"
+                                                        <a class="iconfont icon-jianhao icon-reduce num-reduce"
                                                             href="javascript:void(0)">
                                                         </a>
                                                         <div title="请选择购买数量" class="amount-num">
-                                                            <input name="num" type="text" value="1" class="cart_num" />
+                                                            <input name="num" type="text" value="1"
+                                                                class="cart_num num-input" />
                                                         </div>
-                                                        <a class="iconfont icon-jiahao icon-add"
+                                                        <a class="iconfont icon-jiahao icon-add num-add"
                                                             href="javascript:void(0)">
                                                         </a>
                                                     </div>
@@ -236,7 +245,8 @@
                         </div>
                         <div class="orders-total-ft-placeholder">
                             <div class="orders-total-ft"><a
-                                    class="ui-btn-primary  ui-btn-large  ui-btn-loading  btn-orders-submit">立即结算</a></div>
+                                    class="ui-btn-primary  ui-btn-large  ui-btn-loading  btn-orders-submit">立即结算</a>
+                            </div>
 
                         </div>
                     </div>
@@ -244,6 +254,9 @@
             </div>
         </div>
     </div>
+    @@include("./component/footer.html")
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/cars.js"></script>
 </body>
 
 </html>

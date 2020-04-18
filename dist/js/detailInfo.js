@@ -1,6 +1,6 @@
-;; (function () {
-    $(function () {
-        let magnifierConfig = {
+;; (function ($) {
+    getProductData().then((data) => {
+        var magnifierConfig = {
             magnifier: ".pic",//最外层的大容器
             container: ".zoomPad",
             containerImg: ".zoom_origin_img_box",
@@ -10,30 +10,138 @@
             height: 420,//承载容器高
             zoom: 3
         };
+        if (!(/^2\d{2}$/.test(data.code))) {
+            return false;
+        }
+        renderProductDetail(data.data.product);
+        magnifier(magnifierConfig);
+        new Car({
+            data: data.data,
+            formEle: "#cartAdd-form",
+            colorEel: ".colorItem",
+            sizeEle: ".size-list-item",
+            numReduce: ".num-reduce",
+            numInput: ".num-input",
+            numAdd: ".num-add"
+        }).init();
+
+    });
 
 
-        getProductData().then((data) => {
-            if (!/^2\d{2}$/.test(data.code)) {
-                return false;
-            }
-            renderProductDetail(data.data.product);
-            new Car({
-                data: data.data,
-                formEle: "#cartAdd-form",
-                colorEel: ".colorItem",
-                sizeEle: ".size-list-item",
-                numReduce: ".num-reduce",
-                numInput: ".num-input",
-                numAdd: ".num-add"
-            }).init();
-            magnifier(magnifierConfig);
-        });
+
+    /**
+     * 购物车对象
+     */
+    function Car(data) {
+        this.data = data;
+        this.carDetailInfo = data.data;
+        this.formEle = $(data.formEle);
+        this.colorEel = $(data.colorEel);
+        this.sizeEle = $(data.sizeEle);
+        this.numReduce = $(data.numReduce);
+        this.numAdd = $(data.numAdd);
+        this.numInput = $(data.numInput);
+    }
+    $.extend(Car.prototype, {
+
+        init: function () {
+            this.initCars();
+            this.bindEvent();
+        },
+        addCar: function () {
+            // 就这个数据进行操作更改他的数据结构
+            var productId = this.carDetailInfo.product.id;
+            this.carsList[productId] = this.carDetailInfo.product;
+            localStorage.setItem("cars", JSON.stringify(this.carsList));
+        },
+        /**
+         * 初始化购物车数据
+         */
+        initCars: function () {
+            this.carsList = JSON.parse(localStorage.getItem("cars")) || {};
+        },
+        bindEvent: function () {
+            var that = this;
+            this.formEle.on("click", ".button-box button", function () {
+                // 验证购物车中的一些必选是否选中
+                /* 
+                    选中将购物车数据添加到localStorage中
+                    没有选中弹出提示信息高度用户需要勾选选项
+                */
+                // 验证时候该选的都已经选中了
+                if (!(that.colorEel.hasClass("color-selected") && that.sizeEle.hasClass("size-selected"))) {
+                    $(".addErrorMsg").show();
+                } else {
+                    // 错误信息隐藏
+                    $(".addErrorMsg").hide();
+                    that.carDetailInfo.product.color = that.colorEel.parent().siblings("input").val();
+                    that.carDetailInfo.product.size = that.sizeEle.siblings("input").val();
+                    that.carDetailInfo.product.num = that.numInput.html();
+                    // 将购物车的数据存储到localStorage中
+                    that.addCar();
+                    // 延迟跳转
+                    setTimeout(function () {
+                        location.href = "./cars.html";
+                    }, 300)
+                }
+            });
+
+            //选择颜色
+            this.formEle.on("click", that.data.colorEel, function () {
+                $(this).toggleClass("color-selected").parent().siblings().find(that.data.colorEel).removeClass("color-selected");
+                if ($(this).hasClass("color-selected")) {
+                    $(this).parent().siblings("input").val($(this).attr("title"));
+                } else {
+                    $(this).parent().siblings("input").val("");
+                }
+            });
+
+            // 选择尺寸
+            this.formEle.on("click", that.data.sizeEle, function () {
+                $(this).toggleClass("size-selected").siblings(that.data.sizeEle).removeClass("size-selected");
+
+                if ($(this).hasClass("size-selected")) {
+                    $(this).siblings("input").val($(this).attr("title"));
+                } else {
+                    $(this).siblings("input").val("");
+                }
+            });
+            // 选择数量 加法的
+            this.formEle.on("click", that.data.numAdd, function () {
+                var num = Number(that.numInput.html());
+                num++;
+                if (num > 1) {
+                    that.numReduce.css({
+                        cursor: "pointer"
+                    })
+                }
+                that.numInput.html(num);
+
+
+            });
+
+            // 选择数量减法的
+            this.formEle.on("click", that.data.numReduce, function () {
+                var num = Number(that.numInput.html());;
+                num--;
+                if (num === 0) {
+                    return false;
+                }
+                if (num <= 1) {
+                    that.numReduce.css({
+                        cursor: "not-allowed"
+                    })
+                }
+                that.numInput.html(num);
+
+            });
+        }
     });
 
 
     /**
-     * 获取商品详情的数据
-     */
+ * 获取商品详情的数据
+ */
     function getProductData() {
         return $.ajax({
             type: "get",
@@ -46,8 +154,8 @@
      * @param {数据} data 
      */
     function renderProductDetail(data) {
-        let imageInfo = ``;
-        let productInfo = ``;
+        var imageInfo = ``;
+        var productInfo = ``;
         imageInfo += `<div class="pic-sliderwrap">
         <div class="show-midpic active-pannel">
             <a href="javascript:;" class="bigImgZoom">
@@ -81,9 +189,7 @@
         </div>
         <!-- 产品图片end -->
         <div class="product-text">
-            <!-- 产品编码 -->
             <p class="other-infoCoding">商品编码：${data.infoCoding}</p>
-            <!-- 在线收藏 -->
             <div class="onsell-collect" id="add_fav_wrapper">
                 <div class="goods-fav-collect" id="add_fav_button">
                     <i></i>
@@ -115,7 +221,6 @@
                 </p>
             </div>
         </div>
-        <!-- 价格的盒子 -->
         <div class="pi-price-box">
             <div class="specialPrice-wrap">
                 <div class="spcecialPrice-box">
@@ -131,7 +236,6 @@
             </div>
         </div>
 
-        <!-- 配送运费尺码数量的盒子 -->
         <div id="proData-box" class="pi-attr-box">
             <form action="javascript:;" class="cartAdd-form" id="cartAdd-form">
                 <input type="hidden" name="act" value="add">
@@ -197,7 +301,7 @@
                             <span class="i-recommand"></span>
                         </li>`
         });
-        let dataJson = JSON.stringify(data)
+        var dataJson = JSON.stringify(data)
         productInfo += `</ul>
                     </dd>
                 </dl>
@@ -226,107 +330,4 @@
         $(".mer-ImgReview").html(imageInfo);
         $(".product-content-inner").html(productInfo);
     }
-
-    /**
-     * 购物车对象
-     */
-    function Car(data) {
-        this.data = data;
-        this.carDetailInfo = data.data;
-        this.formEle = $(data.formEle);
-        this.colorEel = $(data.colorEel);
-        this.sizeEle = $(data.sizeEle);
-        this.numReduce = $(data.numReduce);
-        this.numAdd = $(data.numAdd);
-        this.numInput = $(data.numInput);
-    }
-    $.extend(Car.prototype, {
-
-        init: function () {
-            this.initCars();
-            this.bindEvent();
-        },
-        addCar: function () {
-            // 就这个数据进行操作更改他的数据结构
-            let productId = this.carDetailInfo.product.id;
-            this.carsList[productId] = this.carDetailInfo.product;
-            localStorage.setItem("cars", JSON.stringify(this.carsList));
-        },
-        /**
-         * 初始化购物车数据
-         */
-        initCars: function () {
-            this.carsList = JSON.parse(localStorage.getItem("cars")) || {};
-        },
-        bindEvent: function () {
-            let that = this;
-            this.formEle.on("click", ".button-box button", function () {
-                // 验证购物车中的一些必选是否选中
-                /* 
-                    选中将购物车数据添加到localStorage中
-                    没有选中弹出提示信息高度用户需要勾选选项
-                */
-                // 验证时候该选的都已经选中了
-                if (!(that.colorEel.hasClass("color-selected") && that.sizeEle.hasClass("size-selected"))) {
-                    $(".addErrorMsg").show();
-                } else {
-                    // 错误信息隐藏
-                    $(".addErrorMsg").hide();
-                    that.carDetailInfo.product.color = that.colorEel.parent().siblings("input").val();
-                    that.carDetailInfo.product.size = that.sizeEle.siblings("input").val();
-                    that.carDetailInfo.product.num = that.numInput.html();
-                    // 将购物车的数据存储到localStorage中
-                    that.addCar();
-                }
-            });
-
-            //选择颜色
-            this.formEle.on("click", that.data.colorEel, function () {
-                $(this).toggleClass("color-selected").parent().siblings().find(that.data.colorEel).removeClass("color-selected");
-                if ($(this).hasClass("color-selected")) {
-                    $(this).parent().siblings("input").val($(this).attr("title"));
-                } else {
-                    $(this).parent().siblings("input").val("");
-                }
-            });
-
-            // 选择尺寸
-            this.formEle.on("click", that.data.sizeEle, function () {
-                $(this).toggleClass("size-selected").siblings(that.data.sizeEle).removeClass("size-selected");
-
-                if ($(this).hasClass("size-selected")) {
-                    $(this).siblings("input").val($(this).attr("title"));
-                } else {
-                    $(this).siblings("input").val("");
-                }
-            });
-            // 选择数量 加法的
-            this.formEle.on("click", that.data.numAdd, function () {
-                let num = Number(that.numInput.html());
-                num++;
-                if (num > 1) {
-                    that.numReduce.css({
-                        cursor: "pointer"
-                    })
-                }
-                that.numInput.html(num);
-
-
-            });
-
-            // 选择数量减法的
-            this.formEle.on("click", that.data.numReduce, function () {
-                let num = Number(that.numInput.html());;
-                num--;
-                if (num <= 1) {
-                    that.numReduce.css({
-                        cursor: "not-allowed"
-                    })
-                    return false;
-                }
-                that.numInput.html(num);
-
-            });
-        }
-    })
-})();
+})(jQuery);

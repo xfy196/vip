@@ -262,6 +262,36 @@
             .product-pic img {
               display: block;
               overflow: hidden; }
+            .product-pic .product-pic-preview-tooltips {
+              top: 0;
+              left: 67px;
+              width: 194px;
+              height: 244px; }
+            .product-pic .ui-tooltips {
+              display: none;
+              visibility: visible;
+              opacity: 0;
+              transition: transform ease-out 0.15s, opacity ease-out 0.15s;
+              position: absolute;
+              max-width: 800px;
+              border: 1px solid #dbdada;
+              border-radius: 2px;
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+              font-size: 12px;
+              line-height: 18px;
+              color: #4d4d4d;
+              z-index: 50; }
+              .product-pic .ui-tooltips .ui-tooltips-content {
+                padding: 5px;
+                position: relative;
+                background: #fff; }
+                .product-pic .ui-tooltips .ui-tooltips-content img {
+                  display: block;
+                  overflow: hidden; }
+            .product-pic .product-tooltips-show {
+              visibility: visible;
+              opacity: 1;
+              display: block; }
           .product-item .product-small .product-title {
             width: 180px;
             max-height: 32px;
@@ -384,7 +414,8 @@
         text-align: center; }
         .actions-item .dellCarBtn {
           display: inline-block;
-          margin-top: 8px; }
+          margin-top: 8px;
+          margin-left: 26px; }
           .actions-item .dellCarBtn:hover {
             color: inherit; }
 
