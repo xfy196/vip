@@ -657,3 +657,88 @@
     }
   }
 }
+.fw-detail {
+  margin-top: 30px;
+  .placeholder {
+    .detailTop {
+      height: 36px;
+      border-top: 1px solid #e7e7e7;
+      border-bottom: 3px solid #000;
+      background-color: #fff;
+      border-right: 1px solid #e7e7e7;
+      margin-bottom: 20px;
+      .dt-list {
+        position: relative;
+
+        .dt-list-item {
+          cursor: pointer;
+          float: left;
+          padding: 0 15px;
+          height: 36px;
+          line-height: 36px;
+          text-align: center;
+          font-size: 14px;
+          color: #333;
+          border-left: 1px solid #e7e7e7;
+          &:hover {
+            color: #f10180;
+            border-bottom: 3px solid #f10180;
+          }
+        }
+        .dt-list-item.selected {
+          color: #f10180;
+          border-bottom: 3px solid #f10180;
+        }
+      }
+    }
+    .detail {
+      .dc-tit-new {
+        text-align: left;
+        clear: both;
+        padding-left: 20px;
+        background: url(//shop.vipstatic.com/img/detail/detial_line-hash-73c7b229.png?f06a5522)
+          repeat-x left bottom;
+        position: relative;
+        padding-bottom: 6px;
+        .dc-tit-new-icon {
+          background-image: url(//shop.vipstatic.com/img/detail/detail-sprites-hash-5216deac.png?d775612b);
+          background-position: -275px -234px;
+          width: 13px;
+          height: 13px;
+          position: absolute;
+          top: 9px;
+          left: 0;
+        }
+        .dc-title {
+          color: #f10180;
+          font-size: 20px;
+        }
+      }
+    }
+    .video-html {
+      padding: 20px;
+    }
+    .dc-img {
+      width: 1000px;
+      overflow: hidden;
+      padding: 20px 0;
+      .dc-img-detail {
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 20px;
+        .bg-height {
+          min-height: auto;
+        }
+        .img-6xx-bg {
+          background: url(//shop.vipstatic.com/img/detail/ui-loading-goods-hash-8d89d4ea.gif?2ab18adc)
+            center center no-repeat;
+          min-height: 297px;
+        }
+        .dc-img-con {
+          width: 1020px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

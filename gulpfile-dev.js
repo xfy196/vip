@@ -24,6 +24,20 @@ const connect_options = {
                 pathRewrite: {
                     "/notice": ""
                 }
+            }),
+            proxy("/api/register", {
+                target : "http://localhost/vipPhp/register.php",
+                changeOrigin : true,
+                pathRewrite : {
+                    "/api/register" : ""
+                }
+            }),
+            proxy("/api/login", {
+                target : "http://localhost/vipPhp/login.php",
+                changeOrigin : true,
+                pathRewrite : {
+                    "/api/login" : ""
+                }
             })
         ]
     }

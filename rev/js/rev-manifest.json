@@ -1,15 +1,15 @@
 {
-  "activity.js": "activity-086dcc9392.js",
+  "activity.js": "activity-a1d797eca7.js",
   "cars.js": "cars-af9c535a7d.js",
   "detailInfo.js": "detailInfo-2a049cddf5.js",
-  "header.js": "header-b266b70748.js",
-  "index.js": "index-21e76024fa.js",
+  "header.js": "header-1c67337001.js",
+  "index.js": "index-890c650008.js",
   "libs/lazyload/jquery.lazyload.min.js": "libs/lazyload/jquery-0bc08f2078.lazyload.min.js",
   "libs/magnifier/magnifier.js": "libs/magnifier/magnifier-4430377fec.js",
   "libs/validate/additional-methods.js": "libs/validate/additional-methods-ae7f5683fa.js",
   "libs/validate/jquery.validate.min.js": "libs/validate/jquery-4dc3634847.validate.min.js",
   "libs/validate/messages_zh.js": "libs/validate/messages_zh-e879186344.js",
-  "login.js": "login-c8cfd71156.js",
-  "register.js": "register-5cc2702dc5.js",
-  "shop_list.js": "shop_list-8e4349d403.js"
+  "login.js": "login-825c33cf42.js",
+  "register.js": "register-b8a0e2281c.js",
+  "shop_list.js": "shop_list-714044e113.js"
 }

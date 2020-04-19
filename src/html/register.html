@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/register.css">
   <link rel="stylesheet" href="./css/icon/iconfont.css">
+  <link rel="stylesheet" href="./css/commons.css">
 </head>
 
 <body>
@@ -69,7 +70,7 @@
                 <!-- 密码 -->
                 <div class="has-form-item-icon">
                   <div class="ui-form-item-group">
-                    <input type="text" name="password" placeholder="密码由6-20位字母，数字和符号组合" id="password"
+                    <input type="password" name="password" placeholder="密码由6-20位字母，数字和符号组合，至少一位大写字母" id="password"
                       class="ui-input ipt-password">
                     <!-- 不同状态显示的图标 -->
                     <span class="icon-password icon-form"></span>
@@ -84,7 +85,7 @@
                 <!-- 重复密码 -->
                 <div class="has-form-item-icon">
                   <div class="ui-form-item-group">
-                    <input type="text" name="repeatPassword" placeholder="请再次输入上面的密码" id="repeatPassword"
+                    <input type="password" name="repeatPassword" placeholder="请再次输入上面的密码" id="repeatPassword"
                       class="ui-input ipt-repeat-password">
                     <!-- 不同状态显示的图标 -->
                     <span class="icon-r-password icon-form"></span>
@@ -122,6 +123,10 @@
               </form>
             </div>
           </div>
+        </div>
+        <!-- 注册之后的提示信息 -->
+        <div class="register_msg hidden">
+          <span class="msg">注册成功</span>
         </div>
       </div>
 

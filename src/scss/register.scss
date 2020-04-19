@@ -233,6 +233,19 @@
     }
   }
 }
+
+.register_msg {
+  text-align: center;
+  .msg {
+    font-size: 24px;
+  }
+  .success {
+    color: #f10180;
+  }
+  .error {
+    color: red;
+  }
+}
 footer .copyright {
   width: 1000px;
   height: 78px;

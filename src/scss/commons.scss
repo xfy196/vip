@@ -38,7 +38,7 @@ i {
   margin-top: -250px;
   span {
     color: #fff;
-    display: block;
+    display: inline-block;
   }
   li {
     height: 36px;
@@ -51,6 +51,12 @@ i {
         right: 36px;
       }
     }
+    #my_cnt_have_name {
+      #my_cnt_user_name {
+        color: #f10180;
+      }
+    }
+
   }
   .account {
     padding: 8px 0 6px;
@@ -375,6 +381,14 @@ header {
       float: left;
     }
     .top-pic-infs {
+      font-size: 12px;
+      float: left;
+      width: 160px;
+      height: 36px;
+      border-bottom: #d6d6d6 1px dotted;
+      margin-left: 30px;
+    }
+    .top-pic-success{
       font-size: 12px;
       float: left;
       width: 160px;
