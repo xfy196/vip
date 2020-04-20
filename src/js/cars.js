@@ -198,12 +198,52 @@
             }
         }
     });
-    new Car({
-        ordersEle: ".orders-table",
-        numReduce: ".num-reduce",
-        numAdd: ".num-add",
-        numInput: ".num-input",
-        deleteBtn: ".dellCarBtn"
-    }).init();
 
+
+    /**
+     * 检查登录
+     */
+    function checkLogin() {
+        var userInfo = $.cookie("userLoginInfo");
+        // 等于undefined直接结束
+        if (userInfo === undefined) {
+            return false;
+        }
+
+        // 不然我们需要将用户信息放在页面之中 表示已登录
+        var user = JSON.parse(userInfo);
+        $(".username").html(user.username);
+    }
+
+    /**
+     * 退出
+     */
+    function logout() {
+        // 给退出按钮绑定事件
+        $(".linkLogout").on("click", function (e) {
+            e.preventDefault ? e.preventDefault() : e.returnValue = false
+            $.removeCookie("userLoginInfo");
+            location.reload();
+        })
+    }
+    /**
+     * 页面初始化函数
+     */
+    function init() {
+        checkLogin();
+        logout();
+        new Car({
+            ordersEle: ".orders-table",
+            numReduce: ".num-reduce",
+            numAdd: ".num-add",
+            numInput: ".num-input",
+            deleteBtn: ".dellCarBtn"
+        }).init();
+
+    }
+
+
+    var callbacks = $.Callbacks();
+    callbacks.add(init);
+    callbacks.fire();
 })(jQuery);

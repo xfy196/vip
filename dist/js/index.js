@@ -1,7 +1,7 @@
 ;; (function ($) {
-    $(function () {
-        init();
-    });
+    var callbacks = $.Callbacks();
+    callbacks.add(init);
+    callbacks.fire();
 
     /**
      * 页面初始化的函数

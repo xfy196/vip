@@ -353,9 +353,9 @@ header {
 
       position: relative;
       z-index: 200;
-    }
-    &::after {
-      background: none;
+      &::after {
+        background: none;
+      }
     }
   }
   .sign-info-box {

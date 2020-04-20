@@ -1,9 +1,8 @@
 ;; (function ($) {
 
-    $(function () {
-
-        init();
-    });
+    var callbacks = $.Callbacks();
+    callbacks.add(init);
+    callbacks.fire();
 
     /**
      * 初始化的函数
@@ -36,7 +35,7 @@
             // 如果验证成功我们就发送ajax请求
             $.ajax({
                 url: "http://xfy196.qicp.vip/api/login",
-                method : "POST",
+                method: "POST",
                 dataType: "json",
                 data: {
                     username: $("#username").val(),
@@ -52,7 +51,7 @@
                         // 设置完cookie跳转首页面
                         setTimeout(function () {
                             location.href = "/";
-                        }, 2000);
+                        }, 1000);
                     }
                 }
             })
@@ -97,9 +96,9 @@
                 $(element).parent().siblings(".error_msg").hide()
             }
         });
-        
+
         bindEventValidate();
-        
+
     }
 
     /**

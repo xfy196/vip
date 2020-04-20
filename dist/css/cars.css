@@ -29,7 +29,7 @@
         letter-spacing: normal;
         font-size: 12px;
         line-height: 26px; }
-      .hd .row .my-site-nav .m-site-nav .member-actions .member-actions-link {
+      .hd .row .my-site-nav .my-site-nav .member-actions .member-actions-link {
         margin-left: 15px; }
       .hd .row .my-site-nav .u-split-line {
         display: inline-block;
@@ -47,6 +47,15 @@
         position: relative;
         z-index: 2;
         width: 95px; }
+      .hd .row .my-site-nav .servers-dropdown-hd-title {
+        color: gray;
+        cursor: pointer; }
+        .hd .row .my-site-nav .servers-dropdown-hd-title:hover {
+          color: #333; }
+      .hd .row .my-site-nav a {
+        color: gray; }
+        .hd .row .my-site-nav a:hover {
+          color: #333333; }
     .hd .row .m-site-nav .dropdown-text,
     .hd .row .m-site-nav .member-actions,
     .hd .row .m-site-nav .online-service,

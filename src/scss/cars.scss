@@ -32,8 +32,12 @@
         line-height: 26px;
       }
 
-      .m-site-nav .member-actions .member-actions-link {
-        margin-left: 15px;
+      .my-site-nav {
+        .member-actions {
+          .member-actions-link {
+            margin-left: 15px;
+          }
+        }
       }
       .u-split-line {
         display: inline-block;
@@ -53,6 +57,19 @@
         position: relative;
         z-index: 2;
         width: 95px;
+      }
+      .servers-dropdown-hd-title {
+        color: gray;
+        cursor: pointer;
+        &:hover{
+          color: #333;
+        }
+      }
+      a{
+        color: gray;
+        &:hover {
+          color: #333333;
+        }
       }
     }
     .m-site-nav .dropdown-text,

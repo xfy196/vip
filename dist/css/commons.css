@@ -294,8 +294,8 @@ header {
     padding: 0 21px 0 16px;
     position: relative;
     z-index: 200; }
-  .top-nav-tool .hover-box::after {
-    background: none; }
+    .top-nav-tool .hover-box:hover::after {
+      background: none; }
   .top-nav-tool .sign-info-box {
     width: 282px;
     height: 177px;

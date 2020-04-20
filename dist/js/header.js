@@ -1,17 +1,19 @@
 ;; (function ($) {
-
-    init();
+    var callbacks = $.Callbacks();
+    callbacks.add(init);
+    callbacks.fire();
     /**
      * 初始化的函数
      */
     function init() {
-        getSearchKeywords();
+        // getSearchKeywords();
         getSearchKeyHotKeywords();
         // 二级菜单鼠标划入发送的ajax的函数
         navHoverAjax();
         clickSearch();
         locationTop();
         checkLogin();
+        logout();
     }
     /**
  * nav二级菜单hover发送ajax的函数
@@ -266,5 +268,16 @@
         $(".sign-text").html(user.username);
         $(".top-pic-infs").addClass("hidden").next().removeClass("hidden").find(".success_username").html(user.username);
         $("#my_cnt_no_name").addClass("hidden").next().removeClass("hidden").find("#my_cnt_user_name").html(user.username);
+    }
+
+    /**
+     * 退出
+     */
+    function logout(){
+        $(".top-pic-success").on("click", ".logout", function(){
+
+            $.removeCookie("userLoginInfo");
+            location.reload();
+        })
     }
 })(jQuery);
