@@ -175,6 +175,8 @@
           height: 44px;
           line-height: 44px;
           border-radius: 4px; }
+          .btn-verify-code:hover {
+            color: #999999; }
         .btn-verify-code.mobile-success {
           color: #e00078;
           background-color: #fcedf2;

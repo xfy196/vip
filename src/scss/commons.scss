@@ -56,7 +56,6 @@ i {
         color: #f10180;
       }
     }
-
   }
   .account {
     padding: 8px 0 6px;
@@ -388,7 +387,7 @@ header {
       border-bottom: #d6d6d6 1px dotted;
       margin-left: 30px;
     }
-    .top-pic-success{
+    .top-pic-success {
       font-size: 12px;
       float: left;
       width: 160px;
@@ -607,13 +606,13 @@ header {
     display: block;
     float: left;
     &:first-child {
-      background: url(../img/services-option1.jpg) no-repeat center center;
+      background: url(../images/services-option1.jpg) no-repeat center center;
     }
     &:nth-child(2) {
-      background: url(../img/services-option2.jpg) no-repeat center center;
+      background: url(../images/services-option2.jpg) no-repeat center center;
     }
     &:last-child {
-      background: url(../img/services-option3.jpg) no-repeat center center;
+      background: url(../images/services-option3.jpg) no-repeat center center;
     }
   }
 }

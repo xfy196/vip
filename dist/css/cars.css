@@ -495,3 +495,126 @@
 .u-yen {
   padding: 0 2px;
   font-family: Arial !important; }
+
+.history-content .tabs-nav {
+  margin-bottom: 5px;
+  height: 34px;
+  border-bottom: 1px solid #d0d0d0;
+  overflow: hidden; }
+  .history-content .tabs-nav .tabs-title {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: top;
+    color: #666;
+    line-height: 34px;
+    font-size: 14px;
+    cursor: pointer;
+    padding-top: 2px;
+    z-index: 2;
+    color: #333;
+    line-height: 30px;
+    border-bottom: 3px solid #f10180; }
+
+.history-content .tabs-content .goods {
+  padding-top: 25px; }
+  .history-content .tabs-content .goods .goods-container {
+    position: relative;
+    width: 924px;
+    margin: 0 auto; }
+    .history-content .tabs-content .goods .goods-container .good-item {
+      width: 140px;
+      padding: 0 7px;
+      float: left; }
+      .history-content .tabs-content .goods .goods-container .good-item .good-img {
+        display: inline-block;
+        padding-bottom: 8px;
+        height: 178px; }
+      .history-content .tabs-content .goods .goods-container .good-item .good-title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 6px;
+        font-weight: 400; }
+        .history-content .tabs-content .goods .goods-container .good-item .good-title:hover {
+          color: #333333; }
+      .history-content .tabs-content .goods .goods-container .good-item .good-size {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 3px; }
+      .history-content .tabs-content .goods .goods-container .good-item .good-operate {
+        position: relative;
+        z-index: 1;
+        height: 24px;
+        font-size: 16px; }
+        .history-content .tabs-content .goods .goods-container .good-item .good-operate .add_to_car {
+          float: right;
+          font-size: 12px;
+          border: 1px solid #ffbee0;
+          background-color: #fcedf2;
+          color: #e00078;
+          line-height: 24px; }
+    .history-content .tabs-content .goods .goods-container .prev {
+      position: absolute;
+      left: -28px;
+      top: 20%;
+      right: auto;
+      background-image: url(//ccp.vipstatic.com/img/cart/te/4/commons/sprites-hash-29a8cdc6.png?741290b2);
+      background-position: -311px -398px;
+      width: 28px;
+      height: 55px; }
+      .history-content .tabs-content .goods .goods-container .prev:hover {
+        background-position: -407px -398px; }
+    .history-content .tabs-content .goods .goods-container .next {
+      position: absolute;
+      top: 20%;
+      right: -28px;
+      left: auto;
+      background-image: url(//ccp.vipstatic.com/img/cart/te/4/commons/sprites-hash-29a8cdc6.png?741290b2);
+      background-position: -471px -398px;
+      width: 28px;
+      height: 55px; }
+      .history-content .tabs-content .goods .goods-container .next:hover {
+        background-position: -503px -398px; }
+
+.c-promises {
+  margin: 80px 0 80px; }
+  .c-promises .promises-item {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 25px 18px;
+    width: 266px;
+    height: 91px;
+    float: left; }
+    .c-promises .promises-item .promises-pic {
+      background-image: url(//ccp.vipstatic.com/img/cart/te/4/commons/sprites-hash-29a8cdc6.png?741290b2);
+      background-position: -306px 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 302px;
+      height: 141px; }
+    .c-promises .promises-item .promises-title {
+      color: #a2c14e;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      font-size: 18px;
+      font-weight: 400;
+      border-bottom: 1px solid #d7d5d5; }
+  .c-promises .return-promises-item {
+    margin-right: 27px;
+    margin-left: 27px; }
+    .c-promises .return-promises-item .promises-pic {
+      background-image: url(//ccp.vipstatic.com/img/cart/te/4/commons/sprites-hash-29a8cdc6.png?741290b2);
+      background-position: 0 0; }
+  .c-promises .courier-charge-promises-item .promises-pic {
+    background-image: url(//ccp.vipstatic.com/img/cart/te/4/commons/sprites-hash-29a8cdc6.png?741290b2);
+    background-position: 0 -145px; }
+
+.u-yen {
+  padding: 0 2px; }

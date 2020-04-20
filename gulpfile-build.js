@@ -86,7 +86,7 @@ gulp.task("scss", async () => {
 // 图片指令
 gulp.task("img", async () => {
 
-  gulp.src(["./src/images/*"])
+  gulp.src(["./src/images/**/*", "./src/img/**/*"])
     // 执行压缩
     .pipe(imagemin())
     .pipe(gulp.dest("./dist/images/"))

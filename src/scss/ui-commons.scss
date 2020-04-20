@@ -19,6 +19,12 @@
 .btn-small {
   height: 16px;
 }
+.ui-btn-small {
+  min-width: 48px;
+  _width: 48px;
+  padding: 0 11px;
+  height: 22px;
+}
 .btn-primary {
   background-color: #f10180;
   border: 1px solid #f10180;

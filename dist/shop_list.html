@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/shop_list.css">
     <link rel="stylesheet" href="./css/ui-commons.css">
+    <link rel="stylesheet" href="./css/pagination.css">
 </head>
 
 <body>
@@ -60,8 +61,11 @@
                     </div>
                 </li>
                 <li class="shopping-bag">
-                    <div><i class="iconfont icon-gouwudai"></i><span>购物袋</span><strong class="bag-number">0</strong>
-                    </div>
+                    <a href="./cars.html">
+                        <div><i class="iconfont icon-gouwudai"></i><span>购物袋</span><strong class="bag-number">0</strong>
+                        </div>
+                    </a>
+
                 </li>
                 <li class="icon-item"><i class="iconfont icon-youhuiquan"></i>
                     <p class="sidebar-hover">我的优惠券</p>
@@ -449,7 +453,7 @@
             <!-- 商品列表区域 -->
             <div class="goods-list">
                 <div class="wrap_pro">
-<!--                     <div class="good-item">
+                    <!--                     <div class="good-item">
                         <a href="javascript:;" target="_blank">
                             <div class="good-item-top">
                                 <div class="good-item-img-box">
@@ -483,6 +487,10 @@
                 </div>
             </div>
         </div>
+        <div class="layout" style="text-align: center; margin:20px auto;">
+            <div class=" m-style pager"></div>
+        </div>
+
     </div>
     <!-- 页脚 -->
         <!-- footer部分 -->
@@ -660,6 +668,8 @@
         </div>
     </footer>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="./js/libs/pager/jquery.pagination.js"></script>
     <script src="./js/libs/lazyload/jquery.lazyload.min.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/shop_list.js"></script>

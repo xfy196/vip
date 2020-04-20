@@ -5,6 +5,8 @@ const sass = require("gulp-sass")
 const proxy = require("http-proxy-middleware").createProxyMiddleware
 const fileInclude = require("gulp-file-include");
 sass.compiler = require("node-sass")
+const imagemin = require("gulp-imagemin");
+
 
 const connect_options = {
     root: "./dist",
@@ -89,4 +91,12 @@ gulp.task("watch", async () => {
     gulp.watch(["./src/scss/**/*.scss"], gulp.series("scss"));
     gulp.watch(["./src/json/**/*.json"], gulp.series("json"));
 });
-gulp.task("dev", gulp.parallel("watch", "connect", gulp.series("clean", "html", "js", "css", "scss", "json")));
+// 图片指令
+gulp.task("img", async () => {
+
+    gulp.src(["./src/images/**/*", "./src/img/**/*"])
+      // 执行压缩
+      .pipe(imagemin())
+      .pipe(gulp.dest("./dist/images/"))
+  })
+gulp.task("dev", gulp.parallel("watch", "connect", gulp.series("clean", "html", "js", "css", "scss", "json", "img")));

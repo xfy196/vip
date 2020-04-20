@@ -496,11 +496,11 @@ header {
     display: block;
     float: left; }
     .service-options a:first-child {
-      background: url(../img/services-option1.jpg) no-repeat center center; }
+      background: url(../images/services-option1.jpg) no-repeat center center; }
     .service-options a:nth-child(2) {
-      background: url(../img/services-option2.jpg) no-repeat center center; }
+      background: url(../images/services-option2.jpg) no-repeat center center; }
     .service-options a:last-child {
-      background: url(../img/services-option3.jpg) no-repeat center center; }
+      background: url(../images/services-option3.jpg) no-repeat center center; }
 
 /* 搜索框 加购物车 */
 .head .search {

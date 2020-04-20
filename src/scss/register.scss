@@ -220,6 +220,9 @@
               height: 44px;
               line-height: 44px;
               border-radius: 4px;
+              &:hover {
+                color: #999999;
+              }
             }
             @at-root .btn-verify-code.mobile-success{
               color: #e00078;

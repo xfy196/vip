@@ -137,7 +137,7 @@
                             location.href = "/login.html"
                         }, 2000)
                     } else {
-                        $(".register_msg .msg").html(data, msg).removeClass("success").addClass("error").parent().removeClass("hidden");
+                        $(".register_msg .msg").html(data.msg).removeClass("success").addClass("error").parent().removeClass("hidden");
                     }
                 }
             })

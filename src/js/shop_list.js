@@ -13,8 +13,8 @@
             bindCategoryEvent();
         })
         getShopListData().then((data) => {
-
-            renderShopListData(data.data.products);
+            // 将数据处理一下 传递给分页进行分页
+            pager(data.data.products)
         });
     }
 
@@ -249,5 +249,38 @@
             effect: "fadeIn",
             threshold: 400
         });
+
+
+    }
+
+    /**
+     * 分页器
+     * @param {分页所需要的数据} data 
+     */
+    function pager(data) {
+        var defaultPageData = 50;
+        $('.pager').pagination({
+            totalData: data.length,
+            showData: defaultPageData,
+            coping: true
+        });
+        // 计算开始下标
+        var starIndex = 0;
+        $(".pager").on("click", "a[data-page]", function () {
+            starIndex = $(this).attr("data-page") - 1;
+            renderShopListData(data.slice(starIndex * 50, 50 * starIndex + 50));
+        })
+        // 上一页和下一页的按钮事件绑定
+        $(".pager").on("click", ".next", function () {
+            starIndex++;
+            renderShopListData(data.slice(starIndex * 50, 50 * starIndex + 50));
+
+        })
+        $(".pager").on("click", ".prev", function () {
+            starIndex--;
+            renderShopListData(data.slice(starIndex * 50, 50 * starIndex + 50));
+
+        })
+        renderShopListData(data.slice(starIndex * 50, 50 * starIndex + 50));
     }
 })(jQuery);
