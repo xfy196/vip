@@ -660,6 +660,144 @@
 .fw-detail {
   margin-top: 30px;
   .placeholder {
+    position: relative;
+    .recommend {
+      position: absolute;
+      left: -200px;
+      width: 180px;
+      height: 500px;
+      .recommend-storeInfo {
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        .store-img {
+          width: 62px;
+          height: 62px;
+          border: 1px solid #e7e7e7;
+          vertical-align: top;
+          display: inline-block;
+          position: relative;
+          img {
+            width: 62px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+          }
+        }
+        .re-store {
+          display: inline-block;
+          .re-store-name {
+            width: 88px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #333333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .re-store-des {
+            margin-top: 6px;
+            max-height: 35px;
+            font-size: 12px;
+            color: #666;
+            width: 88px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+        .store-btn {
+          background: #fcedf2;
+          border: 1px solid #ffbee0;
+          border-radius: 3px;
+          text-align: center;
+          margin-top: 12px;
+          display: block;
+          height: 30px;
+          font-size: 14px;
+          color: #e00078;
+          line-height: 30px;
+        }
+        a {
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+      .recommend-product {
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        margin-top: 20px;
+        .re-product-title {
+          background: #f5f5f5;
+          height: 42px;
+          line-height: 42px;
+          text-align: center;
+          font-family: MicrosoftYaHei;
+          font-size: 14px;
+          color: #333;
+          margin-bottom: 10px;
+        }
+        .re-brand-wrap, .re-look-wrap {
+          height: 1000px;
+          overflow: hidden;
+          position: relative;
+          .re-brand, .re-look {
+            position: absolute;
+            top: 0;
+            a {
+              width: 178px;
+              height: 250px;
+              float: left;
+              img {
+                margin-left: 10px;
+                width: 156px;
+                height: 197px;
+              }
+              .re-product-info {
+                display: inline-block;
+                .re-product-name {
+                  max-height: 17px;
+                  max-width: 156px;
+                  font-size: 12px;
+                  color: #999;
+                  margin-left: 10px;
+                  margin-bottom: 5px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .re-product-price {
+                  font-size: 18px;
+                  color: #f10180;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+        .recommend-page{
+          text-align: center;
+          margin-bottom: 10px;
+          .re-pre,.re-next{
+            display: inline-block;
+            font-size: 21px;
+            padding: 0 5px;
+          }
+          .i-no {
+            color: #cccccc;
+          }
+          .i-has {
+            color: #333333;
+          }
+        }
+      }
+    }
     .detailTop {
       height: 36px;
       border-top: 1px solid #e7e7e7;

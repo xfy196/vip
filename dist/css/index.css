@@ -296,19 +296,19 @@
       text-overflow: ellipsis;
       white-space: nowrap; }
 
-.index-bg-bttom {
+.index-bg-bottom {
   text-align: center;
   padding-bottom: 70px; }
-  .index-bg-bttom .more-brand-btn {
+  .index-bg-bottom .more-brand-btn {
     display: block;
     width: 270px;
     height: 60px;
     line-height: 60px;
     margin: 0 auto; }
-  .index-bg-bttom .ui-btn-primary {
+  .index-bg-bottom .ui-btn-primary {
     color: #fff;
     font-size: 18px;
     background-color: #f10180;
     border: 1px solid #f10180; }
-  .index-bg-bttom .ui-btn-large {
+  .index-bg-bottom .ui-btn-large {
     padding: 0 35px; }

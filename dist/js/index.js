@@ -7,8 +7,8 @@
      * 页面初始化的函数
      */
     function init() {
-        // getBannerData();
-        
+        getBannerData();
+
         swiperOpr();
 
         // 梯子改变的事件
@@ -105,7 +105,14 @@
                             });
                             $(".wrap img").lazyload({
                                 // 覆盖lazyload自带的背景图片
-                                placeholder: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544053956,2144358865&fm=26&gp=0.jpg",
+                                // placeholder: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544053956,2144358865&fm=26&gp=0.jpg",
+                                placeholder: "https://shop.vipstatic.com/img/te/index_v4/bbg-hash-b619a210.png?9b4f55ea",
+                                effect: "fadeIn",
+                                threshold: 400
+                            });
+                            $(".notice-shop img").lazyload({
+                                // 覆盖lazyload自带的背景图片
+                                placeholder: "https://shop.vipstatic.com/img/te/index_v4/bbg-lazy-hash-fc6d3841.png?05d68fe4",
                                 effect: "fadeIn",
                                 threshold: 400
                             });
@@ -373,6 +380,11 @@
             this.max_top = this.content_ele_offset_top_list[_length - 1] + $(this.options.content_selector).last().height();
             // 同样我们吧这个最高的值放入数组中之后的计算需要使用
             this.content_ele_offset_top_list.push(this.max_top);
+            // 每一次页面刷新的时候需要先计算一下梯子的位置
+            // 获得数据
+            let scrollTop = $("body, html").scrollTop();
+            // 计算下标
+            this.calcStairsIndex(scrollTop);
             this.bindEvent();
         },
         bindEvent: function () {
@@ -394,7 +406,6 @@
                     this.calcStairsIndex(scrollTop);
                 }, 200)
             }.bind(this));
-
 
             // 点击右侧楼梯的我们需要滚动至对应的位置 绑定事件
             $(this.options.stairs_selector).click(function () {
@@ -425,6 +436,9 @@
             }
             this.changeStairsBtn();
         },
+        /**
+         * 改变梯子的选中状态
+         */
         changeStairsBtn: function () {
             if (this.index === -1) {
                 $(this.options.stairs_selector).removeClass("cur");
@@ -433,6 +447,10 @@
             // 如果不熟index===-1 说明要选中对应下标的楼梯
             $(this.options.stairs_selector).eq(this.index).addClass("cur").siblings().removeClass("cur");
         },
+        /**
+         * 改变梯子选中的下标的
+         * @param {点击的梯子的下标} index 
+         */
         changeStairsIndex: function (index) {
 
             // 通过这个index我们去scroll对应的板块

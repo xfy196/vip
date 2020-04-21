@@ -694,7 +694,7 @@ header {
       top: 50px;
       padding: 30px 14px 30px 13px;
       display: none;
-      z-index: 13;
+      z-index: 130;
       .hr {
         position: relative;
         width: 255px;
@@ -754,8 +754,7 @@ header {
   border: 1px solid #cdcdcd;
   border-top: none;
   padding: 20px 0 0 10px;
-  /* box-sizing: border-box; */
-  z-index: 16;
+  z-index: 101;
   display: none;
   .search-history {
     float: left;
@@ -824,7 +823,7 @@ nav .first {
 }
 nav .t-w-menu {
   position: absolute;
-  z-index: 12;
+  z-index: 200;
   width: 156px;
   background: #f10180;
   font-size: 12px;
@@ -966,7 +965,7 @@ nav .more {
     position: absolute;
     left: 0;
     top: 44px;
-    z-index: 100;
+    z-index: 101;
     padding: 0 15px 0 20px;
     background: #fff;
     display: none;

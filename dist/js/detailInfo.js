@@ -1,34 +1,12 @@
 ;; (function ($) {
-    getProductData().then((data) => {
-        var magnifierConfig = {
-            magnifier: ".pic",//最外层的大容器
-            container: ".zoomPad",
-            containerImg: ".zoom_origin_img_box",
-            view: ".zoomWindow",
-            thumbnail: ".pic-slider ul",
-            width: 420,//承载容器宽
-            height: 420,//承载容器高
-            zoom: 3
-        };
-        if (!(/^2\d{2}$/.test(data.code))) {
-            return false;
-        }
-        renderProductDetail(data.data.product);
-        magnifier(magnifierConfig);
-        new Car({
-            data: data.data,
-            formEle: "#cartAdd-form",
-            colorEel: ".colorItem",
-            sizeEle: ".size-list-item",
-            numReduce: ".num-reduce",
-            numInput: ".num-input",
-            numAdd: ".num-add"
-        }).init();
+    var callbacks = $.Callbacks();
+    callbacks.add(init);
+    callbacks.fire();
 
-    });
-
-
-
+    function init() {
+        getProductData();
+        getRecommendData();
+    }
     /**
      * 购物车对象
      */
@@ -143,10 +121,36 @@
  * 获取商品详情的数据
  */
     function getProductData() {
-        return $.ajax({
+        $.ajax({
             type: "get",
             url: "../json/detailInfo.json",
-        });
+        }).then((data) => {
+            var magnifierConfig = {
+                magnifier: ".pic",//最外层的大容器
+                container: ".zoomPad",
+                containerImg: ".zoom_origin_img_box",
+                view: ".zoomWindow",
+                thumbnail: ".pic-slider ul",
+                width: 420,//承载容器宽
+                height: 420,//承载容器高
+                zoom: 3
+            };
+            if (!(/^2\d{2}$/.test(data.code))) {
+                return false;
+            }
+            renderProductDetail(data.data.product);
+            magnifier(magnifierConfig);
+            new Car({
+                data: data.data,
+                formEle: "#cartAdd-form",
+                colorEel: ".colorItem",
+                sizeEle: ".size-list-item",
+                numReduce: ".num-reduce",
+                numInput: ".num-input",
+                numAdd: ".num-add"
+            }).init();
+
+        });;
     }
 
     /**
@@ -329,5 +333,57 @@
         </div>`
         $(".mer-ImgReview").html(imageInfo);
         $(".product-content-inner").html(productInfo);
+    }
+
+    /**
+     * 获取推荐的数据
+     */
+    function getRecommendData() {
+
+        $.ajax({
+            url: "../json/detailRecommend.json",
+            dataType: "json",
+        }).then(function (data) {
+            renderRecommendStore(data.data.brandStoreV2);
+            renderRecommendLook(data.data.lookLook);
+        });
+    }
+
+    /**
+     * 渲染推荐的品牌数据
+     * @param {*} data 
+     */
+    function renderRecommendStore(data) {
+        var html = ``;
+        data.products.forEach(function (item, index) {
+            html += `<a href="javascript:void(0)" data-id=${item.productId}>
+                 <img src="${item.imageUrl}"
+                     alt="">
+                 <div class="re-product-info">
+                     <div class="re-product-name">${item.title}</div>
+                     <div class="re-product-price">¥${item.salePrice.salePrice}</div>
+                 </div>
+             </a>`;
+        });
+        $(".re-brand").html(html);
+    }
+
+    /**
+     * 渲染推荐板块的看了又看数据
+     * @param {*} data 
+     */
+    function renderRecommendLook(data) {
+        var html = ``;
+        data.products.forEach(function (item, index) {
+            html += `<a href="javascript:void(0)" data-id=${item.productId}>
+                 <img src="${item.imageUrl}"
+                     alt="">
+                 <div class="re-product-info">
+                     <div class="re-product-name">${item.title}</div>
+                     <div class="re-product-price">¥${item.salePrice.salePrice}</div>
+                 </div>
+             </a>`;
+        });
+        $(".re-look").html(html);
     }
 })(jQuery);

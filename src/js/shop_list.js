@@ -245,7 +245,8 @@
         $(".goods-list .wrap_pro").html(html);
         $(".goods-list .wrap_pro img").lazyload({
             // 覆盖lazyload自带的背景图片
-            placeholder: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544053956,2144358865&fm=26&gp=0.jpg",
+            // placeholder: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544053956,2144358865&fm=26&gp=0.jpg",
+            placeholder : "https://shop.vipstatic.com/img/detail/ui-loading-goods-hash-8d89d4ea.gif?2ab18adc",
             effect: "fadeIn",
             threshold: 400
         });
