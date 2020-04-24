@@ -1,12 +1,13 @@
 {
   "activity.css": "activity-f1c9cee5fc.css",
-  "base.css": "base-7261193b0d.css",
-  "cars.css": "cars-e713deab0b.css",
-  "commons.css": "commons-eed81a93a4.css",
-  "detailInfo.css": "detailInfo-f613e483b5.css",
-  "index.css": "index-5fcdd34afa.css",
+  "base.css": "base-a0ba9d02a4.css",
+  "cars.css": "cars-034e34b9c9.css",
+  "commons.css": "commons-726e13ae66.css",
+  "detailInfo.css": "detailInfo-7379d34f6a.css",
+  "index.css": "index-b0471f6bba.css",
   "login.css": "login-494ec2e3f0.css",
-  "register.css": "register-caf3f9d9fc.css",
+  "pagination.css": "pagination-61fa659cae.css",
+  "register.css": "register-39c92ca373.css",
   "shop_list.css": "shop_list-0901d83a9d.css",
-  "ui-commons.css": "ui-commons-026755fe32.css"
+  "ui-commons.css": "ui-commons-d044815ac3.css"
 }

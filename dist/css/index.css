@@ -56,7 +56,7 @@
 
 /* 分页器的样式 */
 .swiper-pagination {
-  width: 458px;
+  min-width: 458px;
   height: 43px;
   left: 50%;
   transform: translateX(-50%) !important; }

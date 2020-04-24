@@ -1,15 +1,16 @@
 {
   "activity.js": "activity-a1d797eca7.js",
-  "cars.js": "cars-af9c535a7d.js",
-  "detailInfo.js": "detailInfo-2a049cddf5.js",
-  "header.js": "header-e4e0354345.js",
-  "index.js": "index-890c650008.js",
+  "cars.js": "cars-d09f4a911f.js",
+  "detailInfo.js": "detailInfo-789a589dc9.js",
+  "header.js": "header-6f6de7ac8d.js",
+  "index.js": "index-1630851385.js",
   "libs/lazyload/jquery.lazyload.min.js": "libs/lazyload/jquery-0bc08f2078.lazyload.min.js",
   "libs/magnifier/magnifier.js": "libs/magnifier/magnifier-4430377fec.js",
+  "libs/pager/jquery.pagination.js": "libs/pager/jquery-ed4772db96.pagination.js",
   "libs/validate/additional-methods.js": "libs/validate/additional-methods-ae7f5683fa.js",
   "libs/validate/jquery.validate.min.js": "libs/validate/jquery-4dc3634847.validate.min.js",
   "libs/validate/messages_zh.js": "libs/validate/messages_zh-e879186344.js",
-  "login.js": "login-073387fcd7.js",
-  "register.js": "register-6ecf9a0b49.js",
-  "shop_list.js": "shop_list-714044e113.js"
+  "login.js": "login-133765e0f9.js",
+  "register.js": "register-a227e0b400.js",
+  "shop_list.js": "shop_list-2fc6f7fb91.js"
 }

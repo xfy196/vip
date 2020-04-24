@@ -9,7 +9,7 @@
     function init() {
         getBannerData();
 
-        swiperOpr();
+        // swiperOpr();
 
         // 梯子改变的事件
         floorChangeEvent();
@@ -221,7 +221,9 @@
         // 找到nav菜单的元素节点
         let nav_ele = $(".nav");
         // 获取这个元素距离页面的高度
-        let scrollTop = nav_ele.offset().top;
+        let scrollTop = nav_ele.offset().top + nav_ele.height();
+
+        let slideDownCount = 0;
         let t = null;
         $(document).scroll(function () {
 
@@ -233,7 +235,11 @@
             t = setTimeout(function () {
 
             }, 200)
-            if (scrollTop <= $("body,html").scrollTop()) {
+            if (scrollTop < $("body,html").scrollTop()) {
+                // 只需要让slideDown的效果执行一次即可
+                if (slideDownCount > 1) {
+                    return;
+                }
                 nav_ele.css({
                     width: "100%",
                     position: "fixed",
@@ -241,10 +247,15 @@
                     left: 0,
                     background: "#ffffff",
                     boxShadow: "0 1px 3px 0 #a7a7a7",
+                    display: "none",
                     "z-index": 100
+                }).slideDown(function () {
+                    slideDownCount++;
                 });
             } else {
                 nav_ele.removeAttr("style");
+                // 回到原来的位置将slideDown的次数设置为0即可
+                slideDownCount = 0;
             }
         });
     }
@@ -338,6 +349,7 @@
                 if (res === null) {
                     return false
                 }
+                console.log(res);
                 let html = ``;
                 for (let i = 0; i < res.items.length; i++) {
                     html += `<div class="swiper-slide"><a href="#"><img

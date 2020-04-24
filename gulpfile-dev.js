@@ -10,7 +10,7 @@ const imagemin = require("gulp-imagemin");
 
 const connect_options = {
     root: "./dist",
-    port: 3000,
+    port: 2000,
     middleware: () => {
         return [
             proxy("/floor", {

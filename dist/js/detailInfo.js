@@ -37,6 +37,21 @@
          */
         initCars: function () {
             this.carsList = JSON.parse(localStorage.getItem("cars")) || {};
+            var keys = Object.keys(this.carsList);
+            // 如果购物车中有数据我们需要将数据取出然后判断是否存在这个商品存在需要将这个商品的数据设置成购物车中的数据
+            if (keys.length !== 0) {
+                if (keys.indexOf(this.carDetailInfo.product.id) !== -1) {
+                    var carData = this.carsList[this.carDetailInfo.product.id];
+                    // 最后获取的节点是商品数量的节点
+                    var num_input_ele = $(".productInfo").find("a[title=" + carData.color + "]").addClass("color-selected").parent().siblings("input").val(carData.color).end().end().end().find("li[title=" + carData.size + "]").addClass("size-selected").siblings("input").val(carData.size).end().end().find(".num-input").html(carData.num);
+                    // 判断商品的数量是大于1的就需要将加好的进制箭头变为pointer
+                    if (carData.num > 1) {
+                        console.log(num_input_ele.prev().css({
+                            cursor: "pointer"
+                        }));
+                    }
+                }
+            }
         },
         bindEvent: function () {
             var that = this;
@@ -52,6 +67,7 @@
                 } else {
                     // 错误信息隐藏
                     $(".addErrorMsg").hide();
+                    // 每次获取隐藏雨中的商品尺码和颜色信息
                     that.carDetailInfo.product.color = that.colorEel.parent().siblings("input").val();
                     that.carDetailInfo.product.size = that.sizeEle.siblings("input").val();
                     that.carDetailInfo.product.num = that.numInput.html();
