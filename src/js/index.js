@@ -207,7 +207,7 @@
                     $(".left-ladder").css({
                         position: "absolute",
                         // 需要减去nav的高度应为nav菜单栏是固定定位了
-                        top: 1565
+                        top: 1600
                     })
                 }
             }, 100);
