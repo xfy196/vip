@@ -665,7 +665,6 @@
       position: absolute;
       left: -200px;
       width: 180px;
-      height: 500px;
       .recommend-storeInfo {
         padding: 10px;
         background: #fff;
@@ -788,12 +787,10 @@
             display: inline-block;
             font-size: 21px;
             padding: 0 5px;
-          }
-          .i-no {
-            color: #cccccc;
-          }
-          .i-has {
             color: #333333;
+          }
+          .icon-btn-disable {
+            color: #cccccc;
           }
         }
       }

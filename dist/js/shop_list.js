@@ -129,14 +129,6 @@
                 count++;
             })
         }
-        /*    <button class="filter-group-button-expand">
-                <span class="filter-group-button-text">更多</span>
-                <span class="iconfont icon-xiajiantou"></span>
-            </button>
-            <button class="filter-group-button-collapse">
-                <span class="filter-group-button-text">收起</span>
-                <span class="iconfont icon-shangjiantou-copy"></span>
-            </button> */
         $(".filter-groups").html(html);
 
     }
@@ -212,7 +204,7 @@
         data.forEach((item, index) => {
 
             html += `<div class="good-item">
-            <a href="./detailInfo.html" target="_blank" data-id=${item.productId}>
+            <a href="./detailInfo.html?id=${item.productId}" target="_blank" data-id=${item.productId}>
                 <div class="good-item-top">
                     <div class="good-item-img-box">
                         <img class="good-img"

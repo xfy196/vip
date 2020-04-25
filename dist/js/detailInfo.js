@@ -6,6 +6,7 @@
     function init() {
         getProductData();
         getRecommendData();
+        recommendLoop();
     }
     /**
      * 购物车对象
@@ -46,9 +47,9 @@
                     var num_input_ele = $(".productInfo").find("a[title=" + carData.color + "]").addClass("color-selected").parent().siblings("input").val(carData.color).end().end().end().find("li[title=" + carData.size + "]").addClass("size-selected").siblings("input").val(carData.size).end().end().find(".num-input").html(carData.num);
                     // 判断商品的数量是大于1的就需要将加好的进制箭头变为pointer
                     if (carData.num > 1) {
-                        console.log(num_input_ele.prev().css({
+                        num_input_ele.prev().css({
                             cursor: "pointer"
-                        }));
+                        });
                     }
                 }
             }
@@ -401,5 +402,57 @@
              </a>`;
         });
         $(".re-look").html(html);
+    }
+
+
+    /**
+     * 热销好货点击轮播功能
+     */
+    function recommendLoop() {
+
+        // 事件委托 监听两个上下的按钮
+        $(".recommend").on("click", ".re-pre", function () {
+            var re_brand_ele = $(this).parent().prev().find(".re-list");
+            if ($(this).hasClass("icon-btn-disable")) {
+                return false;
+            }
+            // 因为只有12张图片每张图片显示高度是250px 一轮就是1000px
+
+            re_brand_ele.stop(true, true).animate({
+                top: re_brand_ele.position().top + 1000
+            }, 200, function () {
+                // 没点击让自己的兄弟移除禁止的列名
+                $(this).siblings().removeClass("icon-btn-disable");
+                // 判断是否达到边界
+                if (re_brand_ele.position().top === 0) {
+                    $(this).addClass("icon-btn-disable").siblings().removeClass("icon-btn-disable");
+                }
+            }.bind(this));
+
+        });
+
+        $(".recommend").on("click", ".re-next", function () {
+            if ($(this).hasClass("icon-btn-disable")) {
+                return false;
+            }
+            // 存放图片的盒子
+            var re_brand_ele = $(this).parent().prev().find(".re-list");
+
+            // 所有的图片元素
+            var re_brand_children_eles = re_brand_ele.children();
+            // 所有图片的总高度
+            var totalHeight = re_brand_children_eles.height() * re_brand_children_eles.length;
+
+            re_brand_ele.stop(true, true).animate({
+                top: re_brand_ele.position().top - 1000
+            }, 200, function () {
+                $(this).siblings().removeClass("icon-btn-disable");
+
+                if (re_brand_ele.position().top === -(totalHeight - 1000)) {
+
+                    $(this).addClass("icon-btn-disable");
+                }
+            }.bind(this));
+        });
     }
 })(jQuery);

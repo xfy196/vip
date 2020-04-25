@@ -547,8 +547,7 @@
     .fw-detail .placeholder .recommend {
       position: absolute;
       left: -200px;
-      width: 180px;
-      height: 500px; }
+      width: 180px; }
       .fw-detail .placeholder .recommend .recommend-storeInfo {
         padding: 10px;
         background: #fff;
@@ -652,11 +651,10 @@
           .fw-detail .placeholder .recommend .recommend-product .recommend-page .re-pre, .fw-detail .placeholder .recommend .recommend-product .recommend-page .re-next {
             display: inline-block;
             font-size: 21px;
-            padding: 0 5px; }
-          .fw-detail .placeholder .recommend .recommend-product .recommend-page .i-no {
-            color: #cccccc; }
-          .fw-detail .placeholder .recommend .recommend-product .recommend-page .i-has {
+            padding: 0 5px;
             color: #333333; }
+          .fw-detail .placeholder .recommend .recommend-product .recommend-page .icon-btn-disable {
+            color: #cccccc; }
     .fw-detail .placeholder .detailTop {
       height: 36px;
       border-top: 1px solid #e7e7e7;
