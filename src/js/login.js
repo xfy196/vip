@@ -34,7 +34,8 @@
             }
             // 如果验证成功我们就发送ajax请求
             $.ajax({
-                url: "http://xfy196.qicp.vip/api/login",
+                // url: "http://xfy196.qicp.vip/api/login",
+                url : "http://xfy196.qicp.vip/vipPhp/login.php",
                 method: "POST",
                 dataType: "json",
                 data: {

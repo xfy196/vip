@@ -62,7 +62,8 @@
                     regPsd: true
                 },
                 repeatPassword: {
-                    required: true
+                    required: true,
+                    equalTo : $("#password").val()
                 },
 
             },
@@ -79,7 +80,8 @@
                     minlength: "请输入6位数字手机验证码"
                 },
                 repeatPassword: {
-                    required: "请输入确认密码"
+                    required: "请输入确认密码",
+                    equalTo : "两次密码不一致"
                 },
             },
             errorPlacement: function (error, element) {
@@ -119,7 +121,7 @@
             }
             // 如果验证成功我们就发送ajax请求
             $.ajax({
-                url: "http://xfy196.qicp.vip/api/register",
+                url: "http://xfy196.qicp.vip/vipPhp/register.php",
                 method: "POST",
                 dataType: "json",
                 data: {

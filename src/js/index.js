@@ -7,9 +7,9 @@
      * 页面初始化的函数
      */
     function init() {
-        getBannerData();
+        // getBannerData();
 
-        // swiperOpr();
+        swiperOpr();
 
         // 梯子改变的事件
         floorChangeEvent();
@@ -195,6 +195,7 @@
             if (typeof t === "number") {
                 return false;
             }
+            // 函数节流
             t = setTimeout(function () {
                 t = null;
                 let body_scrollTop = $("body,html").scrollTop();
@@ -349,7 +350,6 @@
                 if (res === null) {
                     return false
                 }
-                console.log(res);
                 let html = ``;
                 for (let i = 0; i < res.items.length; i++) {
                     html += `<div class="swiper-slide"><a href="#"><img
@@ -427,7 +427,7 @@
             })
         },
         calcStairsIndex: function (st) {
-            // 我们需要判断数据是在哪一个楼梯的访问
+            // 如果小于最小的高度和最大的高度我们直接结束下面的函数
             if (st < this.min_top || st > this.max_top) {
 
                 this.index = -1;
