@@ -28,6 +28,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "http-proxy-middleware": "^1.0.3",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
