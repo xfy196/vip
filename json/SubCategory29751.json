@@ -1,0 +1,2535 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "data": {
+            "sectionList": [
+                {
+                    "sectionType": "pcmp",
+                    "pcmp": {
+                        "head": {
+                            "templates": {
+                                "dt": "flow",
+                                "components": [
+                                    {
+                                        "dt": "block",
+                                        "component_id": "{{#? unique_id}}",
+                                        "components": {
+                                            "{{#each data.resourceGroupList}}": {
+                                                "dt": "block",
+                                                "components": {
+                                                    "{{#each resourceList}}": [
+                                                        {
+                                                            "{{#if dataType == 'image' && lightArtImage.imageUrl == ''}}": {
+                                                                "dt": "block",
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'image' && lightArtImage.imageUrl!=''}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtImage.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtImage.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtImage.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtImage.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtImage.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "default_url": "{{#? lightArtImage.defaultUrl}}",
+                                                                "index": "{{$index}}",
+                                                                "url": "{{lightArtImage.imageUrl}}",
+                                                                "dt": "image",
+                                                                "error_url": "{{#? lightArtImage.errorUrl}}",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtImage.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtImage.bounds.t}}",
+                                                                    "w": "{{#? lightArtImage.bounds.w}}",
+                                                                    "h": "{{#? lightArtImage.bounds.h}}",
+                                                                    "l": "{{#? lightArtImage.bounds.l}}"
+                                                                },
+                                                                "scale_type": "{{#? lightArtImage.scaleType}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtImage.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtImage.action.viprouter || lightArtImage.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtImage.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtImage.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'countDown'}}": {
+                                                                "dt": "countdown",
+                                                                "start_time": "{{#? lightArtCountDown.startTime}}",
+                                                                "z_index": "99",
+                                                                "components": [
+                                                                    {
+                                                                        "dt": "flow",
+                                                                        "components": [
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ parseInt($countdown.full_hour / 10) % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.full_hour % 10 }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.minute_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "bounds": {
+                                                                                    "w": "10"
+                                                                                },
+                                                                                "text": ":",
+                                                                                "align": {
+                                                                                    "v": "center",
+                                                                                    "h": "center"
+                                                                                },
+                                                                                "font": {
+                                                                                    "size": "18",
+                                                                                    "color": "#000000"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[1] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "dt": "label",
+                                                                                "background": {
+                                                                                    "color": "#000000"
+                                                                                },
+                                                                                "text": "{{ $countdown.second_parts[0] }}",
+                                                                                "font": {
+                                                                                    "size": "22",
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "layout_align": {
+                                                                            "v": "center",
+                                                                            "h": "center"
+                                                                        },
+                                                                        "direction": "horizontal"
+                                                                    }
+                                                                ],
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtCountDown.bounds.t}}",
+                                                                    "w": "{{#? lightArtCountDown.bounds.w}}",
+                                                                    "h": "{{#? lightArtCountDown.bounds.h}}",
+                                                                    "l": "{{#? lightArtCountDown.bounds.l}}"
+                                                                },
+                                                                "end_time": "{{#? lightArtCountDown.endTime}}"
+                                                            }
+                                                        },
+                                                        {
+                                                            "{{#elseif dataType == 'label'}}": {
+                                                                "corner_radius": {
+                                                                    "rb": "{{#? lightArtLabel.cornerRadius.rb}}",
+                                                                    "rt": "{{#? lightArtLabel.cornerRadius.rt}}",
+                                                                    "lb": "{{#? lightArtLabel.cornerRadius.lb}}",
+                                                                    "lt": "{{#? lightArtLabel.cornerRadius.lt}}"
+                                                                },
+                                                                "z_index": "{{#? lightArtLabel.zindex}}",
+                                                                "business": {
+                                                                    "type": "pcmp"
+                                                                },
+                                                                "index": "{{$index}}",
+                                                                "align": {
+                                                                    "v": "{{#? lightArtLabel.align}}",
+                                                                    "h": "{{#? lightArtLabel.align}}"
+                                                                },
+                                                                "dt": "label",
+                                                                "background": {
+                                                                    "color": "{{#? lightArtLabel.backGroundColor}}"
+                                                                },
+                                                                "bounds": {
+                                                                    "t": "{{#? lightArtLabel.bounds.t}}",
+                                                                    "w": "{{#? lightArtLabel.bounds.w}}",
+                                                                    "h": "{{#? lightArtLabel.bounds.h}}",
+                                                                    "l": "{{#? lightArtLabel.bounds.l}}"
+                                                                },
+                                                                "text": "{{#? lightArtLabel.text}}",
+                                                                "strikethrough": "{{#? lightArtLabel.strikethrough}}",
+                                                                "actions": [
+                                                                    {
+                                                                        "{{#if lightArtLabel.action != null}}": {
+                                                                            "click": {
+                                                                                "name": "!href",
+                                                                                "params": {
+                                                                                    "url": "{{#? lightArtLabel.action.viprouter || lightArtLabel.action.href}}"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "font": {
+                                                                    "size": "{{#? lightArtLabel.fontSize}}",
+                                                                    "color": "{{#? lightArtLabel.fontColor}}"
+                                                                },
+                                                                "statistics": {
+                                                                    "click": "{{#? lightArtLabel.action.burypoint}}",
+                                                                    "expose": "{{#? lightArtLabel.action.burypoint}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "business": {
+                                                    "type": "pcmp"
+                                                },
+                                                "bounds": {
+                                                    "t": "{{#? bounds.t}}",
+                                                    "w": "{{#? bounds.w}}",
+                                                    "h": "{{#? bounds.h}}",
+                                                    "l": "{{#? bounds.l}}"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "{{#if action != null}}": {
+                                                            "click": {
+                                                                "name": "!href",
+                                                                "params": {
+                                                                    "url": "{{#? action.viprouter || action.href}}"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "statistics": {
+                                                    "click": "{{#? action.burypoint}}",
+                                                    "expose": "{{#? action.burypoint}}"
+                                                }
+                                            }
+                                        },
+                                        "background": {
+                                            "image": {
+                                                "url": "{{#? data.backGroundImage}}"
+                                            },
+                                            "color": "{{#? data.backGroundColor}}"
+                                        },
+                                        "bounds": {
+                                            "w": "{{#? data.bounds.w}}",
+                                            "h": "{{#? data.bounds.h}}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "data": null
+                    },
+                    "category": null,
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "黄金钻石",
+                        "categoryId": "52882084",
+                        "dirType": "group_goods",
+                        "showCutLine": null,
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "黄金手饰",
+                                "categoryId": "52882075",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882075"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "黄金手饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882075&title=%E9%BB%84%E9%87%91%E6%89%8B%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882075",
+                                    "abtId": "1872",
+                                    "title": "黄金手饰"
+                                }
+                            },
+                            {
+                                "name": "黄金项链/吊坠",
+                                "categoryId": "52882071",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882071"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "黄金项链/吊坠",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882071&title=%E9%BB%84%E9%87%91%E9%A1%B9%E9%93%BE%2F%E5%90%8A%E5%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882071",
+                                    "abtId": "1872",
+                                    "title": "黄金项链/吊坠"
+                                }
+                            },
+                            {
+                                "name": "K金项链",
+                                "categoryId": "52882080",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882080"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "K金项链",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882080&title=K%E9%87%91%E9%A1%B9%E9%93%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882080",
+                                    "abtId": "1872",
+                                    "title": "K金项链"
+                                }
+                            },
+                            {
+                                "name": "铂金首饰",
+                                "categoryId": "52882081",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882081"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "铂金首饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882081&title=%E9%93%82%E9%87%91%E9%A6%96%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882081",
+                                    "abtId": "1872",
+                                    "title": "铂金首饰"
+                                }
+                            },
+                            {
+                                "name": "黄金戒指",
+                                "categoryId": "52882074",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882074"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "黄金戒指",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882074&title=%E9%BB%84%E9%87%91%E6%88%92%E6%8C%87&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882074",
+                                    "abtId": "1872",
+                                    "title": "黄金戒指"
+                                }
+                            },
+                            {
+                                "name": "黄金耳饰",
+                                "categoryId": "52882073",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52882073"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "黄金钻石",
+                                    "second_category_id": "52882084",
+                                    "3rd_cat_title": "黄金耳饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882073&title=%E9%BB%84%E9%87%91%E8%80%B3%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882073",
+                                    "abtId": "1872",
+                                    "title": "黄金耳饰"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "手表专区",
+                        "categoryId": "52882093",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "休闲腕表",
+                                "categoryId": "52882091",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882091"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "休闲腕表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882091&title=%E4%BC%91%E9%97%B2%E8%85%95%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882091",
+                                    "abtId": "1872",
+                                    "title": "休闲腕表"
+                                }
+                            },
+                            {
+                                "name": "腕表套装",
+                                "categoryId": "52882092",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882092"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "腕表套装",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882092&title=%E8%85%95%E8%A1%A8%E5%A5%97%E8%A3%85&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882092",
+                                    "abtId": "1872",
+                                    "title": "腕表套装"
+                                }
+                            },
+                            {
+                                "name": "石英女表",
+                                "categoryId": "52881480",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52881480"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "石英女表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52881480&title=%E7%9F%B3%E8%8B%B1%E5%A5%B3%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52881480",
+                                    "abtId": "1872",
+                                    "title": "石英女表"
+                                }
+                            },
+                            {
+                                "name": "机械男表",
+                                "categoryId": "52882087",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882087"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "机械男表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882087&title=%E6%9C%BA%E6%A2%B0%E7%94%B7%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882087",
+                                    "abtId": "1872",
+                                    "title": "机械男表"
+                                }
+                            },
+                            {
+                                "name": "机械女表",
+                                "categoryId": "52882086",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882086"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "机械女表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882086&title=%E6%9C%BA%E6%A2%B0%E5%A5%B3%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882086",
+                                    "abtId": "1872",
+                                    "title": "机械女表"
+                                }
+                            },
+                            {
+                                "name": "石英男表",
+                                "categoryId": "52881481",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52881481"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "石英男表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52881481&title=%E7%9F%B3%E8%8B%B1%E7%94%B7%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52881481",
+                                    "abtId": "1872",
+                                    "title": "石英男表"
+                                }
+                            },
+                            {
+                                "name": "商务腕表",
+                                "categoryId": "52882089",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52882089"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "商务腕表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882089&title=%E5%95%86%E5%8A%A1%E8%85%95%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882089",
+                                    "abtId": "1872",
+                                    "title": "商务腕表"
+                                }
+                            },
+                            {
+                                "name": "情侣对表",
+                                "categoryId": "52882088",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52882088"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "手表专区",
+                                    "second_category_id": "52882093",
+                                    "3rd_cat_title": "情侣对表",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882088&title=%E6%83%85%E4%BE%A3%E5%AF%B9%E8%A1%A8&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882088",
+                                    "abtId": "1872",
+                                    "title": "情侣对表"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "帽子伞具",
+                        "categoryId": "52883319",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "渔夫帽&草帽",
+                                "categoryId": "52882108",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882108"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "渔夫帽&草帽",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882108&title=%E6%B8%94%E5%A4%AB%E5%B8%BD%26%E8%8D%89%E5%B8%BD&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882108",
+                                    "abtId": "1872",
+                                    "title": "渔夫帽&草帽"
+                                }
+                            },
+                            {
+                                "name": "小黑伞",
+                                "categoryId": "52882113",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882113"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "小黑伞",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882113&title=%E5%B0%8F%E9%BB%91%E4%BC%9E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882113",
+                                    "abtId": "1872",
+                                    "title": "小黑伞"
+                                }
+                            },
+                            {
+                                "name": "鸭舌/棒球帽",
+                                "categoryId": "52882107",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882107"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "鸭舌/棒球帽",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882107&title=%E9%B8%AD%E8%88%8C%2F%E6%A3%92%E7%90%83%E5%B8%BD&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882107",
+                                    "abtId": "1872",
+                                    "title": "鸭舌/棒球帽"
+                                }
+                            },
+                            {
+                                "name": "超轻遮阳伞",
+                                "categoryId": "52882110",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882110"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "超轻遮阳伞",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882110&title=%E8%B6%85%E8%BD%BB%E9%81%AE%E9%98%B3%E4%BC%9E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882110",
+                                    "abtId": "1872",
+                                    "title": "超轻遮阳伞"
+                                }
+                            },
+                            {
+                                "name": "雨伞",
+                                "categoryId": "52882112",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882112"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "雨伞",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882112&title=%E9%9B%A8%E4%BC%9E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882112",
+                                    "abtId": "1872",
+                                    "title": "雨伞"
+                                }
+                            },
+                            {
+                                "name": "贝雷帽",
+                                "categoryId": "52882109",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52882109"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "贝雷帽",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882109&title=%E8%B4%9D%E9%9B%B7%E5%B8%BD&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882109",
+                                    "abtId": "1872",
+                                    "title": "贝雷帽"
+                                }
+                            },
+                            {
+                                "name": "长柄伞",
+                                "categoryId": "52882111",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52882111"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "帽子伞具",
+                                    "second_category_id": "52883319",
+                                    "3rd_cat_title": "长柄伞",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882111&title=%E9%95%BF%E6%9F%84%E4%BC%9E&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882111",
+                                    "abtId": "1872",
+                                    "title": "长柄伞"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "眼镜专区",
+                        "categoryId": "52884500",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "太阳眼镜",
+                                "categoryId": "52882135",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882135"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "眼镜专区",
+                                    "second_category_id": "52884500",
+                                    "3rd_cat_title": "太阳眼镜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882135&title=%E5%A4%AA%E9%98%B3%E7%9C%BC%E9%95%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882135",
+                                    "abtId": "1872",
+                                    "title": "太阳眼镜"
+                                }
+                            },
+                            {
+                                "name": "眼镜框",
+                                "categoryId": "52882138",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882138"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "眼镜专区",
+                                    "second_category_id": "52884500",
+                                    "3rd_cat_title": "眼镜框",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882138&title=%E7%9C%BC%E9%95%9C%E6%A1%86&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882138",
+                                    "abtId": "1872",
+                                    "title": "眼镜框"
+                                }
+                            },
+                            {
+                                "name": "仿蓝光眼镜",
+                                "categoryId": "52882139",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882139"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "眼镜专区",
+                                    "second_category_id": "52884500",
+                                    "3rd_cat_title": "仿蓝光眼镜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882139&title=%E4%BB%BF%E8%93%9D%E5%85%89%E7%9C%BC%E9%95%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882139",
+                                    "abtId": "1872",
+                                    "title": "仿蓝光眼镜"
+                                }
+                            },
+                            {
+                                "name": "偏光太阳镜",
+                                "categoryId": "52882137",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882137"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "眼镜专区",
+                                    "second_category_id": "52884500",
+                                    "3rd_cat_title": "偏光太阳镜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882137&title=%E5%81%8F%E5%85%89%E5%A4%AA%E9%98%B3%E9%95%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882137",
+                                    "abtId": "1872",
+                                    "title": "偏光太阳镜"
+                                }
+                            },
+                            {
+                                "name": "蛤蟆镜",
+                                "categoryId": "52882136",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882136"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "眼镜专区",
+                                    "second_category_id": "52884500",
+                                    "3rd_cat_title": "蛤蟆镜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882136&title=%E8%9B%A4%E8%9F%86%E9%95%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882136",
+                                    "abtId": "1872",
+                                    "title": "蛤蟆镜"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "饰品专区",
+                        "categoryId": "52883320",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "项链",
+                                "categoryId": "52882115",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882115"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "项链",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882115&title=%E9%A1%B9%E9%93%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882115",
+                                    "abtId": "1872",
+                                    "title": "项链"
+                                }
+                            },
+                            {
+                                "name": "手饰脚饰",
+                                "categoryId": "52882117",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882117"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "手饰脚饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882117&title=%E6%89%8B%E9%A5%B0%E8%84%9A%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882117",
+                                    "abtId": "1872",
+                                    "title": "手饰脚饰"
+                                }
+                            },
+                            {
+                                "name": "耳饰",
+                                "categoryId": "52882114",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882114"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "耳饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882114&title=%E8%80%B3%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882114",
+                                    "abtId": "1872",
+                                    "title": "耳饰"
+                                }
+                            },
+                            {
+                                "name": "戒指",
+                                "categoryId": "52882116",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882116"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "戒指",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882116&title=%E6%88%92%E6%8C%87&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882116",
+                                    "abtId": "1872",
+                                    "title": "戒指"
+                                }
+                            },
+                            {
+                                "name": "发饰",
+                                "categoryId": "52882118",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882118"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "发饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882118&title=%E5%8F%91%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882118",
+                                    "abtId": "1872",
+                                    "title": "发饰"
+                                }
+                            },
+                            {
+                                "name": "腰带皮带",
+                                "categoryId": "52882120",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52882120"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "腰带皮带",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882120&title=%E8%85%B0%E5%B8%A6%E7%9A%AE%E5%B8%A6&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882120",
+                                    "abtId": "1872",
+                                    "title": "腰带皮带"
+                                }
+                            },
+                            {
+                                "name": "打火机",
+                                "categoryId": "52882121",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52882121"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "打火机",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882121&title=%E6%89%93%E7%81%AB%E6%9C%BA&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882121",
+                                    "abtId": "1872",
+                                    "title": "打火机"
+                                }
+                            },
+                            {
+                                "name": "胸针",
+                                "categoryId": "52882119",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52882119"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "饰品专区",
+                                    "second_category_id": "52883320",
+                                    "3rd_cat_title": "胸针",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882119&title=%E8%83%B8%E9%92%88&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882119",
+                                    "abtId": "1872",
+                                    "title": "胸针"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "玉石珍珠",
+                        "categoryId": "52883323",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "玉石珍珠耳饰",
+                                "categoryId": "52882125",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882125"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "玉石珍珠耳饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882125&title=%E7%8E%89%E7%9F%B3%E7%8F%8D%E7%8F%A0%E8%80%B3%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882125",
+                                    "abtId": "1872",
+                                    "title": "玉石珍珠耳饰"
+                                }
+                            },
+                            {
+                                "name": "珍珠项链",
+                                "categoryId": "52882126",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882126"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "珍珠项链",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882126&title=%E7%8F%8D%E7%8F%A0%E9%A1%B9%E9%93%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882126",
+                                    "abtId": "1872",
+                                    "title": "珍珠项链"
+                                }
+                            },
+                            {
+                                "name": "彩宝首饰",
+                                "categoryId": "52882132",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882132"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "彩宝首饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882132&title=%E5%BD%A9%E5%AE%9D%E9%A6%96%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882132",
+                                    "abtId": "1872",
+                                    "title": "彩宝首饰"
+                                }
+                            },
+                            {
+                                "name": "珍珠吊坠",
+                                "categoryId": "52882127",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882127"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "珍珠吊坠",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882127&title=%E7%8F%8D%E7%8F%A0%E5%90%8A%E5%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882127",
+                                    "abtId": "1872",
+                                    "title": "珍珠吊坠"
+                                }
+                            },
+                            {
+                                "name": "玉手镯",
+                                "categoryId": "52882130",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882130"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "玉手镯",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882130&title=%E7%8E%89%E6%89%8B%E9%95%AF&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882130",
+                                    "abtId": "1872",
+                                    "title": "玉手镯"
+                                }
+                            },
+                            {
+                                "name": "玉吊坠",
+                                "categoryId": "52882129",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52882129"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "玉吊坠",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882129&title=%E7%8E%89%E5%90%8A%E5%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882129",
+                                    "abtId": "1872",
+                                    "title": "玉吊坠"
+                                }
+                            },
+                            {
+                                "name": "玉戒指",
+                                "categoryId": "52882131",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 7,
+                                    "target_id": "52882131"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "玉戒指",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882131&title=%E7%8E%89%E6%88%92%E6%8C%87&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882131",
+                                    "abtId": "1872",
+                                    "title": "玉戒指"
+                                }
+                            },
+                            {
+                                "name": "琥珀手饰",
+                                "categoryId": "52882134",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 8,
+                                    "target_id": "52882134"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "琥珀手饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882134&title=%E7%90%A5%E7%8F%80%E6%89%8B%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882134",
+                                    "abtId": "1872",
+                                    "title": "琥珀手饰"
+                                }
+                            },
+                            {
+                                "name": "玉石项链",
+                                "categoryId": "52882128",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 9,
+                                    "target_id": "52882128"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "玉石项链",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882128&title=%E7%8E%89%E7%9F%B3%E9%A1%B9%E9%93%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882128",
+                                    "abtId": "1872",
+                                    "title": "玉石项链"
+                                }
+                            },
+                            {
+                                "name": "琥珀吊坠",
+                                "categoryId": "52882133",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 10,
+                                    "target_id": "52882133"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "玉石珍珠",
+                                    "second_category_id": "52883323",
+                                    "3rd_cat_title": "琥珀吊坠",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882133&title=%E7%90%A5%E7%8F%80%E5%90%8A%E5%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882133",
+                                    "abtId": "1872",
+                                    "title": "琥珀吊坠"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "银饰木玩",
+                        "categoryId": "52883322",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "银手饰",
+                                "categoryId": "52882122",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882122"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "银饰木玩",
+                                    "second_category_id": "52883322",
+                                    "3rd_cat_title": "银手饰",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882122&title=%E9%93%B6%E6%89%8B%E9%A5%B0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882122",
+                                    "abtId": "1872",
+                                    "title": "银手饰"
+                                }
+                            },
+                            {
+                                "name": "银项链吊坠",
+                                "categoryId": "52882123",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882123"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "银饰木玩",
+                                    "second_category_id": "52883322",
+                                    "3rd_cat_title": "银项链吊坠",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882123&title=%E9%93%B6%E9%A1%B9%E9%93%BE%E5%90%8A%E5%9D%A0&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882123",
+                                    "abtId": "1872",
+                                    "title": "银项链吊坠"
+                                }
+                            },
+                            {
+                                "name": "木饰文玩",
+                                "categoryId": "52882124",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882124"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "银饰木玩",
+                                    "second_category_id": "52883322",
+                                    "3rd_cat_title": "木饰文玩",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882124&title=%E6%9C%A8%E9%A5%B0%E6%96%87%E7%8E%A9&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882124",
+                                    "abtId": "1872",
+                                    "title": "木饰文玩"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "袜子手套",
+                        "categoryId": "52883317",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "女袜",
+                                "categoryId": "52882103",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882103"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "袜子手套",
+                                    "second_category_id": "52883317",
+                                    "3rd_cat_title": "女袜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882103&title=%E5%A5%B3%E8%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882103",
+                                    "abtId": "1872",
+                                    "title": "女袜"
+                                }
+                            },
+                            {
+                                "name": "男袜",
+                                "categoryId": "52882104",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882104"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "袜子手套",
+                                    "second_category_id": "52883317",
+                                    "3rd_cat_title": "男袜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882104&title=%E7%94%B7%E8%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882104",
+                                    "abtId": "1872",
+                                    "title": "男袜"
+                                }
+                            },
+                            {
+                                "name": "丝袜/裤袜",
+                                "categoryId": "52882102",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882102"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "袜子手套",
+                                    "second_category_id": "52883317",
+                                    "3rd_cat_title": "丝袜/裤袜",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882102&title=%E4%B8%9D%E8%A2%9C%2F%E8%A3%A4%E8%A2%9C&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882102",
+                                    "abtId": "1872",
+                                    "title": "丝袜/裤袜"
+                                }
+                            },
+                            {
+                                "name": "手套",
+                                "categoryId": "52882105",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882105"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "袜子手套",
+                                    "second_category_id": "52883317",
+                                    "3rd_cat_title": "手套",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882105&title=%E6%89%8B%E5%A5%97&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882105",
+                                    "abtId": "1872",
+                                    "title": "手套"
+                                }
+                            },
+                            {
+                                "name": "防晒袖",
+                                "categoryId": "52882106",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882106"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "袜子手套",
+                                    "second_category_id": "52883317",
+                                    "3rd_cat_title": "防晒袖",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882106&title=%E9%98%B2%E6%99%92%E8%A2%96&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882106",
+                                    "abtId": "1872",
+                                    "title": "防晒袖"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "围巾专区",
+                        "categoryId": "52883316",
+                        "dirType": "group_goods",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "真丝丝巾",
+                                "categoryId": "52882094",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 1,
+                                    "target_id": "52882094"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "真丝丝巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882094&title=%E7%9C%9F%E4%B8%9D%E4%B8%9D%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882094",
+                                    "abtId": "1872",
+                                    "title": "真丝丝巾"
+                                }
+                            },
+                            {
+                                "name": "披肩/大方巾",
+                                "categoryId": "52882095",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 2,
+                                    "target_id": "52882095"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "披肩/大方巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882095&title=%E6%8A%AB%E8%82%A9%2F%E5%A4%A7%E6%96%B9%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882095",
+                                    "abtId": "1872",
+                                    "title": "披肩/大方巾"
+                                }
+                            },
+                            {
+                                "name": "羊毛围巾",
+                                "categoryId": "52882096",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 3,
+                                    "target_id": "52882096"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "羊毛围巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882096&title=%E7%BE%8A%E6%AF%9B%E5%9B%B4%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882096",
+                                    "abtId": "1872",
+                                    "title": "羊毛围巾"
+                                }
+                            },
+                            {
+                                "name": "女士围巾",
+                                "categoryId": "52882100",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 4,
+                                    "target_id": "52882100"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "女士围巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882100&title=%E5%A5%B3%E5%A3%AB%E5%9B%B4%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882100",
+                                    "abtId": "1872",
+                                    "title": "女士围巾"
+                                }
+                            },
+                            {
+                                "name": "羊绒围巾",
+                                "categoryId": "52882098",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 5,
+                                    "target_id": "52882098"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "羊绒围巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882098&title=%E7%BE%8A%E7%BB%92%E5%9B%B4%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882098",
+                                    "abtId": "1872",
+                                    "title": "羊绒围巾"
+                                }
+                            },
+                            {
+                                "name": "男士围巾",
+                                "categoryId": "52882101",
+                                "image": "",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "autolist",
+                                    "sequence": 6,
+                                    "target_id": "52882101"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "围巾专区",
+                                    "second_category_id": "52883316",
+                                    "3rd_cat_title": "男士围巾",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://search/auto_product_list?rule_id=52882101&title=%E7%94%B7%E5%A3%AB%E5%9B%B4%E5%B7%BE&ab_test_id=1872",
+                                "jumper": {
+                                    "jumpType": "rule",
+                                    "jumpTarget": "52882101",
+                                    "abtId": "1872",
+                                    "title": "男士围巾"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                },
+                {
+                    "sectionType": "category",
+                    "pcmp": null,
+                    "category": {
+                        "name": "热销品牌",
+                        "categoryId": "10011358",
+                        "dirType": "brand",
+                        "showCutLine": "1",
+                        "hideImage": "0",
+                        "rankingListShow": null,
+                        "rankingListName": null,
+                        "rankingListUrl": null,
+                        "obj_data": null,
+                        "biz_data": null,
+                        "ext_data": null,
+                        "children": [
+                            {
+                                "name": "潮宏基",
+                                "categoryId": "10011359",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/9dce16641c0e4d2a9f9e9c68b9350ccf/10003482/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 1,
+                                    "target_id": "10003482"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "潮宏基",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10003482&brandName=%E6%BD%AE%E5%AE%8F%E5%9F%BA&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10003482"
+                                }
+                            },
+                            {
+                                "name": "周生生",
+                                "categoryId": "10011360",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/f7307730390742a19b76bdc82e58b451/10003235/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 2,
+                                    "target_id": "10003235"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "周生生",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10003235&brandName=%E5%91%A8%E7%94%9F%E7%94%9F&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10003235"
+                                }
+                            },
+                            {
+                                "name": "北极绒",
+                                "categoryId": "10011361",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/2bb50236d78c4c4d9a2a356a94de11b5/10026113/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 3,
+                                    "target_id": "10026113"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "北极绒",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10026113&brandName=%E5%8C%97%E6%9E%81%E7%BB%92&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10026113"
+                                }
+                            },
+                            {
+                                "name": "周大福",
+                                "categoryId": "10011362",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/c61f04f1a91b44c4b889286914d3eadb/10005335/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 4,
+                                    "target_id": "10005335"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "周大福",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10005335&brandName=%E5%91%A8%E5%A4%A7%E7%A6%8F&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10005335"
+                                }
+                            },
+                            {
+                                "name": "上海故事",
+                                "categoryId": "10011363",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/6f847b418a1942a09f46ccf62a2b0837/10030911/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 5,
+                                    "target_id": "10030911"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "上海故事",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10030911&brandName=%E4%B8%8A%E6%B5%B7%E6%95%85%E4%BA%8B&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10030911"
+                                }
+                            },
+                            {
+                                "name": "南极人",
+                                "categoryId": "10011364",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/c95d42e9b6d842839f3ae79205d797a8/10004554/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 6,
+                                    "target_id": "10004554"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "南极人",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10004554&brandName=%E5%8D%97%E6%9E%81%E4%BA%BA&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10004554"
+                                }
+                            },
+                            {
+                                "name": "天梭",
+                                "categoryId": "10011365",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/9088ea8c1ba14a48b0c6565e6c007f6a/10000743/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 7,
+                                    "target_id": "10000743"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "天梭",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000743&brandName=%E5%A4%A9%E6%A2%AD&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000743"
+                                }
+                            },
+                            {
+                                "name": "施华洛世奇",
+                                "categoryId": "10011366",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/d1984bca03ff4eaf8eff34b40ff652c3/10000702/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 8,
+                                    "target_id": "10000702"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "施华洛世奇",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000702&brandName=%E6%96%BD%E5%8D%8E%E6%B4%9B%E4%B8%96%E5%A5%87&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000702"
+                                }
+                            },
+                            {
+                                "name": "卡西欧",
+                                "categoryId": "10011367",
+                                "image": "https://a.vpimg4.com/upload/brandcool/0/3b468b645b234734836d32d184bb9a9b/10000495/primary.png",
+                                "hideImage": "0",
+                                "obj_data": {
+                                    "source": "lighart",
+                                    "id": "GlobalClassify_Category"
+                                },
+                                "biz_data": {
+                                    "target_type": "brand",
+                                    "sequence": 9,
+                                    "target_id": "10000495"
+                                },
+                                "ext_data": {
+                                    "first_category_id": "29751",
+                                    "2nd_cat_title": "热销品牌",
+                                    "second_category_id": "10011358",
+                                    "3rd_cat_title": "卡西欧",
+                                    "1st_cat_title": "手表配饰",
+                                    "is_freestyle": "0"
+                                },
+                                "href": "viprouter://productlist/brand_landing_list?brand_store_sn=10000495&brandName=%E5%8D%A1%E8%A5%BF%E6%AC%A7&category_parent_id=29751",
+                                "jumper": {
+                                    "jumpType": "brandstore",
+                                    "jumpTarget": "10000495"
+                                }
+                            }
+                        ]
+                    },
+                    "channel": null,
+                    "adInfo": null
+                }
+            ]
+        }
+    }
+}
