@@ -11,6 +11,6 @@
   "libs/validate/jquery.validate.min.js": "libs/validate/jquery-4dc3634847.validate.min.js",
   "libs/validate/messages_zh.js": "libs/validate/messages_zh-e879186344.js",
   "login.js": "login-3b7398202e.js",
-  "register.js": "register-def679905d.js",
+  "register.js": "register-ddb09be845.js",
   "shop_list.js": "shop_list-3fe2a9b992.js"
 }
