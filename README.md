@@ -6,4 +6,4 @@
     - 商品详情页面展示
     - 购物车订单页面
     - 登录注册
-- 访问地址 [展示地址](http://xfy196.qicp.vip/)
+- 访问地址 [展示地址](htpps://vip-two.vercel.app)
